@@ -24,12 +24,12 @@ const Home = () => {
             <img src="/videos/gif_isaac_intro.gif" alt="" />
           </div>
           <div className={styles.intro__play__btn}>
+            <div className={styles.intro__play__btn__gif}>
+              <img src="/img/UI/title_streak.png" alt="" />
+            </div>
             <button onClick={handlePlay} disabled={play == true}>
               COMENZAR
             </button>
-            <div className={styles.intro__play__btn__gif}>
-              <img src="/public/img/UI/title_streak.png" alt="" />
-            </div>
           </div>
         </div>
         <video ref={videoRef} src="/videos/intro.mp4"></video>

@@ -32,17 +32,21 @@
 
         .intro__play__btn{
             position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             & button{
-                position: relative;
+                position: absolute;
                 z-index: 1002;
-                font-family: "Isaac";
+                font-family: "Pixel_I";
                 font-size: 2.2rem;
                 letter-spacing: 0.1rem;
                 cursor: pointer;
+                color: white;
                 background-color: transparent;
                 border: none;
                 transition: 0.2s;
-                
+                top: 10px;
                 &:hover{
                     color: var(--primary-color);
                     background-image: url(/img/UI/featured.png);
@@ -55,14 +59,8 @@
                 }
             }
             .intro__play__btn__gif{
-                opacity: 0;
                 z-index: 1001;
-                position: absolute;
-                width: 740px;
-                height: 80px;
-                top: -8px;
-                left: -250px;
-                
+                position: relative;       
             }
         }
         
