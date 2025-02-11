@@ -1,13 +1,14 @@
 .intro{
     position:fixed;
+    z-index: 1001;
     display: flex;
     width: 100vw;
     height: 100vh;
     top: 0;
     left: 0;
     overflow: hidden;
-    transition: 2.5s;
     video{
+        position: relative;
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -20,24 +21,26 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        row-gap: 1.2rem;
+        row-gap: 0.4rem;
         position: absolute;
         flex-direction: column;
         background-color: rgb(255, 255, 255);
         z-index: 1001;
         transition: 0.7s all;
-        .intro__playgif{
-            width: 8rem;
-            
-            img{
-                width: 100%;
-            }
+        .intro__playimg{
+            width: 200px;
+            height: 100px;
+            background-image: url(/img/Head/head_isaac.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            transition: 0.2s;
+            transition-delay: 0.1s;
         }
 
         .intro__playbtn{
             position: relative;
             display: flex;
-            align-items: center;
             max-width: 800px;
             width: 100%;
             max-height: 68px;
@@ -80,7 +83,7 @@
                 }
             }
         }
-        
+
     }
 
     .btn_skip{
@@ -118,4 +121,8 @@
             object-fit: contain;
         }      
     }
+}
+
+.container_home{
+    background-color: #ffffff;
 }

@@ -1,13 +1,15 @@
 import { useRef, useState } from "react";
 import styles from "./Home.module.css";
+import Header from "../../components/Header/Header";
 
 const Home = () => {
   const [play, setPlay] = useState(false);
   const [opacity, setOpacity] = useState(1);
   const [btnclick, setBtnclick] = useState(true);
   const [btnskip, setBtnskip] = useState(false);
+  const [hoverhead, setHoverhead] = useState(false);
   const [btnSkipClear, setBtnSkipClear] = useState(true);
-  const intervalRef = useRef<number | null>(null);
+  const [intervalvideo, setIntervalvideo] = useState<number | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null!);
 
   const handlePlay = () => {
@@ -28,19 +30,21 @@ const Home = () => {
   };
 
   const handleSkip = () => {
-    if (!videoRef.current || intervalRef.current !== null) return;
+    if (!videoRef.current || intervalvideo !== null) return;
+
     setTimeout(() => {
       setBtnSkipClear(false);
     }, 2550);
 
-    intervalRef.current = window.setInterval(() => {
+    const IntervalVolumen = setInterval(() => {
       if (videoRef.current!.volume > 0) {
         videoRef.current!.volume = Math.max(0, videoRef.current.volume - 0.01);
       } else {
-        clearInterval(intervalRef.current!);
-        intervalRef.current = null;
+        clearInterval(IntervalVolumen);
+        setIntervalvideo(null);
       }
     }, 22);
+    setIntervalvideo(IntervalVolumen)
     setOpacity(2);
   };
 
@@ -50,15 +54,14 @@ const Home = () => {
       {btnSkipClear && (
         <div
           className={styles.intro}
-          style={{ opacity: opacity == 2 ? "0" : "1" }}
+          style={{ opacity: opacity == 2 ? "0" : "", transition: opacity == 2 ? "opacity 2.5s" : ""}}
         >
           {btnclick && (
-            <div style={{ opacity: opacity }} className={styles.intro_play}>
-              <div className={styles.intro__playgif}>
-                <img src="/videos/gif_isaac_intro.gif" alt="" />
+            <div style={{ opacity: play ? "0" : "" }} className={styles.intro_play}>
+              <div className={styles.intro__playimg} style={{backgroundImage: hoverhead ? "url(/img/head/head_devil.png)" : "url(/img/head/head_isaac.png)"}}>
               </div>
               <div className={styles.intro__playbtn}>
-                <button onClick={handlePlay} disabled={play == true}>
+                <button onClick={handlePlay} disabled={play} onMouseEnter={() => setHoverhead(true)} onMouseLeave={()=> setHoverhead(false)}>
                   COMENZAR
                 </button>
                 <div className={styles.titleui}>
@@ -79,8 +82,9 @@ const Home = () => {
           </div>
         </div>
       )}
-
-      <div className=""></div>
+      <div className="container_home">
+        <Header></Header>
+      </div>
     </>
   );
 };

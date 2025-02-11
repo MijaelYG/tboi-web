@@ -1,0 +1,51 @@
+.header{
+    background-color: var(--background-color);
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 3rem;
+
+    .nav_btn{
+        a{
+            position: relative;
+            z-index: 1;
+            text-decoration: none;
+            color: white;
+            text-transform: uppercase;
+            transition: 0.2s;
+            &::before{
+                margin: auto;
+                content: "";
+                position: absolute;
+                height: 2px;
+                background-color: aliceblue;
+                width: 0%;
+                bottom: -6px;
+                left: 0;
+                right: 0;
+                width: 0%;
+                transition: 0.2s;
+            }
+            &:hover{
+                color: var(--primary-color);
+                &::before{
+                    width: 100%;
+                    background-color: var(--primary-color);
+                } 
+            }
+        }
+        &:nth-child(4){
+            width: 80px;
+            height:80%;
+            display: flex;
+            background-image: url(/img/head/head_isaac.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            &:hover{
+                background-image: url(/img/head/head_devil.png);
+            }
+        }
+    }
+}
