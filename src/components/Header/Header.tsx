@@ -6,24 +6,24 @@ const Header = () => {
     <header className="container">
         <div className={style.header}>
             <div className={style.nav_btn}>
-            <Link to={""}>Inicio <img src="/img/nav/start_search.webp" alt="" /></Link>
+            <Link to={""}> <img src="/img/nav/start_search.webp" alt=""/> Inicio </Link>
             </div>
             <div className={style.nav_btn}>
-            <Link to={""}>¿De que trata? <img src="/img/nav/game_search.webp" alt="" /></Link>
+            <Link to={""}><img src="/img/nav/game_search.webp" alt=""/> ¿De que trata? </Link>
             </div>
             <div className={style.nav_btn}>
-            <Link to={""}>Items <img src="/img/nav/item_search.webp" alt="" /></Link>
+            <Link to={""}><img src="/img/nav/item_search.webp" alt="" />Items </Link>
             </div>
             <div className={style.nav_btn}>
             </div>
             <div className={style.nav_btn}>
-            <Link to={""}>Enemigos <img src="/img/nav/enemie_search.webp" alt="" /></Link>
+            <Link to={""}><img src="/img/nav/enemie_search.webp" alt="" />Enemigos</Link>
             </div>
             <div className={style.nav_btn}>
-            <Link to={""}>Personajes</Link>
+            <Link to={""}><img src="/img/nav/character_search.webp" alt="" />Personajes</Link>
             </div>
             <div className={style.nav_btn}>
-            <Link to={""}>Salas</Link>
+            <Link to={""}><img src="/img/nav/room_search.webp" alt="" />Salas</Link>
             </div>
         </div>
     </header>

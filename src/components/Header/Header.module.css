@@ -7,13 +7,17 @@
     column-gap: 3rem;
     font-size: 0.9rem;
     .nav_btn{
+        position: relative;
         a{
             position: relative;
+            display: flex;
+            align-items: center;
             z-index: 1;
             text-decoration: none;
             color: white;
             text-transform: uppercase;
             transition: 0.2s;
+            margin-left: 40px;
             &::before{
                 margin: auto;
                 content: "";
@@ -31,22 +35,12 @@
                 &::before{
                     width: 100%;
                 } 
-                img{
-                    visibility: visible;
-                    opacity: 1;
-                    transform: translate(-50%, -100%);
-                }
             }
             img{
                 position: absolute;
-                visibility: hidden;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                z-index: -1;
-                width: 50px;
+                width: 40px;
+                left: -45px;
                 transition: 0.2s;
-                opacity: 0;
             }
         }
         &:nth-child(4){

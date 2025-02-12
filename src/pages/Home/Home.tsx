@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import styles from "./Home.module.css";
 import Header from "../../components/Header/Header";
+import Banner from "../../components/Banner/Banner";
 
 const Home = () => {
   const [play, setPlay] = useState(false);
@@ -84,6 +85,7 @@ const Home = () => {
       )}
       <div className="container_home">
         <Header></Header>
+        <Banner></Banner>
       </div>
     </>
   );
