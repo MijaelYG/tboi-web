@@ -1,11 +1,11 @@
 .header{
     background-color: var(--background-color);
-    height: 90px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     column-gap: 3rem;
-
+    font-size: 0.9rem;
     .nav_btn{
         a{
             position: relative;
@@ -28,24 +28,39 @@
                 transition: 0.2s;
             }
             &:hover{
-                color: var(--primary-color);
                 &::before{
                     width: 100%;
-                    background-color: var(--primary-color);
                 } 
+                img{
+                    visibility: visible;
+                    opacity: 1;
+                    transform: translate(-50%, -100%);
+                }
+            }
+            img{
+                position: absolute;
+                visibility: hidden;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+                width: 50px;
+                transition: 0.2s;
+                opacity: 0;
             }
         }
         &:nth-child(4){
             width: 80px;
             height:80%;
             display: flex;
-            background-image: url(/img/head/head_isaac.png);
+            background-image: url(/img/head/head_isaac.webp);
+            background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover;
             &:hover{
-                background-image: url(/img/head/head_devil.png);
+                animation: spin 0.2s infinite  forwards;
             }
         }
     }
+
 }

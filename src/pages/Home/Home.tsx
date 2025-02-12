@@ -58,7 +58,7 @@ const Home = () => {
         >
           {btnclick && (
             <div style={{ opacity: play ? "0" : "" }} className={styles.intro_play}>
-              <div className={styles.intro__playimg} style={{backgroundImage: hoverhead ? "url(/img/head/head_devil.png)" : "url(/img/head/head_isaac.png)"}}>
+              <div className={styles.intro__playimg} style={{backgroundImage: hoverhead ? "url(/img/head/head_isaac_happy.webp)" : "url(/img/head/head_isaac.webp)"}}>
               </div>
               <div className={styles.intro__playbtn}>
                 <button onClick={handlePlay} disabled={play} onMouseEnter={() => setHoverhead(true)} onMouseLeave={()=> setHoverhead(false)}>
