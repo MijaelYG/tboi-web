@@ -1,7 +1,9 @@
 .banner{
+    image-rendering: pixelated;
     background-color: aqua;
     height: calc(100vh - 100px);
     background-repeat: no-repeat;
+    background-image: url(/public/img/nav/room.png);
     background-size:cover;
-    background-position: center;
+    background-position: top;
 }

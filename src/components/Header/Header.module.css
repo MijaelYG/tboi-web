@@ -44,17 +44,27 @@
             }
         }
         &:nth-child(4){
-            width: 80px;
-            height:80%;
+            cursor: pointer;
+            image-rendering: pixelated;
+            min-width: 65px;
+            width: 65px;
+            height:65px;
             display: flex;
-            background-image: url(/img/head/head_isaac.webp);
-            background-size: contain;
-            background-position: center;
+            background-image: url(/img/nav/head_isaac_spin.png);
+            background-size: auto 100%;
             background-repeat: no-repeat;
+            animation: spin 0.5s steps(4) infinite;
+            animation-play-state: paused;
             &:hover{
-                animation: spin 0.2s infinite  forwards;
+                animation-play-state: running; 
             }
         }
     }
 
+
+
+}
+@keyframes spin {
+    from { background-position: 0 0; }
+    to { background-position: -260px 0; }
 }

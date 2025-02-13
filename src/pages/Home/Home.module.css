@@ -28,6 +28,7 @@
         z-index: 1001;
         transition: 0.7s all;
         .intro__playimg{
+            image-rendering: pixelated;
             width: 200px;
             height: 100px;
             background-image: url(/img/Head/head_isaac.webp);
