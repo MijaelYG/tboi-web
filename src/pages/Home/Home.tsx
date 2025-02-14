@@ -83,8 +83,9 @@ const Home = () => {
           </div>
         </div>
       )}
-      <div className="container_home">
+      <div className={styles.container_home}>
         <Header></Header>
+        <Banner></Banner>
         <Banner></Banner>
       </div>
     </>

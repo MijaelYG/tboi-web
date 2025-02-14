@@ -31,4 +31,16 @@ body {
   font-family: "Tempesta";
   font-weight: normal;
   background-color: white;
+  overflow-x: hidden;
+}
+
+html::-webkit-scrollbar{
+  background-color: #161616;
+  width: 6px;
+  max-width: 6px;
+}
+
+html::-webkit-scrollbar-thumb{
+  background-color: #cecece;
+  border-radius: 50px;
 }
