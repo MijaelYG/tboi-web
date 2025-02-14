@@ -59,7 +59,7 @@ header{
             background-image: url(/img/nav/head_isaac_spin.png);
             background-size: auto 100%;
             background-repeat: no-repeat;
-            animation: spin 0.5s steps(4) infinite;
+            animation: spin 0.40s steps(4) infinite;
             animation-play-state: paused;
             &:hover{
                 animation-play-state: running; 
