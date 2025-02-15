@@ -23,24 +23,27 @@
   font-weight: bold;
   font-style: normal;
 }
-
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Tempesta";
   font-weight: normal;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   overflow-x: hidden;
+}
+html{
+  margin: 0;
+  padding: 0;
 }
 
 html::-webkit-scrollbar{
-  background-color: #161616;
+  background-color: #000000;
   width: 6px;
   max-width: 6px;
 }
 
 html::-webkit-scrollbar-thumb{
-  background-color: #cecece;
+  background-color: #7c4636;
   border-radius: 50px;
 }

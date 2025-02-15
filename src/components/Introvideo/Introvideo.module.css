@@ -1,0 +1,145 @@
+.screen_white{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    background-color: white;
+    z-index: 1002;
+    transition: 1.8s all;
+}
+
+
+.intro{
+    position:fixed;
+    z-index: 1001;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    video{
+        width: 100%;
+        height: 100%;
+        object-fit:cover;
+        transform: scale(1.01);
+    }
+    
+    .intro_play{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        row-gap: 0.4rem;
+        position: absolute;
+        flex-direction: column;
+        background-color: rgb(255, 255, 255);
+        z-index: 1001;
+        transition: 0.7s all;
+        .intro__playimg{
+            image-rendering: pixelated;
+            width: 200px;
+            height: 100px;
+            background-image: url(/img/Head/head_isaac.webp);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            transition:  0.1s;
+        }
+
+        .intro__playbtn{
+            position: relative;
+            display: flex;
+            max-width: 800px;
+            width: 100%;
+            max-height: 68px;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            button{
+                position: relative;
+                z-index: 1002;
+                font-family: "Pixel_I";
+                font-size: 2.6rem;
+                letter-spacing: 0.1rem;
+                cursor: pointer;
+                color: black;
+                background-color: transparent;
+                border: none;
+                transition: 0.2s ease;
+                transition-delay: 0.05s;
+                &:hover{
+                    color: white;
+                    ~ .titleui{
+                        right: 180%;
+                        left: -180%;
+                        transform: translateX(180%);
+                        opacity: 1;
+                    }
+                }
+            }
+            .titleui{
+                top: 7px;
+                right: -180%;
+                opacity: 0;
+                position: absolute;
+                z-index: 1001;
+                width:100%;
+                height: 100%;
+                transition: 0.3s cubic-bezier(.75,-0.24,.35,1.24);
+                img{
+                    width: 100%;
+                }
+            }
+        }
+
+    }
+
+    .btn_skip{
+        position: absolute;
+        z-index: 1000;
+        bottom: 50px;
+        right: -20px;
+        background-color: black;
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;   
+        transition: 0.9s cubic-bezier(.5,-0.01,.25,1.29);
+        cursor: pointer;
+
+        &::before{
+            position: absolute;
+            width: 100%;
+            height: 8px;
+            content: "";
+            background-color: rgb(51, 51, 51);
+            bottom: -8px;
+            left: 10px;
+        }
+        &:hover{
+            transition:0.3s;
+            transform:translateX(5%) !important;
+        }
+        
+        button{
+            width: 100%;
+            height: 100%;
+            font-family: 'Tempesta';
+            font-weight: bold;
+            color: white;
+            font-size: 1.4rem;
+            text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000, 2px 2px 2px rgba(0,0,0,0);
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding-right: 60px;
+            padding-left: 30px;
+        }      
+    }
+}

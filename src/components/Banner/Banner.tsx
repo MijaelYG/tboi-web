@@ -17,8 +17,12 @@ const Banner = () => {
                 <p>"¡Explora los secretos ocultos de The Binding of Isaac! Sumérgete en un mundo lleno de misterios, desafíos y sorpresas mientras descubres estrategias avanzadas, desentrañas los secretos de cada personaje y desbloqueas poderosos ítems. Aprende a enfrentar a los enemigos más temibles y conviértete en un verdadero veterano."</p>
               </div>
               <div className={style.btn_info}>
-                <div className={style.btn_expl}></div>
-                <div className={style.btn_expl}></div>
+                <div className={style.btn_expl}>
+                  <img src="/img/UI/explorar.png" alt="" />
+                </div>
+                <div className={style.btn_expl}>
+                <img src="/img/UI/jugar.png" alt="" />
+                </div>
               </div>
             </div>
           </div>

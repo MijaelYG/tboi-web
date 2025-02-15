@@ -6,13 +6,13 @@ const Header = () => {
     <header className="container">
         <div className={style.header}>
             <div className={style.nav_btn}>
-            <Link to={""}> <img src="/img/nav/start_search.webp" alt=""/> Inicio </Link>
+            <Link to={"/"}> <img src="/img/nav/start_search.webp" alt=""/> Inicio </Link>
             </div>
             <div className={style.nav_btn}>
-            <Link to={""}><img src="/img/nav/game_search.webp" alt=""/> ¿De que trata? </Link>
+            <Link to={"/"}><img src="/img/nav/game_search.webp" alt=""/> ¿De que trata? </Link>
             </div>
             <div className={style.nav_btn}>
-            <Link to={""}><img src="/img/nav/item_search.webp" alt="" />Items </Link>
+            <Link to={"/Items"}><img src="/img/nav/item_search.webp" alt="" />Items </Link>
             </div>
             <div className={style.nav_btn}>
             </div>

@@ -1,6 +1,5 @@
 .banner{
     image-rendering: pixelated;
-    background-color: aqua;
     width:100%;
 
     .scene{
@@ -52,6 +51,7 @@
             align-items: center;
 
             .logo{
+                image-rendering: pixelated;
                 width: 100%;
                 max-width: 920px;
                 img{
@@ -74,24 +74,17 @@
                 margin-top: 4rem;
                 display: flex;
                 gap: 5.5rem;
-                image-rendering: pixelated;
                 .btn_expl{
-
-                    min-width: 300px;
-                    height: 130px;
-                    background-image: url(/img/UI/explorar.png);
-                    background-size: contain;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    transition: 0.2s all,0.1s filter ease-out;
+                    will-change: transform, filter;
+                    transition: .2s cubic-bezier(0, 1.2, 1, 1.1) transform;
                     cursor: pointer;
-
-                    &:last-child{
-                        background-image: url(/img/UI/jugar.png);
+                    img{
+                        width: 100%;
+                        image-rendering: pixelated;
                     }
                     &:hover{    
-                        transform: translateY(5%);
-                        filter: brightness(1.15);
+                        transform: translateY(6px);
+                        filter: brightness(1.1);
                     }
                 }   
             }
