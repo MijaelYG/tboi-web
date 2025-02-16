@@ -19,7 +19,7 @@ function App() {
     setHideLoading(false);
     const time = setTimeout(() => {
       setHideLoading(true);
-    }, 200);
+    }, 300);
     return () => clearTimeout(time);  
   }
 
@@ -28,7 +28,7 @@ function App() {
     setHideLoading(false);
     const time = setTimeout(() => {
       setHideLoading(true);
-    }, 200);
+    }, 300);
     return () => clearTimeout(time);  
   }
 

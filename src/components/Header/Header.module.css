@@ -2,10 +2,11 @@ header{
     position: sticky;
     top: 0;
     z-index: 90;
+    background-color: var(--background-color);
+    transition: 0s all linear ;
 }
 
 .header{
-    background-color: var(--background-color);
     height: 100px;
     display: flex;
     justify-content: center;
