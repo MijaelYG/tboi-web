@@ -5,7 +5,6 @@ interface Props {
 }
 
 const Items = ({onLoaded}: Props) => {
-
   useEffect(() => {
     const timeout = setTimeout(() => {
       onLoaded(); 
