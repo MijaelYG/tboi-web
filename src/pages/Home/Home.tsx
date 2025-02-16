@@ -6,7 +6,6 @@ const Home = () => {
     <>
     <div className={styles.container_home}>
       <Banner></Banner>
-      <Banner></Banner>
     </div>
     </>
   
