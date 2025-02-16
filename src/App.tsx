@@ -3,24 +3,52 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import { lazy, Suspense, useState } from "react";
 import Introvideo from "./components/Introvideo/Introvideo";
-import Items from "./pages/Items/Items";
 import Loading from "./components/Loading/Loading";
+import { AnimatePresence } from "framer-motion";
 
 const Home = lazy(() => import("./pages/Home/Home"));
+const Items = lazy(() => import("./pages/Items/Items"));
 
 function App() {
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState(
+    () => localStorage.getItem("video") !== "true"
+  );
+  const [hideLoading, setHideLoading] = useState(false);
+
+  const handlePageLoad = () =>{
+    setHideLoading(false);
+    const time = setTimeout(() => {
+      setHideLoading(true);
+    }, 200);
+    return () => clearTimeout(time);  
+  }
+
+  const handleShowIntro = () => {
+    setShowIntro(false)
+    setHideLoading(false);
+    const time = setTimeout(() => {
+      setHideLoading(true);
+    }, 200);
+    return () => clearTimeout(time);  
+  }
+
   return (
     <>
-      <Header></Header>
       {showIntro ? (
-        <Introvideo onFinish={() => setShowIntro(false)} />
+        <Introvideo onFinish={handleShowIntro} />
       ) : (
-        <Routes>
-          
-            <Route path="/" element={<Suspense fallback={<Loading></Loading>}><Home></Home></Suspense>}></Route>
-          <Route path="/Items" element={<Items></Items>}></Route>
-        </Routes>
+        <>
+          <AnimatePresence mode="wait">
+            {!hideLoading && <Loading />}
+          </AnimatePresence>
+          <Suspense fallback={hideLoading ? null : <Loading />}>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home onLoaded={handlePageLoad}/>} />
+              <Route path="/Items" element={<Items onLoaded={handlePageLoad} />} />
+            </Routes>
+          </Suspense>
+        </>
       )}
     </>
   );
