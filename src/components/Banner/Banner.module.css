@@ -99,6 +99,8 @@
                     will-change: transform, filter;
                     transition: .2s cubic-bezier(0, 1.2, 1, 1.1) transform;
                     cursor: pointer;
+                    opacity: 0;
+                    transition: 0.2s;
                     img{
                         width: 100%;
                         image-rendering: pixelated;
