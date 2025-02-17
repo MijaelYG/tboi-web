@@ -8,7 +8,7 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (headerRef.current !== null) {
-         headerRef.current.style.backgroundColor = window.scrollY > 50 ? "rgba(0,0,0,0.9)" : "rgba(0,0,0)";
+         headerRef.current.style.backgroundColor = window.scrollY >= 50 ? "rgba(0,0,0,0.8)" : "rgba(0,0,0)";
       }
     };
     window.addEventListener("scroll", handleScroll);
