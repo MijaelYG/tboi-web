@@ -44,7 +44,7 @@
         .container_banner{
             position: relative;
             width: 100%;
-            top: -70px;
+            top: -65px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -95,21 +95,37 @@
             .btn_info{
                 display: flex;
                 gap: 5.5rem;
-                .btn_expl{
+                .btn_bn{
+                    position: relative;
                     will-change: transform, filter;
-                    transition: .2s cubic-bezier(0, 1.2, 1, 1.1) transform;
                     cursor: pointer;
                     opacity: 0;
-                    transition: 0.2s;
+                    transition: 0.5s;
+                    top: 10px;
+                    visibility: hidden;
                     img{
                         width: 100%;
                         image-rendering: pixelated;
                     }
                     &:hover{    
+                        transition: 0.2s cubic-bezier(0, 1.2, 1, 1.1) transform opacity;
+                        transition-delay: 0s !important; 
                         transform: translateY(6px);
                         filter: brightness(1.1);
                     }
-                }   
+                }  
+                .btn_bn:nth-child(2){
+                    transition-delay: 0.2s;
+                }
+
+                .btn_bn_visible{
+                    visibility: visible;
+                    opacity: 1 !important;
+                    top: 0 !important;
+                }
+                .btn_bn_visible:nth-child(2){
+                    transition-delay: 0.2s;
+                }
             }
         }
         

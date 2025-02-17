@@ -1,0 +1,18 @@
+.container_section{
+    image-rendering: pixelated;
+    padding-top: 10rem;
+    width:100%;
+    .scene{
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-repeat: no-repeat;
+        width: 100vw;
+        height: calc(100vw * 11 / 17);
+        background-size:contain;
+        background-position: center;
+
+    }
+}
