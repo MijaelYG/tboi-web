@@ -19,7 +19,7 @@ const Home = ({ onLoaded }: Props ) => {
     <>
     <div className={styles.container_home}>
       <Banner></Banner>
-      <SectionImage src={"/img/rooms/necropolis.png"}>
+      <SectionImage src={"/img/rooms/necropolis.png"} floor="2v1">
       <div className=""><h2>GA</h2></div>
       </SectionImage>
     </div>
