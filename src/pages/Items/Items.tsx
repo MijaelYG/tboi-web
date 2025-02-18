@@ -4,20 +4,12 @@ interface Props {
   onLoaded: () => void;
 }
 
-const Items = ({onLoaded}: Props) => {
+const Items = ({ onLoaded }: Props) => {
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      onLoaded(); 
-    }, 0);
+    onLoaded();
+  }, []);
 
-    return () => clearTimeout(timeout);
-  },[]) 
+  return <div style={{ backgroundColor: "blue" }}>prueba</div>;
+};
 
-  return (
-    <div  style={{backgroundColor: 'blue'}}>
-      prueba
-    </div>
-  )
-}
-
-export default Items
+export default Items;
