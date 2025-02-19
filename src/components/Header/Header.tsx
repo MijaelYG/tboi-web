@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import style from "./Header.module.css";
 import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const headerRef = useRef<HTMLElement>(null);
@@ -16,7 +17,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header ref={headerRef} className="container">
+    <motion.header initial={{y:-100 }} animate={{y:0}} transition={{duration:1}} ref={headerRef} className="container">
       <div className={style.header}>
         <div className={style.nav_btn}>
           <Link to={"/"}>
@@ -55,7 +56,7 @@ const Header = () => {
           </Link>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

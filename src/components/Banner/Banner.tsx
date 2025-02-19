@@ -11,7 +11,7 @@ const Banner = () => {
     const handleScroll = () => {
       if (BtnExp.current !== null && BtnJu.current !== null) {
        
-        if (window.scrollY >= 95 && window.scrollY <= 790 ) {
+        if (window.scrollY >= 95 && window.scrollY <= 800 ) {
           console.log("ScrollY:", window.scrollY);
           BtnExp.current.classList.add(style.btn_bn_visible);
           BtnJu.current.classList.add(style.btn_bn_visible);

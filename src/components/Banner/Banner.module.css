@@ -22,21 +22,22 @@
             bottom: 0px;
             margin: auto 0 auto 0;
             right: -4%;
-            min-width: 100%;
+            width: 60%;
             height: 110%;
-            background-image: url(/img/UI/sombras.png);
+            background-image: url(/img/shadows/shadow_floor1_right.png);
             background-repeat: no-repeat;
             background-size: cover;
             background-position: right;
             transform-origin: right;
-            animation: move 7.5s ease-in-out infinite alternate;
+            animation: move 16s ease-in-out infinite alternate;
 
             &:nth-last-child(2){
-                left: -5%;
-                background-position: left;
+                left: -8%;
                 transform-origin: left;
-                background-image: url(/img/UI/sombras2.png);
-                animation: move2 8s ease-in-out infinite alternate;
+                background-position:left -150px;
+                width: 55%;
+                background-image:url(/img/shadows/shadow_floor1_left.png) ;
+                animation: move2 18s ease-in-out infinite alternate;
             }
         }
 
@@ -135,28 +136,20 @@
 }
 
 @keyframes move {
-    0%{
-        transform: rotate(-7deg) translateX(-10px);
+    to{
+        transform: rotate(-6deg) translateX(-6px)
     }
-    50%{
-        transform: rotate(7deg) translateX(10px);
-    }
-
-    100%{
-        transform: rotate(-7deg) translateX(10px);
+    from{
+        transform: rotate(6deg) translateX(6px);
     }
 }
 
 @keyframes move2 {
-    0%{
-        transform: rotate(8deg) translateX(10px);
+    to{
+        transform: rotate(6deg) translateX(7px);
     }
-    50%{
-        transform: rotate(-8deg) translateX(-10px);
-    }
-
-    100%{
-        transform: rotate(8deg) translateX(10px);
+    from{
+        transform: rotate(-6deg) translateX(-7px);
     }
 }
 
