@@ -146,10 +146,10 @@
 
 @keyframes move2 {
     to{
-        transform: rotate(6deg) translateX(7px);
+        transform: rotate(6deg) translateX(6px);
     }
     from{
-        transform: rotate(-6deg) translateX(-7px);
+        transform: rotate(-6deg) translateX(-6px);
     }
 }
 

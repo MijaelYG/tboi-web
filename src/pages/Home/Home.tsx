@@ -2,6 +2,7 @@ import styles from "./Home.module.css";
 import Banner from "../../components/Banner/Banner";
 import { useEffect } from "react";
 import SectionImage from "../../components/SectionImage/SectionImage";
+import SectionInfo from "../../components/SectionInfo/SectionInfo";
 interface Props {
   onLoaded: () => void;
 }
@@ -16,9 +17,7 @@ const Home = ({ onLoaded }: Props) => {
       <div className={styles.container_home}>
         <Banner></Banner>
         <SectionImage src={"/img/rooms/necropolis.png"} floor="2v1">
-          <div className="">
-            <h2>GA</h2>
-          </div>
+        <SectionInfo></SectionInfo>
         </SectionImage>
       </div>
     </>
