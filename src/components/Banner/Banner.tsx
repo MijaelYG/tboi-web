@@ -1,30 +1,12 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import style from "./Banner.module.css";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 const Banner = () => {
-  const BtnExp = useRef<HTMLDivElement | null>(null);
-  const BtnJu = useRef<HTMLDivElement | null>(null);
+  const Btn = useRef<HTMLDivElement | null>(null);
+  const BtnpinView= useInView(Btn,{amount: "all", margin: "-30px"});
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (BtnExp.current !== null && BtnJu.current !== null) {
-       
-        if (window.scrollY >= 95 && window.scrollY <= 800 ) {
-          console.log("ScrollY:", window.scrollY);
-          BtnExp.current.classList.add(style.btn_bn_visible);
-          BtnJu.current.classList.add(style.btn_bn_visible);
-        }else{
-          BtnExp.current.classList.remove(style.btn_bn_visible);
-          BtnJu.current.classList.remove(style.btn_bn_visible);
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <section className="container">
@@ -58,11 +40,11 @@ const Banner = () => {
                 un verdadero veterano."
               </p>
             </motion.div>
-            <div className={style.btn_info}>
-              <div ref={BtnExp} className={style.btn_bn}>
+            <div ref={Btn} className={style.btn_info}>
+              <motion.div  className={style.btn_bn} initial={{opacity:0, y:10}} animate={{opacity:BtnpinView ? 1 : 0, y: BtnpinView ? 0 : 10}} transition={{duration:0.4}}>
                 <img src="/img/UI/explorar.png" alt="" />
-              </div>
-              <div ref={BtnJu} className={style.btn_bn}>
+              </motion.div>
+              <motion.div initial={{opacity:0, y:10}} animate={{opacity:BtnpinView ? 1 : 0, y: BtnpinView ? 0 : 10}} transition={{duration:0.4, delay: 0.1}} className={style.btn_bn}>
                 <Link
                   to={
                     "https://store.steampowered.com/app/250900/The_Binding_of_Isaac_Rebirth/"
@@ -70,7 +52,7 @@ const Banner = () => {
                 >
                   <img src="/img/UI/jugar.png" alt="" />
                 </Link>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
