@@ -5,24 +5,52 @@
     height: 100%;
     color: white;
     display: flex;
+
     .info_left{
+        image-rendering: pixelated;
         position: absolute;
-        background-color: rgba(0, 0, 0, 0.5);
         top: 28%;
         left: 10%;
-        max-width: 420px;
+        max-width: 400px;
         height: 100%;
-        max-height: 400px;
+        max-height: 420px;
+        background-image: url(/img/UI/letter_background.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: rgb(0, 0, 0);
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 35px;
+
+        h1{
+            font-family: "pixel_i";
+            font-size: 2.5rem;
+            text-align: center;
+            letter-spacing: 0.1rem;
+        }
     }
 
     .info_right{
-        background-color: rgb(0, 0, 0,0.5);
+        image-rendering: pixelated;
+        color: black;
         position: absolute;
         width: 100%;
-        max-width: 400px;
+        max-width: 470px;
         height: 100%;
-        max-height: 150px;
+        max-height: 180px;
         right: 15%;
         bottom: 26%;
+        background-image: url(/img/UI/letter_background_2.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        p{
+            margin: auto;
+            padding: 0px 30px 15px 34px;
+            font-size: 1rem;
+            line-height: 1.8rem;
+        }
     }
 }

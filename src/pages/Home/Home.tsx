@@ -19,6 +19,8 @@ const Home = ({ onLoaded }: Props) => {
         <SectionImage src={"/img/rooms/necropolis.png"} floor="2v1">
         <SectionInfo></SectionInfo>
         </SectionImage>
+        <SectionImage src={"/img/rooms/necropolis.png"} floor="2v1">
+        </SectionImage>
       </div>
     </>
   );
