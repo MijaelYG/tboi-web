@@ -2,6 +2,8 @@
     image-rendering: pixelated;
     padding-top: 10rem;
     width:100%;
+    position: sticky;
+    top: -32%;
     .scene{
         overflow: hidden;
         position: relative;

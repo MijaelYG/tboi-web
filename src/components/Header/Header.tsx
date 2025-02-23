@@ -1,20 +1,10 @@
 import { Link } from "react-router-dom";
 import style from "./Header.module.css";
-import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { useRef } from "react";
 
 const Header = () => {
   const headerRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (headerRef.current !== null) {
-         headerRef.current.style.backgroundColor = window.scrollY >= 50 ? "rgba(0,0,0,0.8)" : "rgba(0,0,0)";
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <motion.header initial={{y:-100 }} animate={{y:0}} transition={{duration:1}} ref={headerRef} className="container">
