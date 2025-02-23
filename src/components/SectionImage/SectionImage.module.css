@@ -1,6 +1,7 @@
 .container_section{
     image-rendering: pixelated;
     padding-top: 10rem;
+    padding-bottom: 10rem;
     width:100%;
     position: sticky;
     top: -32%;

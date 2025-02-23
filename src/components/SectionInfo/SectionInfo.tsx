@@ -18,7 +18,6 @@ const SectionInfo = ({ scrollYProgress }: SectionInfoProps) => {
   const x = useTransform(scrollYProgress, [0.04, 0.25, 0.40, 0.55], [0, 55, 55,0]);
   const opacityLeft = useTransform(scrollYProgress, [0.04, 0.25, 0.40, 0.55], [0, 1,1,0]);
   const opacityRight = useTransform(scrollYProgress, [0.65, 0.80, 0.90, 0.95], [0, 1,1,0]);
-  const scale = useTransform(scrollYProgress, [0.04, 0.25, 0.40, 0.55], [0, 1,1,0]);
 
   const xSmooth = useSpring(x, { stiffness: 50, damping: 10 });
 

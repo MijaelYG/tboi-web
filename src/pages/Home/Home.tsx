@@ -27,9 +27,18 @@ const Home = ({ onLoaded }: Props) => {
         </SectionImage>
         <SectionImage
           src={"/img/rooms/necropolis.png"}
+          height="400vh"
+          floor="2v1"
+        >
+          {(ScrollYProgressValue) => (
+            <SectionInfo scrollYProgress={ScrollYProgressValue} />
+          )}
+        </SectionImage>
+{/*        <SectionImage
+          src={"/img/rooms/necropolis.png"}
           height="100vh"
           floor="2v1"
-        ></SectionImage>
+        ></SectionImage>*/}
       </div>
     </>
   );

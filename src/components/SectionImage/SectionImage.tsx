@@ -4,7 +4,7 @@ import React, {
   useState,
 } from "react";
 import styles from "./SectionImage.module.css";
-import { MotionValue, useMotionValueEvent, useScroll } from "framer-motion";
+import { motion, MotionValue, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 
 interface PropsImagen {
   src: string;
@@ -34,9 +34,11 @@ const SectionImage = ({ src, floor, height, children }: PropsImagen) => {
     target: scrollRef,
   });
 
+  const scale = useTransform(scrollYProgress, [0.5,0.8],[1,2])
+
   return (
-    <section  ref={scrollRef} className="container" style={{ height: `${height}` }}>
-      <div  className={styles.container_section}>
+    <motion.section  ref={scrollRef}  className="container" style={{ height: `${height}`, scale: scale, transformOrigin:"bottom"}}>
+      <div className={styles.container_section}>
         <div
           className={styles.scene}
           style={{ backgroundImage: `url(${src})` }}
@@ -48,7 +50,7 @@ const SectionImage = ({ src, floor, height, children }: PropsImagen) => {
             : children}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
