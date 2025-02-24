@@ -1,6 +1,7 @@
 :root {
   --background-color: black;
   --primary-color:red;
+  --text-card: #77695a;
 }
 
 @font-face{

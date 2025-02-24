@@ -1,19 +1,18 @@
-import React, {
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./SectionImage.module.css";
-import { motion, MotionValue, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 
 interface PropsImagen {
   src: string;
   floor: string;
   height: string;
-  children?: React.ReactNode | ((ScrollYProgressValue: MotionValue<number>) => React.ReactNode);
+  name?: string;
+  children?:
+    | React.ReactNode
+    | ((ScrollYProgressValue: MotionValue<number>) => React.ReactNode);
 }
 
-const SectionImage = ({ src, floor, height, children }: PropsImagen) => {
+const SectionImage = ({ src, floor, height, name, children }: PropsImagen) => {
   const [typeFloor, setTypeFloor] = useState<String>(floor);
   const shadowRef1 = useRef<HTMLDivElement | null>(null);
   const shadowRef2 = useRef<HTMLDivElement | null>(null);
@@ -32,24 +31,31 @@ const SectionImage = ({ src, floor, height, children }: PropsImagen) => {
 
   const { scrollYProgress } = useScroll({
     target: scrollRef,
+    offset:["start end", "end end"]
   });
 
-  const scale = useTransform(scrollYProgress, [0.5,0.8],[1,2])
+  const yscroll = useTransform(scrollYProgress,[0,1],[0,-100])
 
   return (
-    <motion.section  ref={scrollRef}  className="container" style={{ height: `${height}`, scale: scale, transformOrigin:"bottom"}}>
-      <div className={styles.container_section}>
-        <div
+    <motion.section
+      ref={scrollRef}
+      className= {styles.container_s}
+      style={{ height: `${height}`}}
+    >
+      <motion.div style={{y: yscroll}} className={styles.container_section}>
+        <motion.div
           className={styles.scene}
-          style={{ backgroundImage: `url(${src})` }}
+          style={{
+            backgroundImage: `url(${src})`
+          }}
         >
           <div ref={shadowRef1} className={styles.shadow}></div>
           <div ref={shadowRef2} className={styles.shadow}></div>
           {typeof children === "function"
             ? children(scrollYProgress)
             : children}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </motion.section>
   );
 };
