@@ -1,11 +1,12 @@
 
 .container_s{
+    position: relative;
     margin-top: 5rem;
     margin-bottom: 5rem;
     .container_section{
         width: 100vw;
         position: sticky;
-        top: calc(-15.2% + 100px);
+        top: calc(-15.2% + 50px);
         .scene{
             image-rendering: pixelated;
             image-rendering: crisp-edges;
@@ -18,6 +19,7 @@
             height: calc(100vw * 11 / 17);
             background-size:contain;
             background-position: center;
+            overflow: hidden;
             .shadow{
                 image-rendering: pixelated;
                 position: absolute;
@@ -43,6 +45,15 @@
     
             
         }
+    }
+    .background_black{
+        width: 100vw;
+        height: 100%;
+        background-color: black;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translateX(100%);
     }
 }
 

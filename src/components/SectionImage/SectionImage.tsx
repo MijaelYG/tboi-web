@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./SectionImage.module.css";
-import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import { motion, MotionValue, useScroll, useSpring, useTransform } from "framer-motion";
 
 interface PropsImagen {
   src: string;
@@ -31,21 +31,21 @@ const SectionImage = ({ src, floor, height, name, children }: PropsImagen) => {
 
   const { scrollYProgress } = useScroll({
     target: scrollRef,
-    offset:["start end", "end end"]
+    offset:["start end", "end start"]
   });
 
-  const yscroll = useTransform(scrollYProgress,[0,1],[0,-100])
-
+  const yscroll = useTransform(scrollYProgress,[0.17,0.79],[0,-100])
+  const xscroll_black = useTransform(scrollYProgress,[0.6,0.8],["100%","0%"])
+  const xscroll_scene = useTransform(scrollYProgress,[0.6,0.8],["0%","-10%"])
+  const yscrollsmooth = useSpring(yscroll, {stiffness:150, damping: 20})
   return (
     <motion.section
       ref={scrollRef}
       className= {styles.container_s}
       style={{ height: `${height}`}}
     >
-      <motion.div style={{y: yscroll}} className={styles.container_section}>
-        <motion.div
-          className={styles.scene}
-          style={{
+      <motion.div style={{y: yscrollsmooth, x:xscroll_scene}} className={styles.container_section}>
+        <motion.div className={styles.scene} style={{
             backgroundImage: `url(${src})`
           }}
         >
@@ -55,6 +55,8 @@ const SectionImage = ({ src, floor, height, name, children }: PropsImagen) => {
             ? children(scrollYProgress)
             : children}
         </motion.div>
+      </motion.div>
+      <motion.div className={styles.background_black} style={{x:xscroll_black}}>
       </motion.div>
     </motion.section>
   );
