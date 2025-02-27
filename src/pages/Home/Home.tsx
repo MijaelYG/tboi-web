@@ -17,17 +17,8 @@ const Home = ({ onLoaded }: Props) => {
       <div className={styles.container_home}>
         <Banner></Banner>
         <SectionImage
-          src={"/img/rooms/necropolis.png"}
-          height="500vh"
-          floor="2v1"
-        >
-          {(ScrollYProgressValue) => (
-            <SectionInfo scrollYProgress={ScrollYProgressValue} />
-          )}
-        </SectionImage>
-        <div style={{width:"100vw", height: "100vh", backgroundColor:"white"}}>
-
-        </div>
+          height="900vh"
+        ></SectionImage>
       </div>
     </>
   );

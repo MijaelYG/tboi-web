@@ -1,77 +1,11 @@
-
-.container_s{
-    position: relative;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    .container_section{
-        width: 100vw;
-        position: sticky;
-        top: calc(-15.2% + 50px);
-        .scene{
-            image-rendering: pixelated;
-            image-rendering: crisp-edges;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-repeat: no-repeat;
-            width: 100vw;
-            height: calc(100vw * 11 / 17);
-            background-size:contain;
-            background-position: center;
-            overflow: hidden;
-            .shadow{
-                image-rendering: pixelated;
-                position: absolute;
-                top: 0px;
-                bottom: 0px;
-                margin: auto 0 auto 0;
-                right: -4%;
-                width: 100%;
-                height: 110%;
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-position: right;
-                transform-origin: right;
-                animation: moveshadow_right 7.3s ease-in-out infinite alternate;
-    
-                &:nth-of-type(2){
-                    left: -5%;
-                    background-position: left;
-                    transform-origin: left;
-                    animation: moveshadow_left 7.5s ease-in-out infinite alternate;
-                }
-            }
-    
-            
-        }
-    }
-    .background_black{
-        width: 100vw;
-        height: 100%;
-        background-color: black;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translateX(100%);
-    }
-}
-
-
-@keyframes moveshadow_right {
-    to{
-        transform: rotate(-5deg) translateX(5px);
-    }
-    from{
-        transform: rotate(5deg) translateX(0px);
-    }
-}
-
-@keyframes moveshadow_left {
-    to{
-        transform: rotate(5deg) translateX(-5px);
-    }
-    from{
-        transform: rotate(-5deg) translateX(0px);
-    }
+.container_s {
+  position: relative;
+  margin-top: 5rem;
+  .sticky {
+    width: 100vw;
+    min-height: calc(100vw * 11 / 17);
+    position: sticky;
+    top: calc(-15.2% + 100px);
+    overflow: hidden;
+  }
 }
