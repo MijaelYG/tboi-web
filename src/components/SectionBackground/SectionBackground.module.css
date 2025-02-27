@@ -1,5 +1,6 @@
-.container_section{
+.container_absolute{
     width: 100vw;
+    height: calc(100vw * 11 / 17);
     position: absolute;
     top: 0;
     .scene{

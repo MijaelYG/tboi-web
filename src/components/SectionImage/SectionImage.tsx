@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import styles from "./SectionImage.module.css";
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import SectionBackground from "../SectionBackground/SectionBackground";
 import SectionInfo from "../SectionInfo/SectionInfo";
 
@@ -13,24 +13,34 @@ const SectionImage = ({ height }: PropsImagen) => {
 
   const { scrollYProgress } = useScroll({
     target: scrollRef,
-    offset: ["start end", "end start"],
+    offset: ["start start", "end start"],
   });
+
 
   return (
     <motion.section
       ref={scrollRef}
-      className={styles.container_s}
+      className={styles.container_sImage}
       style={{ height: `${height}` }}
     >
-      <div className={styles.sticky}>
+      <motion.div className={styles.sticky}>
         <SectionBackground
+          id={1}
           scrollYProgress={scrollYProgress}
           floor={"21"}
           name={"necropolis"}
         >
           <SectionInfo scrollYProgress={scrollYProgress}></SectionInfo>
         </SectionBackground>
-      </div>
+        <SectionBackground
+          id={2}
+          scrollYProgress={scrollYProgress}
+          floor={"21"}
+          name={"necropolis"}
+        >
+          <SectionInfo scrollYProgress={scrollYProgress}></SectionInfo>
+        </SectionBackground>
+      </motion.div>
     </motion.section>
   );
 };

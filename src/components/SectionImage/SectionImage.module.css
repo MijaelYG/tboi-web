@@ -1,11 +1,10 @@
-.container_s {
+.container_sImage {
   position: relative;
-  margin-top: 5rem;
   .sticky {
-    width: 100vw;
     min-height: calc(100vw * 11 / 17);
     position: sticky;
     top: calc(-15.2% + 100px);
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 }

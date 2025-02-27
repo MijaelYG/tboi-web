@@ -2,7 +2,6 @@ import styles from "./Home.module.css";
 import Banner from "../../components/Banner/Banner";
 import { useEffect } from "react";
 import SectionImage from "../../components/SectionImage/SectionImage";
-import SectionInfo from "../../components/SectionInfo/SectionInfo";
 interface Props {
   onLoaded: () => void;
 }

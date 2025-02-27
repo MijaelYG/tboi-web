@@ -1,8 +1,15 @@
-import { motion, MotionValue, useSpring, useTransform } from "framer-motion";
+import {
+  motion,
+  MotionValue,
+  useMotionValueEvent,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import styles from "./SectionBackground.module.css";
 import { useEffect, useRef, useState } from "react";
 
 interface SectionBackgroundProps {
+  id: number;
   floor: string;
   name: string;
   children: React.ReactNode;
@@ -10,6 +17,7 @@ interface SectionBackgroundProps {
 }
 
 const SectionBackground = ({
+  id,
   floor,
   name,
   children,
@@ -36,19 +44,61 @@ const SectionBackground = ({
     }
   }, []);
 
-  const yscroll = useTransform(scrollYProgress, [0.17, 0.6], [0, -100]);
+  const yscroll = useTransform(
+    scrollYProgress,
+    (() => {
+      switch (id) {
+        case 1:
+          return [0, 0.3];
+        case 2:
+          return [0, 0.3];
 
-  const yscrollsmooth = useSpring(yscroll, { stiffness: 150, damping: 20 });
+        default:
+          return [0, 1];
+      }
+    })(),
+    (() => {
+      switch (id) {
+        case 1:
+          return ["0","-100px"];
+        case 2:
+          return ["0", "-100px"];
+
+        default:
+          return ["0", "100px"];
+      }
+    })()
+  );
+
+  const yscrollsmooth = useSpring(yscroll, { stiffness: 200, damping: 40 });
 
   const xscroll_scene = useTransform(
     scrollYProgress,
-    [0.6, 1],
-    ["0%", "-100%"]
+    (() => {
+      switch (id) {
+        case 1:
+          return [0.3, 0.5];
+        case 2:
+          return [0.3, 0.5];
+        default:
+          return [0.1, 0.2];
+      }
+    })(),
+    (() => {
+      switch (id) {
+        case 1:
+          return ["0%", "-100%"];
+        case 2:
+          return ["100%", "0%"];
+        default:
+          return ["0%", "-100%"];
+      }
+    })()
   );
   return (
     <motion.div
-      style={{ y: yscrollsmooth }}
-      className={styles.container_section}
+      style={{ y: yscrollsmooth, x: xscroll_scene}}
+      className={styles.container_absolute}
     >
       <div
         className={styles.scene}
