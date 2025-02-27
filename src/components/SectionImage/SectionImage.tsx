@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import styles from "./SectionImage.module.css";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import SectionBackground from "../SectionBackground/SectionBackground";
 import SectionInfo from "../SectionInfo/SectionInfo";
 

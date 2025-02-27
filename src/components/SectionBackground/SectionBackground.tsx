@@ -1,10 +1,4 @@
-import {
-  motion,
-  MotionValue,
-  useMotionValueEvent,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { motion, MotionValue, useSpring, useTransform } from "framer-motion";
 import styles from "./SectionBackground.module.css";
 import { useEffect, useRef, useState } from "react";
 
@@ -23,24 +17,14 @@ const SectionBackground = ({
   children,
   scrollYProgress,
 }: SectionBackgroundProps) => {
-  const [typeFloor, setTypeFloor] = useState<String>(floor);
   const shadowRef1 = useRef<HTMLDivElement | null>(null);
   const shadowRef2 = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    setTypeFloor(floor);
     if (shadowRef1.current !== null && shadowRef2.current !== null) {
-      switch (typeFloor) {
-        case "21":
-          shadowRef1.current.style.backgroundImage =
-            "url(/img/shadows/shadow_floor2_right.png";
-          shadowRef2.current.style.backgroundImage =
-            "url(/img/shadows/shadow_floor2_left.png";
-          break;
-
-        default:
-          break;
-      }
+      shadowRef1.current.style.backgroundImage = `url(/img/shadows/shadow_floor${floor}_right.png)`;
+      shadowRef2.current.style.backgroundImage =
+        `url(/img/shadows/shadow_floor${floor}_left.png)`;
     }
   }, []);
 
@@ -60,7 +44,7 @@ const SectionBackground = ({
     (() => {
       switch (id) {
         case 1:
-          return ["0","-100px"];
+          return ["0", "-100px"];
         case 2:
           return ["0", "-100px"];
 
@@ -97,7 +81,7 @@ const SectionBackground = ({
   );
   return (
     <motion.div
-      style={{ y: yscrollsmooth, x: xscroll_scene}}
+      style={{ y: yscrollsmooth, x: xscroll_scene }}
       className={styles.container_absolute}
     >
       <div
