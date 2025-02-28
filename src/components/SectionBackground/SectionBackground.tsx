@@ -1,6 +1,6 @@
 import { motion, MotionValue, useSpring, useTransform } from "framer-motion";
 import styles from "./SectionBackground.module.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 interface SectionBackgroundProps {
   id: number;
@@ -23,8 +23,7 @@ const SectionBackground = ({
   useEffect(() => {
     if (shadowRef1.current !== null && shadowRef2.current !== null) {
       shadowRef1.current.style.backgroundImage = `url(/img/shadows/shadow_floor${floor}_right.png)`;
-      shadowRef2.current.style.backgroundImage =
-        `url(/img/shadows/shadow_floor${floor}_left.png)`;
+      shadowRef2.current.style.backgroundImage = `url(/img/shadows/shadow_floor${floor}_left.png)`;
     }
   }, []);
 
@@ -33,12 +32,15 @@ const SectionBackground = ({
     (() => {
       switch (id) {
         case 1:
-          return [0, 0.3];
+          return [0, 0.08];
         case 2:
-          return [0, 0.3];
-
+          return [0, 0.08];
+        case 3:
+            return [0, 0.08];
+        case 4:
+            return [0, 0.08];
         default:
-          return [0, 1];
+          return [0, 0.08];
       }
     })(),
     (() => {
@@ -47,25 +49,60 @@ const SectionBackground = ({
           return ["0", "-100px"];
         case 2:
           return ["0", "-100px"];
-
+        case 3:
+            return ["0", "-100px"];
         default:
-          return ["0", "100px"];
+          return ["0", "-100px"];
       }
     })()
   );
-
   const yscrollsmooth = useSpring(yscroll, { stiffness: 200, damping: 40 });
+  const scale = useTransform(scrollYProgress, [0, 0.08], [2, 1]);
 
   const xscroll_scene = useTransform(
     scrollYProgress,
     (() => {
       switch (id) {
         case 1:
-          return [0.3, 0.5];
+          return [0.278, 0.28];
         case 2:
-          return [0.3, 0.5];
+          return [0.278, 0.28];
+        case 3:
+          return [0.278, 0.28];
+        case 4:
+          return [0, 0];
+        case 5:
+          return [0, 0];
         default:
-          return [0.1, 0.2];
+          return [0, 0];
+      }
+    })(),
+    (() => {
+      switch (id) {
+        case 1:
+          return ["0%", "-100%"];
+        case 2:
+          return ["0%", "-100%"];
+        case 3:
+          return ["100%", "0%"];
+        default:
+          return ["0%", "100%"];
+      }
+    })()
+  );
+
+  const yscroll_scene = useTransform(
+    scrollYProgress,
+    (() => {
+      switch (id) {
+        case 1:
+          return [0.135, 0.14];
+        case 2:
+          return [0.135, 0.14];
+        case 3:
+          return [0.135, 0.14];
+        default:
+          return [0, 0];
       }
     })(),
     (() => {
@@ -74,26 +111,43 @@ const SectionBackground = ({
           return ["0%", "-100%"];
         case 2:
           return ["100%", "0%"];
+        case 3:
+          return ["100%", "0%"];
         default:
-          return ["0%", "-100%"];
+          return ["0%", "0%"];
       }
     })()
   );
+  const yscroll_scenesmooth = useSpring(yscroll_scene, {
+    stiffness: 150,
+    damping: 50,
+  });
+  const xscroll_scenesmooth = useSpring(xscroll_scene, {
+    stiffness: 150,
+    damping: 50,
+  });
   return (
     <motion.div
-      style={{ y: yscrollsmooth, x: xscroll_scene }}
+      style={{
+        y: yscroll_scenesmooth,
+        x: xscroll_scenesmooth,
+        willChange: "transform",
+        scale: id == 1 ? scale : 1,
+        zIndex: id == 1 ? 5 : 3,
+      }}
       className={styles.container_absolute}
     >
-      <div
+      <motion.div
         className={styles.scene}
         style={{
           backgroundImage: `url(/img/rooms/${name}.png)`,
+          y: yscrollsmooth,
         }}
       >
         <div ref={shadowRef1} className={styles.shadow}></div>
         <div ref={shadowRef2} className={styles.shadow}></div>
         {children}
-      </div>
+      </motion.div>
     </motion.div>
   );
 };

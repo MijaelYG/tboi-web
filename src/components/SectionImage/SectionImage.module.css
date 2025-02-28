@@ -1,10 +1,9 @@
 .container_sImage {
   position: relative;
   .sticky {
+    width: 100vw;
     min-height: calc(100vw * 11 / 17);
     position: sticky;
     top: calc(-15.2% + 100px);
-    display: flex;
-    flex-direction: column;
   }
 }

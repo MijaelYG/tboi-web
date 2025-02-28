@@ -1,12 +1,21 @@
 import { useRef } from "react";
 import styles from "./SectionImage.module.css";
-import { motion, useScroll } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import SectionBackground from "../SectionBackground/SectionBackground";
 import SectionInfo from "../SectionInfo/SectionInfo";
+import Banner from "../Banner/Banner";
 
 interface PropsImagen {
   height: string;
 }
+const sections = [
+  { id: 1, floor: "11", name: "basement" },
+  { id: 2, floor: "11", name: "necropolis" },
+  { id: 3, floor: "21", name: "necropolis" },
+  { id: 4, floor: "21", name: "necropolis" },
+  { id: 5, floor: "21", name: "necropolis" },
+  { id: 6, floor: "21", name: "necropolis" },
+];
 
 const SectionImage = ({ height }: PropsImagen) => {
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -16,6 +25,7 @@ const SectionImage = ({ height }: PropsImagen) => {
     offset: ["start start", "end start"],
   });
 
+  useMotionValueEvent(scrollYProgress, "change", (value)=> (console.log(value)))
 
   return (
     <motion.section
@@ -24,22 +34,21 @@ const SectionImage = ({ height }: PropsImagen) => {
       style={{ height: `${height}` }}
     >
       <motion.div className={styles.sticky}>
-        <SectionBackground
-          id={1}
-          scrollYProgress={scrollYProgress}
-          floor={"21"}
-          name={"necropolis"}
-        >
-          <SectionInfo scrollYProgress={scrollYProgress}></SectionInfo>
-        </SectionBackground>
-        <SectionBackground
-          id={2}
-          scrollYProgress={scrollYProgress}
-          floor={"21"}
-          name={"necropolis"}
-        >
-          <SectionInfo scrollYProgress={scrollYProgress}></SectionInfo>
-        </SectionBackground>
+        {sections.map((section) => (
+          <SectionBackground
+            key={section.id}
+            id={section.id}
+            scrollYProgress={scrollYProgress}
+            floor={section.floor}
+            name={section.name}
+          >
+            {section.id == 1 ? (
+              <Banner scrollYProgress={scrollYProgress}></Banner>
+            ) : (
+              <SectionInfo scrollYProgress={scrollYProgress}></SectionInfo>
+            )}
+          </SectionBackground>
+        ))}
       </motion.div>
     </motion.section>
   );

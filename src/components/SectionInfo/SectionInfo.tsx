@@ -1,7 +1,6 @@
 import {
   motion,
   MotionValue,
-  useMotionValueEvent,
   useSpring,
   useTransform,
 } from "framer-motion";
@@ -14,9 +13,6 @@ interface SectionInfoProps {
 const SectionInfo = ({ scrollYProgress }: SectionInfoProps) => {
   const [caruselcont, setCaruselcont] = useState(1);
   const [position, setPosition] = useState(0);
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log(latest);
-  });
 
   const xleft = useTransform(scrollYProgress, [0.25, 0.55], [0, 60]);
   const xright = useTransform(scrollYProgress, [0.6, 0.9], [0, -60]);
@@ -30,7 +26,6 @@ const SectionInfo = ({ scrollYProgress }: SectionInfoProps) => {
     [0.6, 0.67, 0.83, 0.9],
     [0, 1, 1, 0]
   );
-
   const xSmoothLeft = useSpring(xleft, { stiffness: 150, damping: 20 });
   const opacitySmoothLeft = useSpring(opacityLeft, {
     stiffness: 300,

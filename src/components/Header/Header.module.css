@@ -1,8 +1,11 @@
 header{
+    width: 100vw;
     top: 0;
     z-index: 90;
     background-color: var(--background-color);
     transition: 0s all linear ;
+    position: fixed;
+    display: none;
 }
 
 .header{

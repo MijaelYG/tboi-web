@@ -1,6 +1,5 @@
 .container_absolute{
     width: 100vw;
-    height: calc(100vw * 11 / 17);
     position: absolute;
     top: 0;
     .scene{
@@ -16,6 +15,7 @@
         background-size:contain;
         background-position: center;
         overflow: hidden;
+        background-color: black;
         .shadow{
             image-rendering: pixelated;
             position: absolute;

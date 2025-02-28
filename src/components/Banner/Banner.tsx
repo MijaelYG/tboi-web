@@ -1,19 +1,21 @@
-import { motion, useInView } from "framer-motion";
+import { motion, MotionValue, useInView, useTransform } from "framer-motion";
 import style from "./Banner.module.css";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 
-const Banner = () => {
+interface BannerProps{
+  scrollYProgress: MotionValue<number>
+}
+
+const Banner = ({scrollYProgress}: BannerProps) => {
   const Btn = useRef<HTMLDivElement | null>(null);
   const BtnpinView= useInView(Btn,{amount: "all", margin: "-30px"});
 
-
+  const opacity = useTransform(scrollYProgress, [0.1,0.1],[0,1])
+  const flex = useTransform(scrollYProgress, [0.1,0.1],[0,1])
   return (
-    <section className="container">
+    <section className={style.section_banner}>
       <div className={style.banner}>
-        <div className={style.scene}>
-          <div className={style.shadow}></div>
-          <div className={style.shadow}></div>
           <div className={style.container_banner}>
             <div className={style.logo}>
               <motion.img
@@ -55,7 +57,6 @@ const Banner = () => {
               </motion.div>
             </div>
           </div>
-        </div>
       </div>
     </section>
   );

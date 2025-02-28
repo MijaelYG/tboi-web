@@ -1,5 +1,4 @@
 import styles from "./Home.module.css";
-import Banner from "../../components/Banner/Banner";
 import { useEffect } from "react";
 import SectionImage from "../../components/SectionImage/SectionImage";
 interface Props {
@@ -14,9 +13,8 @@ const Home = ({ onLoaded }: Props) => {
   return (
     <>
       <div className={styles.container_home}>
-        <Banner></Banner>
         <SectionImage
-          height="900vh"
+          height="1400vh"
         ></SectionImage>
       </div>
     </>
