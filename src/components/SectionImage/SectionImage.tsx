@@ -10,8 +10,8 @@ interface PropsImagen {
 }
 const sections = [
   { id: 1, floor: "11", name: "basement" },
-  { id: 2, floor: "11", name: "necropolis" },
-  { id: 3, floor: "21", name: "necropolis" },
+  { id: 2, floor: "21", name: "catacombs" },
+  { id: 3, floor: "21", name: "necropolisv2" },
   { id: 4, floor: "21", name: "necropolis" },
   { id: 5, floor: "21", name: "necropolis" },
   { id: 6, floor: "21", name: "necropolis" },
@@ -26,7 +26,6 @@ const SectionImage = ({ height }: PropsImagen) => {
   });
 
   useMotionValueEvent(scrollYProgress, "change", (value)=> (console.log(value)))
-
   return (
     <motion.section
       ref={scrollRef}

@@ -34,11 +34,11 @@ const SectionBackground = ({
         case 1:
           return [0, 0.08];
         case 2:
-          return [0, 0.08];
+          return [0.14, 0.28];
         case 3:
-            return [0, 0.08];
+          return [0.14, 0.28, 0.285, 0.50];
         case 4:
-            return [0, 0.08];
+          return [0, 0.08];
         default:
           return [0, 0.08];
       }
@@ -50,7 +50,7 @@ const SectionBackground = ({
         case 2:
           return ["0", "-100px"];
         case 3:
-            return ["0", "-100px"];
+          return ["0", "-100px","-100px", "-900px"];
         default:
           return ["0", "-100px"];
       }
@@ -73,6 +73,8 @@ const SectionBackground = ({
           return [0, 0];
         case 5:
           return [0, 0];
+        case 6:
+          return [0, 0];
         default:
           return [0, 0];
       }
@@ -85,6 +87,12 @@ const SectionBackground = ({
           return ["0%", "-100%"];
         case 3:
           return ["100%", "0%"];
+        case 4:
+          return ["0%", "100%"];
+        case 5:
+          return ["0%", "100%"];
+        case 6:
+          return ["0%", "100%"];
         default:
           return ["0%", "100%"];
       }
@@ -96,11 +104,11 @@ const SectionBackground = ({
     (() => {
       switch (id) {
         case 1:
-          return [0.135, 0.14];
+          return [0.138, 0.14];
         case 2:
-          return [0.135, 0.14];
+          return [0.138, 0.14];
         case 3:
-          return [0.135, 0.14];
+          return [0.138, 0.14];
         default:
           return [0, 0];
       }
@@ -119,13 +127,14 @@ const SectionBackground = ({
     })()
   );
   const yscroll_scenesmooth = useSpring(yscroll_scene, {
-    stiffness: 150,
+    stiffness: 200,
     damping: 50,
   });
   const xscroll_scenesmooth = useSpring(xscroll_scene, {
-    stiffness: 150,
+    stiffness: 200,
     damping: 50,
   });
+
   return (
     <motion.div
       style={{
@@ -135,17 +144,30 @@ const SectionBackground = ({
         scale: id == 1 ? scale : 1,
         zIndex: id == 1 ? 5 : 3,
       }}
+      
       className={styles.container_absolute}
     >
       <motion.div
         className={styles.scene}
         style={{
           backgroundImage: `url(/img/rooms/${name}.png)`,
-          y: yscrollsmooth,
+          backgroundPositionY: yscrollsmooth,
         }}
       >
-        <div ref={shadowRef1} className={styles.shadow}></div>
-        <div ref={shadowRef2} className={styles.shadow}></div>
+        <motion.div
+          ref={shadowRef1}
+          className={styles.shadow}
+          style={{
+            backgroundPositionY: yscrollsmooth,
+          }}
+        ></motion.div>
+        <motion.div
+          ref={shadowRef2}
+          className={styles.shadow}
+          style={{
+            backgroundPositionY: yscrollsmooth,
+          }}
+        ></motion.div>
         {children}
       </motion.div>
     </motion.div>
