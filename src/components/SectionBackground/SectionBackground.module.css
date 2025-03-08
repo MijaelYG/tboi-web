@@ -11,8 +11,7 @@
         justify-content: center;
         background-repeat: no-repeat;
         width: 100vw;
-        height: calc(100vw * 11 / 17);
-        background-size:cover;
+        background-size:contain;
         overflow: hidden;
         background-color: black;
         .shadow{

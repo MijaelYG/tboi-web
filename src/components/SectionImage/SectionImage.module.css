@@ -2,8 +2,8 @@
   position: relative;
   .sticky {
     width: 100vw;
-    min-height: calc(100vw * 11 / 17);
+    min-height: 100vh;
     position: sticky;
-    top: calc(-15.2% + 100px);
+    top: 0;
   }
 }
