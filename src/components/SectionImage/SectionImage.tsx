@@ -16,8 +16,8 @@ interface PropsImagen {
 }
 const sections = [
   { id: 1, floor: "11", name: "basement" },
-  { id: 2, floor: "21", name: "catacombs" },
-  { id: 3, floor: "21", name: "necropolisv2" },
+  { id: 2, floor: "21", name: "cellar" },
+  { id: 3, floor: "31", name: "necropolisv2" },
   { id: 4, floor: "21", name: "depths" },
   { id: 5, floor: "21", name: "necropolis" },
   { id: 6, floor: "21", name: "necropolis" },
