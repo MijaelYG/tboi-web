@@ -15,12 +15,13 @@ interface PropsImagen {
   height: string;
 }
 const sections = [
-  { id: 1, floor: "11", name: "basement" },
-  { id: 2, floor: "21", name: "cellar" },
-  { id: 3, floor: "31", name: "necropolisv2" },
-  { id: 4, floor: "21", name: "depths" },
-  { id: 5, floor: "21", name: "necropolis" },
-  { id: 6, floor: "21", name: "necropolis" },
+  { id: 1, shadow: "11", name: "basement" },
+  { id: 2, shadow: "12", name: "cellar" },
+  { id: 3, shadow: "21", name: "cavesv2" },
+  { id: 4, shadow: "22", name: "catacombs" },
+  { id: 5, shadow: "31", name: "necropolis" },
+  { id: 6, shadow: "32", name: "depths" },
+  { id: 7, shadow: "41", name: "utero" },
 ];
 
 const SectionImage = ({ height }: PropsImagen) => {
@@ -53,7 +54,7 @@ const SectionImage = ({ height }: PropsImagen) => {
             key={section.id}
             id={section.id}
             scrollYProgress={scrollYProgress}
-            floor={section.floor}
+            shadow={section.shadow}
             name={section.name}
           >
             {section.id == 1 ? (
