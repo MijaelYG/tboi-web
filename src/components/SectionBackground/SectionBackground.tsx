@@ -23,9 +23,9 @@ const SectionBackground = ({
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    if(id == 5 && shadowRef1.current !== null ){
+    if (id == 5 && shadowRef1.current !== null) {
       shadowRef1.current.style.backgroundImage = `url(/img/shadows/shadow_floor${shadow}_right.png)`;
-    }else if (shadowRef1.current !== null && shadowRef2.current !== null) {
+    } else if (shadowRef1.current !== null && shadowRef2.current !== null) {
       shadowRef1.current.style.backgroundImage = `url(/img/shadows/shadow_floor${shadow}_right.png)`;
       shadowRef2.current.style.backgroundImage = `url(/img/shadows/shadow_floor${shadow}_left.png)`;
     }
@@ -53,17 +53,19 @@ const SectionBackground = ({
     (() => {
       switch (id) {
         case 1:
-          return [0.278, 0.28, 0.698, 0.7];
+          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
         case 2:
-          return [0.278, 0.28, 0.698, 0.7];
+          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
         case 3:
-          return [0.278, 0.28, 0.698, 0.7];
+          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
         case 4:
-          return [0.278, 0.28, 0.698, 0.7];
+          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
         case 5:
-          return [0.278, 0.28, 0.698, 0.7];
+          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
         case 6:
-          return [0, 0];
+          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
+        case 7:
+          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
         default:
           return [0, 0];
       }
@@ -71,17 +73,19 @@ const SectionBackground = ({
     (() => {
       switch (id) {
         case 1:
-          return ["0%", "-100%", "-100%", "0%"];
+          return ["0%", "-100%", "-100%", "0%","0%","-76.6%"];
         case 2:
-          return ["0%", "-100%", "-100%", "0%"];
+          return ["0%", "-100%", "-100%", "0%","0%","-76.6%"];
         case 3:
-          return ["100%", "0%", "0%", "100%"];
+          return ["100%", "0%", "0%", "100%","100%","23.4%"];
         case 4:
-          return ["100%", "0%", "0%", "100%"];
+          return ["100%", "0%", "0%", "100%","100%","23.4%"];
         case 5:
-          return ["0%", "-100%", "-100%", "0%"];
+          return ["0%", "-100%", "-100%", "0%","0%","-76.6%"];
         case 6:
-          return ["0%", "100%"];
+          return ["0%", "-100%", "-100%", "0%","0%","-94%"];
+        case 7:
+          return ["76.6%", "-23.4%", "-23.4%", "94%","94%","0%"];
         default:
           return ["0%", "100%"];
       }
@@ -93,15 +97,19 @@ const SectionBackground = ({
     (() => {
       switch (id) {
         case 1:
-          return [0.138, 0.14, 0.558, 0.56];
+          return [0.0959, 0.096, 0.3849, 0.385,  0.5769,  0.577, 0.8649, 0.865];
         case 2:
-          return [0.138, 0.14, 0.558, 0.56];
+          return [0.0959, 0.096, 0.3849, 0.385,  0.5769,  0.577, 0.8649, 0.865];
         case 3:
-          return [0.138, 0.14, 0.558, 0.56];
+          return [0.0959, 0.096, 0.3849, 0.385,  0.5769,  0.577, 0.8649, 0.865];
         case 4:
-          return [0.138, 0.14, 0.558, 0.56];
+          return [0.0959, 0.096, 0.3849, 0.385,  0.5769,  0.577, 0.8649, 0.865];
         case 5:
-          return [0.138, 0.14, 0.558, 0.56];
+          return [0.0959, 0.096, 0.3849, 0.385,  0.5769,  0.577, 0.8649, 0.865];
+        case 6:
+          return [0.0959, 0.096, 0.3849, 0.385,  0.5769,  0.577, 0.8649, 0.865];
+        case 7:
+          return [0.0959, 0.096, 0.3849, 0.385,  0.5769,  0.577, 0.8649, 0.865];
         default:
           return [0, 0];
       }
@@ -109,15 +117,82 @@ const SectionBackground = ({
     (() => {
       switch (id) {
         case 1:
-          return [0, -130.5, -130.5, -213.5 - 130.5];
+          return [
+            0,
+            -130.5,
+            -130.5,
+            -213.2 - 130.5,
+            -213.2 - 130.5,
+            -213.2 - 130.5 - 130.5,
+            -213.2 - 130.5 - 130.5,
+            -213.2 - 213.2 - 130.5 - 130.5,
+          ];
         case 2:
-          return [130.5, 0, 0, -213.5];
+          return [
+            130.5,
+            0,
+            0,
+            -213.2,
+            -213.2,
+            -213.2 - 130.5,
+            -213.2 - 130.5,
+            -213.2 - 213.2 - 130.5,
+          ];
         case 3:
-          return [130.5, 0, 0, -213.5];
+          return [
+            130.5,
+            0,
+            0,
+            -213.2,
+            -213.2,
+            -213.2 - 130.5,
+            -213.2 - 130.5,
+            -213.2 - 213.2 - 130.5,
+          ];
         case 4:
-          return [213.5 + 130.5, 213.5, 213.5, 0];
+          return [
+            213.2 + 130.5,
+            213.2,
+            213.2,
+            0,
+            0,
+            -130.5,
+            -130.5,
+            -213.2  - 130.5,
+          ];
         case 5:
-          return [213.5 + 130.5, 213.5, 213.5, 0];
+          return [
+            213.2 + 130.5,
+            213.2,
+            213.2,
+            0,
+            0,
+            -130.5,
+            -130.5,
+            -213.2 - 130.5,
+          ];
+        case 6:
+          return [
+            213.2 + 130.5+130.5,
+            213.2 +130.5,
+            213.2 + 130.5,
+            130.5,
+            130.5,
+            0,
+            0,
+            -213.2,
+          ];
+        case 7:
+          return [
+            213.2 + 213.2 + 130.5 + 130.5,
+            213.2 + 213.2 + 130.5,
+            213.2 + 213.2 + 130.5,
+            213.2 + 130.5,
+            213.2 + 130.5,
+            213.2,
+            213.2,
+            0,
+          ];
         default:
           return [0, 0];
       }
@@ -153,12 +228,17 @@ const SectionBackground = ({
         className={styles.scene}
         style={{
           backgroundImage: `url(/img/rooms/${name}.png)`,
-          height: id == 3 ? "213.5vh" : "130.5vh",
+          height: id == 3 ? "213.2vh" : id == 6 ?  "241.8vh": "130.5vh",
+          width: id == 6 ? "200vw" : "100vw",
         }}
       >
         {id == 5 ? (
           <>
-            <motion.div ref={shadowRef1} className={styles.shadow} style={{width: "108%"}}></motion.div>
+            <motion.div
+              ref={shadowRef1}
+              className={styles.shadow}
+              style={{ width: "108%" }}
+            ></motion.div>
           </>
         ) : (
           <>

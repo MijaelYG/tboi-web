@@ -14,7 +14,7 @@ const Home = ({ onLoaded }: Props) => {
     <>
       <div className={styles.container_home}>
         <SectionImage
-          height="5500vh"
+          height="5200vh"
         ></SectionImage>
       </div>
     </>
