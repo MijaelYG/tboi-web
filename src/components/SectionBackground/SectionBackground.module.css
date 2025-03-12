@@ -1,5 +1,4 @@
 .container_absolute{
-    width: 100vw;
     position: absolute;
     top: 0;
     .scene{
@@ -11,7 +10,7 @@
         justify-content: center;
         background-repeat: no-repeat;
         width: 100vw;
-        background-size:cover;
+        background-size:contain;
         overflow: hidden;
         background-color: black;
         .shadow{

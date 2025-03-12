@@ -48,49 +48,6 @@ const SectionBackground = ({
   }, []);
   // const scale = useTransform(scrollYProgress, [0, 0.08], [2, 1]);
 
-  const xscroll_scene = useTransform(
-    scrollYProgress,
-    (() => {
-      switch (id) {
-        case 1:
-          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
-        case 2:
-          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
-        case 3:
-          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
-        case 4:
-          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
-        case 5:
-          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
-        case 6:
-          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
-        case 7:
-          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
-        default:
-          return [0, 0];
-      }
-    })(),
-    (() => {
-      switch (id) {
-        case 1:
-          return ["0%", "-100%", "-100%", "0%","0%","-76.6%"];
-        case 2:
-          return ["0%", "-100%", "-100%", "0%","0%","-76.6%"];
-        case 3:
-          return ["100%", "0%", "0%", "100%","100%","23.4%"];
-        case 4:
-          return ["100%", "0%", "0%", "100%","100%","23.4%"];
-        case 5:
-          return ["0%", "-100%", "-100%", "0%","0%","-76.6%"];
-        case 6:
-          return ["0%", "-100%", "-100%", "0%","0%","-94%"];
-        case 7:
-          return ["76.6%", "-23.4%", "-23.4%", "94%","94%","0%"];
-        default:
-          return ["0%", "100%"];
-      }
-    })()
-  );
 
   const yscroll_scene = useTransform(
     scrollYProgress,
@@ -207,17 +164,64 @@ const SectionBackground = ({
     yscroll_scenesmooth,
     (value) => `${value}vh`
   );
+
+  const xscroll_scene = useTransform(
+    scrollYProgress,
+    (() => {
+      switch (id) {
+        case 1:
+          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
+        case 2:
+          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
+        case 3:
+          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
+        case 4:
+          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
+        case 5:
+          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
+        case 6:
+          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
+        case 7:
+          return [0.1919, 0.192, 0.4809, 0.481,0.577,0.721];
+        default:
+          return [0, 0];
+      }
+    })(),
+    (() => {
+      switch (id) {
+        case 1:
+          return [0, -100, -100, 0,0,-76.4];
+        case 2:
+          return [0, -100, -100, 0,0,-76.4];
+        case 3:
+          return [100, 0, 0, 100,100,23.6];
+        case 4:
+          return [100, 0, 0, 100,100,23.6];
+        case 5:
+          return [0, -100, -100, 0,0,-76.4];
+        case 6:
+          return [0, -100, -100, 0, 0,-76.4];
+        case 7:
+          return [76.4, -23.6, -23.6, 76.4,76.4,0];
+        default:
+          return [0, 100];
+      }
+    })()
+  );
   const xscroll_scenesmooth = useSpring(xscroll_scene, {
     stiffness: 210,
     damping: 50,
   });
-
+  const value_x_scene = useTransform(
+    xscroll_scenesmooth,
+    (value) => `${value}vw`
+  );
   return (
     <motion.div
       ref={sectionRef}
       style={{
         y: value_y_scene,
-        x: xscroll_scenesmooth,
+        x: value_x_scene,
         willChange: "transform",
         //scale: id == 1 ? scale : 1,
         zIndex: zindex,
@@ -228,8 +232,8 @@ const SectionBackground = ({
         className={styles.scene}
         style={{
           backgroundImage: `url(/img/rooms/${name}.png)`,
-          height: id == 3 ? "213.2vh" : id == 6 ?  "241.8vh": "130.5vh",
-          width: id == 6 ? "200vw" : "100vw",
+          height: id == 3 || id ==6 ? "213.2vh" : "130.5vh",
+          width: id == 6 ? "176.4vw" : "100vw",
         }}
       >
         {id == 5 ? (
