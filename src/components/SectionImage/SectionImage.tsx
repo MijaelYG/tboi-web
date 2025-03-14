@@ -10,6 +10,7 @@ import {
 import SectionBackground from "../SectionBackground/SectionBackground";
 import SectionInfo from "../SectionInfo/SectionInfo";
 import Banner from "../Banner/Banner";
+import SectionInfoTwo from "../HomeSectionInfos/SectionInfoTwo/SectionInfoTwo";
 
 interface PropsImagen {
   height: string;
@@ -36,13 +37,18 @@ const SectionImage = ({ height }: PropsImagen) => {
   const yscrollRaw = useTransform(
     scrollYProgress,
     [
-      0,0.0959, 0.0959,0.096, 0.096,0.1919, 0.1919,0.192, 0.192,0.3849, 0.3849,0.385 ,0.385,0.4809, 0.4809,0.481, 0.481,0.5769 ,0.5769,0.577, 0.721,0.8649, 0.8649,0.865,0.865,0.962
+      0, 0.1009, 0.1009, 0.101, 0.105, 0.150, 0.2019, 0.202, 0.202, 0.3639,
+      0.3639, 0.3639, 0.3639, 0.4649, 0.4649, 0.465, 0.465, 0.5659, 0.5659,
+      0.566, 0.698, 0.8299, 0.8299, 0.83, 0.83, 0.931,
     ],
-    [-15,-15, -15,0, 0,-15, -15,0, 0,-98,-98,0, 0,-15, -15,0, 0,-15, -15,-15, -15,-98, -98,0 ,0,-15 ]
+    [
+      -15, -15, -15, 0, 0, -15, -15, 0, 0, -98, -98, 0, 0, -15, -15, 0, 0, -15,
+      -15, -15, -15, -98, -98, 0, 0, -15,
+    ]
   );
   const yscrollsmooth = useSpring(yscrollRaw, { stiffness: 200, damping: 40 });
   const value = useTransform(yscrollsmooth, (value) => `${value}vh`);
-  const scale = useTransform(scrollYProgress, [0.962, 1], [1, 0.15]);
+  const scale = useTransform(scrollYProgress, [0.931, 1], [1, 0.15]);
   return (
     <motion.section
       ref={scrollRef}
@@ -60,6 +66,8 @@ const SectionImage = ({ height }: PropsImagen) => {
           >
             {section.id == 1 ? (
               <Banner scrollYProgress={scrollYProgress}></Banner>
+            ) : section.id == 2 ? (
+              <SectionInfoTwo></SectionInfoTwo>
             ) : (
               <SectionInfo scrollYProgress={scrollYProgress}></SectionInfo>
             )}
