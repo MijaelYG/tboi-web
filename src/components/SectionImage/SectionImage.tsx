@@ -37,7 +37,7 @@ const SectionImage = ({ height }: PropsImagen) => {
   const yscrollRaw = useTransform(
     scrollYProgress,
     [
-      0, 0.1009, 0.1009, 0.101, 0.105, 0.150, 0.2019, 0.202, 0.202, 0.3639,
+      0, 0.1009, 0.1009, 0.101, 0.111, 0.192, 0.2019, 0.202, 0.202, 0.3639,
       0.3639, 0.3639, 0.3639, 0.4649, 0.4649, 0.465, 0.465, 0.5659, 0.5659,
       0.566, 0.698, 0.8299, 0.8299, 0.83, 0.83, 0.931,
     ],
@@ -67,7 +67,7 @@ const SectionImage = ({ height }: PropsImagen) => {
             {section.id == 1 ? (
               <Banner scrollYProgress={scrollYProgress}></Banner>
             ) : section.id == 2 ? (
-              <SectionInfoTwo></SectionInfoTwo>
+              <SectionInfoTwo ScrollYProgress={scrollYProgress}></SectionInfoTwo>
             ) : (
               <SectionInfo scrollYProgress={scrollYProgress}></SectionInfo>
             )}

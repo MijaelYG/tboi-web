@@ -6,40 +6,87 @@
     color: black;
     .card{
         position: absolute;
-        background-image: url(/img/UI/cards/large_cardv1.png);
+        background-image: url(/img/UI/cards/large_cardv1_1.png);
         background-size: contain;
         background-repeat: no-repeat;
         width: 400px;
         height: 500px;
         padding: 2.4rem 3.5rem 2rem 3.5rem;
+        transition: 0.25s bottom ease;
+        cursor: pointer;
         .image_h{
-            margin: auto auto 1rem auto;
+            margin: 0.4rem auto 1.5rem auto;
             width: calc(176px * 1.25);
             min-height: calc(111px * 1.25);
             height: calc(111px * 1.25);
             background-image: url(/img/others/intro_one.png);
-            background-size: auto 100%;
+            background-size: calc(176px * 2.5) auto;
             background-repeat: no-repeat;
-            animation: card_one steps(2) 0.2s infinite alternate;
-        }
-        .title{
-
+            animation: card_one steps(2) 0.25s infinite;
         }
         .desc{
             line-height: 1.8rem;
             font-size: 1rem;
+            text-align: justify;
         }
         &:nth-child(1){
-            left: 10%;
-            bottom: 31%;
+            left: 11%;
+            bottom: 40%;
+            &:hover{
+                bottom: 41%;
+                .image_h{
+                    background-image: url(/img/others/intro_one_hover.png);
+                    width: calc(154px);
+                    background-size: calc(154px * 2) auto; 
+                    animation: card_one_hover steps(2) 0.25s infinite;
+                }
+
+            }
+
         }
         &:nth-child(2){
-            left: 40%;
+            left: 37.8%;
             bottom: 31%;
+            background-image: url(/img/UI/cards/large_cardv2_1.png);
+            .image_h{
+                width: calc(158px * 0.92);
+                min-height: calc(155px * 0.92);
+                height: calc(155px * 0.92);
+                background-image: url(/img/others/intro_two.png);
+                background-size: calc(158px * 1.84) auto;
+                animation: card_two steps(2) 0.25s infinite;
+            }
+            &:hover{
+                bottom: 32%;
+                .image_h{
+                    width: calc(181px * 0.80);
+                    background-image: url(/img/others/intro_two_hover.png);
+                    background-size: calc(181px * 1.6) auto;
+                    animation: card_two_hover steps(2) 0.25s infinite;
+                }
+            }
         }
         &:nth-child(3){
-            right: 10%;
-            bottom: 31%;
+            right: 13%;
+            bottom: 20%;
+            background-image: url(/img/UI/cards/large_cardv3_1.png);
+            .image_h{
+                width: calc(190px * 1.2);
+                min-height: calc(118px * 1.2);
+                height: calc(118px * 1.2);
+                background-image: url(/img/others/intro_three.png);
+                background-size: calc(190px * 2.4) auto;
+                animation: card_three steps(2) 0.25s infinite;
+            }
+            &:hover{
+                bottom: 21%;
+                .image_h{
+                    width: calc(210px);
+                    background-image: url(/img/others/intro_three_hover.png);
+                    background-size: calc(210px * 2) auto;
+                    animation: card_three_hover steps(2) 0.25s infinite;
+                }
+            }
         }
     }
    
@@ -51,5 +98,51 @@
     }
     to{
         background-position: calc(-352px * 1.25) 0px;
+    }
+}
+
+@keyframes card_one_hover {
+    from{
+        background-position: 0px 0px;
+    }
+    to{
+        background-position: calc(-308px) 0px;
+    }
+}
+
+@keyframes card_two {
+    from{
+        background-position: 0px 0px;
+    }
+    to{
+        background-position: calc(-316px * 0.92) 0px;
+    }
+}
+
+@keyframes card_two_hover {
+    from{
+        background-position: 0px 0px;
+    }
+    to{
+        background-position: calc(-362px * 0.80) 0px;
+    }
+}
+
+
+@keyframes card_three {
+    from{
+        background-position: 0px 0px;
+    }
+    to{
+        background-position: calc(-380px * 1.2) 0px;
+    }
+}
+
+@keyframes card_three_hover {
+    from{
+        background-position: 0px 0px;
+    }
+    to{
+        background-position: calc(-420px) 0px;
     }
 }
