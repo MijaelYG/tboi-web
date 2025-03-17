@@ -13,7 +13,7 @@ import Banner from "../Banner/Banner";
 import SectionInfoTwo from "../HomeSectionInfos/SectionInfoTwo/SectionInfoTwo";
 
 interface PropsImagen {
-  height: string;
+  height: number;
 }
 const sections = [
   { id: 1, shadow: "11", name: "basement" },
@@ -53,7 +53,7 @@ const SectionImage = ({ height }: PropsImagen) => {
     <motion.section
       ref={scrollRef}
       className={styles.container_sImage}
-      style={{ height: `${height}` }}
+      style={{ height: `${height}vh` }}
     >
       <motion.div className={styles.sticky} style={{ y: value, scale: scale }}>
         {sections.map((section) => (

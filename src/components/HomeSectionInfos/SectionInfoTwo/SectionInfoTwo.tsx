@@ -39,7 +39,6 @@ const SectionInfoTwo = ({ScrollYProgress}:PropsSectionInfoTwo) => {
       </motion.div>
       <motion.div className={styles.card} style={{opacity:opacity3smooth, x:move3smooth}}>
         <div className={styles.image_h}></div>
-
         <div className={styles.desc}>
         Antes de que fuera demasiado tarde, Isaac encontró una <b>trampilla</b>  en su habitación. Sin otra opción, la abrió y se lanzó al vacío, cayendo en un oscuro sótano lleno de peligros que nunca imaginó.
         </div>
