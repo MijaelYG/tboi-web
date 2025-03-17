@@ -12,7 +12,7 @@ import SectionInfo from "../SectionInfo/SectionInfo";
 import Banner from "../Banner/Banner";
 import SectionInfoTwo from "../HomeSectionInfos/SectionInfoTwo/SectionInfoTwo";
 
-const sectionHeight = [130, 500, 650, 300, 400, 500, 500, 300, 150];
+const sectionHeight = [130, 500, 650, 300, 400, 500, 400, 300, 150];
 const heightTotal = sectionHeight.reduce((acum, number) => acum + number, 0);
 
 const sections = [
@@ -35,7 +35,6 @@ const scrollStartEnd: [number, number][] = sectionHeight.map(
     return [start, end];
   }
 );
-console.log(scrollStartEnd);
 
 const SectionImage = () => {
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -68,7 +67,7 @@ const SectionImage = () => {
       scrollStartEnd[6][1],
       scrollStartEnd[6][1] - 0.0001,
       scrollStartEnd[7][0] + 0.01,
-      scrollStartEnd[7][1] - 0.015,
+      scrollStartEnd[7][1] - 0.010,
     ],
     [
       -15, -15, 0, 0, -15, 0, 0, -98, 0, 0, -15, 0, 0, -15, -15, -15, -98, 0, 0,

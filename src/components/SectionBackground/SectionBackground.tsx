@@ -162,7 +162,7 @@ const SectionBackground = ({
       scrollArray[1][1],
       scrollArray[3][1] - 0.0001,
       scrollArray[3][1],
-      scrollArray[5][0],
+      scrollArray[5][0] + 0.010,
       scrollArray[5][1],
     ],
     (() => {
