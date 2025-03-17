@@ -6,6 +6,7 @@ interface SectionBackgroundProps {
   id: number;
   shadow: string;
   name: string;
+  scrollArray: [number, number][];
   children: React.ReactNode;
   scrollYProgress: MotionValue<number>;
 }
@@ -16,6 +17,7 @@ const SectionBackground = ({
   name,
   children,
   scrollYProgress,
+  scrollArray,
 }: SectionBackgroundProps) => {
   const [zindex, setzIndex] = useState(1);
   const shadowRef1 = useRef<HTMLDivElement | null>(null);
@@ -50,26 +52,16 @@ const SectionBackground = ({
 
   const yscroll_scene = useTransform(
     scrollYProgress,
-    (() => {
-      switch (id) {
-        case 1:
-          return [0.1009, 0.101, 0.3639, 0.3639, 0.5659, 0.566, 0.8299, 0.83];
-        case 2:
-          return [0.1009, 0.101, 0.3639, 0.3639, 0.5659, 0.566, 0.8299, 0.83];
-        case 3:
-          return [0.1009, 0.101, 0.3639, 0.3639, 0.5659, 0.566, 0.8299, 0.83];
-        case 4:
-          return [0.1009, 0.101, 0.3639, 0.3639, 0.5659, 0.566, 0.8299, 0.83];
-        case 5:
-          return [0.1009, 0.101, 0.3639, 0.3639, 0.5659, 0.566, 0.8299, 0.83];
-        case 6:
-          return [0.1009, 0.101, 0.3639, 0.3639, 0.5659, 0.566, 0.8299, 0.83];
-        case 7:
-          return [0.1009, 0.101, 0.3639, 0.3639, 0.5659, 0.566, 0.8299, 0.83];
-        default:
-          return [0, 0];
-      }
-    })(),
+    [
+      scrollArray[0][1] - 0.00005,
+      scrollArray[0][1],
+      scrollArray[2][1] - 0.0001,
+      scrollArray[2][1],
+      scrollArray[4][1] - 0.0001,
+      scrollArray[4][1],
+      scrollArray[6][1] - 0.0001,
+      scrollArray[6][1],
+    ],
     (() => {
       switch (id) {
         case 1:
@@ -165,27 +157,14 @@ const SectionBackground = ({
   );
 
   const xscroll_scene = useTransform(
-    scrollYProgress,
-    (() => {
-      switch (id) {
-        case 1:
-          return [0.2019, 0.202, 0.4649, 0.465, 0.566, 0.698];
-        case 2:
-          return [0.2019, 0.202, 0.4649, 0.465, 0.566, 0.698];
-        case 3:
-          return [0.2019, 0.202, 0.4649, 0.465, 0.566, 0.698];
-        case 4:
-          return [0.2019, 0.202, 0.4649, 0.465, 0.566, 0.698];
-        case 5:
-          return [0.2019, 0.202, 0.4649, 0.465, 0.566, 0.698];
-        case 6:
-          return [0.2019, 0.202, 0.4649, 0.465, 0.566, 0.698];
-        case 7:
-          return [0.2019, 0.202, 0.4649, 0.465, 0.566, 0.698];
-        default:
-          return [0, 0];
-      }
-    })(),
+    scrollYProgress,[
+      scrollArray[1][1] - 0.0001,
+      scrollArray[1][1],
+      scrollArray[3][1] - 0.0001,
+      scrollArray[3][1],
+      scrollArray[5][0],
+      scrollArray[5][1],
+    ],
     (() => {
       switch (id) {
         case 1:
@@ -215,7 +194,7 @@ const SectionBackground = ({
     xscroll_scenesmooth,
     (value) => `${value}vw`
   );
-  return (  
+  return (
     <motion.div
       ref={sectionRef}
       style={{

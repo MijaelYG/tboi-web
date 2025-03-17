@@ -12,9 +12,9 @@ import SectionInfo from "../SectionInfo/SectionInfo";
 import Banner from "../Banner/Banner";
 import SectionInfoTwo from "../HomeSectionInfos/SectionInfoTwo/SectionInfoTwo";
 
-interface PropsImagen {
-  height: number;
-}
+const sectionHeight = [130, 500, 650, 300, 400, 500, 500, 300, 150];
+const heightTotal = sectionHeight.reduce((acum, number) => acum + number, 0);
+
 const sections = [
   { id: 1, shadow: "11", name: "basement" },
   { id: 2, shadow: "12", name: "cellar" },
@@ -24,8 +24,20 @@ const sections = [
   { id: 6, shadow: "32", name: "depthsL" },
   { id: 7, shadow: "41", name: "utero" },
 ];
+const scrollStartEnd: [number, number][] = sectionHeight.map(
+  (height, index) => {
+    const start =
+      index == 0
+        ? 0
+        : sectionHeight.slice(0, index).reduce((sum, h) => sum + h, 0) /
+          heightTotal;
+    const end = start + height / heightTotal;
+    return [start, end];
+  }
+);
+console.log(scrollStartEnd);
 
-const SectionImage = ({ height }: PropsImagen) => {
+const SectionImage = () => {
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
   const { scrollYProgress } = useScroll({
@@ -37,23 +49,44 @@ const SectionImage = ({ height }: PropsImagen) => {
   const yscrollRaw = useTransform(
     scrollYProgress,
     [
-      0, 0.1009, 0.1009, 0.101, 0.111, 0.192, 0.2019, 0.202, 0.202, 0.3639,
-      0.3639, 0.3639, 0.3639, 0.4649, 0.4649, 0.465, 0.465, 0.5659, 0.5659,
-      0.566, 0.698, 0.8299, 0.8299, 0.83, 0.83, 0.931,
+      scrollStartEnd[0][0],
+      scrollStartEnd[0][1] - 0.00005,
+      scrollStartEnd[0][1],
+      scrollStartEnd[1][0] + 0.01,
+      scrollStartEnd[1][1] - 0.0001,
+      scrollStartEnd[1][1],
+      scrollStartEnd[2][0] + 0.01,
+      scrollStartEnd[2][1],
+      scrollStartEnd[2][1] - 0.0001,
+      scrollStartEnd[3][0] + 0.01,
+      scrollStartEnd[3][1],
+      scrollStartEnd[3][1] - 0.0001,
+      scrollStartEnd[4][0] + 0.01,
+      scrollStartEnd[4][1],
+      scrollStartEnd[4][1] - 0.0001,
+      scrollStartEnd[6][0] + 0.01,
+      scrollStartEnd[6][1],
+      scrollStartEnd[6][1] - 0.0001,
+      scrollStartEnd[7][0] + 0.01,
+      scrollStartEnd[7][1] - 0.015,
     ],
     [
-      -15, -15, -15, 0, 0, -15, -15, 0, 0, -98, -98, 0, 0, -15, -15, 0, 0, -15,
-      -15, -15, -15, -98, -98, 0, 0, -15,
+      -15, -15, 0, 0, -15, 0, 0, -98, 0, 0, -15, 0, 0, -15, -15, -15, -98, 0, 0,
+      -15,
     ]
   );
   const yscrollsmooth = useSpring(yscrollRaw, { stiffness: 200, damping: 40 });
   const value = useTransform(yscrollsmooth, (value) => `${value}vh`);
-  const scale = useTransform(scrollYProgress, [0.931, 1], [1, 0.15]);
+  const scale = useTransform(
+    scrollYProgress,
+    [scrollStartEnd[8][0], scrollStartEnd[8][1]],
+    [1, 0.15]
+  );
   return (
     <motion.section
       ref={scrollRef}
       className={styles.container_sImage}
-      style={{ height: `${height}vh` }}
+      style={{ height: `${heightTotal}vh` }}
     >
       <motion.div className={styles.sticky} style={{ y: value, scale: scale }}>
         {sections.map((section) => (
@@ -63,11 +96,14 @@ const SectionImage = ({ height }: PropsImagen) => {
             scrollYProgress={scrollYProgress}
             shadow={section.shadow}
             name={section.name}
+            scrollArray={scrollStartEnd}
           >
             {section.id == 1 ? (
               <Banner scrollYProgress={scrollYProgress}></Banner>
             ) : section.id == 2 ? (
-              <SectionInfoTwo ScrollYProgress={scrollYProgress}></SectionInfoTwo>
+              <SectionInfoTwo
+                ScrollYProgress={scrollYProgress}
+              ></SectionInfoTwo>
             ) : (
               <SectionInfo scrollYProgress={scrollYProgress}></SectionInfo>
             )}
