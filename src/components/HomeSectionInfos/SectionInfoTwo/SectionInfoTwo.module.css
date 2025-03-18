@@ -14,6 +14,8 @@
         padding: 2.4rem 3.5rem 2rem 3.5rem;
         transition: 0.25s bottom ease;
         cursor: pointer;
+        left: 11%;
+        bottom: 40%;
         .image_h{
             margin: 0.4rem auto 1.5rem auto;
             width: calc(176px * 1.25);
@@ -29,67 +31,91 @@
             font-size: 1rem;
             text-align: justify;
         }
-        &:nth-child(1){
-            left: 11%;
-            bottom: 40%;
-            &:hover{
-                bottom: 41%;
-                .image_h{
-                    background-image: url(/img/others/intro_one_hover.png);
-                    width: calc(154px);
-                    background-size: calc(154px * 2) auto; 
-                    animation: card_one_hover steps(2) 0.25s infinite;
-                }
-
+        &:hover{
+            bottom: 41%;
+            .image_h{
+                background-image: url(/img/others/intro_one_hover.png);
+                width: calc(154px);
+                background-size: calc(154px * 2) auto; 
+                animation: card_one_hover steps(2) 0.25s infinite;
             }
 
         }
-        &:nth-child(2){
-            left: 38.2%;
-            bottom: 31%;
-            background-image: url(/img/UI/cards/large_cardv2_1.png);
-            .image_h{
-                width: calc(158px * 0.92);
-                min-height: calc(155px * 0.92);
-                height: calc(155px * 0.92);
-                background-image: url(/img/others/intro_two.png);
-                background-size: calc(158px * 1.84) auto;
-                animation: card_two steps(2) 0.25s infinite;
-            }
-            &:hover{
-                bottom: 32%;
-                .image_h{
-                    width: calc(181px * 0.80);
-                    background-image: url(/img/others/intro_two_hover.png);
-                    background-size: calc(181px * 1.6) auto;
-                    animation: card_two_hover steps(2) 0.25s infinite;
-                }
-            }
+    }
+
+    .card2{
+        position: absolute;
+        background-image: url(/img/UI/cards/large_cardv2_1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 400px;
+        height: 500px;
+        padding: 2.4rem 3.5rem 2rem 3.5rem;
+        transition: 0.25s bottom ease;
+        cursor: pointer;
+        left: 38.2%;
+        bottom: 31%;
+        .image_h{
+            margin: 0.4rem auto 1.5rem auto;
+            width: calc(158px * 0.92);
+            min-height: calc(155px * 0.92);
+            height: calc(155px * 0.92);
+            background-image: url(/img/others/intro_two.png);
+            background-size: calc(158px * 1.84) auto;
+            animation: card_two steps(2) 0.25s infinite;
         }
-        &:nth-child(3){
-            right: 13%;
-            bottom: 20%;
-            background-image: url(/img/UI/cards/large_cardv3_1.png);
+        .desc{
+            line-height: 1.8rem;
+            font-size: 1rem;
+            text-align: justify;
+        }
+        &:hover{
+            bottom: 32%;
             .image_h{
-                width: calc(190px * 1.2);
-                min-height: calc(118px * 1.2);
-                height: calc(118px * 1.2);
-                background-image: url(/img/others/intro_three.png);
-                background-size: calc(190px * 2.4) auto;
-                animation: card_three steps(2) 0.25s infinite;
-            }
-            &:hover{
-                bottom: 21%;
-                .image_h{
-                    width: calc(210px);
-                    background-image: url(/img/others/intro_three_hover.png);
-                    background-size: calc(210px * 2) auto;
-                    animation: card_three_hover steps(2) 0.25s infinite;
-                }
+                width: calc(181px * 0.80);
+                background-image: url(/img/others/intro_two_hover.png);
+                background-size: calc(181px * 1.6) auto;
+                animation: card_two_hover steps(2) 0.25s infinite;
             }
         }
     }
-   
+
+    .card3{
+        position: absolute;
+        background-image: url(/img/UI/cards/large_cardv3_1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 400px;
+        height: 500px;
+        padding: 2.4rem 3.5rem 2rem 3.5rem;
+        transition: 0.25s bottom ease;
+        cursor: pointer;
+        right: 13%;
+        bottom: 20%;
+        .image_h{
+            margin: 0.4rem auto 1.5rem auto;
+            width: calc(190px * 1.2);
+            min-height: calc(118px * 1.2);
+            height: calc(118px * 1.2);
+            background-image: url(/img/others/intro_three.png);
+            background-size: calc(190px * 2.4) auto;
+            animation: card_three steps(2) 0.25s infinite;
+        }
+        .desc{
+            line-height: 1.8rem;
+            font-size: 1rem;
+            text-align: justify;
+        }
+        &:hover{
+            bottom: 21%;
+            .image_h{
+                width: calc(210px);
+                background-image: url(/img/others/intro_three_hover.png);
+                background-size: calc(210px * 2) auto;
+                animation: card_three_hover steps(2) 0.25s infinite;
+            }
+        }
+    } 
 }
 
 @keyframes card_one {

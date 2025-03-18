@@ -49,6 +49,7 @@ const SectionBackground = ({
     }
   }, []);
   const scale = useTransform(scrollYProgress, [0, 0.02], [2, 1]);
+  const scalesmooth = useSpring(scale, { stiffness: 200, damping: 30 });
 
   const yscroll_scene = useTransform(
     scrollYProgress,
@@ -157,12 +158,13 @@ const SectionBackground = ({
   );
 
   const xscroll_scene = useTransform(
-    scrollYProgress,[
+    scrollYProgress,
+    [
       scrollArray[1][1] - 0.0001,
       scrollArray[1][1],
       scrollArray[3][1] - 0.0001,
       scrollArray[3][1],
-      scrollArray[5][0] + 0.010,
+      scrollArray[5][0] + 0.01,
       scrollArray[5][1],
     ],
     (() => {
@@ -201,7 +203,7 @@ const SectionBackground = ({
         y: value_y_scene,
         x: value_x_scene,
         willChange: "transform",
-        scale: id == 1 ? scale : 1,
+        scale: id == 1 ? scalesmooth : 1,
         zIndex: zindex,
       }}
       className={styles.container_absolute}

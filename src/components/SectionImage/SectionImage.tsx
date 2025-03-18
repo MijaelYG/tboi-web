@@ -12,7 +12,7 @@ import SectionInfo from "../SectionInfo/SectionInfo";
 import Banner from "../Banner/Banner";
 import SectionInfoTwo from "../HomeSectionInfos/SectionInfoTwo/SectionInfoTwo";
 
-const sectionHeight = [130, 500, 650, 300, 400, 500, 400, 300, 150];
+const sectionHeight = [140, 500, 650, 300, 400, 500, 400, 300, 150];
 const heightTotal = sectionHeight.reduce((acum, number) => acum + number, 0);
 
 const sections = [
@@ -44,7 +44,7 @@ const SectionImage = () => {
     offset: ["start start", "end end"],
   });
 
-  useMotionValueEvent(scrollYProgress, "change", (value) => console.log(value));
+  //useMotionValueEvent(scrollYProgress, "change", (value) => console.log(value));
   const yscrollRaw = useTransform(
     scrollYProgress,
     [
@@ -67,7 +67,7 @@ const SectionImage = () => {
       scrollStartEnd[6][1],
       scrollStartEnd[6][1] - 0.0001,
       scrollStartEnd[7][0] + 0.01,
-      scrollStartEnd[7][1] - 0.010,
+      scrollStartEnd[7][1] - 0.01,
     ],
     [
       -15, -15, 0, 0, -15, 0, 0, -98, 0, 0, -15, 0, 0, -15, -15, -15, -98, 0, 0,
@@ -102,6 +102,7 @@ const SectionImage = () => {
             ) : section.id == 2 ? (
               <SectionInfoTwo
                 ScrollYProgress={scrollYProgress}
+                ScrollStartEnd={scrollStartEnd[section.id-1]}
               ></SectionInfoTwo>
             ) : (
               <SectionInfo scrollYProgress={scrollYProgress}></SectionInfo>

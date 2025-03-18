@@ -20,16 +20,16 @@ const Banner = ({ scrollYProgress }: BannerProps) => {
     setDelay(true);
   }, []);
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    setVisiblelogo2(latest > 0.02);
-    setVisiblelogo(latest <= 0.001);
+    setVisiblelogo(latest <= 0.00 );
+    setVisiblelogo2(latest >= 0.02);
   });
 
   return (
     <section className={style.section_banner}>
       <div className={style.banner}>
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {visiblelogo && (
-            <motion.div className={style.container_banner}>
+            <motion.div key="cont1" className={style.container_banner} >
               <motion.div
                 key="logo1"
                 className={style.logo}
@@ -38,7 +38,7 @@ const Banner = ({ scrollYProgress }: BannerProps) => {
                   scale: 0.75,
                   transition: { duration: 0.6, delay: delay ? 0 : 0.6 },
                 }}
-                exit={{ scale: 0.6, transition: { duration: 0.6, delay: 0 } }}
+                exit={{ scale: 0.6, transition: { duration: 0.3, delay: 0 } }}
               >
                 <motion.img
                   initial={{ opacity: 0 }}
@@ -63,7 +63,7 @@ const Banner = ({ scrollYProgress }: BannerProps) => {
             </motion.div>
           )}
           {visiblelogo2 && (
-            <motion.div className={style.container_banner}>
+            <motion.div key="cont2"className={style.container_banner}>
               <motion.div
                 key="logo2"
                 className={style.logo}
