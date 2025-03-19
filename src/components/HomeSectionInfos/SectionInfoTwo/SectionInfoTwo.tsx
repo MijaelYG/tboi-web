@@ -65,6 +65,7 @@ const SectionInfoTwo = ({
   useMotionValueEvent(opacity2smooth, "change", (value) => {
     setvisible2(value > 0);
   });
+  
   const opacity3 = useTransform(
     ScrollYProgress,
     [start + step + step, start + step + step + 0.015, end - 0.015, end],

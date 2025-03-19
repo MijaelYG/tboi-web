@@ -33,16 +33,18 @@ const SectionBackground = ({
     }
     switch (id) {
       case 1:
-        return setzIndex(10);
+        return setzIndex(11);
       case 2:
-        return setzIndex(9);
+        return setzIndex(10);
       case 3:
-        return setzIndex(8);
+        return setzIndex(9);
       case 4:
-        return setzIndex(7);
+        return setzIndex(8);
       case 5:
-        return setzIndex(6);
+        return setzIndex(7);
       case 6:
+        return setzIndex(6);
+      case 7:
         return setzIndex(5);
       default:
         break;

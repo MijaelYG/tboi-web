@@ -6,14 +6,13 @@
         image-rendering: crisp-edges;
         position: relative;
         display: flex;
-        align-items: center;
-        justify-content: center;
         background-repeat: no-repeat;
         width: 100vw;
         background-size:contain;
         overflow: hidden;
         background-color: black;
         .shadow{
+            z-index: 2;
             image-rendering: pixelated;
             position: absolute;
             top: 0px;
@@ -37,6 +36,7 @@
         }
 
         .shadowv2{
+            z-index: 2;
             image-rendering: pixelated;
             position: absolute;
             bottom: 0;

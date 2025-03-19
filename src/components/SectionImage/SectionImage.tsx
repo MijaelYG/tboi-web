@@ -1,16 +1,11 @@
 import { useRef } from "react";
 import styles from "./SectionImage.module.css";
-import {
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import SectionBackground from "../SectionBackground/SectionBackground";
 import SectionInfo from "../SectionInfo/SectionInfo";
 import Banner from "../Banner/Banner";
 import SectionInfoTwo from "../HomeSectionInfos/SectionInfoTwo/SectionInfoTwo";
+import PixelSceneTwo from "../HomePixelScene/PixelSceneTwo/PixelSceneTwo";
 
 const sectionHeight = [140, 500, 650, 300, 400, 500, 400, 300, 150];
 const heightTotal = sectionHeight.reduce((acum, number) => acum + number, 0);
@@ -100,10 +95,13 @@ const SectionImage = () => {
             {section.id == 1 ? (
               <Banner scrollYProgress={scrollYProgress}></Banner>
             ) : section.id == 2 ? (
-              <SectionInfoTwo
-                ScrollYProgress={scrollYProgress}
-                ScrollStartEnd={scrollStartEnd[section.id-1]}
-              ></SectionInfoTwo>
+              <>
+                <SectionInfoTwo
+                  ScrollYProgress={scrollYProgress}
+                  ScrollStartEnd={scrollStartEnd[section.id - 1]}
+                ></SectionInfoTwo>
+                <PixelSceneTwo ScrollYProgress={scrollYProgress} ScrollStartEnd={scrollStartEnd[section.id - 1]}></PixelSceneTwo>
+              </>
             ) : (
               <SectionInfo scrollYProgress={scrollYProgress}></SectionInfo>
             )}
