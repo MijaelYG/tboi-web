@@ -38,8 +38,6 @@ const SectionImage = () => {
     target: scrollRef,
     offset: ["start start", "end end"],
   });
-
-  //useMotionValueEvent(scrollYProgress, "change", (value) => console.log(value));
   const yscrollRaw = useTransform(
     scrollYProgress,
     [

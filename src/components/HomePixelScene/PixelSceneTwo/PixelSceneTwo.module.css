@@ -6,7 +6,7 @@
     background-size: calc(10vw * 5) auto;
     position: absolute;
     bottom: 20%;
-    right: 62%;
+    right: 65%;
     image-rendering: pixelated; 
     z-index: 1;
 }
@@ -18,8 +18,8 @@
     background-repeat: no-repeat;
     background-size: calc(10vw * 5) auto;
     position: absolute;
-    bottom: 50%;
-    right: 15%;
+    bottom: 52%;
+    right: 14%;
     image-rendering: pixelated; 
     z-index: 1;
 }
@@ -32,7 +32,21 @@
     background-size: calc(6.5vw * 10) auto;
     position: absolute;
     bottom: 45%;
-    right: 38%;
+    right: 35%;
+    image-rendering: pixelated; 
+    z-index: 1;
+    transform: scaleX(-1);
+}
+
+.pixel_monster3{
+    width: 6.5vw;
+    height: 8.5vw;
+    background-image:url(/img/others/gaper.png);
+    background-repeat: no-repeat;
+    background-size: calc(6.5vw * 10) auto;
+    position: absolute;
+    bottom: 45.5%;
+    left: 12%;
     image-rendering: pixelated; 
     z-index: 1;
 }

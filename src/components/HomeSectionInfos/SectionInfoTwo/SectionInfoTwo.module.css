@@ -63,6 +63,7 @@
             background-image: url(/img/others/intro_two.png);
             background-size: calc(158px * 1.84) auto;
             animation: card_two steps(2) 0.25s infinite;
+            background-repeat: no-repeat;
         }
         .desc{
             line-height: 1.8rem;
@@ -100,6 +101,7 @@
             background-image: url(/img/others/intro_three.png);
             background-size: calc(190px * 2.4) auto;
             animation: card_three steps(2) 0.25s infinite;
+            background-repeat: no-repeat;
         }
         .desc{
             line-height: 1.8rem;
