@@ -1,0 +1,6 @@
+.pixel{
+    background-repeat: no-repeat;
+    position: absolute;
+    image-rendering: pixelated; 
+    z-index: 1;
+}

@@ -1,6 +1,6 @@
 import styles from "./Home.module.css";
 import { useEffect } from "react";
-import SectionImage from "../../components/SectionImage/SectionImage";
+import SectionImage from "./components/SectionImage/SectionImage";
 interface Props {
   onLoaded: () => void;
 }

@@ -4,32 +4,9 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import SectionBackground from "../SectionBackground/SectionBackground";
 import SectionInfo from "../SectionInfo/SectionInfo";
 import Banner from "../Banner/Banner";
-import SectionInfoTwo from "../HomeSectionInfos/SectionInfoTwo/SectionInfoTwo";
-import PixelSceneTwo from "../HomePixelScene/PixelSceneTwo/PixelSceneTwo";
-
-const sectionHeight = [140, 500, 650, 300, 400, 500, 400, 300, 150];
-const heightTotal = sectionHeight.reduce((acum, number) => acum + number, 0);
-
-const sections = [
-  { id: 1, shadow: "11", name: "basement" },
-  { id: 2, shadow: "12", name: "cellar" },
-  { id: 3, shadow: "21", name: "cavesv2" },
-  { id: 4, shadow: "22", name: "catacombs" },
-  { id: 5, shadow: "31", name: "necropolis" },
-  { id: 6, shadow: "32", name: "depthsL" },
-  { id: 7, shadow: "41", name: "utero" },
-];
-const scrollStartEnd: [number, number][] = sectionHeight.map(
-  (height, index) => {
-    const start =
-      index == 0
-        ? 0
-        : sectionHeight.slice(0, index).reduce((sum, h) => sum + h, 0) /
-          heightTotal;
-    const end = start + height / heightTotal;
-    return [start, end];
-  }
-);
+import SectionInfoTwo from "../SectionInfos/SectionInfoTwo/SectionInfoTwo";
+import { scrollStartEnd, heightTotal, sections } from "./config";
+import PixelScene from "../PixelScene/PixelScene";
 
 const SectionImage = () => {
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -98,10 +75,27 @@ const SectionImage = () => {
                   ScrollYProgress={scrollYProgress}
                   ScrollStartEnd={scrollStartEnd[section.id - 1]}
                 ></SectionInfoTwo>
-                <PixelSceneTwo ScrollYProgress={scrollYProgress} ScrollStartEnd={scrollStartEnd[section.id - 1]}></PixelSceneTwo>
+                 {section.pixelSprite.map((pixel, index) => (
+                  <PixelScene
+                    key={index}
+                    scrollYProgress={scrollYProgress}
+                    scrollStartEnd={scrollStartEnd[section.id - 1]}
+                    pixelsprite={pixel}
+                  ></PixelScene>
+                ))}
               </>
             ) : (
-              <SectionInfo scrollYProgress={scrollYProgress}></SectionInfo>
+              <>
+                <SectionInfo scrollYProgress={scrollYProgress}></SectionInfo>
+                {section.pixelSprite.map((pixel, index) => (
+                  <PixelScene
+                    key={index}
+                    scrollYProgress={scrollYProgress}
+                    scrollStartEnd={scrollStartEnd[section.id - 1]}
+                    pixelsprite={pixel}
+                  ></PixelScene>
+                ))}
+              </>
             )}
           </SectionBackground>
         ))}
