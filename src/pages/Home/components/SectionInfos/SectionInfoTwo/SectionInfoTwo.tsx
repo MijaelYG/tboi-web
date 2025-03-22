@@ -118,7 +118,7 @@ const SectionInfoTwo = ({
         >
           <div className={styles.image_h}></div>
           <div className={styles.desc}>
-            Antes de que fuera demasiado tarde, Isaac encontró una{" "}
+            Antes de que fuera demasiado tarde, Isaac encontró una
             <b>trampilla</b> en su habitación. Sin otra opción, la abrió y se
             lanzó al vacío, cayendo en un oscuro sótano lleno de peligros que
             nunca imaginó.

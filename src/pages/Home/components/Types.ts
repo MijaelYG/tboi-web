@@ -19,20 +19,21 @@ export interface InfoCardType{
     typeCard:string;
     info_img?:string[];
     text:string;
-    card_img:string;
+    bg_img:string;
     totalCard: number;
     top?:number;
     bottom?:number;
     left?:number;
     right?:number;
-    moveX:[number,number,number,number] ;
-    moveY:[number,number,number,number] ;
+    moveX?:[number,number,number,number] ;
+    moveY?:[number,number,number,number] ;
 }
 
 export interface Section{
     id:number;
     shadow: string;
     name:string;
-    pixelSprite: PixelSprite[];
+    pixelSprite?: PixelSprite[];
+    infoCard?:InfoCardType[];
 }
 

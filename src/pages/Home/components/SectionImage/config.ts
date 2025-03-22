@@ -1,4 +1,4 @@
-import { PixelSprite, Section } from "../Types";
+import { InfoCardType, PixelSprite, Section } from "../Types";
 
 const sectionHeight = [140, 500, 650, 300, 400, 500, 400, 300, 150];
 
@@ -84,19 +84,57 @@ const pixelSprite3: PixelSprite[] = [
   },
 ];
 
+const Card2: InfoCardType[] =[
+  {id:0,
+    width:400,
+    height:500,
+    typeCard:"Hover",
+    info_img:[],
+    text:"Isaac y su madre vivían en una pequeña casa en lo alto de una colina. Él pasaba sus días jugando, mientras su madre veía programas religiosos. Todo era tranquilo, hasta que un día, ella escuchó una voz celestial",
+    bg_img:"/img/UI/cards/large_cardv1_1.png",
+    totalCard: 3,
+    bottom:40,
+    left:11,
+    moveX:[-20,0,0,20],
+  },
+  {id:1,
+    width:400,
+    height:500,
+    typeCard:"Hover",
+    info_img:[],
+    text:" La voz le dijo que su hijo estaba manchado por el pecado y que debía ser Obediente, su madre tomó un cuchillo, decidida a cumplir la voluntad divina. Isaac, aterrorizado, vio cómo su destino se sellaba.",
+    bg_img:"/img/UI/cards/large_cardv2_1.png",
+    totalCard: 3,
+    bottom:31,
+    left:38.2,
+    moveX:[-20,0,0,20],
+  },
+  {id:2,
+    width:400,
+    height:500,
+    typeCard:"Hover",
+    info_img:[],
+    text:"Antes de que fuera demasiado tarde, Isaac encontró una trampilla en su habitación. Sin otra opción, la abrió y se lanzó al vacío, cayendo en un oscuro sótano lleno de peligros que nunca imaginó.",
+    bg_img:"/img/UI/cards/large_cardv3_1.png",
+    totalCard: 3,
+    bottom:20,
+    right:13,
+    moveX:[-20,0,0,20],
+  }
+]
+
 export const sections: Section[] = [
   {
     id: 1,
     shadow: "11",
     name: "basement",
-    pixelSprite: pixelSprite2,
   },
-  { id: 2, shadow: "12", name: "cellar", pixelSprite: pixelSprite2 },
-  { id: 3, shadow: "21", name: "cavesv2", pixelSprite: pixelSprite3 },
-  { id: 4, shadow: "22", name: "catacombs", pixelSprite: pixelSprite2 },
-  { id: 5, shadow: "31", name: "necropolis", pixelSprite: pixelSprite2 },
-  { id: 6, shadow: "32", name: "depthsL", pixelSprite: pixelSprite2 },
-  { id: 7, shadow: "41", name: "utero", pixelSprite: pixelSprite2 },
+  { id: 2, shadow: "12", name: "cellar",infoCard:Card2, pixelSprite: pixelSprite2 },
+  { id: 3, shadow: "21", name: "cavesv2",infoCard:Card2, pixelSprite: pixelSprite3 },
+  { id: 4, shadow: "22", name: "catacombs",infoCard:Card2, pixelSprite: pixelSprite2 },
+  { id: 5, shadow: "31", name: "necropolis",infoCard:Card2, pixelSprite: pixelSprite2 },
+  { id: 6, shadow: "32", name: "depthsL",infoCard:Card2, pixelSprite: pixelSprite2 },
+  { id: 7, shadow: "41", name: "utero",infoCard:Card2, pixelSprite: pixelSprite2 },
 ];
 
 export const scrollStartEnd: [number, number][] = sectionHeight.map(

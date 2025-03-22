@@ -2,11 +2,11 @@ import { useRef } from "react";
 import styles from "./SectionImage.module.css";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import SectionBackground from "../SectionBackground/SectionBackground";
-import SectionInfo from "../SectionInfo/SectionInfo";
 import Banner from "../Banner/Banner";
 import SectionInfoTwo from "../SectionInfos/SectionInfoTwo/SectionInfoTwo";
 import { scrollStartEnd, heightTotal, sections } from "./config";
 import PixelScene from "../PixelScene/PixelScene";
+import InfoCard from "../InfoCard/InfoCard";
 
 const SectionImage = () => {
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -69,32 +69,26 @@ const SectionImage = () => {
           >
             {section.id == 1 ? (
               <Banner scrollYProgress={scrollYProgress}></Banner>
-            ) : section.id == 2 ? (
-              <>
-                <SectionInfoTwo
-                  ScrollYProgress={scrollYProgress}
-                  ScrollStartEnd={scrollStartEnd[section.id - 1]}
-                ></SectionInfoTwo>
-                 {section.pixelSprite.map((pixel, index) => (
-                  <PixelScene
-                    key={index}
-                    scrollYProgress={scrollYProgress}
-                    scrollStartEnd={scrollStartEnd[section.id - 1]}
-                    pixelsprite={pixel}
-                  ></PixelScene>
-                ))}
-              </>
             ) : (
               <>
-                <SectionInfo scrollYProgress={scrollYProgress}></SectionInfo>
-                {section.pixelSprite.map((pixel, index) => (
-                  <PixelScene
-                    key={index}
-                    scrollYProgress={scrollYProgress}
-                    scrollStartEnd={scrollStartEnd[section.id - 1]}
-                    pixelsprite={pixel}
-                  ></PixelScene>
-                ))}
+                {section.infoCard &&
+                  section.infoCard.map((card, index) => (
+                    <InfoCard
+                      key={index}
+                      scrollYProgress={scrollYProgress}
+                      scrollStartEnd={scrollStartEnd[section.id - 1]}
+                      card={card}
+                    ></InfoCard>
+                  ))}
+                {section.pixelSprite &&
+                  section.pixelSprite.map((pixel, index) => (
+                    <PixelScene
+                      key={index}
+                      scrollYProgress={scrollYProgress}
+                      scrollStartEnd={scrollStartEnd[section.id - 1]}
+                      pixelsprite={pixel}
+                    ></PixelScene>
+                  ))}
               </>
             )}
           </SectionBackground>
