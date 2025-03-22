@@ -1,6 +1,5 @@
 .card{
     position: absolute;
-    background-image: url(/img/UI/cards/large_cardv1_1.png);
     background-size: contain;
     background-repeat: no-repeat;
     padding: 2.4rem 3.5rem 2rem 3.5rem;
@@ -21,5 +20,14 @@
         line-height: 1.8rem;
         font-size: 1rem;
         text-align: justify;
+    }
+    &:hover{
+        .image_h{
+            background-image: url(/img/others/intro_one_hover.png);
+            width: calc(154px);
+            background-size: calc(154px * 2) auto; 
+            animation: card_one_hover steps(2) 0.25s infinite;
+        }
+
     }
 }
