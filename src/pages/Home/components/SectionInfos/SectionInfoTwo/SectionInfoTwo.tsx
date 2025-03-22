@@ -17,9 +17,9 @@ const SectionInfoTwo = ({
   ScrollYProgress,
   ScrollStartEnd,
 }: PropsSectionInfoTwo) => {
-  const [visible, setvisible] = useState(true);
-  const [visible2, setvisible2] = useState(true);
-  const [visible3, setvisible3] = useState(true);
+  const [visible, setvisible] = useState(false);
+  const [visible2, setvisible2] = useState(false);
+  const [visible3, setvisible3] = useState(false);
   const start = ScrollStartEnd[0] + 0.01;
   const end = ScrollStartEnd[1] - 0.01;
   const step = (end - start) / 3;

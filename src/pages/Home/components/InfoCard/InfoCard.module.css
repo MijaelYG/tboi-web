@@ -1,0 +1,28 @@
+.card{
+    position: absolute;
+    background-image: url(/img/UI/cards/large_cardv1_1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 400px;
+    height: 500px;
+    padding: 2.4rem 3.5rem 2rem 3.5rem;
+    transition: 0.25s bottom ease;
+    cursor: pointer;
+    left: 11%;
+    bottom: 40%;
+    .image_h{
+        margin: 0.4rem auto 1.5rem auto;
+        width: calc(176px * 1.25);
+        min-height: calc(111px * 1.25);
+        height: calc(111px * 1.25);
+        background-image: url(/img/others/intro_one.png);
+        background-size: calc(176px * 2.5) auto;
+        background-repeat: no-repeat;
+        animation: card_one steps(2) 0.25s infinite;
+    }
+    .desc{
+        line-height: 1.8rem;
+        font-size: 1rem;
+        text-align: justify;
+    }
+}
