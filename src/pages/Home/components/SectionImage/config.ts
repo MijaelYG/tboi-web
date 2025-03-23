@@ -1,4 +1,4 @@
-import { InfoCardType, PixelSprite, Section } from "../Types";
+import { InfoCardType, PixelSprite, Section, Sprite } from "../Types";
 
 const sectionHeight = [140, 500, 650, 300, 400, 500, 400, 300, 150];
 
@@ -74,7 +74,7 @@ const pixelSprite3: PixelSprite[] = [
   {
     width: 11,
     height: 7.5,
-    background_img: "public/img/monsters/one_tooth.png",
+    background_img: "/img/monsters/one_tooth.png",
     animation: [0, 18],
     top: 18,
     left: 36,
@@ -84,12 +84,27 @@ const pixelSprite3: PixelSprite[] = [
   },
 ];
 
+const sprite_Card2: Sprite[]=[
+  {
+    width: 352,
+    height: 111,
+    sprite_bg_img: "/img/others/intro_one.png",
+    sprites: 2
+  },
+  {
+    width: 352,
+    height: 111,
+    sprite_bg_img: "/img/others/intro_one_hover.png",
+    sprites: 2
+  }
+]
+
 const Card2: InfoCardType[] =[
   {id:0,
     width:400,
     height:500,
     typeCard:"Hover",
-    info_img:[],
+    info_img:sprite_Card2,
     text:"Isaac y su madre vivían en una pequeña casa en lo alto de una colina. Él pasaba sus días jugando, mientras su madre veía programas religiosos. Todo era tranquilo, hasta que un día, ella escuchó una voz celestial",
     bg_img:"/img/UI/cards/large_cardv1_1.png",
     totalCard: 3,
@@ -113,7 +128,7 @@ const Card2: InfoCardType[] =[
     width:400,
     height:500,
     typeCard:"Hover",
-    info_img:[],
+    info_img:sprite_Card2,
     text:"Antes de que fuera demasiado tarde, Isaac encontró una trampilla en su habitación. Sin otra opción, la abrió y se lanzó al vacío, cayendo en un oscuro sótano lleno de peligros que nunca imaginó.",
     bg_img:"/img/UI/cards/large_cardv3_1.png",
     totalCard: 3,

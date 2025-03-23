@@ -70,7 +70,8 @@ const InfoCard = ({
           <div className={styles.desc}>{card.text}</div>
         </motion.div>
       )}
-      {card.typeCard == "Hover" && visible && (
+      {card.typeCard == "Hover" && card.info_img?.length  && visible && (
+        
         <motion.div
           className={styles.card}
           style={{
@@ -81,7 +82,12 @@ const InfoCard = ({
             width:card.width, height:card.height,left:`${card.left}%`,right:`${card.right}%`,top:`${card.top}%`,bottom:`${card.bottom}%`
           }}
         >
-          <div className={styles.image_h}></div>
+          <div className={styles.image_h}>
+            <div className={styles.card_img1} style={{backgroundImage:`url(${card.info_img[0].sprite_bg_img})`}}>
+            </div>
+            <div className={styles.card_img2} style={{backgroundImage:`url(${card.info_img[1].sprite_bg_img})`}}>
+            </div>
+          </div>
           <div className={styles.desc}>{card.text}</div>
         </motion.div>
       )}

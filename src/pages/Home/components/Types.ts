@@ -12,12 +12,19 @@ export interface PixelSprite{
     sprites:number;
 }
 
+export interface Sprite{
+    width:number;
+    height:number;
+    sprite_bg_img:string;
+    sprites:number;
+}
+
 export interface InfoCardType{
     id:number;
     width:number;
     height:number;
     typeCard:string;
-    info_img?:string[];
+    info_img?:Sprite[];
     text:string;
     bg_img:string;
     totalCard: number;
@@ -28,6 +35,7 @@ export interface InfoCardType{
     moveX?:[number,number,number,number] ;
     moveY?:[number,number,number,number] ;
 }
+
 
 export interface Section{
     id:number;
