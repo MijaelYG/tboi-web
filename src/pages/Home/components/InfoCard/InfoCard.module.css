@@ -3,50 +3,32 @@
     background-size: contain;
     background-repeat: no-repeat;
     padding: 2.4rem 3.5rem 2rem 3.5rem;
-    transition: 0.25s bottom ease;
+    transition: bottom 0.25s ease, top 0.25s ease;
     cursor: pointer;
     z-index: 3;
     .image_h{
         position: relative;
         margin: 0.4rem auto 1.5rem auto;
         width: 80%;
-        min-height: calc(111px * 1.25);
-        height: calc(111px * 1.25);
-        background-size: calc(176px * 2.5) auto;
-        background-repeat: no-repeat;
-        animation: card_one steps(2) 0.25s infinite;
-        overflow: hidden;
-        .card_img1{
-            width: 100%;
-            height: 100%;
+        height: 145px;
+        animation: card_one 0.25s infinite;
+        .card_img{
+            will-change: transform, top, left, bottom, right;
             background-size: auto 100%;
             background-repeat: no-repeat;
             position: absolute;
+            top: 0;
+            right: 0;
+            margin: auto;
             bottom: 0;
             left: 0;
-        }
-        .card_img2{
-            width: 100%;
-            height: 100%;
-            background-size: auto 100%;
-            background-repeat: no-repeat;
-            position: absolute;
-            bottom: 0;
-            left: 0;
+            image-rendering:  pixelated;
+            transition: opacity 0.2s;
         }
     }
     .desc{
         line-height: 1.8rem;
         font-size: 1rem;
         text-align: justify;
-    }
-    &:hover{
-        .image_h{
-            background-image: url(/img/others/intro_one_hover.png);
-            width: calc(154px);
-            background-size: calc(154px * 2) auto; 
-            animation: card_one_hover steps(2) 0.25s infinite;
-        }
-
     }
 }

@@ -84,7 +84,7 @@ const pixelSprite3: PixelSprite[] = [
   },
 ];
 
-const sprite_Card2: Sprite[]=[
+const sprite1_Card2: Sprite[]=[
   {
     width: 352,
     height: 111,
@@ -92,9 +92,39 @@ const sprite_Card2: Sprite[]=[
     sprites: 2
   },
   {
-    width: 352,
-    height: 111,
+    width: 308,
+    height: 144,
     sprite_bg_img: "/img/others/intro_one_hover.png",
+    sprites: 2
+  }
+]
+
+const sprite2_Card2: Sprite[]=[
+  {
+    width: 316 * 0.90,
+    height: 155 * 0.90,
+    sprite_bg_img: "/img/others/intro_two.png",
+    sprites: 2
+  },
+  {
+    width: 362 * 0.84,
+    height: 176 * 0.84,
+    sprite_bg_img: "/img/others/intro_two_hover.png",
+    sprites: 2
+  }
+]
+
+const sprite3_Card2: Sprite[]=[
+  {
+    width: 380 ,
+    height: 118 ,
+    sprite_bg_img: "/img/others/intro_three.png",
+    sprites: 2
+  },
+  {
+    width: 420 ,
+    height: 140,
+    sprite_bg_img: "/img/others/intro_three_hover.png",
     sprites: 2
   }
 ]
@@ -104,7 +134,7 @@ const Card2: InfoCardType[] =[
     width:400,
     height:500,
     typeCard:"Hover",
-    info_img:sprite_Card2,
+    info_img:sprite1_Card2,
     text:"Isaac y su madre vivían en una pequeña casa en lo alto de una colina. Él pasaba sus días jugando, mientras su madre veía programas religiosos. Todo era tranquilo, hasta que un día, ella escuchó una voz celestial",
     bg_img:"/img/UI/cards/large_cardv1_1.png",
     totalCard: 3,
@@ -116,7 +146,7 @@ const Card2: InfoCardType[] =[
     width:400,
     height:500,
     typeCard:"Hover",
-    info_img:[],
+    info_img:sprite2_Card2,
     text:" La voz le dijo que su hijo estaba manchado por el pecado y que debía ser Obediente, su madre tomó un cuchillo, decidida a cumplir la voluntad divina. Isaac, aterrorizado, vio cómo su destino se sellaba.",
     bg_img:"/img/UI/cards/large_cardv2_1.png",
     totalCard: 3,
@@ -128,7 +158,7 @@ const Card2: InfoCardType[] =[
     width:400,
     height:500,
     typeCard:"Hover",
-    info_img:sprite_Card2,
+    info_img:sprite3_Card2,
     text:"Antes de que fuera demasiado tarde, Isaac encontró una trampilla en su habitación. Sin otra opción, la abrió y se lanzó al vacío, cayendo en un oscuro sótano lleno de peligros que nunca imaginó.",
     bg_img:"/img/UI/cards/large_cardv3_1.png",
     totalCard: 3,
