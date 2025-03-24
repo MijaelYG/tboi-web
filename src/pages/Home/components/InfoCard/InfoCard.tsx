@@ -7,7 +7,7 @@ import {
   useTransform,
 } from "framer-motion";
 import styles from "./InfoCard.module.css";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { InfoCardType } from "../Types";
 
 interface PropsInfoCard {
@@ -36,7 +36,7 @@ const InfoCard = ({ scrollYProgress, scrollStartEnd, card }: PropsInfoCard) => {
   if (card.moveX) {
     const moveX = useTransform(
       scrollYProgress,
-      [cardStart, cardStart + 0.015, cardEnd - 0.015, cardEnd],
+      [cardStart,  cardEnd],
       card.moveX
     );
     moveXsmooth = useSpring(moveX, { stiffness: 200, damping: 30 });
@@ -69,10 +69,16 @@ const InfoCard = ({ scrollYProgress, scrollStartEnd, card }: PropsInfoCard) => {
             opacity: opacitysmooth,
             x: moveXsmooth,
             y: moveYsmooth,
+            backgroundImage: `url(${card.bg_img})`,
+            width: card.width,
+            height: card.height,
+            left: `${card.left}%`,
+            right: `${card.right}%`,
+            top: `${card.top}%`,
+            bottom: `${card.bottom}%`,
           }}
         >
-          <div className={styles.image_h}></div>
-          <div className={styles.desc}>{card.text}</div>
+          <div className={styles.desc_normal}>{card.text}</div>
         </motion.div>
       )}
       {card.typeCard == "Hover" && card.info_img?.length && visible && (

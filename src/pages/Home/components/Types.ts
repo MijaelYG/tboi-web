@@ -32,8 +32,8 @@ export interface InfoCardType{
     bottom?:number;
     left?:number;
     right?:number;
-    moveX?:[number,number,number,number] ;
-    moveY?:[number,number,number,number] ;
+    moveX?:[number,number] ;
+    moveY?:[number,number] ;
 }
 
 
