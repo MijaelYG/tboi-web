@@ -3,7 +3,7 @@ import styles from "./SectionImage.module.css";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import SectionBackground from "../SectionBackground/SectionBackground";
 import Banner from "../Banner/Banner";
-import { scrollStartEnd, heightTotal, sections } from "./config";
+import { scrollStartEnd, heightTotal, sections } from "../../config/config";
 import PixelScene from "../PixelScene/PixelScene";
 import InfoCard from "../InfoCard/InfoCard";
 

@@ -1,3 +1,15 @@
+export interface ShadowSprite{
+    width:number;
+    height:number;
+    shadow_img:string;
+    top?:number;
+    left?:number;
+    right?:number;
+    bottom: number;
+    animation:[number,number];
+    sprites:number;
+}
+
 export interface PixelSprite{
     width:number;
     height:number;
@@ -10,6 +22,7 @@ export interface PixelSprite{
     x?:number;
     y?:number;
     sprites:number;
+    shadow?: ShadowSprite;
     scaleX?:number;
 }
 
@@ -36,7 +49,6 @@ export interface InfoCardType{
     moveX?:[number,number] ;
     moveY?:[number,number] ;
 }
-
 
 export interface Section{
     id:number;

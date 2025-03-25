@@ -8,7 +8,7 @@ import {
 } from "framer-motion";
 import styles from "./InfoCard.module.css";
 import { useState } from "react";
-import { InfoCardType } from "../Types";
+import { InfoCardType } from "../../../../types/Types";
 
 interface PropsInfoCard {
   scrollYProgress: MotionValue<number>;
