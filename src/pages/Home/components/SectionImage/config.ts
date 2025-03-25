@@ -34,17 +34,18 @@ const pixelSprite2: PixelSprite[] = [
     width: 6.5,
     height: 8.5,
     background_img: "/img/others/gaper.png",
-    animation: [0, 30],
+    animation: [2, 22],
     bottom: 45.5,
     left: 12,
     x: 100,
     sprites: 10,
+    scaleX:-1,
   },
   {
     width: 6.5,
     height: 8,
     background_img: "/img/others/isaac_running.png",
-    animation: [0, 12],
+    animation: [0, 20],
     bottom: 45,
     right: 35,
     x: -90,
@@ -56,7 +57,7 @@ const pixelSprite3: PixelSprite[] = [
   {
     width: 8.5,
     height: 9,
-    background_img: "/img/others/fire_place.png",
+    background_img: "/img/obstacles/fire_place.png",
     animation: [0, 25],
     top: 8.4,
     right: 15.7,
@@ -65,7 +66,7 @@ const pixelSprite3: PixelSprite[] = [
   {
     width: 8.5,
     height: 9,
-    background_img: "/img/others/fire_place.png",
+    background_img: "/img/obstacles/fire_place.png",
     animation: [3, 28],
     bottom: 11.4,
     left: 16.7,
@@ -76,136 +77,194 @@ const pixelSprite3: PixelSprite[] = [
     height: 7.5,
     background_img: "/img/monsters/one_tooth.png",
     animation: [0, 18],
-    top: 18,
-    left: 36,
+    top: 20,
+    left: 30,
     x: -40,
-    y:100,
+    y: 100,
     sprites: 3,
+  },
+  {
+    width: 11,
+    height: 7.5,
+    background_img: "/img/monsters/fat_bat.png",
+    animation: [0, 18],
+    bottom: 18,
+    left: 28,
+    x: 50,
+    y: -80,
+    sprites: 3,
+  },
+  {
+    width: 7,
+    height: 3,
+    background_img: "/img/monsters/charger.png",
+    animation: [0, 28],
+    top: 13,
+    left: 43,
+    x: 120,
+    sprites: 4,
+  },
+  {
+    width: 11,
+    height: 7.5,
+    background_img: "/img/monsters/one_tooth_angry.png",
+    animation: [2, 20],
+    top: 32,
+    right: 40,
+    x:45,
+    y: 130,
+    sprites: 3,
+  },
+  {
+    width: 4,
+    height: 5.5,
+    background_img: "/img/monsters/charger_back.png",
+    animation: [2, 20],
+    bottom: 25,
+    left: 13,
+    y: -130,
+    sprites: 4,
+  },
+  {
+    width: 7,
+    height: 8,
+    background_img: "/img/characters/eve/eve_front.png",
+    animation: [0, 20],
+    top: 40,
+    right: 25,
+    y: 200,
+    sprites: 10,
   },
 ];
 
-const sprite1_Card2: Sprite[]=[
+const sprite1_Card2: Sprite[] = [
   {
     width: 352,
     height: 111,
     sprite_bg_img: "/img/others/intro_one.png",
-    sprites: 2
+    sprites: 2,
   },
   {
     width: 308,
     height: 144,
     sprite_bg_img: "/img/others/intro_one_hover.png",
-    sprites: 2
-  }
-]
+    sprites: 2,
+  },
+];
 
-const sprite2_Card2: Sprite[]=[
+const sprite2_Card2: Sprite[] = [
   {
-    width: 316 * 0.90,
-    height: 155 * 0.90,
+    width: 316 * 0.9,
+    height: 155 * 0.9,
     sprite_bg_img: "/img/others/intro_two.png",
-    sprites: 2
+    sprites: 2,
   },
   {
     width: 362 * 0.84,
     height: 176 * 0.84,
     sprite_bg_img: "/img/others/intro_two_hover.png",
-    sprites: 2
-  }
-]
+    sprites: 2,
+  },
+];
 
-const sprite3_Card2: Sprite[]=[
+const sprite3_Card2: Sprite[] = [
   {
-    width: 380 ,
-    height: 118 ,
+    width: 380,
+    height: 118,
     sprite_bg_img: "/img/others/intro_three.png",
-    sprites: 2
+    sprites: 2,
   },
   {
-    width: 420 ,
+    width: 420,
     height: 140,
     sprite_bg_img: "/img/others/intro_three_hover.png",
-    sprites: 2
-  }
-]
+    sprites: 2,
+  },
+];
 
-const Card2: InfoCardType[] =[
-  {id:0,
-    width:400,
-    height:500,
-    typeCard:"Hover",
-    info_img:sprite1_Card2,
-    text:"Isaac y su madre vivían en una pequeña casa en lo alto de una colina. Él pasaba sus días jugando, mientras su madre veía programas religiosos. Todo era tranquilo, hasta que un día, ella escuchó una voz celestial",
-    bg_img:"/img/UI/cards/large_cardv1_1.png",
+const Card2: InfoCardType[] = [
+  {
+    id: 0,
+    width: 400,
+    height: 500,
+    typeCard: "Hover",
+    info_img: sprite1_Card2,
+    text: "Isaac y su madre vivían en una pequeña casa en lo alto de una colina. Él pasaba sus días jugando, mientras su madre veía programas religiosos. Todo era tranquilo, hasta que un día, ella escuchó una voz celestial",
+    bg_img: "/img/UI/cards/large_cardv1_1.png",
     totalCard: 3,
-    top:20,
-    left:12.5,
-    moveX:[-20,20],
+    top: 20,
+    left: 12.5,
+    moveX: [-20, 20],
   },
-  {id:1,
-    width:400,
-    height:500,
-    typeCard:"Hover",
-    info_img:sprite2_Card2,
-    text:" La voz le dijo que su hijo estaba manchado por el pecado y que debía ser Obediente, su madre tomó un cuchillo, decidida a cumplir la voluntad divina. Isaac, aterrorizado, vio cómo su destino se sellaba.",
-    bg_img:"/img/UI/cards/large_cardv2_1.png",
+  {
+    id: 1,
+    width: 400,
+    height: 500,
+    typeCard: "Hover",
+    info_img: sprite2_Card2,
+    text: " La voz le dijo que su hijo estaba manchado por el pecado y que debía ser Obediente, su madre tomó un cuchillo, decidida a cumplir la voluntad divina. Isaac, aterrorizado, vio cómo su destino se sellaba.",
+    bg_img: "/img/UI/cards/large_cardv2_1.png",
     totalCard: 3,
-    bottom:31,
-    left:39.2,
-    moveX:[-20,20],
+    bottom: 31,
+    left: 39.2,
+    moveX: [-20, 20],
   },
-  {id:2,
-    width:400,
-    height:500,
-    typeCard:"Hover",
-    info_img:sprite3_Card2,
-    text:"Antes de que fuera demasiado tarde, Isaac encontró una trampilla en su habitación. Sin otra opción, la abrió y se lanzó al vacío, cayendo en un oscuro sótano lleno de peligros que nunca imaginó.",
-    bg_img:"/img/UI/cards/large_cardv3_1.png",
+  {
+    id: 2,
+    width: 400,
+    height: 500,
+    typeCard: "Hover",
+    info_img: sprite3_Card2,
+    text: "Antes de que fuera demasiado tarde, Isaac encontró una trampilla en su habitación. Sin otra opción, la abrió y se lanzó al vacío, cayendo en un oscuro sótano lleno de peligros que nunca imaginó.",
+    bg_img: "/img/UI/cards/large_cardv3_1.png",
     totalCard: 3,
-    bottom:20,
-    right:13,
-    moveX:[-20,20],
-  }
-]
+    bottom: 20,
+    right: 13,
+    moveX: [-20, 20],
+  },
+];
 
-const Card3: InfoCardType[] =[
-  {id:0,
-    width:400,
-    height:500,
-    typeCard:"Hover",
-    info_img:sprite1_Card2,
-    text:"Criaturas retorcidas acechan en la oscuridad, esperando a devorar a cualquiera que se atreva a entrar. No subestimes a ningún enemigo… incluso el más débil puede acabar contigo si bajas la guardia. ¿Estás listo para enfrentar el terror?",
-    bg_img:"/img/UI/cards/large_cardv1_1.png",
+const Card3: InfoCardType[] = [
+  {
+    id: 0,
+    width: 470 ,
+    height: 180,
+    typeCard: "Normal",
+    info_img: sprite1_Card2,
+    text: "Las sombras esconden horribles monstruos. Cada criatura tiene su propio instinto asesino y no dudarán en cazarte. ¿Estás listo para enfrentarlos?",
+    bg_img: "/img/UI/cards/mini_large_cardv2.png",
     totalCard: 3,
-    top:20,
-    left:12.5,
-    moveX:[-20,20],
+    top: 24,
+    right: 15,
+    moveX: [20, -20],
   },
-  {id:1,
-    width:400,
-    height:500,
-    typeCard:"Hover",
-    info_img:sprite2_Card2,
-    text:" La voz le dijo que su hijo estaba manchado por el pecado y que debía ser Obediente, su madre tomó un cuchillo, decidida a cumplir la voluntad divina. Isaac, aterrorizado, vio cómo su destino se sellaba.",
-    bg_img:"/img/UI/cards/large_cardv2_1.png",
+  {
+    id: 1,
+    width: 400,
+    height: 500,
+    typeCard: "Normal",
+    info_img: sprite2_Card2,
+    text: "Cada enemigo es único: algunos son rápidos, otros resistentes, y unos pocos… impredecibles. Aprende sus patrones, usa el entorno a tu favor y descubre sus debilidades antes de que sea demasiado tarde.",
+    bg_img: "/img/UI/cards/large_cardv2_1.png",
     totalCard: 3,
-    bottom:31,
-    left:39.2,
-    moveX:[-20,20],
+    bottom: 39,
+    left: 14,
+    moveX: [-20, 20],
   },
-  {id:2,
-    width:470,
-    height:180,
-    typeCard:"Normal",
-    info_img:sprite3_Card2,
-    text:"Cada paso cuenta, cada decisión puede salvarte o condenarte. Esquiva, ataca y adapta tu estrategia con rapidez... solo así podrás salir con vida.",
-    bg_img:"/img/UI/cards/mini_large_cardv1.png",
+  {
+    id: 2,
+    width: 470,
+    height: 180,
+    typeCard: "Normal",
+    info_img: sprite3_Card2,
+    text: "Cada paso cuenta, cada decisión puede salvarte o condenarte. Esquiva, ataca y adapta tu estrategia con rapidez... solo así podrás salir con vida.",
+    bg_img: "/img/UI/cards/mini_large_cardv1.png",
     totalCard: 3,
-    bottom:24,
-    right:14,
-    moveX:[20,-20],
-  }
-]
+    bottom: 26,
+    right: 17,
+    moveX: [20, -20],
+  },
+];
 
 export const sections: Section[] = [
   {
@@ -213,12 +272,48 @@ export const sections: Section[] = [
     shadow: "11",
     name: "basement",
   },
-  { id: 2, shadow: "12", name: "cellar",infoCard:Card2, pixelSprite: pixelSprite2 },
-  { id: 3, shadow: "21", name: "cavesv2",infoCard:Card3, pixelSprite: pixelSprite3 },
-  { id: 4, shadow: "22", name: "catacombs",infoCard:Card2, pixelSprite: pixelSprite2 },
-  { id: 5, shadow: "31", name: "necropolis",infoCard:Card2, pixelSprite: pixelSprite2 },
-  { id: 6, shadow: "32", name: "depthsL",infoCard:Card2, pixelSprite: pixelSprite2 },
-  { id: 7, shadow: "41", name: "utero",infoCard:Card2, pixelSprite: pixelSprite2 },
+  {
+    id: 2,
+    shadow: "12",
+    name: "cellar",
+    infoCard: Card2,
+    pixelSprite: pixelSprite2,
+  },
+  {
+    id: 3,
+    shadow: "21",
+    name: "cavesv2",
+    infoCard: Card3,
+    pixelSprite: pixelSprite3,
+  },
+  {
+    id: 4,
+    shadow: "22",
+    name: "catacombs",
+    infoCard: Card2,
+    pixelSprite: pixelSprite2,
+  },
+  {
+    id: 5,
+    shadow: "31",
+    name: "necropolis",
+    infoCard: Card2,
+    pixelSprite: pixelSprite2,
+  },
+  {
+    id: 6,
+    shadow: "32",
+    name: "depthsL",
+    infoCard: Card2,
+    pixelSprite: pixelSprite2,
+  },
+  {
+    id: 7,
+    shadow: "41",
+    name: "utero",
+    infoCard: Card2,
+    pixelSprite: pixelSprite2,
+  },
 ];
 
 export const scrollStartEnd: [number, number][] = sectionHeight.map(
@@ -232,4 +327,3 @@ export const scrollStartEnd: [number, number][] = sectionHeight.map(
     return [start, end];
   }
 );
-

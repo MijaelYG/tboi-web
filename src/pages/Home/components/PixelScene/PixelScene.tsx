@@ -31,7 +31,7 @@ const PixelScene = ({scrollYProgress,scrollStartEnd,pixelsprite}:PropsPixelScene
    
 
   return (
-    <motion.div className={style.pixel} style={{backgroundPositionX:animationvalue,backgroundSize:`calc(${pixelsprite.width}vw * ${pixelsprite.sprites}) auto`, x:valuex1, y:valuey1, width:`${pixelsprite.width}vw`, height:`${pixelsprite.height}vw`, backgroundImage: `url(${pixelsprite.background_img})` , top:`${pixelsprite.top}%`, bottom:`${pixelsprite.bottom}%`, left:`${pixelsprite.left}%`, right:`${pixelsprite.right}%`}}>
+    <motion.div className={style.pixel} style={{backgroundPositionX:animationvalue,backgroundSize:`calc(${pixelsprite.width}vw * ${pixelsprite.sprites}) auto`, x:valuex1, y:valuey1, width:`${pixelsprite.width}vw`, height:`${pixelsprite.height}vw`, backgroundImage: `url(${pixelsprite.background_img})` , top:`${pixelsprite.top}%`, bottom:`${pixelsprite.bottom}%`, left:`${pixelsprite.left}%`, right:`${pixelsprite.right}%`, scaleX: pixelsprite.scaleX}}>
     </motion.div>
   )
 }

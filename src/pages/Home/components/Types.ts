@@ -10,6 +10,7 @@ export interface PixelSprite{
     x?:number;
     y?:number;
     sprites:number;
+    scaleX?:number;
 }
 
 export interface Sprite{
