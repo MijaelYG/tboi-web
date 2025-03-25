@@ -31,8 +31,11 @@ const PixelScene = ({
         Math.floor(value) % pixelsprite.sprites
       })`
   );
-  if(pixelsprite.shadow){
-    const animationsmooth = useSpring(animation, { stiffness: 200, damping: 40 });
+  if (pixelsprite.shadow) {
+    const animationsmooth = useSpring(animation, {
+      stiffness: 200,
+      damping: 40,
+    });
     animationshadow = useTransform(
       animationsmooth,
       (value) =>
@@ -56,13 +59,19 @@ const PixelScene = ({
 
   return (
     <>
-      <motion.div className={style.prueba}
-      style={{top: `${pixelsprite.top}%`,
-      bottom: `${pixelsprite.bottom}%`,
-      left: `${pixelsprite.left}%`,
-      right: `${pixelsprite.right}%`,width: `${pixelsprite.width}vw`,
-      height: `${pixelsprite.height}vw`, x: valuex1,
-      y: valuey1,}}>
+      <motion.div
+        className={style.cont_pixel}
+        style={{
+          top: `${pixelsprite.top}%`,
+          bottom: `${pixelsprite.bottom}%`,
+          left: `${pixelsprite.left}%`,
+          right: `${pixelsprite.right}%`,
+          width: `${pixelsprite.width}vw`,
+          height: `${pixelsprite.height}vw`,
+          x: valuex1,
+          y: valuey1,
+        }}
+      >
         <motion.div
           className={style.pixel}
           style={{
@@ -84,7 +93,7 @@ const PixelScene = ({
               width: `${pixelsprite.shadow.width}vw`,
               height: `${pixelsprite.shadow.height}vw`,
               bottom: `${pixelsprite.shadow.bottom}%`,
-              left:`${pixelsprite.shadow.left}%`
+              left: `${pixelsprite.shadow.left}%`,
             }}
           ></motion.div>
         )}
