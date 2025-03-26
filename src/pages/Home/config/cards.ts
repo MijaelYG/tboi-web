@@ -87,13 +87,43 @@ export const Card2: InfoCardType[] = [
   },
 ];
 
+const sprite2_Card3: Sprite[] = [
+  {
+    width: 30*2.50,
+    height: 31*2.50,
+    sprite_bg_img: "/img/monsters/vis.png",
+    sprites: 8,
+    name:"Vis"
+  },
+  {
+    width: 21*2.50,
+    height: 23*2.50,
+    sprite_bg_img: "public/img/monsters/sucker.png",
+    sprites: 2,
+    name:"Sucker"
+  },
+  {
+    width: (148 /4) *2.50,
+    height: 17*2.50,
+    sprite_bg_img: "/img/monsters/spitty.png",
+    sprites: 4,
+    name:"Spitty"
+  },
+  {
+    width: (150 /3) *2.50,
+    height: 33*2.50,
+    sprite_bg_img: "/img/monsters/one_tooth.png",
+    sprites: 3,
+    name:"One Tooth"
+  },
+];
+
 export const Card3: InfoCardType[] = [
   {
     id: 0,
     width: 470,
     height: 180,
     typeCard: "Normal",
-    info_img: sprite1_Card2,
     text: "Las sombras esconden horribles monstruos. Cada criatura tiene su propio instinto asesino y no dudarán en cazarte. ¿Estás listo para enfrentarlos?",
     bg_img: "/img/UI/cards/mini_large_cardv2.png",
     totalCard: 3,
@@ -105,10 +135,10 @@ export const Card3: InfoCardType[] = [
     id: 1,
     width: 400,
     height: 500,
-    typeCard: "Normal",
-    info_img: sprite2_Card2,
+    typeCard: "Carusel",
+    info_img: sprite2_Card3,
     text: "Cada enemigo es único: algunos son rápidos, otros resistentes, y unos pocos… impredecibles. Aprende sus patrones, usa el entorno a tu favor y descubre sus debilidades antes de que sea demasiado tarde.",
-    bg_img: "/img/UI/cards/large_cardv2_1.png",
+    bg_img: "/img/UI/cards/large_cardv4.png",
     totalCard: 3,
     bottom: 39,
     left: 14,
@@ -119,7 +149,6 @@ export const Card3: InfoCardType[] = [
     width: 470,
     height: 180,
     typeCard: "Normal",
-    info_img: sprite3_Card2,
     text: "Cada paso cuenta, cada decisión puede salvarte o condenarte. Esquiva, ataca y adapta tu estrategia con rapidez... solo así podrás salir con vida.",
     bg_img: "/img/UI/cards/mini_large_cardv1.png",
     totalCard: 3,

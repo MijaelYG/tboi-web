@@ -65,7 +65,7 @@ export const pixelSprite2: PixelSprite[] = [
   {
     width: 6.5,
     height: 8,
-    background_img: "/img/others/gaper.png",
+    background_img: "/img/monsters/gaper.png",
     animation: [2, 22],
     bottom: 45.5,
     left: 12,
@@ -80,7 +80,7 @@ export const pixelSprite2: PixelSprite[] = [
     background_img: "/img/others/isaac_running.png",
     animation: [0, 20],
     bottom: 45,
-    right: 35,
+    right: 40,
     x: -90,
     sprites: 10,
     shadow:shadow_character,
@@ -137,7 +137,7 @@ export const pixelSprite3: PixelSprite[] = [
     animation: [0, 28],
     top: 13,
     left: 43,
-    x: 120,
+    x: 130,
     sprites: 4,
     shadow:shadow_character
   },
@@ -160,7 +160,18 @@ export const pixelSprite3: PixelSprite[] = [
     animation: [2, 26],
     bottom: 25,
     left: 13,
-    y: -130,
+    y: -160,
+    sprites: 4,
+    shadow:shadow_charger_back
+  },
+  {
+    width: 4,
+    height: 5.5,
+    background_img: "/img/monsters/charger_front.png",
+    animation: [2, 26],
+    bottom: 50,
+    right: 13,
+    y: 250,
     sprites: 4,
     shadow:shadow_charger_back
   },
@@ -169,9 +180,9 @@ export const pixelSprite3: PixelSprite[] = [
     height: 8.6,
     background_img: "/img/characters/eve/eve_front.png",
     animation: [0, 20],
-    top: 39,
+    top: 38,
     right: 25,
-    y: 200,
+    y: 180,
     sprites: 10,
     shadow:shadow_character
   },

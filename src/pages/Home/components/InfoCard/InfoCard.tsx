@@ -19,6 +19,9 @@ interface PropsInfoCard {
 const InfoCard = ({ scrollYProgress, scrollStartEnd, card }: PropsInfoCard) => {
   const [visible, setVisible] = useState(false);
   const [mouseHover, setMouseHover] = useState(false);
+  const [position, setPosition] = useState(0);
+  const [caruselcont, setCaruselcont] = useState(1);
+
   const start = scrollStartEnd[0] + 0.01;
   const end = scrollStartEnd[1] - 0.01;
   const cardStep = (end - start) / card.totalCard;
@@ -36,7 +39,7 @@ const InfoCard = ({ scrollYProgress, scrollStartEnd, card }: PropsInfoCard) => {
   if (card.moveX) {
     const moveX = useTransform(
       scrollYProgress,
-      [cardStart,  cardEnd],
+      [cardStart, cardEnd],
       card.moveX
     );
     moveXsmooth = useSpring(moveX, { stiffness: 200, damping: 30 });
@@ -60,6 +63,22 @@ const InfoCard = ({ scrollYProgress, scrollStartEnd, card }: PropsInfoCard) => {
   const handleMouseLeave = () => {
     setMouseHover(false);
   };
+  let handleLeftBtn
+  let handleRighttBtn
+  if (card.typeCard == "Carusel") {
+     handleLeftBtn = () => {
+      if (caruselcont > 1) {
+        setCaruselcont((value) => value - 1);
+        setPosition((value) => value + 125);
+      }
+    };
+     handleRighttBtn = () => {
+      if (caruselcont < card.info_img!.length) {
+        setCaruselcont((value) => value + 1);
+        setPosition((value) => value - 125);
+      }
+    };
+  }
   return (
     <>
       {card.typeCard == "Normal" && visible && (
@@ -111,9 +130,8 @@ const InfoCard = ({ scrollYProgress, scrollStartEnd, card }: PropsInfoCard) => {
                 backgroundImage: `url(${card.info_img[0].sprite_bg_img})`,
                 width: card.info_img[0].width / 2,
                 height: card.info_img[0].height,
-                animationTimingFunction: `${card.info_img[0].sprites}`,
                 opacity: mouseHover ? 0 : 1,
-                transitionDelay: mouseHover ? "0s" : "0.05s"
+                transitionDelay: mouseHover ? "0s" : "0.05s",
               }}
               animate={{
                 backgroundPositionX: [0, -card.info_img[0].width],
@@ -132,7 +150,7 @@ const InfoCard = ({ scrollYProgress, scrollStartEnd, card }: PropsInfoCard) => {
                 height: card.info_img[1].height,
                 animationTimingFunction: `${card.info_img[1].sprites}`,
                 opacity: mouseHover ? 1 : 0,
-                transitionDelay: mouseHover ? "0.05s" : "0s"
+                transitionDelay: mouseHover ? "0.05s" : "0s",
               }}
               animate={{
                 backgroundPositionX: [0, -card.info_img[1].width],
@@ -145,6 +163,55 @@ const InfoCard = ({ scrollYProgress, scrollStartEnd, card }: PropsInfoCard) => {
             ></motion.div>
           </div>
           <div className={styles.desc}>{card.text}</div>
+        </motion.div>
+      )}
+      {card.typeCard == "Carusel" && card.info_img && visible && (
+        <motion.div
+          className={styles.card}
+          style={{
+            opacity: opacitysmooth,
+            x: moveXsmooth,
+            y: moveYsmooth,
+            backgroundImage: `url(${card.bg_img})`,
+            width: card.width,
+            height: card.height,
+            left: `${card.left}%`,
+            right: `${card.right}%`,
+            top: `${card.top}%`,
+            bottom: `${card.bottom}%`,
+          }}
+        >
+          <div className={styles.cont_monsters}>
+            <div className={styles.left_btn} onClick={handleLeftBtn}></div>
+            <div className={styles.right_btn} onClick={handleRighttBtn}></div>
+            <div className={styles.monsters}>
+              <div className={styles.monster_ca} style={{ left: position}}>
+                {card.info_img.map((info, index) => (
+                  <div className={styles.monster_id}>
+                    <motion.div
+                      className={styles.monster}
+                      key={index}
+                      style={{
+                        backgroundImage: `url(${info.sprite_bg_img})`,
+                        width: `${info.width}px`,
+                        height: `${info.height}px`,
+                      }}
+                      animate={{
+                        backgroundPositionX: [0, -info.width * info.sprites],
+                      }}
+                      transition={{
+                        duration: info.sprites *0.09,
+                        repeat: Infinity,
+                        ease: steps(info.sprites),
+                      }}
+                    ></motion.div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className={styles.title}>{card.info_img[caruselcont -1].name}</div>
+          <div className={styles.desc_normal}>{card.text}</div>
         </motion.div>
       )}
     </>

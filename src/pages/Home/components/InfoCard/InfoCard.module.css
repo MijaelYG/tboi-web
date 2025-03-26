@@ -1,38 +1,117 @@
-.card{
-    position: absolute;
-    background-size: contain;
-    background-repeat: no-repeat;
-    padding: 1.5rem 3.3rem ;
-    transition: bottom 0.25s ease, top 0.25s ease;
-    cursor: pointer;
-    z-index: 3;
-    .image_h{
-        position: relative;
-        margin: 0.4rem auto 1.5rem auto;
-        width: 80%;
-        height: 145px;
-        animation: card_one 0.25s infinite;
-        .card_img{
-            will-change: transform, top, left, bottom, right;
+.card {
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 1.5rem 3.3rem;
+  transition: bottom 0.25s ease, top 0.25s ease;
+  cursor: pointer;
+  z-index: 3;
+  will-change: transform;
+  .image_h {
+    position: relative;
+    margin: 0.4rem auto 1.5rem auto;
+    width: 80%;
+    height: 145px;
+    animation: card_one 0.25s infinite;
+    .card_img {
+      will-change: transform, top, left, bottom, right;
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: auto;
+      bottom: 0;
+      left: 0;
+      image-rendering: pixelated;
+      transition: opacity 0.2s;
+    }
+  }
+  .cont_monsters {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+    .monsters {
+      position: relative;
+      width: 125px;
+      max-width: 125px;
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      .monster_ca {
+        position: absolute;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s;
+        left: 0;
+        .monster_id {
+          width: 125px;
+          max-width: 125px;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .monster {
             background-size: auto 100%;
             background-repeat: no-repeat;
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: auto;
-            bottom: 0;
-            left: 0;
-            image-rendering:  pixelated;
-            transition: opacity 0.2s;
+          }
         }
+      }
     }
-    .desc{
-        line-height: 1.85rem;
-        font-size: 1rem;
-        text-align: justify;
+    .left_btn {
+      background-image: url("/img/UI/card_arrow_left.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      image-rendering: pixelated;
+      position: absolute;
+      left: 5%;
+      width: 2.3rem;
+      height: 2.3rem;
+      transition: 0.15s;
+      &:hover {
+        transform: scale(1.2);
+      }
     }
-    .desc_normal{
-        line-height: 1.85rem;
-        font-size: 1rem;
+    .right_btn {
+      background-image: url("/img/UI/card_arrow_left.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      image-rendering: pixelated;
+      position: absolute;
+      transform: scaleX(-1) rotate(-5deg);
+      width: 2.3rem;
+      height: 2.3rem;
+      right: 5%;
+      transition: 0.15s;
+      &:hover {
+        transform: scaleX(-1) rotate(-5deg) scale(1.2);
+      }
     }
+  }
+  .title {
+    font-family: "pixel_i";
+    color: var(--text-card);
+    font-size: 2.6rem;
+    text-align: center;
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+  .desc {
+    line-height: 1.85rem;
+    font-size: 1rem;
+    text-align: justify;
+  }
+  .desc_normal {
+    line-height: 1.85rem;
+    font-size: 1rem;
+  }
 }

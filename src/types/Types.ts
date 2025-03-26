@@ -31,6 +31,7 @@ export interface Sprite{
     height:number;
     sprite_bg_img:string;
     sprites:number;
+    name?: string;
 }
 
 export interface InfoCardType{
