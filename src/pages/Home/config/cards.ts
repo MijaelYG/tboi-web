@@ -116,6 +116,13 @@ const sprite2_Card3: Sprite[] = [
     sprites: 3,
     name:"One Tooth"
   },
+  {
+    width: (384 /8) *2.50,
+    height: 36*2.50,
+    sprite_bg_img: "/img/monsters/clotty.png",
+    sprites: 8,
+    name:"Clotty"
+  },
 ];
 
 export const Card3: InfoCardType[] = [
@@ -137,7 +144,7 @@ export const Card3: InfoCardType[] = [
     height: 500,
     typeCard: "Carusel",
     info_img: sprite2_Card3,
-    text: "Cada enemigo es único: algunos son rápidos, otros resistentes, y unos pocos… impredecibles. Aprende sus patrones, usa el entorno a tu favor y descubre sus debilidades antes de que sea demasiado tarde.",
+    text: "¡Explora un mundo repleto de monstruos únicos! Cada criatura tiene su propio comportamiento, fortalezas y debilidades. Domina sus patrones y prepárate para cada enfrentamiento",
     bg_img: "/img/UI/cards/large_cardv4.png",
     totalCard: 3,
     bottom: 39,

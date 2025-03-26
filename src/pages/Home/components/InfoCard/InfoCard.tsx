@@ -194,13 +194,17 @@ const InfoCard = ({ scrollYProgress, scrollStartEnd, card }: PropsInfoCard) => {
                       style={{
                         backgroundImage: `url(${info.sprite_bg_img})`,
                         width: `${info.width}px`,
-                        height: `${info.height}px`,
+                        height: `${info.height}px`, 
                       }}
                       animate={{
+                        opacity: caruselcont - 1 === index ? 1 : 0,
+                        scale: caruselcont - 1 === index ? 1 : 0.5,
                         backgroundPositionX: [0, -info.width * info.sprites],
                       }}
                       transition={{
-                        duration: info.sprites *0.09,
+                        opacity: { duration: 0.2, ease: "easeInOut" },
+                        scale: { duration: 0.2, ease: "easeInOut" }, 
+                        duration: info.sprites *0.08,
                         repeat: Infinity,
                         ease: steps(info.sprites),
                       }}
@@ -211,7 +215,7 @@ const InfoCard = ({ scrollYProgress, scrollStartEnd, card }: PropsInfoCard) => {
             </div>
           </div>
           <div className={styles.title}>{card.info_img[caruselcont -1].name}</div>
-          <div className={styles.desc_normal}>{card.text}</div>
+          <div className={styles.desc}>{card.text}</div>
         </motion.div>
       )}
     </>

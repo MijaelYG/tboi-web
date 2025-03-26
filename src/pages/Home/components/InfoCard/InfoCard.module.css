@@ -100,10 +100,10 @@
   .title {
     font-family: "pixel_i";
     color: var(--text-card);
-    font-size: 2.6rem;
+    font-size: 2.8rem;
     text-align: center;
-    margin-top: 0.8rem;
-    margin-bottom: 0.8rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
   }
   .desc {
     line-height: 1.85rem;
