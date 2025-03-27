@@ -98,7 +98,7 @@ const sprite2_Card3: Sprite[] = [
   {
     width: 21*2.50,
     height: 23*2.50,
-    sprite_bg_img: "public/img/monsters/sucker.png",
+    sprite_bg_img: "/img/monsters/sucker.png",
     sprites: 2,
     name:"Sucker"
   },
