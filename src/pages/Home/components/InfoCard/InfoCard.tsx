@@ -48,7 +48,7 @@ const InfoCard = ({ scrollYProgress, scrollStartEnd, card }: PropsInfoCard) => {
   if (card.moveY) {
     const moveY = useTransform(
       scrollYProgress,
-      [cardStart, cardStart + 0.015, cardEnd - 0.015, cardEnd],
+      [cardStart, cardEnd],
       card.moveY
     );
     moveYsmooth = useSpring(moveY, { stiffness: 200, damping: 30 });
@@ -83,6 +83,7 @@ const InfoCard = ({ scrollYProgress, scrollStartEnd, card }: PropsInfoCard) => {
     <>
       {card.typeCard == "Normal" && visible && (
         <motion.div
+        key={card.id}
           className={styles.card}
           style={{
             opacity: opacitysmooth,
@@ -102,6 +103,7 @@ const InfoCard = ({ scrollYProgress, scrollStartEnd, card }: PropsInfoCard) => {
       )}
       {card.typeCard == "Hover" && card.info_img?.length && visible && (
         <motion.div
+        key={card.id}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           className={styles.card}
@@ -167,6 +169,7 @@ const InfoCard = ({ scrollYProgress, scrollStartEnd, card }: PropsInfoCard) => {
       )}
       {card.typeCard == "Carusel" && card.info_img && visible && (
         <motion.div
+        key={card.id}
           className={styles.card}
           style={{
             opacity: opacitysmooth,
@@ -187,7 +190,7 @@ const InfoCard = ({ scrollYProgress, scrollStartEnd, card }: PropsInfoCard) => {
             <div className={styles.monsters}>
               <div className={styles.monster_ca} style={{ left: position}}>
                 {card.info_img.map((info, index) => (
-                  <div className={styles.monster_id}>
+                  <div key={index} className={styles.monster_id}>
                     <motion.div
                       className={styles.monster}
                       key={index}

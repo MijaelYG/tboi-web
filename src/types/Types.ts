@@ -40,7 +40,7 @@ export interface InfoCardType{
     height:number;
     typeCard:string;
     info_img?:Sprite[];
-    text:string;
+    text?:string;
     bg_img:string;
     totalCard: number;
     top?:number;
@@ -59,3 +59,11 @@ export interface Section{
     infoCard?:InfoCardType[];
 }
 
+
+export interface characters{
+    id:number;
+    name?: string;
+    name_img?:string;
+    characterCard_img?:string;
+    characterPixel_img?:string;
+}

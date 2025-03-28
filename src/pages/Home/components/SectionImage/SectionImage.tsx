@@ -6,6 +6,7 @@ import Banner from "../Banner/Banner";
 import { scrollStartEnd, heightTotal, sections } from "../../config/config";
 import PixelScene from "../PixelScene/PixelScene";
 import InfoCard from "../InfoCard/InfoCard";
+import CarouselCharacters from "../CarouselCharacters/CarouselCharacters";
 
 const SectionImage = () => {
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -24,14 +25,14 @@ const SectionImage = () => {
       scrollStartEnd[1][1] - 0.0001,
       scrollStartEnd[1][1],
       scrollStartEnd[2][0] + 0.01,
-      scrollStartEnd[2][1]- 0.0001,
+      scrollStartEnd[2][1] - 0.0001,
       scrollStartEnd[2][1],
       scrollStartEnd[3][0] + 0.01,
       scrollStartEnd[3][1] - 0.0001,
       scrollStartEnd[3][1],
       scrollStartEnd[4][0] + 0.01,
-      scrollStartEnd[4][1]- 0.0001,
-      scrollStartEnd[4][1] ,
+      scrollStartEnd[4][1] - 0.0001,
+      scrollStartEnd[4][1],
       scrollStartEnd[6][0] + 0.01,
       scrollStartEnd[6][1] - 0.0001,
       scrollStartEnd[6][1],
@@ -39,7 +40,8 @@ const SectionImage = () => {
       scrollStartEnd[7][1] - 0.01,
     ],
     [
-      -15, -15, 0, 0, -15, 0, 0, -98, 0, 0, -15, 0, 0, -15, -15, -15, -98, 0, 0, -15,
+      -15, -15, 0, 0, -15, 0, 0, -98, 0, 0, -15, 0, 0, -15, -15, -15, -98, 0, 0,
+      -15,
     ]
   );
   const yscrollsmooth = useSpring(yscrollRaw, { stiffness: 200, damping: 40 });
@@ -67,12 +69,18 @@ const SectionImage = () => {
           >
             {section.id == 1 ? (
               <Banner scrollYProgress={scrollYProgress}></Banner>
+            ) : section.id == 4 ? (
+              <CarouselCharacters
+                scrollYProgress={scrollYProgress}
+                scrollStartEnd={scrollStartEnd[section.id - 1]}
+                card={section.infoCard?.[0] ?? undefined}
+              ></CarouselCharacters>
             ) : (
               <>
                 {section.infoCard &&
-                  section.infoCard.map((card, index) => (
+                  section.infoCard.map((card) => (
                     <InfoCard
-                      key={index}
+                      key={card.id}
                       scrollYProgress={scrollYProgress}
                       scrollStartEnd={scrollStartEnd[section.id - 1]}
                       card={card}

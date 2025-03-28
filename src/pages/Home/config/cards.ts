@@ -164,3 +164,34 @@ export const Card3: InfoCardType[] = [
     moveX: [20, -20],
   },
 ];
+
+export const Card4: InfoCardType[] = [
+  {
+    id: 0,
+    width: 11 * 3.2,
+    height: 11.55 * 3.2,
+    typeCard: "Normal",
+    bg_img: "/img/UI/cards/card_characters.png",
+    totalCard: 1,
+    top: 24,
+    right: 15,
+    moveY:[-20,20],
+  }
+]
+
+export const Card5: InfoCardType[] = [
+  {
+    id: 0,
+    width: 470,
+    height: 180,
+    typeCard: "Normal",
+    text: "Las sombras esconden horribles monstruos. Cada criatura tiene su propio instinto asesino y no dudarán en cazarte. ¿Estás listo para enfrentarlos?",
+    bg_img: "/img/UI/cards/mini_large_cardv2.png",
+    totalCard: 3,
+    top: 24,
+    right: 15,
+    moveX: [20, -20],
+  }
+]
+
+
