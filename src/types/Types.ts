@@ -63,7 +63,6 @@ export interface Section{
 export interface characters{
     id:number;
     name?: string;
-    name_img?:string;
     characterCard_img?:string;
     characterPixel_img?:string;
 }

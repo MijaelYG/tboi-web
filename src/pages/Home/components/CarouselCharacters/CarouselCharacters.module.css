@@ -30,15 +30,16 @@
       }
   }
   .btns_name{
-    width: 90%;
-    height: 10%;
+    width: 60%;
+    height: 14%;
     display: flex;
     justify-content: space-between;
     .btn_left{
         background-image: url("/img/UI/arrowbtn_left_cl.png");
         background-repeat: no-repeat;
         background-size: contain;
-        width: 10%;
+        background-position: center;
+        width: 20%;
         height: 100%;
         bottom: 30%;
         cursor: pointer;
@@ -47,13 +48,18 @@
         background-image: url("/img/UI/arrowbtn_right_cl.png");
         background-repeat: no-repeat;
         background-size: contain;
-        width: 10%;
+        background-position: center;
+        width: 20%;
         height: 100%;
         bottom: 30%;
         cursor: pointer;
       }
       .name_character{
+        background-repeat: no-repeat;
         background-size: contain;
+        background-position: center;
+        width: 100%;
+        height: 100%;
       }
   }
 
