@@ -1,4 +1,10 @@
-import { motion, MotionValue, useSpring, useTransform } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  MotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import styles from "./CarouselCharacters.module.css";
 import { InfoCardType } from "../../../../types/Types";
 import { charactersCarousel } from "../../config/characters";
@@ -20,6 +26,12 @@ const CarouselCharacters = ({
       (_, index) => index < 2 || index == charactersCarousel.length - 1
     )
   );
+
+  const indexpos = position;
+  const nextpos = (position + 1) % charactersCarousel.length;
+  const prevpos =
+    (position - 1 + charactersCarousel.length) % charactersCarousel.length;
+
   const cardStart = scrollStartEnd[0] + 0.01;
   const cardEnd = scrollStartEnd[1] - 0.01;
   const opacity = useTransform(
@@ -49,10 +61,13 @@ const CarouselCharacters = ({
 
   const updateVisibility = (newPosition: number) => {
     setVisible(
-      charactersCarousel.map((_, index) => 
-        index === newPosition || 
-        index === (newPosition + 1) % charactersCarousel.length || 
-        index === (newPosition - 1 + charactersCarousel.length) % charactersCarousel.length
+      charactersCarousel.map(
+        (_, index) =>
+          index === newPosition ||
+          index === (newPosition + 1) % charactersCarousel.length ||
+          index ===
+            (newPosition - 1 + charactersCarousel.length) %
+              charactersCarousel.length
       )
     );
   };
@@ -85,22 +100,45 @@ const CarouselCharacters = ({
       }}
     >
       <div className={styles.cont_characters}>
-        {charactersCarousel.map((character) => {
+        {charactersCarousel.map((character, index) => {
           return (
-            visible[character.id - 1] && (
+            <AnimatePresence mode="wait">
+              {visible[index] && (
               <motion.div
-                key={character.id}
+                key={`${character.name}-${index}`}
                 className={styles.characters_art}
                 style={{
                   backgroundImage: `url(/img/characters/${charactersCarousel[
-                    character.id - 1
+                    index
                   ].name?.toLowerCase()}/${charactersCarousel[
-                    character.id - 1
+                    index
                   ].name?.toLowerCase()}_c.png)`,
-                  zIndex: charactersCarousel.length - character.id,
+                  zIndex: charactersCarousel.length - index,
+                  x: `${
+                    index == indexpos
+                      ? 0
+                      : index == nextpos
+                      ? 100
+                      : index == prevpos
+                      ? -100
+                      : 0
+                  }%`,
                 }}
+                initial={{
+                  x: index === indexpos ? 0 : index === nextpos ? 300 : -100,
+                }}
+                animate={{
+                  x: index === indexpos ? 0 : index === nextpos ? 200 : -200,
+                  opacity: 1, // Mantener visibilidad
+                }}
+                exit={{
+                  x: index === prevpos ? -300 : -200,
+                  opacity: index === prevpos ? 0 : 1, // Evita que desaparezcan los demás
+                }}
+                transition={{ duration: 0.4, ease: "linear" }}
               ></motion.div>
-            )
+              )}
+            </AnimatePresence>
           );
         })}
       </div>
