@@ -7,8 +7,56 @@
   background-size: contain;
   image-rendering: pixelated;
   z-index: 3;
-
-  .characters_art{
-
+  padding: 2rem 2.2rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .cont_characters{
+    width: 100%;
+    height: 40%;
+    background-color: antiquewhite;
+    top: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    .characters_art{
+        width: 8vw;
+        height: 7.5vw;
+        background-repeat: no-repeat;
+        background-size: contain;
+        image-rendering: pixelated;
+        position: absolute;
+      }
   }
+  .btns_name{
+    width: 90%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    .btn_left{
+        background-image: url("/img/UI/arrowbtn_left_cl.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 10%;
+        height: 100%;
+        bottom: 30%;
+        cursor: pointer;
+      }
+      .btn_right{
+        background-image: url("/img/UI/arrowbtn_right_cl.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 10%;
+        height: 100%;
+        bottom: 30%;
+        cursor: pointer;
+      }
+      .name_character{
+        background-size: contain;
+      }
+  }
+
+  
+
 }
