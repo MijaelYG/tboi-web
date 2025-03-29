@@ -21,6 +21,7 @@ const CarouselCharacters = ({
   card,
 }: PropsCarousel) => {
   const [position, setPosition] = useState(0);
+  const [disabled, setDisabled] = useState(false);
   const [visible, setVisible] = useState(
     charactersCarousel.map(
       (_, index) => index < 2 || index == charactersCarousel.length - 1
@@ -73,21 +74,78 @@ const CarouselCharacters = ({
   };
 
   const handlebtnLeft = () => {
+    if (disabled) return;
+    setDisabled(true);
     setPosition((prev) => {
       const newPosition = prev === 0 ? charactersCarousel.length - 1 : prev - 1;
       updateVisibility(newPosition);
       return newPosition;
     });
+    setTimeout(() => {
+      setDisabled(false);
+    }, 200);
   };
 
   const handlebtnRight = () => {
+    if (disabled) return;
+    setDisabled(true);
     setPosition((prev) => {
       const newPosition = prev < charactersCarousel.length - 1 ? prev + 1 : 0;
       updateVisibility(newPosition);
       return newPosition;
     });
+    setTimeout(() => {
+      setDisabled(false);
+    }, 200);
   };
-  console.log(visible);
+
+  const getInitialValues = (
+    index: number,
+    indexpos: number,
+    nextpos: number,
+    prevpos: number
+  ) => {
+    const xPos =
+      index === indexpos
+        ? 0
+        : index === nextpos
+        ? 165
+        : index === prevpos
+        ? -165
+        : 0;
+    const opacity = 0;
+    const yPos = index === nextpos ? -40 : index === prevpos ? -30 : 0;
+
+    return { x: `${xPos}%`, opacity: opacity, y: `${yPos}%` };
+  };
+
+  const getAnimateValues = (
+    index: number,
+    indexpos: number,
+    nextpos: number,
+    prevpos: number
+  ) => {
+    const xPos =
+    index === indexpos ? 0 : index === nextpos ? 130 : -130;
+    const opacity = 1;
+    const yPos = index === nextpos ? -20 : index === prevpos ? -20 : 0;
+
+    return { x: `${xPos}%`, opacity: opacity, y: `${yPos}%` };
+  };
+
+  const getExitValues = (
+    index: number,
+    _indexpos: number,
+    nextpos: number,
+    prevpos: number
+  ) => {
+    const xPos =
+    index === prevpos ? -165 : index === nextpos ? 165 : 0;
+    const opacity = 0;
+    const yPos =index === nextpos ? -40 : index === prevpos ? -40 : 0;
+
+    return { x: `${xPos}%`, opacity: opacity, y: `${yPos}%` };
+  };
   return (
     <motion.div
       className={styles.card_carousel}
@@ -102,41 +160,24 @@ const CarouselCharacters = ({
       <div className={styles.cont_characters}>
         {charactersCarousel.map((character, index) => {
           return (
-            <AnimatePresence mode="wait">
+            <AnimatePresence>
               {visible[index] && (
-              <motion.div
-                key={`${character.name}-${index}`}
-                className={styles.characters_art}
-                style={{
-                  backgroundImage: `url(/img/characters/${charactersCarousel[
-                    index
-                  ].name?.toLowerCase()}/${charactersCarousel[
-                    index
-                  ].name?.toLowerCase()}_c.png)`,
-                  zIndex: charactersCarousel.length - index,
-                  x: `${
-                    index == indexpos
-                      ? 0
-                      : index == nextpos
-                      ? 100
-                      : index == prevpos
-                      ? -100
-                      : 0
-                  }%`,
-                }}
-                initial={{
-                  x: index === indexpos ? 0 : index === nextpos ? 300 : -100,
-                }}
-                animate={{
-                  x: index === indexpos ? 0 : index === nextpos ? 200 : -200,
-                  opacity: 1, // Mantener visibilidad
-                }}
-                exit={{
-                  x: index === prevpos ? -300 : -200,
-                  opacity: index === prevpos ? 0 : 1, // Evita que desaparezcan los demás
-                }}
-                transition={{ duration: 0.4, ease: "linear" }}
-              ></motion.div>
+                <motion.div
+                  key={`${character.name}-${index}`}
+                  className={styles.characters_art}
+                  style={{
+                    backgroundImage: `url(/img/characters/${charactersCarousel[
+                      index
+                    ].name?.toLowerCase()}/${charactersCarousel[
+                      index
+                    ].name?.toLowerCase()}_c.png)`,
+                    zIndex: charactersCarousel.length - index,
+                  }}
+                  initial={getInitialValues(index, indexpos, nextpos, prevpos)}
+                  animate={getAnimateValues(index, indexpos, nextpos, prevpos)}
+                  exit={getExitValues(index, indexpos, nextpos, prevpos)}
+                  transition={{ duration: 0.3, ease: "anticipate" }}
+                ></motion.div>
               )}
             </AnimatePresence>
           );
@@ -155,6 +196,20 @@ const CarouselCharacters = ({
           }}
         ></div>
         <div className={styles.btn_right} onClick={handlebtnRight}></div>
+      </div>
+      <div className={styles.stats}>
+        <div className={styles.pixel_stats} style={{backgroundImage:`url(/img/UI/heart_icon.png)`}}></div>  
+        <div className={styles.cant_life}>
+        {charactersCarousel.map((data)=>(
+          Array.from({length:data.life}).map((_,index)=>(
+            <div></div>
+          ))
+        ))}
+        </div>
+        <div className={styles.pixel_stats} style={{backgroundImage:`url(/img/UI/speed_icon.png)`}}></div>
+        <div className={styles.cant_life}></div>
+        <div className={styles.pixel_stats} style={{backgroundImage:`url(/img/UI/attack_icon.png)`}}></div>
+        <div className={styles.cant_life}></div>
       </div>
     </motion.div>
   );
