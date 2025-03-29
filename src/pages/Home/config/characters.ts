@@ -37,7 +37,7 @@ export const charactersCarousel: characters[] = [
     id: 5,
     name: "blue_baby",
     characterPixel_img: "",
-    life: 3,
+    life: -1,
     attack: 2,
     speed: 2
   },
@@ -54,15 +54,15 @@ export const charactersCarousel: characters[] = [
     name: "Samson",
     characterPixel_img: "",
     life: 3,
-    attack: 3,
+    attack: 2,
     speed: 2
   },
   {
     id: 8,
     name: "Azazel",
     characterPixel_img: "",
-    life: 3,
-    attack: 5,
+    life: -1,
+    attack: 4,
     speed: 3
   },
   {
@@ -86,30 +86,30 @@ export const charactersCarousel: characters[] = [
     name: "The_Lost",
     characterPixel_img: "",
     life: 0,
-    attack: 3,
-    speed: 3
+    attack: 2,
+    speed: 2
   },
   {
     id: 12,
     name: "Lilith",
     characterPixel_img: "",
-    life: 3,
-    attack: 3,
+    life: 1,
+    attack: 2,
     speed: 2
   },
   {
     id: 13,
     name: "Keeper",
     characterPixel_img: "",
-    life: 2,
-    attack: 3,
-    speed: 2
+    life: 3,
+    attack: 2,
+    speed: 1
   },
   {
     id: 14,
     name: "Apollyon",
     characterPixel_img: "",
-    life: 3,
+    life: 2,
     attack: 2,
     speed: 2
   },
@@ -117,7 +117,7 @@ export const charactersCarousel: characters[] = [
     id: 15,
     name: "The_Forgotten",
     characterPixel_img: "",
-    life: 3,
+    life: -1,
     attack: 4,
     speed: 2
   },
@@ -125,7 +125,7 @@ export const charactersCarousel: characters[] = [
     id: 16,
     name: "Bethany",
     characterPixel_img: "",
-    life: 2,
+    life: 3,
     attack: 2,
     speed: 2
   },
@@ -133,8 +133,8 @@ export const charactersCarousel: characters[] = [
     id: 17,
     name: "Jacob_Esau",
     characterPixel_img: "",
-    life: 6,
-    attack: 3,
+    life: 5,
+    attack: 5,
     speed: 2
   },
 ];
