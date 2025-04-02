@@ -7,7 +7,8 @@ export const charactersCarousel: characters[] = [
     characterPixel_img: "",
     life: 3,
     attack: 2,
-    speed: 2
+    speed: 2,
+    items:1,
   },
   {
     id: 2,
@@ -15,7 +16,8 @@ export const charactersCarousel: characters[] = [
     characterPixel_img: "",
     life: 4,
     attack: 2,
-    speed: 1
+    speed: 1,
+    items:2,
   },
   {
     id: 3,
@@ -23,7 +25,8 @@ export const charactersCarousel: characters[] = [
     characterPixel_img: "",
     life: 2,
     attack: 3,
-    speed: 3
+    speed: 3,
+    items:2,
   },
   {
     id: 4,
@@ -31,7 +34,8 @@ export const charactersCarousel: characters[] = [
     characterPixel_img: "",
     life: 1,
     attack: 4,
-    speed: 2
+    speed: 2,
+    items:1,
   },
   {
     id: 5,
@@ -39,7 +43,8 @@ export const charactersCarousel: characters[] = [
     characterPixel_img: "",
     life: -1,
     attack: 2,
-    speed: 2
+    speed: 2,
+    items:1,
   },
   {
     id: 6,
@@ -47,7 +52,8 @@ export const charactersCarousel: characters[] = [
     characterPixel_img: "",
     life: 2,
     attack: 1,
-    speed: 3
+    speed: 3,
+    items:3,
   },
   {
     id: 7,
@@ -55,7 +61,8 @@ export const charactersCarousel: characters[] = [
     characterPixel_img: "",
     life: 3,
     attack: 2,
-    speed: 2
+    speed: 2,
+    items:2,
   },
   {
     id: 8,
@@ -63,7 +70,7 @@ export const charactersCarousel: characters[] = [
     characterPixel_img: "",
     life: -1,
     attack: 4,
-    speed: 3
+    speed: 3,
   },
   {
     id: 9,
@@ -71,7 +78,8 @@ export const charactersCarousel: characters[] = [
     characterPixel_img: "",
     life: 3,
     attack: 2,
-    speed: 2
+    speed: 2,
+    items:1,
   },
   {
     id: 10,
@@ -87,7 +95,8 @@ export const charactersCarousel: characters[] = [
     characterPixel_img: "",
     life: 0,
     attack: 2,
-    speed: 2
+    speed: 2,
+    items:2,
   },
   {
     id: 12,
@@ -95,7 +104,8 @@ export const charactersCarousel: characters[] = [
     characterPixel_img: "",
     life: 1,
     attack: 2,
-    speed: 2
+    speed: 2,
+    items:2,
   },
   {
     id: 13,
@@ -103,7 +113,8 @@ export const charactersCarousel: characters[] = [
     characterPixel_img: "",
     life: 3,
     attack: 2,
-    speed: 1
+    speed: 1,
+    items:2,
   },
   {
     id: 14,
@@ -111,7 +122,8 @@ export const charactersCarousel: characters[] = [
     characterPixel_img: "",
     life: 2,
     attack: 2,
-    speed: 2
+    speed: 2,
+    items:1,
   },
   {
     id: 15,
@@ -127,7 +139,8 @@ export const charactersCarousel: characters[] = [
     characterPixel_img: "",
     life: 3,
     attack: 2,
-    speed: 2
+    speed: 2,
+    items:1,
   },
   {
     id: 17,

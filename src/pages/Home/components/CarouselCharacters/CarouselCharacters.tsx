@@ -174,7 +174,7 @@ const CarouselCharacters = ({
                   initial={getInitialValues(index, indexpos, nextpos, prevpos)}
                   animate={getAnimateValues(index, indexpos, nextpos, prevpos)}
                   exit={getExitValues(index, indexpos, nextpos, prevpos)}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  transition={{ duration: 0.25, ease: "linear" }}
                 ></motion.div>
               )}
             </AnimatePresence>
@@ -307,7 +307,10 @@ const CarouselCharacters = ({
         </div>
         <div
           className={styles.pixel_stats}
-          style={{ backgroundImage: `url(/img/UI/speed_icon.png)`,marginRight:`1%` }}
+          style={{
+            backgroundImage: `url(/img/UI/speed_icon.png)`,
+            marginRight: `1%`,
+          }}
         ></div>
         <div className={styles.cant}>
           {charactersCarousel
@@ -446,12 +449,12 @@ const CarouselCharacters = ({
                         animate={{
                           opacity: 1,
                           x: 0,
-                          transition: { duration:0.25 },
+                          transition: { duration: 0.25 },
                         }}
                         exit={{
                           opacity: 0,
                           x: 10,
-                          transition: { duration:0.25 },
+                          transition: { duration: 0.25 },
                         }}
                       ></motion.div>
                     ))
@@ -468,12 +471,12 @@ const CarouselCharacters = ({
                       animate={{
                         opacity: 1,
                         x: 0,
-                        transition: { duration:0.25 },
+                        transition: { duration: 0.25 },
                       }}
                       exit={{
                         opacity: 0,
                         x: 10,
-                        transition: { duration:0.25 },
+                        transition: { duration: 0.25 },
                       }}
                     ></motion.div>
                   ) : data.attack == 0 ? (
@@ -489,12 +492,12 @@ const CarouselCharacters = ({
                       animate={{
                         opacity: 1,
                         x: 0,
-                        transition: { duration:0.25 },
+                        transition: { duration: 0.25 },
                       }}
                       exit={{
                         opacity: 0,
                         x: 10,
-                        transition: { duration:0.25 },
+                        transition: { duration: 0.25 },
                       }}
                     ></motion.div>
                   ) : (
@@ -510,12 +513,12 @@ const CarouselCharacters = ({
                       animate={{
                         opacity: 1,
                         x: 0,
-                        transition: { duration:0.25 },
+                        transition: { duration: 0.25 },
                       }}
                       exit={{
                         opacity: 0,
                         x: 10,
-                        transition: { duration:0.25 },
+                        transition: { duration: 0.25 },
                       }}
                     ></motion.div>
                   )}
@@ -525,7 +528,61 @@ const CarouselCharacters = ({
         </div>
       </div>
       <div className={styles.items}>
-
+        {charactersCarousel
+          .filter((_, index) => index === position)
+          .map((data_name) => {
+            return (
+              <AnimatePresence>
+                {Array.from({ length: data_name.items ?? 0 }).map(
+                  (_, index) => (
+                    <div className={styles.cont_item}>
+                      <div className={styles.item_icon}></div>
+                      <div
+                        className={styles.item_c}
+                        style={{
+                          backgroundImage: `url(/img/characters/${data_name.name?.toLowerCase()}/${data_name.name?.toLowerCase()}_item_${
+                            index + 1
+                          }.png)`,
+                          width: `${
+                            (data_name.name?.toLowerCase() == "magdalene" ||
+                              data_name.name?.toLowerCase() == "eve" ||
+                              data_name.name?.toLowerCase() == "the_lost") &&
+                            index == 0
+                              ? 45
+                              : data_name.name?.toLowerCase() == "cain" ||
+                                data_name.name?.toLowerCase() == "blue_baby" ||
+                                (data_name.name?.toLowerCase() == "lilith" &&
+                                  index == 0) ||
+                                (data_name.name?.toLowerCase() == "keeper" &&
+                                  index == 1)
+                              ? 40
+                              : data_name.name?.toLowerCase() == "judas" ||
+                                data_name.name?.toLowerCase() == "bethany"
+                              ? 70
+                              : data_name.name?.toLowerCase() == "samson" ||
+                                ((data_name.name?.toLowerCase() == "eve" ||
+                                  data_name.name?.toLowerCase() == "lilith") &&
+                                  index == 1) ||
+                                (data_name.name?.toLowerCase() == "keeper" &&
+                                  index == 0)
+                              ? 60
+                              : (data_name.name?.toLowerCase() == "eve" &&
+                                  index == 2) ||
+                                (data_name.name?.toLowerCase() == "the_lost" &&
+                                  index == 1)
+                              ? 50
+                              : data_name.name?.toLowerCase() == "apollyon"
+                              ? 25
+                              : 35
+                          }%`,
+                        }}
+                      ></div>
+                    </div>
+                  )
+                )}
+              </AnimatePresence>
+            );
+          })}
       </div>
     </motion.div>
   );

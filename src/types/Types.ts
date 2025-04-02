@@ -64,6 +64,7 @@ export interface characters{
     id:number;
     name?: string;
     life: number;
+    items?:number;
     attack:number;
     speed:number;
     characterCard_img?:string;
