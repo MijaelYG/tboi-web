@@ -22,6 +22,7 @@ const CarouselCharacters = ({
 }: PropsCarousel) => {
   const [position, setPosition] = useState(0);
   const [disabled, setDisabled] = useState(false);
+  const [change, setChange] = useState(false);
   const [visible, setVisible] = useState(
     charactersCarousel.map(
       (_, index) => index < 2 || index == charactersCarousel.length - 1
@@ -115,8 +116,15 @@ const CarouselCharacters = ({
         : 0;
     const opacity = 0;
     const yPos = index === nextpos ? -30 : index === prevpos ? -30 : 0;
-
-    return { x: `${xPos}%`, opacity: opacity, y: `${yPos}%` };
+    const scale =
+      index === indexpos
+        ? 1
+        : index === nextpos
+        ? 0.5
+        : index === prevpos
+        ? 0.5
+        : 1;
+    return { x: `${xPos}%`, opacity: opacity, y: `${yPos}%`, scale: scale };
   };
 
   const getAnimateValues = (
@@ -128,8 +136,15 @@ const CarouselCharacters = ({
     const xPos = index === indexpos ? 0 : index === nextpos ? 130 : -130;
     const opacity = index === nextpos ? 0.8 : index === prevpos ? 0.8 : 1;
     const yPos = index === nextpos ? -15 : index === prevpos ? -15 : 0;
-
-    return { x: `${xPos}%`, opacity: opacity, y: `${yPos}%` };
+    const scale =
+      index === indexpos
+        ? 1
+        : index === nextpos
+        ? 0.8
+        : index === prevpos
+        ? 0.8
+        : 1;
+    return { x: `${xPos}%`, opacity: opacity, y: `${yPos}%` , scale:scale};
   };
 
   const getExitValues = (
@@ -141,450 +156,481 @@ const CarouselCharacters = ({
     const xPos = index === prevpos ? -180 : index === nextpos ? 180 : 0;
     const opacity = 0;
     const yPos = index === nextpos ? -30 : index === prevpos ? -30 : 0;
+    const scale =
+      index === indexpos
+        ? 1
+        : index === nextpos
+        ? 0.5
+        : index === prevpos
+        ? 0.5
+        : 1;
+    return { x: `${xPos}%`, opacity: opacity, y: `${yPos}%` ,scale:scale};
+  };
 
-    return { x: `${xPos}%`, opacity: opacity, y: `${yPos}%` };
+  const handleChange = () => {
+    setChange((prev) => !prev);
   };
   return (
-    <motion.div
-      className={styles.card_carousel}
-      style={{
-        width: `${card?.width}vw`,
-        height: `${card?.height}vw`,
-        opacity: opacitysmooth,
-        x: moveXsmooth,
-        y: moveYsmooth,
-      }}
-    >
-      <div className={styles.cont_characters}>
-        {charactersCarousel.map((character, index) => {
-          return (
-            <AnimatePresence>
-              {visible[index] && (
-                <motion.div
-                  key={`${character.name}-${index}`}
-                  className={styles.characters_art}
-                  style={{
-                    backgroundImage: `url(/img/characters/${charactersCarousel[
-                      index
-                    ].name?.toLowerCase()}/${charactersCarousel[
-                      index
-                    ].name?.toLowerCase()}_c.png)`,
-                    zIndex: charactersCarousel.length - index,
-                  }}
-                  initial={getInitialValues(index, indexpos, nextpos, prevpos)}
-                  animate={getAnimateValues(index, indexpos, nextpos, prevpos)}
-                  exit={getExitValues(index, indexpos, nextpos, prevpos)}
-                  transition={{ duration: 0.25, ease: "linear" }}
-                ></motion.div>
-              )}
-            </AnimatePresence>
-          );
-        })}
-      </div>
-      <div className={styles.btns_name}>
-        <div className={styles.btn_left} onClick={handlebtnLeft}></div>
-        <div
-          className={styles.name_character}
-          style={{
-            backgroundImage: `url(/img/characters/${charactersCarousel[
-              position
-            ].name?.toLowerCase()}/${charactersCarousel[
-              position
-            ].name?.toLowerCase()}_title.png)`,
-          }}
-        ></div>
-        <div className={styles.btn_right} onClick={handlebtnRight}></div>
-      </div>
-      <div className={styles.stats}>
-        <div
-          className={styles.pixel_stats}
-          style={{ backgroundImage: `url(/img/UI/heart_icon.png)` }}
-        ></div>
-        <div className={styles.cant}>
-          {charactersCarousel
-            .filter((_, index) => index === position)
-            .map((data) => {
-              return (
-                <AnimatePresence mode="wait">
-                  {data.life > 0 && data.life <= 4 ? (
-                    Array.from({ length: data.life }).map((_, index) => (
-                      <motion.div
-                        key={`${data.name}_ ${index}`}
-                        className={styles.id_stats}
-                        style={{
-                          backgroundImage: `url(/img/UI/stats/${
-                            index + 1
-                          }_stats.png)`,
-                          left:
-                            index == 0
-                              ? `${index}0%`
-                              : index == 2
-                              ? `calc(${index}0% + 10%)`
-                              : index == 3
-                              ? `calc(${index}0% + 18%)`
-                              : `calc(${index}0% + 5%)`,
-                        }}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{
-                          opacity: 1,
-                          x: 0,
-                          transition: { duration: 0.25 },
-                        }}
-                        exit={{
-                          opacity: 0,
-                          x: 10,
-                          transition: { duration: 0.25 },
-                        }}
-                      ></motion.div>
-                    ))
-                  ) : data.life > 4 ? (
-                    <motion.div
-                      key={`${data.name}`}
-                      className={styles.id_stats}
-                      style={{
-                        backgroundImage: `url(/img/UI/stats/${data.life}_life.png)`,
-                        width: `95%`,
-                        left: `-2%`,
-                      }}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{
-                        opacity: 1,
-                        x: 0,
-                        transition: { duration: 0.25 },
-                      }}
-                      exit={{
-                        opacity: 0,
-                        x: 10,
-                        transition: { duration: 0.25 },
-                      }}
-                    ></motion.div>
-                  ) : data.life == 0 ? (
-                    <motion.div
-                      key={`${data.name}`}
-                      className={styles.id_stats}
-                      style={{
-                        backgroundImage: `url(/img/UI/stats/${data.life}_stats.png)`,
-                        width: `50%`,
-                        left: `5%`,
-                      }}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{
-                        opacity: 1,
-                        x: 0,
-                        transition: { duration: 0.25 },
-                      }}
-                      exit={{
-                        opacity: 0,
-                        x: 10,
-                        transition: { duration: 0.25 },
-                      }}
-                    ></motion.div>
-                  ) : (
-                    <motion.div
-                      key={`${data.name}`}
-                      className={styles.id_stats}
-                      style={{
-                        backgroundImage: `url(/img/UI/stats/${data.life}_stats.png)`,
-                        width: `50%`,
-                        left: `5%`,
-                      }}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{
-                        opacity: 1,
-                        x: 0,
-                        transition: { duration: 0.25 },
-                      }}
-                      exit={{
-                        opacity: 0,
-                        x: 10,
-                        transition: { duration: 0.25 },
-                      }}
-                    ></motion.div>
-                  )}
-                </AnimatePresence>
-              );
-            })}
-        </div>
-        <div
-          className={styles.pixel_stats}
-          style={{
-            backgroundImage: `url(/img/UI/speed_icon.png)`,
-            marginRight: `1%`,
-          }}
-        ></div>
-        <div className={styles.cant}>
-          {charactersCarousel
-            .filter((_, index) => index === position)
-            .map((data) => {
-              return (
-                <AnimatePresence mode="wait">
-                  {data.speed > 0 && data.speed <= 4 ? (
-                    Array.from({ length: data.speed }).map((_, index) => (
-                      <motion.div
-                        key={`${data.name}_ ${index}`}
-                        className={styles.id_stats}
-                        style={{
-                          backgroundImage: `url(/img/UI/stats/${
-                            index + 1
-                          }_stats.png)`,
-                          left:
-                            index == 0
-                              ? `${index}0%`
-                              : index == 2
-                              ? `calc(${index}0% + 10%)`
-                              : index == 3
-                              ? `calc(${index}0% + 18%)`
-                              : `calc(${index}0% + 5%)`,
-                        }}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{
-                          opacity: 1,
-                          x: 0,
-                          transition: { duration: 0.25 },
-                        }}
-                        exit={{
-                          opacity: 0,
-                          x: 10,
-                          transition: { duration: 0.25 },
-                        }}
-                      ></motion.div>
-                    ))
-                  ) : data.speed > 4 ? (
-                    <motion.div
-                      key={`${data.name}`}
-                      className={styles.id_stats}
-                      style={{
-                        backgroundImage: `url(/img/UI/stats/${data.speed}_life.png)`,
-                        width: `95%`,
-                        left: `-2%`,
-                      }}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{
-                        opacity: 1,
-                        x: 0,
-                        transition: { duration: 0.25 },
-                      }}
-                      exit={{
-                        opacity: 0,
-                        x: 10,
-                        transition: { duration: 0.25 },
-                      }}
-                    ></motion.div>
-                  ) : data.speed == 0 ? (
-                    <motion.div
-                      key={`${data.name}`}
-                      className={styles.id_stats}
-                      style={{
-                        backgroundImage: `url(/img/UI/stats/${data.speed}_stats.png)`,
-                        width: `50%`,
-                        left: `5%`,
-                      }}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{
-                        opacity: 1,
-                        x: 0,
-                        transition: { duration: 0.25 },
-                      }}
-                      exit={{
-                        opacity: 0,
-                        x: 10,
-                        transition: { duration: 0.25 },
-                      }}
-                    ></motion.div>
-                  ) : (
-                    <motion.div
-                      key={`${data.name}`}
-                      className={styles.id_stats}
-                      style={{
-                        backgroundImage: `url(/img/UI/stats/${data.speed}_stats.png)`,
-                        width: `50%`,
-                        left: `5%`,
-                      }}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{
-                        opacity: 1,
-                        x: 0,
-                        transition: { duration: 0.25 },
-                      }}
-                      exit={{
-                        opacity: 0,
-                        x: 10,
-                        transition: { duration: 0.25 },
-                      }}
-                    ></motion.div>
-                  )}
-                </AnimatePresence>
-              );
-            })}
-        </div>
-        <div
-          className={styles.pixel_stats}
-          style={{ backgroundImage: `url(/img/UI/attack_icon.png)` }}
-        ></div>
-        <div className={styles.cant}>
-          {charactersCarousel
-            .filter((_, index) => index === position)
-            .map((data) => {
-              return (
-                <AnimatePresence mode="wait">
-                  {data.attack > 0 && data.attack <= 4 ? (
-                    Array.from({ length: data.attack }).map((_, index) => (
-                      <motion.div
-                        key={`${data.name}_ ${index}`}
-                        className={styles.id_stats}
-                        style={{
-                          backgroundImage: `url(/img/UI/stats/${
-                            index + 1
-                          }_stats.png)`,
-                          left:
-                            index == 0
-                              ? `${index}0%`
-                              : index == 2
-                              ? `calc(${index}0% + 10%)`
-                              : index == 3
-                              ? `calc(${index}0% + 18%)`
-                              : `calc(${index}0% + 5%)`,
-                        }}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{
-                          opacity: 1,
-                          x: 0,
-                          transition: { duration: 0.25 },
-                        }}
-                        exit={{
-                          opacity: 0,
-                          x: 10,
-                          transition: { duration: 0.25 },
-                        }}
-                      ></motion.div>
-                    ))
-                  ) : data.attack > 4 ? (
-                    <motion.div
-                      key={`${data.name}`}
-                      className={styles.id_stats}
-                      style={{
-                        backgroundImage: `url(/img/UI/stats/${data.attack}_attack.png)`,
-                        width: `95%`,
-                        left: `-2%`,
-                      }}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{
-                        opacity: 1,
-                        x: 0,
-                        transition: { duration: 0.25 },
-                      }}
-                      exit={{
-                        opacity: 0,
-                        x: 10,
-                        transition: { duration: 0.25 },
-                      }}
-                    ></motion.div>
-                  ) : data.attack == 0 ? (
-                    <motion.div
-                      key={`${data.name}`}
-                      className={styles.id_stats}
-                      style={{
-                        backgroundImage: `url(/img/UI/stats/${data.attack}_stats.png)`,
-                        width: `50%`,
-                        left: `5%`,
-                      }}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{
-                        opacity: 1,
-                        x: 0,
-                        transition: { duration: 0.25 },
-                      }}
-                      exit={{
-                        opacity: 0,
-                        x: 10,
-                        transition: { duration: 0.25 },
-                      }}
-                    ></motion.div>
-                  ) : (
-                    <motion.div
-                      key={`${data.name}`}
-                      className={styles.id_stats}
-                      style={{
-                        backgroundImage: `url(/img/UI/stats/${data.attack}_stats.png)`,
-                        width: `50%`,
-                        left: `5%`,
-                      }}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{
-                        opacity: 1,
-                        x: 0,
-                        transition: { duration: 0.25 },
-                      }}
-                      exit={{
-                        opacity: 0,
-                        x: 10,
-                        transition: { duration: 0.25 },
-                      }}
-                    ></motion.div>
-                  )}
-                </AnimatePresence>
-              );
-            })}
-        </div>
-      </div>
-      <div className={styles.items}>
-        {charactersCarousel
-          .filter((_, index) => index === position)
-          .map((data_name) => {
+    <>
+      <motion.div
+        className={styles.card_carousel}
+        style={{
+          width: `${card?.width}vw`,
+          height: `${card?.height}vw`,
+          opacity: opacitysmooth,
+          x: moveXsmooth,
+          y: moveYsmooth,
+        }}
+      >
+        <div className={styles.cont_characters}>
+          {charactersCarousel.map((character, index) => {
             return (
               <AnimatePresence>
-                {Array.from({ length: data_name.items ?? 0 }).map(
-                  (_, index) => (
-                    <div className={styles.cont_item}>
-                      <div className={styles.item_icon}></div>
-                      <div
-                        className={styles.item_c}
-                        style={{
-                          backgroundImage: `url(/img/characters/${data_name.name?.toLowerCase()}/${data_name.name?.toLowerCase()}_item_${
-                            index + 1
-                          }.png)`,
-                          width: `${
-                            (data_name.name?.toLowerCase() == "magdalene" ||
-                              data_name.name?.toLowerCase() == "eve" ||
-                              data_name.name?.toLowerCase() == "the_lost") &&
-                            index == 0
-                              ? 45
-                              : data_name.name?.toLowerCase() == "cain" ||
-                                data_name.name?.toLowerCase() == "blue_baby" ||
-                                (data_name.name?.toLowerCase() == "lilith" &&
-                                  index == 0) ||
-                                (data_name.name?.toLowerCase() == "keeper" &&
-                                  index == 1)
-                              ? 40
-                              : data_name.name?.toLowerCase() == "judas" ||
-                                data_name.name?.toLowerCase() == "bethany"
-                              ? 70
-                              : data_name.name?.toLowerCase() == "samson" ||
-                                ((data_name.name?.toLowerCase() == "eve" ||
-                                  data_name.name?.toLowerCase() == "lilith") &&
-                                  index == 1) ||
-                                (data_name.name?.toLowerCase() == "keeper" &&
-                                  index == 0)
-                              ? 60
-                              : (data_name.name?.toLowerCase() == "eve" &&
-                                  index == 2) ||
-                                (data_name.name?.toLowerCase() == "the_lost" &&
-                                  index == 1)
-                              ? 50
-                              : data_name.name?.toLowerCase() == "apollyon"
-                              ? 25
-                              : 35
-                          }%`,
-                        }}
-                      ></div>
-                    </div>
-                  )
+                {visible[index] && (
+                  <motion.div
+                    key={`${character.name}-${index}`}
+                    className={styles.characters_art}
+                    style={{
+                      backgroundImage: `url(/img/characters/${charactersCarousel[
+                        index
+                      ].name?.toLowerCase()}/${charactersCarousel[
+                        index
+                      ].name?.toLowerCase()}_${change ? "p" : "c"}.png)`,
+                      zIndex: charactersCarousel.length - index,
+                      width: `${change ? 8 : 7.5}vw`,
+                      height: `${change ? 7 : 6.5}vw`,
+                    }}
+                    initial={getInitialValues(
+                      index,
+                      indexpos,
+                      nextpos,
+                      prevpos
+                    )}
+                    animate={getAnimateValues(
+                      index,
+                      indexpos,
+                      nextpos,
+                      prevpos
+                    )}
+                    exit={getExitValues(index, indexpos, nextpos, prevpos)}
+                    transition={{ duration: 0.25, ease: "linear" }}
+                  ></motion.div>
                 )}
               </AnimatePresence>
             );
           })}
-      </div>
-    </motion.div>
+        </div>
+        <div className={styles.btns_name}>
+          <div className={styles.btn_left} onClick={handlebtnLeft}></div>
+          <div
+            className={styles.name_character}
+            style={{
+              backgroundImage: `url(/img/characters/${charactersCarousel[
+                position
+              ].name?.toLowerCase()}/${charactersCarousel[
+                position
+              ].name?.toLowerCase()}_title.png)`,
+            }}
+          ></div>
+          <div className={styles.btn_right} onClick={handlebtnRight}></div>
+        </div>
+        <div className={styles.stats}>
+          <div
+            className={styles.pixel_stats}
+            style={{ backgroundImage: `url(/img/UI/heart_icon.png)` }}
+          ></div>
+          <div className={styles.cant}>
+            {charactersCarousel
+              .filter((_, index) => index === position)
+              .map((data) => {
+                return (
+                  <AnimatePresence mode="wait">
+                    {data.life > 0 && data.life <= 4 ? (
+                      Array.from({ length: data.life }).map((_, index) => (
+                        <motion.div
+                          key={`${data.name}_ ${index}`}
+                          className={styles.id_stats}
+                          style={{
+                            backgroundImage: `url(/img/UI/stats/${
+                              index + 1
+                            }_stats.png)`,
+                            left:
+                              index == 0
+                                ? `${index}0%`
+                                : index == 2
+                                ? `calc(${index}0% + 10%)`
+                                : index == 3
+                                ? `calc(${index}0% + 18%)`
+                                : `calc(${index}0% + 5%)`,
+                          }}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{
+                            opacity: 1,
+                            x: 0,
+                            transition: { duration: 0.25 },
+                          }}
+                          exit={{
+                            opacity: 0,
+                            x: 10,
+                            transition: { duration: 0.25 },
+                          }}
+                        ></motion.div>
+                      ))
+                    ) : data.life > 4 ? (
+                      <motion.div
+                        key={`${data.name}`}
+                        className={styles.id_stats}
+                        style={{
+                          backgroundImage: `url(/img/UI/stats/${data.life}_life.png)`,
+                          width: `95%`,
+                          left: `-2%`,
+                        }}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{
+                          opacity: 1,
+                          x: 0,
+                          transition: { duration: 0.25 },
+                        }}
+                        exit={{
+                          opacity: 0,
+                          x: 10,
+                          transition: { duration: 0.25 },
+                        }}
+                      ></motion.div>
+                    ) : data.life == 0 ? (
+                      <motion.div
+                        key={`${data.name}`}
+                        className={styles.id_stats}
+                        style={{
+                          backgroundImage: `url(/img/UI/stats/${data.life}_stats.png)`,
+                          width: `50%`,
+                          left: `5%`,
+                        }}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{
+                          opacity: 1,
+                          x: 0,
+                          transition: { duration: 0.25 },
+                        }}
+                        exit={{
+                          opacity: 0,
+                          x: 10,
+                          transition: { duration: 0.25 },
+                        }}
+                      ></motion.div>
+                    ) : (
+                      <motion.div
+                        key={`${data.name}`}
+                        className={styles.id_stats}
+                        style={{
+                          backgroundImage: `url(/img/UI/stats/${data.life}_stats.png)`,
+                          width: `50%`,
+                          left: `5%`,
+                        }}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{
+                          opacity: 1,
+                          x: 0,
+                          transition: { duration: 0.25 },
+                        }}
+                        exit={{
+                          opacity: 0,
+                          x: 10,
+                          transition: { duration: 0.25 },
+                        }}
+                      ></motion.div>
+                    )}
+                  </AnimatePresence>
+                );
+              })}
+          </div>
+          <div
+            className={styles.pixel_stats}
+            style={{
+              backgroundImage: `url(/img/UI/speed_icon.png)`,
+              marginRight: `1%`,
+            }}
+          ></div>
+          <div className={styles.cant}>
+            {charactersCarousel
+              .filter((_, index) => index === position)
+              .map((data) => {
+                return (
+                  <AnimatePresence mode="wait">
+                    {data.speed > 0 && data.speed <= 4 ? (
+                      Array.from({ length: data.speed }).map((_, index) => (
+                        <motion.div
+                          key={`${data.name}_ ${index}`}
+                          className={styles.id_stats}
+                          style={{
+                            backgroundImage: `url(/img/UI/stats/${
+                              index + 1
+                            }_stats.png)`,
+                            left:
+                              index == 0
+                                ? `${index}0%`
+                                : index == 2
+                                ? `calc(${index}0% + 10%)`
+                                : index == 3
+                                ? `calc(${index}0% + 18%)`
+                                : `calc(${index}0% + 5%)`,
+                          }}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{
+                            opacity: 1,
+                            x: 0,
+                            transition: { duration: 0.25 },
+                          }}
+                          exit={{
+                            opacity: 0,
+                            x: 10,
+                            transition: { duration: 0.25 },
+                          }}
+                        ></motion.div>
+                      ))
+                    ) : data.speed > 4 ? (
+                      <motion.div
+                        key={`${data.name}`}
+                        className={styles.id_stats}
+                        style={{
+                          backgroundImage: `url(/img/UI/stats/${data.speed}_life.png)`,
+                          width: `95%`,
+                          left: `-2%`,
+                        }}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{
+                          opacity: 1,
+                          x: 0,
+                          transition: { duration: 0.25 },
+                        }}
+                        exit={{
+                          opacity: 0,
+                          x: 10,
+                          transition: { duration: 0.25 },
+                        }}
+                      ></motion.div>
+                    ) : data.speed == 0 ? (
+                      <motion.div
+                        key={`${data.name}`}
+                        className={styles.id_stats}
+                        style={{
+                          backgroundImage: `url(/img/UI/stats/${data.speed}_stats.png)`,
+                          width: `50%`,
+                          left: `5%`,
+                        }}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{
+                          opacity: 1,
+                          x: 0,
+                          transition: { duration: 0.25 },
+                        }}
+                        exit={{
+                          opacity: 0,
+                          x: 10,
+                          transition: { duration: 0.25 },
+                        }}
+                      ></motion.div>
+                    ) : (
+                      <motion.div
+                        key={`${data.name}`}
+                        className={styles.id_stats}
+                        style={{
+                          backgroundImage: `url(/img/UI/stats/${data.speed}_stats.png)`,
+                          width: `50%`,
+                          left: `5%`,
+                        }}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{
+                          opacity: 1,
+                          x: 0,
+                          transition: { duration: 0.25 },
+                        }}
+                        exit={{
+                          opacity: 0,
+                          x: 10,
+                          transition: { duration: 0.25 },
+                        }}
+                      ></motion.div>
+                    )}
+                  </AnimatePresence>
+                );
+              })}
+          </div>
+          <div
+            className={styles.pixel_stats}
+            style={{ backgroundImage: `url(/img/UI/attack_icon.png)` }}
+          ></div>
+          <div className={styles.cant}>
+            {charactersCarousel
+              .filter((_, index) => index === position)
+              .map((data) => {
+                return (
+                  <AnimatePresence mode="wait">
+                    {data.attack > 0 && data.attack <= 4 ? (
+                      Array.from({ length: data.attack }).map((_, index) => (
+                        <motion.div
+                          key={`${data.name}_ ${index}`}
+                          className={styles.id_stats}
+                          style={{
+                            backgroundImage: `url(/img/UI/stats/${
+                              index + 1
+                            }_stats.png)`,
+                            left:
+                              index == 0
+                                ? `${index}0%`
+                                : index == 2
+                                ? `calc(${index}0% + 10%)`
+                                : index == 3
+                                ? `calc(${index}0% + 18%)`
+                                : `calc(${index}0% + 5%)`,
+                          }}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{
+                            opacity: 1,
+                            x: 0,
+                            transition: { duration: 0.25 },
+                          }}
+                          exit={{
+                            opacity: 0,
+                            x: 10,
+                            transition: { duration: 0.25 },
+                          }}
+                        ></motion.div>
+                      ))
+                    ) : data.attack > 4 ? (
+                      <motion.div
+                        key={`${data.name}`}
+                        className={styles.id_stats}
+                        style={{
+                          backgroundImage: `url(/img/UI/stats/${data.attack}_attack.png)`,
+                          width: `95%`,
+                          left: `-2%`,
+                        }}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{
+                          opacity: 1,
+                          x: 0,
+                          transition: { duration: 0.25 },
+                        }}
+                        exit={{
+                          opacity: 0,
+                          x: 10,
+                          transition: { duration: 0.25 },
+                        }}
+                      ></motion.div>
+                    ) : data.attack == 0 ? (
+                      <motion.div
+                        key={`${data.name}`}
+                        className={styles.id_stats}
+                        style={{
+                          backgroundImage: `url(/img/UI/stats/${data.attack}_stats.png)`,
+                          width: `50%`,
+                          left: `5%`,
+                        }}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{
+                          opacity: 1,
+                          x: 0,
+                          transition: { duration: 0.25 },
+                        }}
+                        exit={{
+                          opacity: 0,
+                          x: 10,
+                          transition: { duration: 0.25 },
+                        }}
+                      ></motion.div>
+                    ) : (
+                      <motion.div
+                        key={`${data.name}`}
+                        className={styles.id_stats}
+                        style={{
+                          backgroundImage: `url(/img/UI/stats/${data.attack}_stats.png)`,
+                          width: `50%`,
+                          left: `5%`,
+                        }}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{
+                          opacity: 1,
+                          x: 0,
+                          transition: { duration: 0.25 },
+                        }}
+                        exit={{
+                          opacity: 0,
+                          x: 10,
+                          transition: { duration: 0.25 },
+                        }}
+                      ></motion.div>
+                    )}
+                  </AnimatePresence>
+                );
+              })}
+          </div>
+        </div>
+        <div className={styles.items}>
+          {charactersCarousel
+            .filter((_, index) => index === position)
+            .map((data_name) => {
+              return (
+                <AnimatePresence>
+                  {Array.from({ length: data_name.items ?? 0 }).map(
+                    (_, index) => (
+                      <div className={styles.cont_item}>
+                        <div className={styles.item_icon}></div>
+                        <div
+                          className={styles.item_c}
+                          style={{
+                            backgroundImage: `url(/img/characters/${data_name.name?.toLowerCase()}/${data_name.name?.toLowerCase()}_item_${
+                              index + 1
+                            }.png)`,
+                            width: `${
+                              (data_name.name?.toLowerCase() == "magdalene" ||
+                                data_name.name?.toLowerCase() == "eve" ||
+                                data_name.name?.toLowerCase() == "the_lost") &&
+                              index == 0
+                                ? 45
+                                : data_name.name?.toLowerCase() == "cain" ||
+                                  data_name.name?.toLowerCase() ==
+                                    "blue_baby" ||
+                                  (data_name.name?.toLowerCase() == "lilith" &&
+                                    index == 0) ||
+                                  (data_name.name?.toLowerCase() == "keeper" &&
+                                    index == 1)
+                                ? 40
+                                : data_name.name?.toLowerCase() == "judas" ||
+                                  data_name.name?.toLowerCase() == "bethany"
+                                ? 70
+                                : data_name.name?.toLowerCase() == "samson" ||
+                                  ((data_name.name?.toLowerCase() == "eve" ||
+                                    data_name.name?.toLowerCase() ==
+                                      "lilith") &&
+                                    index == 1) ||
+                                  (data_name.name?.toLowerCase() == "keeper" &&
+                                    index == 0)
+                                ? 60
+                                : (data_name.name?.toLowerCase() == "eve" &&
+                                    index == 2) ||
+                                  (data_name.name?.toLowerCase() ==
+                                    "the_lost" &&
+                                    index == 1)
+                                ? 50
+                                : data_name.name?.toLowerCase() == "apollyon"
+                                ? 25
+                                : 35
+                            }%`,
+                          }}
+                        ></div>
+                      </div>
+                    )
+                  )}
+                </AnimatePresence>
+              );
+            })}
+        </div>
+      </motion.div>
+      <motion.div className={styles.btn_change} onClick={handleChange}>
+        click
+      </motion.div>
+    </>
   );
 };
 

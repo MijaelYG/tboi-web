@@ -13,6 +13,7 @@
   justify-content: center;
   align-items: center;
   will-change: transform;
+  overflow: hidden;
   .cont_characters{
     margin-top: 10%;
     width: 100%;
@@ -128,4 +129,15 @@
     }
    
   }
+}
+
+.btn_change{
+  position: absolute;
+  bottom: 50%;
+  left: 20%;
+  background-color: aqua;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  z-index: 2;
 }
