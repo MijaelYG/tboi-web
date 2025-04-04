@@ -131,13 +131,32 @@
   }
 }
 
-.btn_change{
+.btn_tainted{
   position: absolute;
-  bottom: 50%;
-  left: 20%;
-  background-color: aqua;
-  width: 200px;
-  height: 200px;
+  top:22%;
+  left: 23.5%;
+  width: 8.7vw;
+  height: 6.7vw;
   cursor: pointer;
   z-index: 2;
+  background-image: url(/img/UI/btn_change_tainted.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  will-change: transform;
+}
+
+.btn_change{
+  position: absolute;
+  right: 23%;
+  width: 9vw;
+  height: 9.5vw;
+  background-image: url(/img/UI/btn_change_pixel.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  background-position: center;
+  top:22%;
+  z-index: 2;
+  cursor: pointer;
 }

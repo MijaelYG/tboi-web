@@ -175,7 +175,7 @@ export const Card4: InfoCardType[] = [
     totalCard: 1,
     top: 24,
     right: 15,
-    moveY:[-20,20],
+    moveY:[40,-20],
   }
 ]
 

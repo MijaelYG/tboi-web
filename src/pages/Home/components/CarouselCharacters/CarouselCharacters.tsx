@@ -22,7 +22,8 @@ const CarouselCharacters = ({
 }: PropsCarousel) => {
   const [position, setPosition] = useState(0);
   const [disabled, setDisabled] = useState(false);
-  const [change, setChange] = useState(false);
+  const [changepixel, setChangepixel] = useState(false);
+  const [changetainted, setChangetainted] = useState(false);
   const [visible, setVisible] = useState(
     charactersCarousel.map(
       (_, index) => index < 2 || index == charactersCarousel.length - 1
@@ -167,8 +168,11 @@ const CarouselCharacters = ({
     return { x: `${xPos}%`, opacity: opacity, y: `${yPos}%` ,scale:scale};
   };
 
-  const handleChange = () => {
-    setChange((prev) => !prev);
+  const handleChangeTainted = () => {
+    setChangetainted((prev) => !prev);
+  };
+  const handleChangePixel = () => {
+    setChangepixel((prev) => !prev);
   };
   return (
     <>
@@ -195,10 +199,10 @@ const CarouselCharacters = ({
                         index
                       ].name?.toLowerCase()}/${charactersCarousel[
                         index
-                      ].name?.toLowerCase()}_${change ? "p" : "c"}.png)`,
+                      ].name?.toLowerCase()}_${changepixel ? "p" : "c"}.png)`,
                       zIndex: charactersCarousel.length - index,
-                      width: `${change ? 8 : 7.5}vw`,
-                      height: `${change ? 7 : 6.5}vw`,
+                      width: `${changepixel ? 8 : 7.5}vw`,
+                      height: `${changepixel ? 7 : 6.5}vw`,
                     }}
                     initial={getInitialValues(
                       index,
@@ -627,8 +631,9 @@ const CarouselCharacters = ({
             })}
         </div>
       </motion.div>
-      <motion.div className={styles.btn_change} onClick={handleChange}>
-        click
+      <motion.div className={styles.btn_tainted} onClick={handleChangeTainted}>
+      </motion.div>
+      <motion.div className={styles.btn_change} onClick={handleChangePixel}>
       </motion.div>
     </>
   );
