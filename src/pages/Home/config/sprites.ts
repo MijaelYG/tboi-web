@@ -187,3 +187,38 @@ export const pixelSprite3: PixelSprite[] = [
     shadow:shadow_character
   },
 ];
+
+export const pixelSprite4: PixelSprite[] = [
+  {
+    width: 5,
+    height: 6.9,
+    background_img: "/img/monsters/blind_creep_wall_lr.png",
+    animation: [0, 20],
+    top: 40,
+    right: 7,
+    sprites: 4,
+    y:100,
+  },
+  {
+    width: 6.9,
+    height: 5,
+    background_img: "/img/monsters/wall_creep.png",
+    animation: [2, 22],
+    top: 10.5,
+    left: 38,
+    sprites: 4,
+    x:-90,
+  },
+
+  {
+    width: 4.5,
+    height: 5.5,
+    background_img: "/img/monsters/dip.png",
+    animation: [0, 10],
+    bottom: 28.5,
+    right: 24.5,
+    sprites: 3,
+    x:50,
+    y:-100,
+  },
+];

@@ -630,7 +630,7 @@ const CarouselCharacters = ({
                             ? 40
                             : data_name.name?.toLowerCase() == "judas" ||
                               data_name.name?.toLowerCase() == "bethany"
-                            ? 70
+                            ? 65
                             : data_name.name?.toLowerCase() == "samson" ||
                               ((data_name.name?.toLowerCase() == "eve" ||
                                 data_name.name?.toLowerCase() == "lilith") &&
@@ -655,6 +655,7 @@ const CarouselCharacters = ({
             })}
         </div>
       </motion.div>
+      
       <motion.div
         className={styles.btn_tainted}
         onClick={handleChangeTainted}

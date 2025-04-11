@@ -1,6 +1,6 @@
 import { Section } from "../../../types/Types";
 import { Card2, Card3, Card4, Card5 } from "./cards";
-import { pixelSprite2, pixelSprite3 } from "./sprites";
+import { pixelSprite2, pixelSprite3, pixelSprite4 } from "./sprites";
 
 const sectionHeight = [140, 500, 650, 300, 400, 500, 400, 300, 150];
 
@@ -34,7 +34,7 @@ export const sections: Section[] = [
     shadow: "22",
     name: "catacombs",
     infoCard:Card4,
-    pixelSprite: pixelSprite2,
+    pixelSprite: pixelSprite4,
   },
   {
     id: 5,

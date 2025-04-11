@@ -40,8 +40,8 @@ const SectionImage = () => {
       scrollStartEnd[7][1] - 0.01,
     ],
     [
-      -15, -15, 0, 0, -20, 0, 0, -105, 0, 0, -20, 0, 0, -20, -20, -20, -105, 0, 0,
-      -15,
+      -15, -15, 0, 0, -20, 0, 0, -105, 0, 0, -20, 0, 0, -20, -20, -20, -105, 0,
+      0, -15,
     ]
   );
   const yscrollsmooth = useSpring(yscrollRaw, { stiffness: 200, damping: 40 });
@@ -70,11 +70,22 @@ const SectionImage = () => {
             {section.id == 1 ? (
               <Banner scrollYProgress={scrollYProgress}></Banner>
             ) : section.id == 4 ? (
-              <CarouselCharacters
-                scrollYProgress={scrollYProgress}
-                scrollStartEnd={scrollStartEnd[section.id - 1]}
-                card={section.infoCard?.[0] ?? undefined}
-              ></CarouselCharacters>
+              <>
+                <CarouselCharacters
+                  scrollYProgress={scrollYProgress}
+                  scrollStartEnd={scrollStartEnd[section.id - 1]}
+                  card={section.infoCard?.[0] ?? undefined}
+                ></CarouselCharacters>
+                {section.pixelSprite &&
+                  section.pixelSprite.map((pixel, index) => (
+                    <PixelScene
+                      key={index}
+                      scrollYProgress={scrollYProgress}
+                      scrollStartEnd={scrollStartEnd[section.id - 1]}
+                      pixelsprite={pixel}
+                    ></PixelScene>
+                  ))}
+              </>
             ) : (
               <>
                 {section.infoCard &&
