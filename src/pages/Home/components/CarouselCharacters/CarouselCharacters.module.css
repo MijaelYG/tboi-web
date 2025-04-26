@@ -1,177 +1,59 @@
-.card_carousel {
-  position: absolute;
-  top: 20%;
-  left: 33%;
-  background-image: url("/img/UI/cards/card_characters.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  image-rendering: pixelated;
-  background-position: center;
-  z-index: 3;
-  padding: 2% 2% 2% 1.8%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  will-change: transform;
-  overflow: hidden;
-  .cont_characters{
-    margin-top: 10%;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    .characters_art{
-        width: 7.5vw;
-        height: 6.5vw;
-        background-repeat: no-repeat;
-        background-size: contain;
-        image-rendering: pixelated;
-        position: absolute;
-        background-position: center;
-        will-change: transform;
-      }
-  }
-  .btns_name{
-    width: 70%;
-    height: 40%;
-    display: flex;
-    justify-content: space-between;
-    .btn_left{
-        background-image: url("/img/UI/arrowbtn_left_cl.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-        width: 20%;
-        height: 100%;
-        bottom: 30%;
-        cursor: pointer;
-      }
-      .btn_right{
-        background-image: url("/img/UI/arrowbtn_right_cl.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-        width: 20%;
-        height: 100%;
-        bottom: 30%;
-        cursor: pointer;
-      }
-      .name_character{
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
+.cont_carousel{
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    width: calc(7vw *1.4) ;
+    background-color: aqua;
+    height: calc(8.6vw *1.3) ;
+    background-position: center;
+    z-index: 3;
+    transform: translate(-50%,-50%);
+    .cont_characters{
         width: 100%;
         height: 100%;
-      }
-  }
-
-  .stats{
-    margin-top: -1.5%;
-    width: 90%;
-    height: 40%;
-    display: flex;
-    .pixel_stats{
-      width: 80%;
-      height: 100%;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
+        .character{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            image-rendering: pixelated;
+        }
+        .shadow_pixel{
+            
+        }
     }
-    .cant{
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .id_stats{
-        will-change: transform;
-        image-rendering: pixelated;
-        position: absolute;
-        background-repeat: no-repeat;
-        width: 30%;
-        height: 70%;
-        background-size: contain;
-        left: 0;
-        background-position: center;
-      }
-    }
-  }
-  .items{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    .cont_item{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: calc(100% / 3) ;
-      .item_icon{
-        background-image: url(/img/UI/item_icon.png);
-        margin-right: 1%;
-        width: 10%;
-        height: 100%;
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: left center;
-      }
-      .item_c{
-        background-size: contain;
-        background-position: left center;
-        background-repeat: no-repeat;
-        height: 100%;
-      }
-    }
-   
-  }
 }
 
-.btn_tainted{
-  position: absolute;
-  top:22%;
-  left: 23.5%;
-  width: 8.7vw;
-  height: 6.7vw;
-  cursor: pointer;
-  z-index: 2;
-  background-image: url(/img/UI/btn_change_tainted.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  transition: 0.2s cubic-bezier(0, 1.2, 1, 1.1) top;
-  transform: translateZ(0);
-  &:hover{
-    filter: brightness(1.2);
-    top: 22.4%;
-  }
+.btn_left{
+    position: absolute;
+    width: 4vw;
+    height: 4vw;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%,-50%);
+    background-image: url(/public/img/UI/arrowbtn_left_cl.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+    background-color: aqua;
+    z-index: 2;
 }
 
-.btn_change{
-  position: absolute;
-  right: 20%;
-  width: 11vw;
-  height: 12vw;
-  background-image: url(/img/UI/btn_change_pixel.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  background-position: center;
-  top:22%;
-  z-index: 2;
-  cursor: pointer;
-  will-change: transform;
-  transform: translateZ(0);
-  transition: 0.2s cubic-bezier(0, 1.2, 1, 1.1) top;
-  &:hover{
-    filter: brightness(1.2);
-    top: 22.4%;
-  }
+.btn_right{
+    position: absolute;
+    width: 4vw;
+    height: 4vw;
+    top: 50%;
+    right: 40%;
+    transform: translate(50%,-50%);
+    background-image: url(/public/img/UI/arrowbtn_right_cl.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: aqua;
+    cursor: pointer;
+    z-index: 2;
 }
