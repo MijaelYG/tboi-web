@@ -168,14 +168,14 @@ export const Card3: InfoCardType[] = [
 export const Card4: InfoCardType[] = [
   {
     id: 0,
-    width: 11 * 3.3,
-    height: 11.55 * 3.1,
+    width: 470,
+    height: 180,
     typeCard: "Normal",
-    bg_img: "/img/UI/cards/card_characters.png",
-    totalCard: 1,
-    top: 24,
-    right: 15,
-    moveY:[40,-20],
+    bg_img: "/img/UI/cards/mini_large_cardv2.png",
+    totalCard: 2,
+    top: 22,
+    left: 13,
+    moveX:[-20,20],
   }
 ]
 

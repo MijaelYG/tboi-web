@@ -1,39 +1,32 @@
 import styles from "./CarouselCharacters.module.css";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { charactersCarousel } from "../../config/characters";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, steps } from "framer-motion";
 import React from "react";
 
 function CarouselCharacters() {
   const [position, setPosition] = useState(0);
-  const [direction, setDirection] = useState(1);
+
   const handleBtnLeft = () => {
-    setDirection(0);
     setPosition(
       (prev) =>
         (prev - 1 + charactersCarousel.length) % charactersCarousel.length
     );
-
   };
   const handleBtnRight = () => {
-    setDirection(1);
     setPosition((prev) => (prev + 1) % charactersCarousel.length);
-
   };
 
-  const getInitialValues = (btnPressed: number) => {
-    const xPos = btnPressed === 0 ? -50 : 50;
-    return { x: `${xPos}%`, opacity: 0 };
+  const getInitialValues = () => {
+    return { opacity: 0 };
   };
 
   const getAnimateValues = () => {
-    const xPos = 0;
-    return { x: `${xPos}%`, opacity: 1 };
+    return { opacity: 1 };
   };
 
-  const getExitValues = (btnPressed: number) => {
-    const xPos = btnPressed === 0 ? 50 : -50;
-    return { x: `${xPos}%`, opacity: 0 };
+  const getExitValues = () => {
+    return { opacity: 0 };
   };
   return (
     <>
@@ -50,15 +43,65 @@ function CarouselCharacters() {
                       style={{
                         backgroundImage: `url(/img/characters/${character.name?.toLocaleLowerCase()}/${character.name?.toLocaleLowerCase()}_p.png)`,
                       }}
-                      initial={getInitialValues(direction)}
+                      initial={getInitialValues()}
                       animate={getAnimateValues()}
-                      exit={getExitValues(direction)}
-                      transition={{ duration: 0.25, ease: "linear" }}
+                      exit={getExitValues()}
+                      transition={{ duration: 0.2, ease: "easeInOut" }}
                     ></motion.div>
-                    <motion.div
-                      key={`${character.name}_shadow`}
-                      className={styles.shadow_pixel}
-                    ></motion.div>
+                    {
+                    character.name?.toLocaleLowerCase() == "the_forgotten" ? (
+                      <>
+                        <motion.div
+                          key={`${character.name}_shadow`}
+                          className={styles.shadow_pixel}
+                          style={{ left: "29%", bottom: "-5%" }}
+                          initial={getInitialValues()}
+                          animate={getAnimateValues()}
+                          exit={getExitValues()}
+                          transition={{ duration: 0.2, ease: "easeInOut" }}
+                        ></motion.div>
+                        <motion.div
+                          key={`${character.name}_shadow_2`}
+                          className={styles.shadow_pixel}
+                          style={{ right: "-19%", bottom: "-1.2%" }}
+                          initial={getInitialValues()}
+                          animate={getAnimateValues()}
+                          exit={getExitValues()}
+                          transition={{ duration: 0.2, ease: "easeInOut" }}
+                        ></motion.div>
+                      </>
+                    ) : character.name?.toLocaleLowerCase() == "jacob_esau" ? (
+                      <>
+                      <motion.div
+                        key={`${character.name}_shadow`}
+                        className={styles.shadow_pixel}
+                        style={{ left: "31.5%", bottom: "-5%" }}
+                        initial={getInitialValues()}
+                        animate={getAnimateValues()}
+                        exit={getExitValues()}
+                        transition={{ duration: 0.2, ease: "easeInOut" }}
+                      ></motion.div>
+                      <motion.div
+                        key={`${character.name}_shadow_2`}
+                        className={styles.shadow_pixel}
+                        style={{ right: "-16.5%", bottom: "-1%" }}
+                        initial={getInitialValues()}
+                        animate={getAnimateValues()}
+                        exit={getExitValues()}
+                        transition={{ duration: 0.2, ease: "easeInOut" }}
+                      ></motion.div>
+                    </>
+                    ): (
+                      <motion.div
+                        key={`${character.name}_shadow`}
+                        className={styles.shadow_pixel}
+                        style={{ left: "50%", bottom: "-5%" }}
+                        initial={getInitialValues()}
+                        animate={getAnimateValues()}
+                        exit={getExitValues()}
+                        transition={{ duration: 0.2, ease: "easeInOut" }}
+                      ></motion.div>
+                    )}
                   </React.Fragment>
                 )
               );
@@ -66,8 +109,34 @@ function CarouselCharacters() {
           </AnimatePresence>
         </div>
       </div>
-      <div className={styles.btn_left} onClick={handleBtnLeft}></div>
-      <div className={styles.btn_right} onClick={handleBtnRight}></div>
+      <motion.div
+        className={styles.btn_left}
+        onClick={handleBtnLeft}
+        initial={{
+          backgroundPositionX: "0%",
+          transition: { duration: 0, ease: steps(2) },
+        }}
+        whileTap={{
+          backgroundPositionX: "calc(-6.8vw)",
+          transition: { duration: 0, ease: steps(2) },
+        }}
+        animate={{
+          backgroundPositionX: "0%",
+          transition: { duration: 0, ease: steps(2) },
+        }}
+      ></motion.div>
+      <motion.div
+        className={styles.btn_right}
+        onClick={handleBtnRight}
+        whileTap={{
+          backgroundPositionX: "calc(-6.8vw)",
+          transition: { duration: 0, ease: steps(2) },
+        }}
+        animate={{
+          backgroundPositionX: "0%",
+          transition: { duration: 0, ease: steps(2) },
+        }}
+      ></motion.div>
     </>
   );
 }

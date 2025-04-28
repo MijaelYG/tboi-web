@@ -2,9 +2,8 @@
     position: absolute;
     top: 47%;
     left: 50%;
-    width: calc(7vw *1.4) ;
-    background-color: aqua;
-    height: calc(8.6vw *1.3) ;
+    width: calc(7vw *1.5) ;
+    height: calc(8.6vw *1.4) ;
     background-position: center;
     z-index: 3;
     transform: translate(-50%,-50%);
@@ -19,41 +18,49 @@
             background-repeat: no-repeat;
             background-position: center;
             image-rendering: pixelated;
+            will-change: transform;
+            z-index: 2;
         }
         .shadow_pixel{
-            
+            position: absolute;
+            width: 5vw;
+            height:2.5vw;
+            background-image: url(/img/shadows/pixel/shadow_character.png);
+            background-repeat: no-repeat;
+            background-size: calc(5vw * 2) auto;
+            background-position: -5vw center;
+            transform: translate(-50%,-50%);
+            z-index: 1;
         }
     }
 }
 
 .btn_left{
     position: absolute;
-    width: 4vw;
+    width: 6.8vw;
     height: 4vw;
-    top: 50%;
-    left: 40%;
+    top: 50.5%;
+    left: 38.6%;
     transform: translate(-50%,-50%);
-    background-image: url(/public/img/UI/arrowbtn_left_cl.png);
+    background-image: url(/img/obstacles/pressure_plates_left.png);
     background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+    background-size: calc(6.8vw *2) auto;
+    background-position: 0%;
     cursor: pointer;
-    background-color: aqua;
     z-index: 2;
 }
 
 .btn_right{
     position: absolute;
-    width: 4vw;
+    width: 6.8vw;
     height: 4vw;
-    top: 50%;
-    right: 40%;
+    top: 50.5%;
+    right: 38.4%;
     transform: translate(50%,-50%);
-    background-image: url(/public/img/UI/arrowbtn_right_cl.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    background-color: aqua;
+    background-image: url(/img/obstacles/pressure_plates_right.png);
+    background-size: calc(6.8vw *2) 100%;
+    background-position: 0%;
     cursor: pointer;
     z-index: 2;
+    transition: 0s all;
 }
