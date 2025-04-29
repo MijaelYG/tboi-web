@@ -6,7 +6,7 @@
     height: calc(8.6vw *1.4) ;
     background-position: center;
     z-index: 3;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);    
     .cont_characters{
         width: 100%;
         height: 100%;
@@ -31,6 +31,36 @@
             background-position: -5vw center;
             transform: translate(-50%,-50%);
             z-index: 1;
+        }
+        .cont_item{
+            position: absolute;
+            width: 6vw;
+            height: 5.2vw;
+            animation: 
+            move_item 0.5s ease-in-out infinite alternate;
+            .item{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-repeat: no-repeat;
+                background-size: 100% auto;
+                background-position: center;
+                z-index: 1;
+                image-rendering: pixelated;
+                animation: 
+                scale_item 0.16s steps(3) infinite alternate;
+            }
+        }
+        .altar{
+            position: absolute;
+            width: 6vw;
+            height: 5.2vw;
+            background-image: url(/img/obstacles/Item_altar.webp);
+            background-repeat: no-repeat;
+            background-size: 6vw auto;
+            background-position: center;
+            bottom:-89%;
+            image-rendering: pixelated;
         }
     }
 }
@@ -62,5 +92,36 @@
     background-position: 0%;
     cursor: pointer;
     z-index: 2;
-    transition: 0s all;
+}
+
+.btn_tainted{
+    position: absolute;
+    width: 6.2vw;
+    height: 4vw;
+    top: 42%;
+    right: 32.2%;
+    transform: translate(50%,-50%);
+    background-image: url(/img/obstacles/pressure_plates_tainted.png);
+    background-size: calc(6.2vw *2) 100%;
+    background-position: 0%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+@keyframes move_item {
+    from{
+        transform: translateY(-5%);
+    }
+    to{
+        transform: translateY(5%);
+    }
+}
+
+@keyframes scale_item {
+    from{
+        transform: scaleY(0.94);
+    }
+    to{
+        transform: scaleY(1.06);
+    }
 }
