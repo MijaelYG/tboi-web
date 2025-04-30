@@ -38,6 +38,8 @@
             height: 5.5vw;
             animation: 
             move_item 0.5s ease-in-out infinite alternate;
+            cursor: pointer;
+            z-index: 10;
             .item{
                 position: absolute;
                 width: 100%;
@@ -49,6 +51,22 @@
                 image-rendering: pixelated;
                 animation: 
                 scale_item 0.16s steps(3) infinite alternate;
+            }
+            .item_name{
+                position: relative;
+                z-index: 15;
+                width: fit-content;
+                white-space: nowrap;
+                height: fit-content;
+                left: 50%;
+                right: 0;
+                bottom: -220%;
+                font-size: 1.8rem;
+                justify-content: center;
+                align-items: center;
+                font-weight: bold;
+                color: white;
+                transform: translate(-50%,-50%);
             }
         }
         .altar{

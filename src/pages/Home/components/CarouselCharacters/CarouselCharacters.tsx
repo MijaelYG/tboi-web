@@ -8,6 +8,7 @@ function CarouselCharacters() {
   const [position, setPosition] = useState(0);
   const [tainted, setTainted] = useState(0);
   const [pressedTainted, setPressedTainted] = useState(1);
+  const [hoveredId, setHoveredId] = useState(0);
 
   const handleBtnLeft = () => {
     setPosition(
@@ -20,9 +21,9 @@ function CarouselCharacters() {
   };
 
   const handleBtnTainted = () => {
-    if(pressedTainted == 1){
+    if (pressedTainted == 1) {
       tainted === 0 ? setTainted(1) : setTainted(0);
-      setPressedTainted(0)
+      setPressedTainted(0);
       setTimeout(() => {
         setPressedTainted(1);
       }, 400);
@@ -33,12 +34,18 @@ function CarouselCharacters() {
     return { opacity: 0 };
   };
 
-  const getAnimateValues = (duration_number?:number) => {
-    return { opacity: 1, transition: { duration: duration_number ?? 0.25, ease: "easeInOut" } };
+  const getAnimateValues = (duration_number?: number) => {
+    return {
+      opacity: 1,
+      transition: { duration: duration_number ?? 0.25, ease: "easeInOut" },
+    };
   };
 
-  const getExitValues = (duration_number?:number) => {
-    return { opacity: 0, transition: { duration: duration_number ?? 0.25, ease: "easeInOut" } };
+  const getExitValues = (duration_number?: number) => {
+    return {
+      opacity: 0,
+      transition: { duration: duration_number ?? 0.25, ease: "easeInOut" },
+    };
   };
 
   const getLeft = (index: number, length: number, type?: string) => {
@@ -191,7 +198,7 @@ function CarouselCharacters() {
           {charactersCarousel[position].items && tainted === 0
             ? charactersCarousel[position].items.map((data, index) =>
                 data.type == "item" ? (
-                  <React.Fragment
+                  <React.Fragment 
                     key={`${charactersCarousel[position]}_${index}_items`}
                   >
                     <div
@@ -205,6 +212,8 @@ function CarouselCharacters() {
                             charactersCarousel[position].items.length
                           )}% - 1%)`,
                       }}
+                      onMouseEnter={() => setHoveredId(data.id)}
+                      onMouseLeave={() => setHoveredId(0)}
                     >
                       <div
                         key={`${charactersCarousel[position]}_${index}_item`}
@@ -216,6 +225,12 @@ function CarouselCharacters() {
                           animationDelay: `-${index * 0.25}s`,
                         }}
                       ></div>
+                      {hoveredId === data.id && (
+                        <div
+                          key={`${charactersCarousel[position]}_${index}_item_name`}
+                          className={styles.item_name}
+                        >{data.name} </div>
+                      )}
                     </div>
                     <div
                       key={`${charactersCarousel[position]}_${index}_altar`}
@@ -228,6 +243,8 @@ function CarouselCharacters() {
                             charactersCarousel[position].items.length
                           )}%`,
                       }}
+                      onMouseEnter={() => setHoveredId(data.id)}
+                      onMouseLeave={() => setHoveredId(0)}
                     ></div>
                   </React.Fragment>
                 ) : data.type === "pickup" ? (
