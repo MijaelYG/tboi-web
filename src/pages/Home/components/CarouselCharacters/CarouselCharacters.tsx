@@ -7,6 +7,7 @@ import React from "react";
 function CarouselCharacters() {
   const [position, setPosition] = useState(0);
   const [tainted, setTainted] = useState(0);
+  const [pressedTainted, setPressedTainted] = useState(1);
 
   const handleBtnLeft = () => {
     setPosition(
@@ -19,19 +20,25 @@ function CarouselCharacters() {
   };
 
   const handleBtnTainted = () => {
-    tainted === 0 ? setTainted(1) : setTainted(0);
+    if(pressedTainted == 1){
+      tainted === 0 ? setTainted(1) : setTainted(0);
+      setPressedTainted(0)
+      setTimeout(() => {
+        setPressedTainted(1);
+      }, 400);
+    }
   };
 
   const getInitialValues = () => {
     return { opacity: 0 };
   };
 
-  const getAnimateValues = () => {
-    return { opacity: 1, transition: { duration: 0.1, ease: "easeInOut" } };
+  const getAnimateValues = (duration_number?:number) => {
+    return { opacity: 1, transition: { duration: duration_number ?? 0.25, ease: "easeInOut" } };
   };
 
-  const getExitValues = () => {
-    return { opacity: 0, transition: { duration: 0.1, ease: "easeInOut" } };
+  const getExitValues = (duration_number?:number) => {
+    return { opacity: 0, transition: { duration: duration_number ?? 0.25, ease: "easeInOut" } };
   };
 
   const getLeft = (index: number, length: number, type?: string) => {
@@ -400,9 +407,9 @@ function CarouselCharacters() {
               className={styles.web}
               key={tainted}
               style={{ top: `18%`, right: `23.5%`, transform: "scaleX(-1)" }}
-              initial={{ opacity: 0, transition: { duration: 0.2 } }}
-              animate={{ opacity: 1, transition: { duration: 0.2 } }}
-              exit={{ opacity: 0, transition: { duration: 0.2 } }}
+              initial={getInitialValues()}
+              animate={getAnimateValues(0.7)}
+              exit={getExitValues(0.7)}
             ></motion.div>
             <motion.div
               className={styles.web}
@@ -411,51 +418,51 @@ function CarouselCharacters() {
                 left: `23.9%`,
                 backgroundImage: `url(/img/obstacles/web2.png)`,
               }}
-              initial={{ opacity: 0, transition: { duration: 0.2 } }}
-              animate={{ opacity: 1, transition: { duration: 0.2 } }}
-              exit={{ opacity: 0, transition: { duration: 0.2 } }}
+              initial={getInitialValues()}
+              animate={getAnimateValues(0.7)}
+              exit={getExitValues(0.7)}
             ></motion.div>
             <motion.div
               className={styles.web}
               style={{ top: `27.5%`, left: `12%` }}
-              initial={{ opacity: 0, transition: { duration: 0.2 } }}
-              animate={{ opacity: 1, transition: { duration: 0.2 } }}
-              exit={{ opacity: 0, transition: { duration: 0.2 } }}
+              initial={getInitialValues()}
+              animate={getAnimateValues(0.8)}
+              exit={getExitValues(0.8)}
             ></motion.div>
             <motion.div
               className={styles.web}
               style={{ bottom: `27.3%`, right: `11.6%` }}
-              initial={{ opacity: 0, transition: { duration: 0.2 } }}
-              animate={{ opacity: 1, transition: { duration: 0.2 } }}
-              exit={{ opacity: 0, transition: { duration: 0.2 } }}
+              initial={getInitialValues()}
+              animate={getAnimateValues(0.7)}
+              exit={getExitValues(0.7)}
             ></motion.div>
             <motion.div
               className={styles.web}
               style={{ top: `36.5%`, right: `11.5%` }}
-              initial={{ opacity: 0, transition: { duration: 0.2 } }}
-              animate={{ opacity: 1, transition: { duration: 0.2 } }}
-              exit={{ opacity: 0, transition: { duration: 0.2 } }}
+              initial={getInitialValues()}
+              animate={getAnimateValues(0.7)}
+              exit={getExitValues(0.7)}
             ></motion.div>
             <motion.div
               className={styles.web}
               style={{ bottom: `27.8%`, left: `18%` }}
-              initial={{ opacity: 0, transition: { duration: 0.2 } }}
-              animate={{ opacity: 1, transition: { duration: 0.2 } }}
-              exit={{ opacity: 0, transition: { duration: 0.2 } }}
+              initial={getInitialValues()}
+              animate={getAnimateValues(0.7)}
+              exit={getExitValues(0.7)}
             ></motion.div>
             <motion.div
               className={styles.poop}
               style={{ bottom: `26.4%`, left: `11.1%` }}
-              initial={{ opacity: 0, transition: { duration: 0.2 } }}
-              animate={{ opacity: 1, transition: { duration: 0.2 } }}
-              exit={{ opacity: 0, transition: { duration: 0.2 } }}
+              initial={getInitialValues()}
+              animate={getAnimateValues(0.7)}
+              exit={getExitValues(0.7)}
             ></motion.div>
             <motion.div
               className={styles.poop}
               style={{ top: `26.5%`, right: `11.35%` }}
-              initial={{ opacity: 0, transition: { duration: 0.2 } }}
-              animate={{ opacity: 1, transition: { duration: 0.2 } }}
-              exit={{ opacity: 0, transition: { duration: 0.2 } }}
+              initial={getInitialValues()}
+              animate={getAnimateValues(0.7)}
+              exit={getExitValues(0.7)}
             ></motion.div>
           </React.Fragment>
         )}
