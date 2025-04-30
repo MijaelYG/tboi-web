@@ -59,14 +59,23 @@ export interface Section{
     infoCard?:InfoCardType[];
 }
 
+export interface items{
+    id:number;
+    name: string;
+    type: string;
+}
 
+export interface items_tainted{
+    id:number;
+    name: string;
+    type: string;
+}
 export interface characters{
     id:number;
     name?: string;
     life: number;
-    items?:number;
+    items?:items[];
     attack:number;
     speed:number;
-    characterCard_img?:string;
-    characterPixel_img?:string;
+    itemsTainted?: items_tainted[];
 }
