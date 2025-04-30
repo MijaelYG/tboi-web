@@ -134,6 +134,21 @@ export const charactersCarousel: characters[] = [
         type: "item",
       },
     ],
+    itemsTainted:[ {
+      id: 1,
+      name: "No Bombs",
+      type: "text",
+    },
+    {
+      id: 2,
+      name: "Only Poop",
+      type: "text",
+    },
+    {
+      id: 3,
+      name: "Hold",
+      type: "item",
+    },]
   },
   {
     id: 6,
@@ -158,6 +173,18 @@ export const charactersCarousel: characters[] = [
         type: "item",
       },
     ],
+    itemsTainted: [
+      {
+        id: 1,
+        name: "Clot Summoner",
+        type: "text",
+      },
+      {
+        id: 2,
+        name: "Sumptorium",
+        type: "item",
+      },
+    ],
   },
   {
     id: 7,
@@ -177,6 +204,18 @@ export const charactersCarousel: characters[] = [
         type: "trinket",
       },
     ],
+    itemsTainted: [
+      {
+        id: 1,
+        name: "Undying Rage",
+        type: "text",
+      },
+      {
+        id: 2,
+        name: "Berserk!",
+        type: "item",
+      },
+    ],
   },
   {
     id: 8,
@@ -184,6 +223,18 @@ export const charactersCarousel: characters[] = [
     life: -1,
     attack: 4,
     speed: 3,
+    itemsTainted: [
+      {
+        id: 1,
+        name: "Broken Wings",
+        type: "text",
+      },
+      {
+        id: 2,
+        name: "Hemoptysis",
+        type: "item",
+      },
+    ],
   },
   {
     id: 9,
@@ -203,6 +254,18 @@ export const charactersCarousel: characters[] = [
         type: "pickup",
       },
     ],
+    itemsTainted: [
+      {
+        id: 1,
+        name: "Between Life and Death",
+        type: "text",
+      },
+      {
+        id: 2,
+        name: "Flip",
+        type: "item",
+      },
+    ],
   },
   {
     id: 10,
@@ -210,6 +273,11 @@ export const charactersCarousel: characters[] = [
     life: 0,
     attack: 0,
     speed: 0,
+    itemsTainted:[{
+      id:1,
+      name:"Ever Changing",
+      type:"text"
+    }]
   },
   {
     id: 11,
@@ -229,6 +297,16 @@ export const charactersCarousel: characters[] = [
         type: "item",
       },
     ],
+    itemsTainted:[{
+      id:1,
+      name:"Better Items",
+      type:"text"
+    },
+    {
+      id:2,
+      name:"No Mantle",
+      type:"text"
+    }]
   },
   {
     id: 12,
@@ -252,6 +330,16 @@ export const charactersCarousel: characters[] = [
         type:"item"
       }
     ],
+    itemsTainted:[{
+      id:1,
+      name:"Fetal Fury",
+      type:"text"
+    },
+    {
+      id:2,
+      name:"Gello",
+      type:"item"
+    }]
   },
   {
     id: 13,
@@ -271,6 +359,16 @@ export const charactersCarousel: characters[] = [
         type: "trinket",
       },
     ],
+    itemsTainted:[{
+      id:1,
+      name:"Better Shops",
+      type:"text"
+    },
+    {
+      id:2,
+      name:"Greed is Good",
+      type:"text"
+    }]
   },
   {
     id: 14,
@@ -285,6 +383,16 @@ export const charactersCarousel: characters[] = [
         type: "item",
       },
     ],
+    itemsTainted:[{
+      id:1,
+      name:"Plague Bringer",
+      type:"text"
+    },
+    {
+      id:2,
+      name:"Abyss",
+      type:"item"
+    }]
   },
   {
     id: 15,
@@ -292,6 +400,11 @@ export const charactersCarousel: characters[] = [
     life: -1,
     attack: 4,
     speed: 2,
+    itemsTainted:[{
+      id:1,
+      name:"Dead Weight",
+      type:"text"
+    },]
   },
   {
     id: 16,
@@ -306,6 +419,21 @@ export const charactersCarousel: characters[] = [
         type: "item",
       },
     ],
+    itemsTainted:[{
+      id:1,
+      name:"Blood Power",
+      type:"text"
+    },
+    {
+      id:2,
+      name:"Weaker Items",
+      type:"text"
+    },
+    {
+      id:3,
+      name:"Lemegeton",
+      type:"item"
+    }]
   },
   {
     id: 17,
@@ -313,5 +441,15 @@ export const charactersCarousel: characters[] = [
     life: 5,
     attack: 5,
     speed: 2,
+    itemsTainted:[{
+      id:1,
+      name:"Repent for Your Sins",
+      type:"text"
+    },
+    {
+      id:2,
+      name:"Anima Sola",
+      type:"item"
+    },]
   },
 ];

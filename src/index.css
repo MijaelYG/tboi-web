@@ -2,6 +2,8 @@
   --background-color: black;
   --primary-color:red;
   --text-card: #77695a;
+  --font-pixel: 'Pixel_I';
+  --font-Tempesta: 'Tempesta';
 }
 
 @font-face{

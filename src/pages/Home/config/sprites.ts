@@ -27,6 +27,16 @@ const shadow_bat: ShadowSprite = {
   sprites:3,
 }
 
+const shadow_fly: ShadowSprite = {
+  width:3,
+  height:1.5,
+  shadow_img:"/img/shadows/pixel/shadow_enemies.png",
+  bottom:-12,
+  left:-10,
+  animation:[0,30],
+  sprites:3,
+}
+
 const shadow_charger_back: ShadowSprite = {
   width:5,
   height:2,
@@ -197,7 +207,7 @@ export const pixelSprite4: PixelSprite[] = [
     top: 40,
     right: 7,
     sprites: 4,
-    y:100,
+    y:120,
   },
   {
     width: 6.9,
@@ -209,7 +219,6 @@ export const pixelSprite4: PixelSprite[] = [
     sprites: 4,
     x:-90,
   },
-
   {
     width: 4.5,
     height: 5.5,
@@ -220,5 +229,28 @@ export const pixelSprite4: PixelSprite[] = [
     sprites: 3,
     x:50,
     y:-100,
+  },
+  {
+    width: 6.5,
+    height: 8.6,
+    background_img: "/img/monsters/boney.png",
+    animation: [0, 13],
+    top: 36.5,
+    left: 17.5,
+    sprites: 10,
+    y:80,
+    shadow:shadow_character
+  },
+  {
+    width: 4.5,
+    height: 6.5,
+    background_img: "/img/monsters/sucker.png",
+    animation: [0, 14],
+    bottom: 20.5,
+    left: 17.5,
+    sprites: 2,
+    y:-50,
+    x:50,
+    shadow:shadow_fly
   },
 ];
