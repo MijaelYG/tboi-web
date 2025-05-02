@@ -1,197 +1,160 @@
-.cont_carousel{
-    position: absolute;
-    top: 47%;
-    left: 50%;
-    width: calc(7vw *1.5) ;
-    height: calc(8.6vw *1.4) ;
-    background-position: center;
-    z-index: 3;
-    transform: translate(-50%,-50%);    
-    .cont_characters{
-        width: 100%;
-        height: 100%;
-        .character{
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            image-rendering: pixelated;
-            will-change: transform;
-            z-index: 2;
-        }
-        .shadow_pixel{
-            position: absolute;
-            width: 5vw;
-            height:2.5vw;
-            background-image: url(/img/shadows/pixel/shadow_character.png);
-            background-repeat: no-repeat;
-            background-size: calc(5vw * 2) auto;
-            background-position: -5vw center;
-            transform: translate(-50%,-50%);
-            z-index: 1;
-        }
-        .cont_item{
-            position: absolute;
-            width: 6vw;
-            height: 5.5vw;
-            animation: 
-            move_item 0.5s ease-in-out infinite alternate;
-            cursor: pointer;
-            z-index: 10;
-            .item{
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background-repeat: no-repeat;
-                background-size: 100% auto;
-                background-position: center;
-                z-index: 1;
-                image-rendering: pixelated;
-                animation: 
-                scale_item 0.16s steps(3) infinite alternate;
-            }
-            .item_name{
-                position: relative;
-                z-index: 15;
-                width: fit-content;
-                white-space: nowrap;
-                height: fit-content;
-                left: 50%;
-                right: 0;
-                bottom: -220%;
-                font-size: 1.8rem;
-                justify-content: center;
-                align-items: center;
-                font-weight: bold;
-                color: white;
-                transform: translate(-50%,-50%);
-            }
-        }
-        .altar{
-            position: absolute;
-            width: 6vw;
-            height: 5.5vw;
-            background-image: url(/img/obstacles/Item_altar.webp);
-            background-repeat: no-repeat;
-            background-size: 6vw auto;
-            background-position: center;
-            bottom:-89%;
-            image-rendering: pixelated;
-        }
-        .other_item{
-            position: absolute;
-            width: 6vw;
-            height: 5.5vw;
-            background-repeat: no-repeat;
-            background-size: 6vw auto;
-            background-position: center;
-            bottom:-89%;
-            image-rendering: pixelated;
-        }
-        .text{
-            position: absolute;
-            width: 12vw;
-            min-height: 6vw;
-            background-repeat: no-repeat;
-            background-size: 6vw auto;
-            background-position: center;
-            bottom:-89%;
-            image-rendering: pixelated;
-            color: #f7bf91;
-            font-size: 2.5rem;
-            text-align: center;
-            font-family: var(--font-pixel);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            letter-spacing: 1px;
-            text-transform:uppercase;
-            text-shadow: 0px 0px 10px #130e0c, 0px 5px 3px #110d0a ;
-        }
+.cont_carousel {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  width: calc(7vw * 1.5);
+  height: calc(8.6vw * 1.4);
+  background-position: center;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  .cont_characters {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    .character {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      image-rendering: pixelated;
+      will-change: transform;
+      z-index: 2;
     }
-}
-
-.btn_left{
-    position: absolute;
-    width: 6.8vw;
-    height: 4vw;
-    top: 50.5%;
-    left: 38.6%;
-    transform: translate(-50%,-50%);
-    background-image: url(/img/obstacles/pressure_plates_left.png);
-    background-repeat: no-repeat;
-    background-size: calc(6.8vw *2) auto;
-    background-position: 0%;
-    cursor: pointer;
-    z-index: 2;
-}
-
-.btn_right{
-    position: absolute;
-    width: 6.8vw;
-    height: 4vw;
-    top: 50.5%;
-    right: 38.4%;
-    transform: translate(50%,-50%);
-    background-image: url(/img/obstacles/pressure_plates_right.png);
-    background-size: calc(6.8vw *2) 100%;
-    background-position: 0%;
-    cursor: pointer;
-    z-index: 2;
-}
-
-.btn_tainted{
-    position: absolute;
-    width: 6.2vw;
-    height: 4vw;
-    top: 42%;
-    right: 32.2%;
-    transform: translate(50%,-50%);
-    background-image: url(/img/obstacles/pressure_plates_tainted.png);
-    background-size: calc(6.2vw *2) 100%;
-    background-position: 0%;
-    cursor: pointer;
-    z-index: 2;
-}
-
-.web{
-    position: absolute;
-    width: 6vw;
-    height: 6vw;
-    background-image:url(/img/obstacles/web.png) ;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    will-change: transform;
-}
-
-.poop{
-    position: absolute;
-    width: 7.2vw;
-    height: 7.2vw;
-    background-image:url(/img/obstacles/black_poop.png) ;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    will-change: transform;
-}
-
-@keyframes move_item {
-    from{
-        transform: translateY(-5%);
+    .shadow_pixel {
+      position: absolute;
+      width: 5vw;
+      height: 2.5vw;
+      background-image: url(/img/shadows/pixel/shadow_character.png);
+      background-repeat: no-repeat;
+      background-size: calc(5vw * 2) auto;
+      background-position: -5vw center;
+      transform: translate(-50%, -50%);
+      z-index: 1;
     }
-    to{
-        transform: translateY(5%);
+    .position_item{
+        position: absolute;
     }
+    .cont_item_name {
+      position: absolute;
+      z-index: 2;
+      min-width: 8vw;
+      width: fit-content;
+      white-space: nowrap;
+      min-height: 5vw;
+      height: 5vw;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      padding: 2.4rem 2.5rem;
+      bottom: -115%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: rgb(15, 11, 9);
+      image-rendering: pixelated;
+      cursor: default;
+      .item_name {
+        position: relative;
+        bottom: 6.5px;
+      }
+    }
+    .other_item {
+      position: absolute;
+      width: 6vw;
+      height: 5.5vw;
+      background-repeat: no-repeat;
+      background-size: 6vw auto;
+      background-position: center;
+      bottom: -89%;
+      image-rendering: pixelated;
+    }
+    .text {
+      position: absolute;
+      width: 12vw;
+      min-height: 6vw;
+      background-repeat: no-repeat;
+      background-size: 6vw auto;
+      background-position: center;
+      bottom: -89%;
+      image-rendering: pixelated;
+      color: #f7bf91;
+      font-size: 2.5rem;
+      text-align: center;
+      font-family: var(--font-pixel);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-shadow: 0px 0px 10px #130e0c, 0px 5px 3px #110d0a;
+    }
+  }
 }
 
-@keyframes scale_item {
-    from{
-        transform: scaleY(0.94);
-    }
-    to{
-        transform: scaleY(1.06);
-    }
+.btn_left {
+  position: absolute;
+  width: 6.8vw;
+  height: 4vw;
+  top: 50.5%;
+  left: 38.6%;
+  transform: translate(-50%, -50%);
+  background-image: url(/img/obstacles/pressure_plates_left.png);
+  background-repeat: no-repeat;
+  background-size: calc(6.8vw * 2) auto;
+  background-position: 0%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.btn_right {
+  position: absolute;
+  width: 6.8vw;
+  height: 4vw;
+  top: 50.5%;
+  right: 38.4%;
+  transform: translate(50%, -50%);
+  background-image: url(/img/obstacles/pressure_plates_right.png);
+  background-size: calc(6.8vw * 2) 100%;
+  background-position: 0%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.btn_tainted {
+  position: absolute;
+  width: 6.2vw;
+  height: 4vw;
+  top: 42%;
+  right: 32.2%;
+  transform: translate(50%, -50%);
+  background-image: url(/img/obstacles/pressure_plates_tainted.png);
+  background-size: calc(6.2vw * 2) 100%;
+  background-position: 0%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.web {
+  position: absolute;
+  width: 6vw;
+  height: 6vw;
+  background-image: url(/img/obstacles/web.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  will-change: transform;
+}
+
+.poop {
+  position: absolute;
+  width: 7.2vw;
+  height: 7.2vw;
+  background-image: url(/img/obstacles/black_poop.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  will-change: transform;
 }

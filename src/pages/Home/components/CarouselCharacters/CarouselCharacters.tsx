@@ -3,6 +3,7 @@ import { useState } from "react";
 import { charactersCarousel } from "../../config/characters";
 import { AnimatePresence, motion, steps } from "framer-motion";
 import React from "react";
+import Item from "../../../../components/Item/Item";
 
 function CarouselCharacters() {
   const [position, setPosition] = useState(0);
@@ -27,6 +28,18 @@ function CarouselCharacters() {
       setTimeout(() => {
         setPressedTainted(1);
       }, 400);
+    }
+  };
+
+  const handleTextLength = (text: string) => {
+    if (text.length <= 5) {
+      return "/img/UI/cards/card_title_item_4.png";
+    } else if (text.length >= 6 && text.length <= 10) {
+      return "/img/UI/cards/card_title_item_3.png";
+    } else if (text.length >= 11 && text.length <= 15) {
+      return "/img/UI/cards/card_title_item_2.png";
+    } else if (text.length >= 16) {
+      return "/img/UI/cards/card_title_item_1.png";
     }
   };
 
@@ -57,6 +70,10 @@ function CarouselCharacters() {
           if (index == 0) {
             return -5;
           }
+        } else if (type == "item_name") {
+          if (index == 0) {
+            return 0;
+          }
         } else {
           if (index == 0) {
             return 20.5;
@@ -70,6 +87,8 @@ function CarouselCharacters() {
           } else {
             return 90;
           }
+        } else if (type == "item_name") {
+          return -58;
         } else {
           if (index == 0) {
             return -33;
@@ -80,7 +99,7 @@ function CarouselCharacters() {
       case 3:
         if (type == "text") {
           if (index == 0) {
-            return -155;
+            return -130;
           } else if (index == 1) {
             return -5;
           } else {
@@ -198,10 +217,28 @@ function CarouselCharacters() {
           {charactersCarousel[position].items && tainted === 0
             ? charactersCarousel[position].items.map((data, index) =>
                 data.type == "item" ? (
-                  <React.Fragment 
+                  <React.Fragment
                     key={`${charactersCarousel[position]}_${index}_items`}
                   >
                     <div
+                      className={styles.position_item}
+                      style={{
+                        left:
+                          charactersCarousel[position].items &&
+                          `calc(${getLeft(
+                            index,
+                            charactersCarousel[position].items.length
+                          )}% - 1%)`,
+                      }}
+                    >
+                      <Item
+                        name={data.name}
+                        index={index}
+                        characterpos={charactersCarousel[position].name}
+                      ></Item>
+                    </div>
+
+                    {/* <div
                       className={styles.cont_item}
                       key={`${charactersCarousel[position]}_${index}_cont_item`}
                       style={{
@@ -225,12 +262,6 @@ function CarouselCharacters() {
                           animationDelay: `-${index * 0.25}s`,
                         }}
                       ></div>
-                      {hoveredId === data.id && (
-                        <div
-                          key={`${charactersCarousel[position]}_${index}_item_name`}
-                          className={styles.item_name}
-                        >{data.name} </div>
-                      )}
                     </div>
                     <div
                       key={`${charactersCarousel[position]}_${index}_altar`}
@@ -243,9 +274,40 @@ function CarouselCharacters() {
                             charactersCarousel[position].items.length
                           )}%`,
                       }}
-                      onMouseEnter={() => setHoveredId(data.id)}
-                      onMouseLeave={() => setHoveredId(0)}
-                    ></div>
+                    ></div>*/}
+                    <AnimatePresence>
+                      {hoveredId === data.id && (
+                        <motion.div
+                          key={`${hoveredId}`}
+                          className={styles.cont_item_name}
+                          style={{
+                            left:
+                              charactersCarousel[position].items &&
+                              `calc(${getLeft(
+                                index,
+                                charactersCarousel[position].items.length,
+                                "item_name"
+                              )}%)`,
+                            backgroundImage: `url(${handleTextLength(
+                              data.name
+                            )})`,
+                          }}
+                          initial={getInitialValues()}
+                          animate={{
+                            ...getAnimateValues(0.2),
+                            y: 10,
+                          }}
+                          exit={{
+                            ...getExitValues(0.2),
+                            y: -10,
+                          }}
+                        >
+                          <motion.div className={styles.item_name}>
+                            {data.name}
+                          </motion.div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </React.Fragment>
                 ) : data.type === "pickup" ? (
                   <div
@@ -417,6 +479,7 @@ function CarouselCharacters() {
           transition: { duration: 0, ease: steps(2) },
         }}
       ></motion.div>
+
       <AnimatePresence mode="wait">
         {tainted === 1 && (
           <React.Fragment key={tainted}>

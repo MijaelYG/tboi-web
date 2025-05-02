@@ -258,10 +258,10 @@ export const pixelSprite4: PixelSprite[] = [
     background_img: "/img/monsters/sucker.png",
     animation: [0, 14],
     bottom: 22.5,
-    left: 18,
+    left: 21,
     sprites: 2,
-    y:-40,
-    x:100,
+    y:-20,
+    x:40,
     shadow:shadow_fly
   },
   {
@@ -272,9 +272,21 @@ export const pixelSprite4: PixelSprite[] = [
     top: 21.5,
     right: 26,
     sprites: 2,
-    y:-10,
-    x:-80,
+    y:-20,
+    x:-20,
     scaleX:-1,
     shadow:shadow_fly
+  },
+  {
+    width: 4.4,
+    height: 4.8,
+    background_img: "/img/monsters/dip.png",
+    animation: [1, 12],
+    top: 24.5,
+    left: 24.5,
+    sprites: 3,
+    x:80,
+    y:70,
+    shadow:shadow_poop
   },
 ];

@@ -326,7 +326,7 @@ export const charactersCarousel: characters[] = [
         type: "item",
       },{
         id:3,
-        name:"Box of_Friends",
+        name:"Box of Friends",
         type:"item"
       }
     ],
