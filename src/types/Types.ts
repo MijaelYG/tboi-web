@@ -79,3 +79,15 @@ export interface characters{
     speed:number;
     itemsTainted?: items_tainted[];
 }
+
+export interface PixelSpriteStatic{
+    width:number;
+    height:number;
+    sprite_bg_img:string;
+    name?: string;
+    top?:number;
+    bottom?:number;
+    left?:number;
+    right?:number;
+    scaleX?:number;
+}

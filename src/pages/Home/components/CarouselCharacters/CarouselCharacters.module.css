@@ -33,8 +33,8 @@
       transform: translate(-50%, -50%);
       z-index: 1;
     }
-    .position_item{
-        position: absolute;
+    .position_item {
+      position: absolute;
     }
     .cont_item_name {
       position: absolute;
@@ -60,16 +60,6 @@
         position: relative;
         bottom: 6.5px;
       }
-    }
-    .other_item {
-      position: absolute;
-      width: 6vw;
-      height: 5.5vw;
-      background-repeat: no-repeat;
-      background-size: 6vw auto;
-      background-position: center;
-      bottom: -89%;
-      image-rendering: pixelated;
     }
     .text {
       position: absolute;

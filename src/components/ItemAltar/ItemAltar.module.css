@@ -1,0 +1,54 @@
+.item_stactic {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  .cont_item {
+    position: relative;
+    width: 6vw;
+    height: 5.5vw;
+    animation: move_item 0.5s ease-in-out infinite alternate;
+    cursor: pointer;
+    z-index: 1;
+    .item {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-position: center;
+      image-rendering: pixelated;
+      animation: scale_item 0.16s steps(3) infinite alternate;
+    }
+  }
+  .altar {
+    position: relative;
+    width: 6vw;
+    height: 5.5vw;
+    background-image: url(/img/obstacles/Item_altar.webp);
+    background-repeat: no-repeat;
+    background-size: 6vw auto;
+    background-position: center;
+    bottom: -89%;
+    image-rendering: pixelated;
+  }
+}
+
+@keyframes move_item {
+  from {
+    transform: translateY(-5%);
+  }
+  to {
+    transform: translateY(5%);
+  }
+}
+
+@keyframes scale_item {
+  from {
+    transform: scaleY(0.94);
+  }
+  to {
+    transform: scaleY(1.06);
+  }
+}
+
