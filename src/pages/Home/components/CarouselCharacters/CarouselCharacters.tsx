@@ -69,35 +69,33 @@ function CarouselCharacters() {
       case 2:
         if (type == "text") {
           if (index == 0) {
-            return -95;
+            return -40;
           } else {
-            return 90;
+            return 40;
           }
-        } else if (type == "item_name") {
-          return -58;
         } else {
           if (index == 0) {
-            return -33;
+            return 58;
           } else {
-            return 75;
+            return -58;
           }
         }
       case 3:
         if (type == "text") {
           if (index == 0) {
-            return -130;
+            return 10;
           } else if (index == 1) {
-            return -5;
+            return -57;
           } else {
-            return 138;
+            return -10;
           }
         } else {
           if (index == 0) {
-            return -89;
+            return 112;
           } else if (index == 1) {
-            return 20.5;
+            return 0;
           } else {
-            return 131.5;
+            return -112;
           }
         }
       default:
@@ -207,19 +205,13 @@ function CarouselCharacters() {
               initial={getInitialValues()}
               animate={getAnimateValues()}
               exit={getExitValues()}
-              style={{alignItems:`${tainted == 1 ? "center":"end"}`}}
+              style={{ alignItems: `${tainted == 1 ? "center" : "end"}` }}
             >
               {charactersCarousel[position].items && tainted === 0
                 ? charactersCarousel[position].items.map((data, index) =>
                     data.type == "item" ? (
-                      <React.Fragment
-                        key={`${index}_fragment_item`}
-                      >
-                        <motion.div
-                          className={styles.position_item}
-                          style={{
-                          }}
-                        >
+                      <React.Fragment key={`${index}_fragment_item`}>
+                        <motion.div className={styles.position_item} style={{}}>
                           <ItemAltar name={data.name} index={index}></ItemAltar>
                         </motion.div>
                         <AnimatePresence>
@@ -277,11 +269,19 @@ function CarouselCharacters() {
                   tainted === 1 &&
                   charactersCarousel[position].itemsTainted.map((data, index) =>
                     data.type == "item" ? (
-                      <React.Fragment
-                        key={`${index}_fragment_item`}
-                      >
+                      <React.Fragment key={`${index}_fragment_item`}>
                         <motion.div
                           className={styles.position_item}
+                          style={{
+                            left:
+                              charactersCarousel[position].itemsTainted &&
+                              getLeft(
+                                index,
+                                charactersCarousel[position].itemsTainted
+                                  .length,
+                                "item "
+                              ),
+                          }}
                         >
                           <ItemAltar name={data.name} index={index}></ItemAltar>
                         </motion.div>
@@ -290,6 +290,15 @@ function CarouselCharacters() {
                       <motion.div
                         key={`${index}_text`}
                         className={styles.text}
+                        style={{
+                          left:
+                            charactersCarousel[position].itemsTainted &&
+                            getLeft(
+                              index,
+                              charactersCarousel[position].itemsTainted.length,
+                              "text"
+                            ),
+                        }}
                       >
                         {data.name}
                       </motion.div>

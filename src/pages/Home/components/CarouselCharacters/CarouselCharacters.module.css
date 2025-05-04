@@ -42,7 +42,7 @@
       gap: 5.5vw;
       align-items: end;
       position: absolute;
-      background-color: salmon;
+      min-height: 11vw;
       bottom: -90%;
       .position_item {
         width: fit-content;
@@ -78,7 +78,6 @@
     }
     .text {
       position: relative;
-      background-color: #130e0c;
       width: 12vw;
       min-height: 6vw;
       color: #f7bf91;
