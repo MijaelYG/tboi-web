@@ -5,6 +5,8 @@ import { AnimatePresence, motion, steps } from "framer-motion";
 import React from "react";
 import ItemAltar from "../../../../components/ItemAltar/ItemAltar";
 import Item from "../../../../components/Item/Item";
+import Pixel from "../../../../components/Pixel/Pixel";
+import { pixelSpritesBg4 } from "../../config/sprites";
 
 function CarouselCharacters() {
   const [position, setPosition] = useState(0);
@@ -64,27 +66,10 @@ function CarouselCharacters() {
 
   const getLeft = (index: number, length: number, type?: string) => {
     switch (length) {
-      case 0:
-        return 0;
-      case 1:
-        if (type == "text") {
-          if (index == 0) {
-            return -5;
-          }
-        } else if (type == "item_name") {
-          if (index == 0) {
-            return 0;
-          }
-        } else {
-          if (index == 0) {
-            return 20.5;
-          }
-        }
-        return;
       case 2:
         if (type == "text") {
           if (index == 0) {
-            return -100;
+            return -95;
           } else {
             return 90;
           }
@@ -216,29 +201,24 @@ function CarouselCharacters() {
             </React.Fragment>
           </AnimatePresence>
           <AnimatePresence mode="wait">
-            <React.Fragment
+            <motion.div
               key={`${charactersCarousel[position].name}_${tainted}`}
+              className={styles.items_characters}
+              initial={getInitialValues()}
+              animate={getAnimateValues()}
+              exit={getExitValues()}
+              style={{alignItems:`${tainted == 1 ? "center":"end"}`}}
             >
               {charactersCarousel[position].items && tainted === 0
                 ? charactersCarousel[position].items.map((data, index) =>
                     data.type == "item" ? (
                       <React.Fragment
-                        key={`${charactersCarousel[position]}_${index}_fragment_item`}
+                        key={`${index}_fragment_item`}
                       >
                         <motion.div
                           className={styles.position_item}
                           style={{
-                            left:
-                              charactersCarousel[position].items &&
-                              `calc(${getLeft(
-                                index,
-                                charactersCarousel[position].items.length
-                              )}% - 1%)`,
                           }}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.25 }}
                         >
                           <ItemAltar name={data.name} index={index}></ItemAltar>
                         </motion.div>
@@ -278,17 +258,8 @@ function CarouselCharacters() {
                       </React.Fragment>
                     ) : (
                       <motion.div
-                        key={`${charactersCarousel[position]}_${index}_item`}
+                        key={`${index}_other_item`}
                         className={styles.position_item}
-                        style={{
-                          left:
-                            charactersCarousel[position].items &&
-                            `calc(${getLeft(
-                              index,
-                              charactersCarousel[position].items.length
-                            )}% - 1%)`,
-                          bottom: ` -90%`,
-                        }}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -307,63 +278,25 @@ function CarouselCharacters() {
                   charactersCarousel[position].itemsTainted.map((data, index) =>
                     data.type == "item" ? (
                       <React.Fragment
-                        key={`${charactersCarousel[position]}_${index}_fragment_item`}
+                        key={`${index}_fragment_item`}
                       >
                         <motion.div
                           className={styles.position_item}
-                          style={{
-                            left:
-                              charactersCarousel[position].itemsTainted &&
-                              `calc(${getLeft(
-                                index,
-                                charactersCarousel[position].itemsTainted.length
-                              )}% - 1%)`,
-                          }}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.25 }}
                         >
                           <ItemAltar name={data.name} index={index}></ItemAltar>
                         </motion.div>
                       </React.Fragment>
                     ) : data.type === "text" ? (
                       <motion.div
-                        key={`${charactersCarousel[position]}_${index}_text`}
+                        key={`${index}_text`}
                         className={styles.text}
-                        style={{
-                          left:
-                            charactersCarousel[position].itemsTainted &&
-                            `calc(${getLeft(
-                              index,
-                              charactersCarousel[position].itemsTainted.length,
-                              "text"
-                            )}% - 1%)`,
-                        }}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.25 }}
                       >
                         {data.name}
                       </motion.div>
                     ) : (
                       <motion.div
-                        key={`${charactersCarousel[position]}_${index}_item`}
+                        key={`${index}_other_item`}
                         className={styles.position_item}
-                        style={{
-                          left:
-                            charactersCarousel[position].itemsTainted &&
-                            `calc(${getLeft(
-                              index,
-                              charactersCarousel[position].itemsTainted.length
-                            )}% - 1%)`,
-                          bottom: ` -90%`,
-                        }}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.25 }}
                       >
                         <Item
                           name={data.name}
@@ -373,7 +306,7 @@ function CarouselCharacters() {
                       </motion.div>
                     )
                   )}
-            </React.Fragment>
+            </motion.div>
           </AnimatePresence>
         </div>
       </div>
@@ -417,81 +350,32 @@ function CarouselCharacters() {
           transition: { duration: 0, ease: steps(2) },
         }}
       ></motion.div>
-      {tainted === 1 && (
-        <AnimatePresence mode="wait">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <React.Fragment key={tainted}>
-              <motion.div></motion.div>
-            </React.Fragment>
-          ))}
-        </AnimatePresence>
-      )}
       <AnimatePresence mode="wait">
-        {tainted === 1 && (
-          <React.Fragment key={tainted}>
-            <motion.div
-              className={styles.web}
-              key={tainted}
-              style={{ top: `18%`, right: `23.5%`, transform: "scaleX(-1)" }}
-              initial={getInitialValues()}
-              animate={getAnimateValues(0.7)}
-              exit={getExitValues(0.7)}
-            ></motion.div>
-            <motion.div
-              className={styles.web}
-              style={{
-                bottom: `18.6%`,
-                left: `23.9%`,
-                backgroundImage: `url(/img/obstacles/web2.png)`,
-              }}
-              initial={getInitialValues()}
-              animate={getAnimateValues(0.7)}
-              exit={getExitValues(0.7)}
-            ></motion.div>
-            <motion.div
-              className={styles.web}
-              style={{ top: `27.5%`, left: `12%` }}
-              initial={getInitialValues()}
-              animate={getAnimateValues(0.8)}
-              exit={getExitValues(0.8)}
-            ></motion.div>
-            <motion.div
-              className={styles.web}
-              style={{ bottom: `27.3%`, right: `11.6%` }}
-              initial={getInitialValues()}
-              animate={getAnimateValues(0.7)}
-              exit={getExitValues(0.7)}
-            ></motion.div>
-            <motion.div
-              className={styles.web}
-              style={{ top: `36.5%`, right: `11.5%` }}
-              initial={getInitialValues()}
-              animate={getAnimateValues(0.7)}
-              exit={getExitValues(0.7)}
-            ></motion.div>
-            <motion.div
-              className={styles.web}
-              style={{ bottom: `27.8%`, left: `18%` }}
-              initial={getInitialValues()}
-              animate={getAnimateValues(0.7)}
-              exit={getExitValues(0.7)}
-            ></motion.div>
-            <motion.div
-              className={styles.poop}
-              style={{ bottom: `26.4%`, left: `11.1%` }}
-              initial={getInitialValues()}
-              animate={getAnimateValues(0.7)}
-              exit={getExitValues(0.7)}
-            ></motion.div>
-            <motion.div
-              className={styles.poop}
-              style={{ top: `26.5%`, right: `11.35%` }}
-              initial={getInitialValues()}
-              animate={getAnimateValues(0.7)}
-              exit={getExitValues(0.7)}
-            ></motion.div>
-          </React.Fragment>
-        )}
+        <React.Fragment key={`${tainted}_fragment_tainted_pixel`}>
+          {tainted === 1 &&
+            pixelSpritesBg4.map((data, index) => (
+              <motion.div
+                key={index}
+                className={styles.cont_pixel_bg}
+                style={{
+                  top: `${data.top}%`,
+                  bottom: `${data.bottom}%`,
+                  left: `${data.left}%`,
+                  right: `${data.right}%`,
+                }}
+                initial={getInitialValues()}
+                animate={getAnimateValues(0.7)}
+                exit={getExitValues(0.7)}
+              >
+                <Pixel
+                  width={data.width}
+                  height={data.height}
+                  img={data.img}
+                  scaleX={data.scaleX}
+                ></Pixel>
+              </motion.div>
+            ))}
+        </React.Fragment>
       </AnimatePresence>
     </>
   );

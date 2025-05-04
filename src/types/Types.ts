@@ -10,7 +10,7 @@ export interface ShadowSprite{
     sprites:number;
 }
 
-export interface PixelSprite{
+export interface PixelSpriteBg{
     width:number;
     height:number;
     background_img:string;
@@ -26,7 +26,7 @@ export interface PixelSprite{
     scaleX?:number;
 }
 
-export interface Sprite{
+export interface PixelSpriteStatic{
     width:number;
     height:number;
     sprite_bg_img:string;
@@ -34,12 +34,23 @@ export interface Sprite{
     name?: string;
 }
 
+export interface PixelStatic{
+    width:number;
+    height:number;
+    img:string;
+    top?:number;
+    bottom?:number;
+    left?:number;
+    right?:number;
+    scaleX?:number;
+}
+
 export interface InfoCardType{
     id:number;
     width:number;
     height:number;
     typeCard:string;
-    info_img?:Sprite[];
+    info_img?:PixelSpriteStatic[];
     text?:string;
     bg_img:string;
     totalCard: number;
@@ -55,7 +66,7 @@ export interface Section{
     id:number;
     shadow: string;
     name:string;
-    pixelSprite?: PixelSprite[];
+    pixelSprite?: PixelSpriteBg[];
     infoCard?:InfoCardType[];
 }
 
@@ -78,16 +89,4 @@ export interface characters{
     attack:number;
     speed:number;
     itemsTainted?: items_tainted[];
-}
-
-export interface PixelSpriteStatic{
-    width:number;
-    height:number;
-    sprite_bg_img:string;
-    name?: string;
-    top?:number;
-    bottom?:number;
-    left?:number;
-    right?:number;
-    scaleX?:number;
 }

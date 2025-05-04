@@ -1,0 +1,6 @@
+.pixel{
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    will-change: transform;
+}

@@ -1,6 +1,6 @@
-import { InfoCardType, Sprite } from "../../../types/Types";
+import { InfoCardType, PixelSpriteStatic } from "../../../types/Types";
 
-const sprite1_Card2: Sprite[] = [
+const sprite1_Card2: PixelSpriteStatic[] = [
   {
     width: 352,
     height: 111,
@@ -15,7 +15,7 @@ const sprite1_Card2: Sprite[] = [
   },
 ];
 
-const sprite2_Card2: Sprite[] = [
+const sprite2_Card2: PixelSpriteStatic[] = [
   {
     width: 316 * 0.9,
     height: 155 * 0.9,
@@ -30,7 +30,7 @@ const sprite2_Card2: Sprite[] = [
   },
 ];
 
-const sprite3_Card2: Sprite[] = [
+const sprite3_Card2: PixelSpriteStatic[] = [
   {
     width: 380,
     height: 118,
@@ -87,7 +87,7 @@ export const Card2: InfoCardType[] = [
   },
 ];
 
-const sprite2_Card3: Sprite[] = [
+const sprite2_Card3: PixelSpriteStatic[] = [
   {
     width: 30*2.50,
     height: 31*2.50,

@@ -9,8 +9,10 @@
   transform: translate(-50%, -50%);
   .cont_characters {
     position: relative;
+    display: flex;
     width: 100%;
     height: 100%;
+    justify-content: center;
     .character {
       position: relative;
       width: 100%;
@@ -33,9 +35,22 @@
       transform: translate(-50%, -50%);
       z-index: 1;
     }
-    .position_item {
+    .items_characters{
+      display: flex;
+      width: fit-content;
+      justify-content: center;
+      gap: 5.5vw;
+      align-items: end;
       position: absolute;
+      background-color: salmon;
+      bottom: -90%;
+      .position_item {
+        width: fit-content;
+        height:fit-content;
+        position: relative;
+      }
     }
+
     .cont_item_name {
       position: absolute;
       z-index: 2;
@@ -62,14 +77,10 @@
       }
     }
     .text {
-      position: absolute;
+      position: relative;
+      background-color: #130e0c;
       width: 12vw;
       min-height: 6vw;
-      background-repeat: no-repeat;
-      background-size: 6vw auto;
-      background-position: center;
-      bottom: -89%;
-      image-rendering: pixelated;
       color: #f7bf91;
       font-size: 2.5rem;
       text-align: center;
@@ -127,15 +138,9 @@
   z-index: 2;
 }
 
-.web {
+
+.cont_pixel_bg{
   position: absolute;
-  width: 6vw;
-  height: 6vw;
-  background-image: url(/img/obstacles/web.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  will-change: transform;
 }
 
 .poop {

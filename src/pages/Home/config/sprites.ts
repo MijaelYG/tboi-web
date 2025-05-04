@@ -1,4 +1,4 @@
-import { PixelSprite, ShadowSprite } from "../../../types/Types"
+import { PixelSpriteBg, PixelStatic, ShadowSprite } from "../../../types/Types"
 
 const shadow_character: ShadowSprite = {
   width:5,
@@ -57,7 +57,7 @@ const shadow_poop: ShadowSprite = {
   sprites:3,
 }
 
-export const pixelSprite2: PixelSprite[] = [
+export const pixelSprite2: PixelSpriteBg[] = [
   {
     width: 10,
     height: 8.5,
@@ -107,7 +107,7 @@ export const pixelSprite2: PixelSprite[] = [
   },
 ];
 
-export const pixelSprite3: PixelSprite[] = [
+export const pixelSprite3: PixelSpriteBg[] = [
   {
     width: 8.5,
     height: 9,
@@ -208,7 +208,7 @@ export const pixelSprite3: PixelSprite[] = [
   },
 ];
 
-export const pixelSprite4: PixelSprite[] = [
+export const pixelSprite4: PixelSpriteBg[] = [
   {
     width: 5,
     height: 6.9,
@@ -288,5 +288,72 @@ export const pixelSprite4: PixelSprite[] = [
     x:80,
     y:70,
     shadow:shadow_poop
+  },
+];
+
+export const pixelSpritesBg4: PixelStatic[] = [
+  {
+    width: 6,
+    height: 6,
+    img: "/img/obstacles/web.png",
+    top: 18,
+    right: 23.5,
+    scaleX: -1,
+  },
+  {
+    width: 6,
+    height: 6,
+    img: "/img/obstacles/web2.png",
+    bottom: 18.6,
+    left: 23.9,
+  },
+  {
+    width: 6,
+    height: 6,
+    img: "/img/obstacles/web2.png",
+    top: 18,
+    left: 23.9,
+  },
+  {
+    width: 6,
+    height: 6,
+    img: "/img/obstacles/web.png",
+    top: 27.5,
+    left: 12,
+  },
+  {
+    width: 6,
+    height: 6,
+    img: "/img/obstacles/web2.png",
+    bottom: 27.3,
+    right: 11.6,
+  },
+  {
+    width: 6,
+    height: 6,
+    img: "/img/obstacles/web.png",
+    top: 36.5,
+    right: 11.6,
+  },
+  {
+    width: 6,
+    height: 6,
+    img: "/img/obstacles/web.png",
+    bottom: 27.8,
+    left: 18,
+  },
+  {
+    width: 7.2,
+    height: 7.2,
+    img: "/img/obstacles/black_poop.png",
+    bottom: 26.4,
+    left: 11.1,
+  },
+  {
+    width: 7.2,
+    height: 7.2,
+    img: "/img/obstacles/black_poop.png",
+    top: 26.5,
+    right: 11.35,
   },
 ];
