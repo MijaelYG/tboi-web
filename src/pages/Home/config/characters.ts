@@ -223,6 +223,13 @@ export const charactersCarousel: characters[] = [
     life: -1,
     attack: 4,
     speed: 3,
+    items:[
+      {
+        id: 1,
+        name: "The Fool",
+        type: "pickup"
+      }
+    ],
     itemsTainted: [
       {
         id: 1,
@@ -234,6 +241,11 @@ export const charactersCarousel: characters[] = [
         name: "Hemoptysis",
         type: "item",
       },
+      {
+        id: 3,
+        name: "The Fool",
+        type: "pickup"
+      }
     ],
   },
   {

@@ -64,14 +64,14 @@ function CarouselCharacters() {
     };
   };
 
-  const getLeft = (index: number, length: number, type?: string) => {
+  const getLeft = (index: number, length: number, type: string) => {
     switch (length) {
       case 2:
         if (type == "text") {
           if (index == 0) {
-            return -40;
+            return -20;
           } else {
-            return 40;
+            return 20;
           }
         } else {
           if (index == 0) {
@@ -92,14 +92,12 @@ function CarouselCharacters() {
         } else {
           if (index == 0) {
             return 112;
-          } else if (index == 1) {
+          } else if ( index == 1) {
             return 0;
           } else {
             return -112;
           }
         }
-      default:
-        return 0;
     }
   };
   return (
@@ -279,7 +277,7 @@ function CarouselCharacters() {
                                 index,
                                 charactersCarousel[position].itemsTainted
                                   .length,
-                                "item "
+                                "item"
                               ),
                           }}
                         >
@@ -306,6 +304,15 @@ function CarouselCharacters() {
                       <motion.div
                         key={`${index}_other_item`}
                         className={styles.position_item}
+                        style={{
+                          left:
+                            charactersCarousel[position].itemsTainted &&
+                            getLeft(
+                              index,
+                              charactersCarousel[position].itemsTainted.length,
+                              "item"
+                            ),
+                        }}
                       >
                         <Item
                           name={data.name}
@@ -384,6 +391,12 @@ function CarouselCharacters() {
                 ></Pixel>
               </motion.div>
             ))}
+          {tainted === 1 && (
+            <motion.div className={styles.bg_shadow_tainted}
+            initial={getInitialValues()}
+            animate={getAnimateValues(0.7)}
+            exit={getExitValues(0.7)}></motion.div>
+          )}
         </React.Fragment>
       </AnimatePresence>
     </>
