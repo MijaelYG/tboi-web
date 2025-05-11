@@ -12,5 +12,6 @@
         background-size: 100% auto;
         background-position: center;
         image-rendering: pixelated;
+        will-change: transform;
       }
 }

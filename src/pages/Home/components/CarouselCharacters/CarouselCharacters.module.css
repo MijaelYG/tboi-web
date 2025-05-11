@@ -42,13 +42,12 @@
       gap: 5.5vw;
       align-items: end; 
       position: absolute;
-      min-height: 11vw;
       height: 11vw;
       bottom: -90%;
       .position_item {
-        width: fit-content;
-        height:fit-content;
         position: relative;
+        width: 6vw;
+        height:11vw;
         cursor: pointer;
         display: flex;
         flex-direction: column;
@@ -63,14 +62,14 @@
           height: 5vw;
           background-repeat: no-repeat;
           background-size: 100% 100%;
-          padding: 2.4rem 2.5rem;
-          bottom: -45%;
+          bottom:-45%;
           display: flex;
           justify-content: center;
           align-items: center;
-          font-size: 1.5rem;
+          font-size: 1.6rem;
           font-weight: bold;
-          color: rgb(15, 11, 9);
+          color: #FFFFFF;
+          text-shadow: 2px 2px 5px black;
           image-rendering: pixelated;
           pointer-events: none;
           will-change: transform;
@@ -86,6 +85,8 @@
       position: relative;
       width: 6vw;
       height: 11vw;
+      will-change: transform;
+      cursor: default;
       .text {
         position: absolute;
         left: -50%;
@@ -106,6 +107,29 @@
       }
     }
 
+  }
+}
+
+.title_name_character{
+  position: absolute;
+  top: -60%;
+  background-image: url(../../../../../public/img/UI/title_streak.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  width: 42vw;
+  height: 5vw;
+  max-width: 790px;
+  max-height: 85px;
+  display: flex;
+  justify-content: center;
+  z-index: -1;
+  .name_character{
+    position: absolute;
+    color: white;
+    font-family: var(--font-pixel);
+    font-size: 3rem;
+    bottom: 30%;
   }
 }
 

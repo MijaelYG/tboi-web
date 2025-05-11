@@ -82,10 +82,25 @@ function CarouselCharacters() {
         }
     }
   };
+
+  const getNamePill = (name: string) => {
+    if (name === "red and pink pill") {
+      return "Full Health";
+    } else if (name === "blue pill") {
+      return "Random";
+    } else {
+      return name;
+    }
+  };
   return (
     <>
       <div className={styles.cont_carousel}>
         <div className={styles.cont_characters}>
+          <motion.div className={styles.title_name_character}>
+            <div className={styles.name_character}>
+              {charactersCarousel[position].name?.toUpperCase()}
+            </div>
+          </motion.div>
           <AnimatePresence mode="wait">
             <React.Fragment
               key={`${charactersCarousel[position].name}_${tainted}_fragment`}
@@ -201,20 +216,9 @@ function CarouselCharacters() {
                               <motion.div
                                 key={`${index}_${hoveredId}`}
                                 className={styles.cont_item_name}
-                                style={{
-                                  backgroundImage: `url(${handleTextLength(
-                                    data.name
-                                  )})`,
-                                }}
                                 initial={getInitialValues()}
-                                animate={{
-                                  ...getAnimateValues(0.25),
-                                  y: 8,
-                                }}
-                                exit={{
-                                  ...getExitValues(0.25),
-                                  y: -8,
-                                }}
+                                animate={getAnimateValues()}
+                                exit={getExitValues()}
                               >
                                 <motion.div className={styles.item_name}>
                                   {data.name}
@@ -228,6 +232,7 @@ function CarouselCharacters() {
                       <motion.div
                         key={`${index}_other_item`}
                         className={styles.position_item}
+                        style={{ justifyContent: "end" }}
                         onMouseEnter={() => setHoveredId(data.id)}
                         onMouseLeave={() => setHoveredId(0)}
                       >
@@ -241,24 +246,12 @@ function CarouselCharacters() {
                             <motion.div
                               key={`${index}_${hoveredId}`}
                               className={styles.cont_item_name}
-                              style={{
-                                backgroundImage: `url(${handleTextLength(
-                                  data.name
-                                )})`,
-                                bottom: "-82%",
-                              }}
                               initial={getInitialValues()}
-                              animate={{
-                                ...getAnimateValues(0.25),
-                                y: 8,
-                              }}
-                              exit={{
-                                ...getExitValues(0.25),
-                                y: -8,
-                              }}
+                              animate={getAnimateValues()}
+                              exit={getExitValues()}
                             >
                               <motion.div className={styles.item_name}>
-                                {data.name}
+                                {getNamePill(data.name)}
                               </motion.div>
                             </motion.div>
                           )}
@@ -271,8 +264,27 @@ function CarouselCharacters() {
                   charactersCarousel[position].itemsTainted.map((data, index) =>
                     data.type == "item" ? (
                       <React.Fragment key={`${index}_fragment_item`}>
-                        <motion.div className={styles.position_item}>
+                        <motion.div
+                          className={styles.position_item}
+                          onMouseEnter={() => setHoveredId(data.id)}
+                          onMouseLeave={() => setHoveredId(0)}
+                        >
                           <ItemAltar name={data.name} index={index}></ItemAltar>
+                          <AnimatePresence>
+                            {hoveredId === data.id && (
+                              <motion.div
+                                key={`${index}_${hoveredId}`}
+                                className={styles.cont_item_name}
+                                initial={getInitialValues()}
+                                animate={getAnimateValues()}
+                                exit={getExitValues()}
+                              >
+                                <motion.div className={styles.item_name}>
+                                  {getNamePill(data.name)}
+                                </motion.div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </motion.div>
                       </React.Fragment>
                     ) : data.type === "text" ? (
@@ -294,12 +306,30 @@ function CarouselCharacters() {
                       <motion.div
                         key={`${index}_other_item`}
                         className={styles.position_item}
+                        style={{ justifyContent: "end" }}
+                        onMouseEnter={() => setHoveredId(data.id)}
+                        onMouseLeave={() => setHoveredId(0)}
                       >
                         <Item
                           name={data.name}
                           index={index}
                           type={data.type}
                         ></Item>
+                        <AnimatePresence>
+                          {hoveredId === data.id && (
+                            <motion.div
+                              key={`${index}_${hoveredId}`}
+                              className={styles.cont_item_name}
+                              initial={getInitialValues()}
+                              animate={getAnimateValues()}
+                              exit={getExitValues()}
+                            >
+                              <motion.div className={styles.item_name}>
+                                {getNamePill(data.name)}
+                              </motion.div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </motion.div>
                     )
                   )}
@@ -373,12 +403,12 @@ function CarouselCharacters() {
               </motion.div>
             ))}
           {tainted === 1 && (
-              <motion.div
-                className={styles.bg_shadow_tainted}
-                initial={getInitialValues()}
-                animate={getAnimateValues(0.6)}
-                exit={getExitValues(0.6)}
-              ></motion.div>
+            <motion.div
+              className={styles.bg_shadow_tainted}
+              initial={getInitialValues()}
+              animate={getAnimateValues(0.6)}
+              exit={getExitValues(0.6)}
+            ></motion.div>
           )}
         </React.Fragment>
       </AnimatePresence>

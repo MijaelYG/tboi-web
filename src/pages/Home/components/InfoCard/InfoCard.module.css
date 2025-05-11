@@ -5,7 +5,7 @@
   padding: 1.5rem 3.3rem;
   transition: bottom 0.25s ease, top 0.25s ease;
   cursor: pointer;
-  z-index: 3;
+  z-index: 10;
   will-change: transform;
   .image_h {
     position: relative;
