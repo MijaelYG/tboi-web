@@ -91,7 +91,7 @@ function CarouselCharacters() {
               initial={{ x: "200%" }}
               animate={{ x: "0%" }}
               exit={{ x: "-200%" }}
-              transition={{ease:[0.75, -0.24, 0.35, 1.24]}}
+              transition={{duration:0.3, ease:[0.75, -0.24, 0.35, 1.24]}}
             >
               <div className={styles.name_character}>
                 {charactersCarousel[position].name
