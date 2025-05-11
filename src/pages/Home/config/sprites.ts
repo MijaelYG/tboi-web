@@ -282,11 +282,11 @@ export const pixelSprite4: PixelSpriteBg[] = [
     height: 4.8,
     background_img: "/img/monsters/dip.png",
     animation: [1, 12],
-    top: 24.5,
-    left: 24.5,
+    top: 26,
+    left: 22,
     sprites: 3,
-    x:80,
-    y:70,
+    x:70,
+    y:90,
     shadow:shadow_poop
   },
 ];

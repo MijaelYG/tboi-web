@@ -113,14 +113,14 @@
 .title_name_character{
   position: absolute;
   top: -60%;
-  background-image: url(../../../../../public/img/UI/title_streak.png);
+  background-image: url(/img/UI/title_streak.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center;
   width: 42vw;
   height: 5vw;
   max-width: 790px;
-  max-height: 85px;
+  max-height: 80px;
   display: flex;
   justify-content: center;
   z-index: -1;

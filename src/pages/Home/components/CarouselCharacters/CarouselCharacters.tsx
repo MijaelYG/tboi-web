@@ -34,18 +34,6 @@ function CarouselCharacters() {
     }
   };
 
-  const handleTextLength = (text: string) => {
-    if (text.length <= 5) {
-      return "/img/UI/cards/card_title_item_4.png";
-    } else if (text.length >= 6 && text.length <= 10) {
-      return "/img/UI/cards/card_title_item_3.png";
-    } else if (text.length >= 11 && text.length <= 15) {
-      return "/img/UI/cards/card_title_item_2.png";
-    } else if (text.length >= 16) {
-      return "/img/UI/cards/card_title_item_1.png";
-    }
-  };
-
   const getInitialValues = () => {
     return { opacity: 0 };
   };
@@ -96,11 +84,22 @@ function CarouselCharacters() {
     <>
       <div className={styles.cont_carousel}>
         <div className={styles.cont_characters}>
-          <motion.div className={styles.title_name_character}>
-            <div className={styles.name_character}>
-              {charactersCarousel[position].name?.toUpperCase()}
-            </div>
-          </motion.div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={charactersCarousel[position].name}
+              className={styles.title_name_character}
+              initial={{ x: "200%" }}
+              animate={{ x: "0%" }}
+              exit={{ x: "-200%" }}
+              transition={{ease:[0.75, -0.24, 0.35, 1.24]}}
+            >
+              <div className={styles.name_character}>
+                {charactersCarousel[position].name
+                  ?.toUpperCase()
+                  .replace("_", " ")}
+              </div>
+            </motion.div>
+          </AnimatePresence>
           <AnimatePresence mode="wait">
             <React.Fragment
               key={`${charactersCarousel[position].name}_${tainted}_fragment`}
@@ -111,9 +110,9 @@ function CarouselCharacters() {
                 style={{
                   backgroundImage: `url(/img/characters/${charactersCarousel[
                     position
-                  ].name?.toLocaleLowerCase()}/${charactersCarousel[
+                  ].name?.toLowerCase()}/${charactersCarousel[
                     position
-                  ].name?.toLocaleLowerCase()}_${
+                  ].name?.toLowerCase()}_${
                     tainted == 0 ? "p" : "tainted"
                   }.png)`,
                 }}
@@ -121,7 +120,7 @@ function CarouselCharacters() {
                 animate={getAnimateValues()}
                 exit={getExitValues()}
               ></motion.div>
-              {charactersCarousel[position].name?.toLocaleLowerCase() ==
+              {charactersCarousel[position].name?.toLowerCase() ==
                 "the_forgotten" && tainted == 0 ? (
                 <>
                   <motion.div
@@ -141,7 +140,7 @@ function CarouselCharacters() {
                     exit={getExitValues()}
                   ></motion.div>
                 </>
-              ) : charactersCarousel[position].name?.toLocaleLowerCase() ==
+              ) : charactersCarousel[position].name?.toLowerCase() ==
                   "the_forgotten" && tainted == 1 ? (
                 <>
                   <motion.div
@@ -161,7 +160,7 @@ function CarouselCharacters() {
                     exit={getExitValues()}
                   ></motion.div>
                 </>
-              ) : charactersCarousel[position].name?.toLocaleLowerCase() ==
+              ) : charactersCarousel[position].name?.toLowerCase() ==
                   "jacob_esau" && tainted == 0 ? (
                 <>
                   <motion.div
