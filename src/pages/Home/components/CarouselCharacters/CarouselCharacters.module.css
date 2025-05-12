@@ -209,6 +209,7 @@
 
 .cont_pixel_bg{
   position: absolute;
+  will-change: transform;
 }
 
 .bg_shadow_tainted{

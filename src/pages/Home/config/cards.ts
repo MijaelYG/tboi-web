@@ -173,7 +173,7 @@ export const Card4: InfoCardType[] = [
     typeCard: "Normal",
     bg_img: "/img/UI/cards/mini_large_cardv2.png",
     text:"Conoce a los grandes héroes. Cada uno con habilidades únicas, listos para enfrentarse a los horrores del sótano. ¿A quién escogerás para tu aventura?",
-    totalCard: 1.9,
+    totalCard: 1.8,
     top: 22,
     left: 12,
     moveX:[-20,20],
@@ -183,14 +183,26 @@ export const Card4: InfoCardType[] = [
 export const Card5: InfoCardType[] = [
   {
     id: 0,
+    width: 400,
+    height: 500,
+    typeCard: "Normal",
+    text: "¡Encuentra ítems que te ayuden a sobrevivir! Cada objeto puede darte el poder necesario para enfrentar los horrores del sótano. ¡Corre y descúbrelos!",
+    bg_img: "/img/UI/cards/large_cardv2.png",
+    totalCard: 2,
+    top: 20,
+    left: 12.5,
+    moveX: [-20, 20],
+  },
+    {
+ id: 2,
     width: 470,
     height: 180,
     typeCard: "Normal",
-    text: "Las sombras esconden horribles monstruos. Cada criatura tiene su propio instinto asesino y no dudarán en cazarte. ¿Estás listo para enfrentarlos?",
+    text: "Corre y recoge lo que puedas. ¡Nunca sabes cuál será la clave para derrotar a tus enemigos! Algunos ítems pueden cambiar el rumbo de tu aventura.",
     bg_img: "/img/UI/cards/mini_large_cardv2.png",
     totalCard: 3,
-    top: 24,
-    right: 15,
+    bottom: 22,
+    right: 14,
     moveX: [20, -20],
   }
 ]
