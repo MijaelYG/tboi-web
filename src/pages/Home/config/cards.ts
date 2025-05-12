@@ -174,7 +174,7 @@ export const Card4: InfoCardType[] = [
     bg_img: "/img/UI/cards/mini_large_cardv2.png",
     text:"Conoce a los grandes héroes. Cada uno con habilidades únicas, listos para enfrentarse a los horrores del sótano. ¿A quién escogerás para tu aventura?",
     totalCard: 1.8,
-    top: 22,
+    top: 20,
     left: 12,
     moveX:[-20,20],
   }
