@@ -173,7 +173,7 @@ export const Card4: InfoCardType[] = [
     typeCard: "Normal",
     bg_img: "/img/UI/cards/mini_large_cardv2.png",
     text:"Conoce a los grandes héroes. Cada uno con habilidades únicas, listos para enfrentarse a los horrores del sótano. ¿A quién escogerás para tu aventura?",
-    totalCard: 2,
+    totalCard: 1.9,
     top: 22,
     left: 12,
     moveX:[-20,20],

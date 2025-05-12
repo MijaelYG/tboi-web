@@ -261,7 +261,7 @@ export const pixelSprite4: PixelSpriteBg[] = [
     left: 21,
     sprites: 2,
     y:-20,
-    x:40,
+    x:45,
     shadow:shadow_fly
   },
   {
@@ -270,7 +270,7 @@ export const pixelSprite4: PixelSpriteBg[] = [
     background_img: "/img/monsters/pooter.png",
     animation: [1, 16],
     top: 21.5,
-    right: 26,
+    right: 24,
     sprites: 2,
     y:-20,
     x:-20,

@@ -13,14 +13,33 @@ function CarouselCharacters() {
   const [tainted, setTainted] = useState(0);
   const [pressedTainted, setPressedTainted] = useState(1);
   const [hoveredId, setHoveredId] = useState(0);
+  const [pressedBtn, setPressedBtn] = useState(0);
+  const [hoverTainted, setHoverTainted] = useState(0);
 
+  const variantsTitle = {
+    initial: (position: number) => {
+      return {
+        x: position == 1 ? "200%" : "-200%",
+      };
+    },
+    animate: {
+      x: 0,
+    },
+    exit: (position: number) => {
+      return {
+        x: position == 1 ? "-200%" : "200%",
+      };
+    },
+  };
   const handleBtnLeft = () => {
+    setPressedBtn(0);
     setPosition(
       (prev) =>
         (prev - 1 + charactersCarousel.length) % charactersCarousel.length
     );
   };
   const handleBtnRight = () => {
+    setPressedBtn(1);
     setPosition((prev) => (prev + 1) % charactersCarousel.length);
   };
 
@@ -84,14 +103,16 @@ function CarouselCharacters() {
     <>
       <div className={styles.cont_carousel}>
         <div className={styles.cont_characters}>
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" custom={pressedBtn}>
             <motion.div
-              key={charactersCarousel[position].name}
+              key={`${position}`}
               className={styles.title_name_character}
-              initial={{ x: "200%" }}
-              animate={{ x: "0%" }}
-              exit={{ x: "-200%" }}
-              transition={{duration:0.3, ease:[0.75, -0.24, 0.35, 1.24]}}
+              custom={pressedBtn}
+              variants={variantsTitle}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.3, ease: [0.75, -0.24, 0.35, 1.24] }}
             >
               <div className={styles.name_character}>
                 {charactersCarousel[position].name
@@ -375,7 +396,23 @@ function CarouselCharacters() {
           backgroundPositionX: "0%",
           transition: { duration: 0, ease: steps(2) },
         }}
-      ></motion.div>
+        onMouseEnter={() => setHoverTainted(1)}
+        onMouseLeave={() => setHoverTainted(0)}
+      >
+        <AnimatePresence>
+          {hoverTainted == 1 && (
+            <motion.div
+              className={styles.hover_tainted}
+              initial={{ x: -2, opacity: 0 }}
+              animate={{ x: -2, opacity: 1 }}
+              exit={{ x: -2, opacity: 0 }}
+              transition={{duration:0.15, ease:"easeInOut"}}
+            >
+              <span className={styles.arrowleft}></span> Change
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
       <AnimatePresence mode="wait">
         <React.Fragment key={`${tainted}_fragment_tainted_pixel`}>
           {tainted === 1 &&
