@@ -178,33 +178,7 @@
   cursor: pointer;
   z-index: 3;
   will-change: transform;
-  .hover_tainted{
-    position: absolute;
-    left: 110%;
-    bottom: 27%;
-    font-size: 1.6rem;
-    font-weight: bold;
-    pointer-events: none;
-    color: #ffc579;
-    text-shadow: 0px 0px 8px #130e0c, 0px 5px 3px #110d0a;
-    will-change: transform;
-    letter-spacing: 0.1px;
-    display: flex;
-    align-items: end;
-    .arrowleft{
-      position: relative;
-      background-image: url(/img/UI/arrow_left.png);
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-      bottom: 5px;
-      width: 1.6rem;
-      height: 1.6rem;
-      margin-right: 0.5rem;
-      display: block;
-      filter: drop-shadow(0px 0px 3px #130e0c) drop-shadow(0px 5px 3px #110d0a);
-    }
-  }
+
 }
 
 .cont_pixel_bg{

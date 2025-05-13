@@ -14,7 +14,6 @@ function CarouselCharacters() {
   const [pressedTainted, setPressedTainted] = useState(1);
   const [hoveredId, setHoveredId] = useState(0);
   const [pressedBtn, setPressedBtn] = useState(0);
-  const [hoverTainted, setHoverTainted] = useState(0);
 
   const variantsTitle = {
     initial: (position: number) => {
@@ -396,22 +395,7 @@ function CarouselCharacters() {
           backgroundPositionX: "0%",
           transition: { duration: 0, ease: steps(2) },
         }}
-        onMouseEnter={() => setHoverTainted(1)}
-        onMouseLeave={() => setHoverTainted(0)}
       >
-        <AnimatePresence>
-          {hoverTainted == 1 && (
-            <motion.div
-              className={styles.hover_tainted}
-              initial={{ x: -2, opacity: 0 }}
-              animate={{ x: -2, opacity: 1 }}
-              exit={{ x: -2, opacity: 0 }}
-              transition={{duration:0.15, ease:"easeInOut"}}
-            >
-              <span className={styles.arrowleft}></span> Change
-            </motion.div>
-          )}
-        </AnimatePresence>
       </motion.div>
       <AnimatePresence mode="wait">
         <React.Fragment key={`${tainted}_fragment_tainted_pixel`}>

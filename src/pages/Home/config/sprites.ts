@@ -298,13 +298,6 @@ export const pixelSpritesBg4: PixelStatic[] = [
   {
     width: 6,
     height: 6,
-    img: "/img/obstacles/web2.png",
-    top: 18,
-    left: 23.9,
-  },
-  {
-    width: 6,
-    height: 6,
     img: "/img/obstacles/web.png",
     top: 27.5,
     left: 12,
@@ -345,3 +338,4 @@ export const pixelSpritesBg4: PixelStatic[] = [
     right: 11.35,
   },
 ];
+
