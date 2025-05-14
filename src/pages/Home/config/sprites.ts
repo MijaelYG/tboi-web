@@ -1,69 +1,79 @@
-import { PixelSpriteBg, PixelStatic, ShadowSprite } from "../../../types/Types"
+import { PixelSpriteBg, PixelStatic, ShadowSprite } from "../../../types/Types";
 
 const shadow_character: ShadowSprite = {
-  width:5,
-  height:2,
-  shadow_img:"/img/shadows/pixel/shadow_character.png",
-  bottom:-7,
-  animation:[0,20],
-  sprites:2,
-}
+  width: 5,
+  height: 2,
+  shadow_img: "/img/shadows/pixel/shadow_character.png",
+  bottom: -7,
+  animation: [0, 18],
+  sprites: 2,
+};
 
 const shadow_running_bottom: ShadowSprite = {
-  width:5,
-  height:2,
-  shadow_img:"/img/shadows/pixel/shadow_character.png",
-  bottom:-4,
-  animation:[0,20],
-  sprites:2,
-}
+  width: 5,
+  height: 2,
+  shadow_img: "/img/shadows/pixel/shadow_character.png",
+  bottom: -4,
+  animation: [0, 15],
+  sprites: 2,
+};
 
 const shadow_spider: ShadowSprite = {
-  width:3,
-  height:1.5,
-  shadow_img:"/img/shadows/pixel/shadow_enemies.png",
-  bottom:-10,
-  animation:[0,30],
-  sprites:3,
-}
+  width: 3,
+  height: 1.5,
+  shadow_img: "/img/shadows/pixel/shadow_enemies.png",
+  bottom: -10,
+  animation: [0, 19],
+  sprites: 3,
+};
+
+const shadow_mask_heart: ShadowSprite = {
+  width: 4.5,
+  height: 1.8,
+  shadow_img: "/img/shadows/pixel/shadow_enemies.png",
+  bottom: -20,
+  left: -5,
+  animation: [0, 15],
+  sprites: 3,
+};
 
 const shadow_bat: ShadowSprite = {
-  width:5,
-  height:2,
-  shadow_img:"/img/shadows/pixel/shadow_enemies.png",
-  bottom:-16,
-  animation:[2,30],
-  sprites:3,
-}
+  width: 5,
+  height: 2,
+  shadow_img: "/img/shadows/pixel/shadow_enemies.png",
+  bottom: -16,
+  animation: [2, 20],
+  sprites: 3,
+};
 
 const shadow_fly: ShadowSprite = {
-  width:3,
-  height:1.5,
-  shadow_img:"/img/shadows/pixel/shadow_enemies.png",
-  bottom:-40,
-  left:-7,
-  animation:[0,25],
-  sprites:3,
-}
+  width: 3,
+  height: 1.5,
+  shadow_img: "/img/shadows/pixel/shadow_enemies.png",
+  bottom: -40,
+  left: -7,
+  animation: [0, 10],
+  sprites: 3,
+};
 
 const shadow_charger_back: ShadowSprite = {
-  width:5,
-  height:2,
-  shadow_img:"/img/shadows/pixel/shadow_enemies.png",
-  bottom:19,
-  left:-15,
-  animation:[0,30],
-  sprites:3,
-}
+  width: 5,
+  height: 2,
+  shadow_img: "/img/shadows/pixel/shadow_enemies.png",
+  bottom: 19,
+  left: -15,
+  animation: [0, 16],
+  sprites: 3,
+};
 
 const shadow_poop: ShadowSprite = {
-  width:4.4,
-  height:2,
-  shadow_img:"/img/shadows/pixel/shadow_enemies.png",
-  bottom:-15,
-  animation:[0,30],
-  sprites:3,
-}
+  width: 4.4,
+  height: 2,
+  shadow_img: "/img/shadows/pixel/shadow_enemies.png",
+  bottom: -15,
+  animation: [0, 15],
+  sprites: 3,
+};
 
 export const pixelSprite2: PixelSpriteBg[] = [
   {
@@ -76,7 +86,7 @@ export const pixelSprite2: PixelSpriteBg[] = [
     x: 50,
     y: -50,
     sprites: 5,
-    shadow:shadow_spider
+    shadow: shadow_spider,
   },
   {
     width: 10,
@@ -88,7 +98,7 @@ export const pixelSprite2: PixelSpriteBg[] = [
     x: -80,
     y: -80,
     sprites: 5,
-    shadow:shadow_spider
+    shadow: shadow_spider,
   },
   {
     width: 6.5,
@@ -99,8 +109,8 @@ export const pixelSprite2: PixelSpriteBg[] = [
     left: 12,
     x: 100,
     sprites: 10,
-    scaleX:-1,
-    shadow:shadow_character
+    scaleX: -1,
+    shadow: shadow_character,
   },
   {
     width: 6.5,
@@ -111,7 +121,7 @@ export const pixelSprite2: PixelSpriteBg[] = [
     right: 40,
     x: -90,
     sprites: 10,
-    shadow:shadow_character,
+    shadow: shadow_character,
   },
 ];
 
@@ -144,7 +154,7 @@ export const pixelSprite3: PixelSpriteBg[] = [
     x: -40,
     y: 120,
     sprites: 3,
-    shadow:shadow_bat
+    shadow: shadow_bat,
   },
   {
     width: 11,
@@ -156,7 +166,7 @@ export const pixelSprite3: PixelSpriteBg[] = [
     x: 50,
     y: -80,
     sprites: 3,
-    shadow:shadow_bat
+    shadow: shadow_bat,
   },
   {
     width: 7,
@@ -167,7 +177,7 @@ export const pixelSprite3: PixelSpriteBg[] = [
     left: 43,
     x: 130,
     sprites: 4,
-    shadow:shadow_character
+    shadow: shadow_character,
   },
   {
     width: 11,
@@ -176,10 +186,10 @@ export const pixelSprite3: PixelSpriteBg[] = [
     animation: [2, 26],
     top: 32,
     right: 40,
-    x:45,
+    x: 45,
     y: 130,
     sprites: 3,
-    shadow:shadow_bat
+    shadow: shadow_bat,
   },
   {
     width: 4,
@@ -190,7 +200,7 @@ export const pixelSprite3: PixelSpriteBg[] = [
     left: 13,
     y: -160,
     sprites: 4,
-    shadow:shadow_charger_back
+    shadow: shadow_charger_back,
   },
   {
     width: 4,
@@ -201,7 +211,7 @@ export const pixelSprite3: PixelSpriteBg[] = [
     right: 13,
     y: 250,
     sprites: 4,
-    shadow:shadow_charger_back
+    shadow: shadow_charger_back,
   },
   {
     width: 7,
@@ -212,7 +222,7 @@ export const pixelSprite3: PixelSpriteBg[] = [
     right: 25,
     y: 180,
     sprites: 10,
-    shadow:shadow_running_bottom
+    shadow: shadow_running_bottom,
   },
 ];
 
@@ -225,7 +235,7 @@ export const pixelSprite4: PixelSpriteBg[] = [
     top: 40,
     right: 7,
     sprites: 4,
-    y:86,
+    y: 86,
   },
   {
     width: 6.9,
@@ -235,7 +245,7 @@ export const pixelSprite4: PixelSpriteBg[] = [
     top: 10.5,
     left: 38,
     sprites: 4,
-    x:-78,
+    x: -78,
   },
   {
     width: 4.4,
@@ -245,9 +255,9 @@ export const pixelSprite4: PixelSpriteBg[] = [
     bottom: 28.5,
     right: 24.5,
     sprites: 3,
-    x:50,
-    y:-100,
-    shadow:shadow_poop
+    x: 50,
+    y: -100,
+    shadow: shadow_poop,
   },
   {
     width: 6.5,
@@ -257,8 +267,8 @@ export const pixelSprite4: PixelSpriteBg[] = [
     top: 33.5,
     left: 17.5,
     sprites: 10,
-    y:70,
-    shadow:shadow_running_bottom
+    y: 70,
+    shadow: shadow_running_bottom,
   },
   {
     width: 4.5,
@@ -268,9 +278,9 @@ export const pixelSprite4: PixelSpriteBg[] = [
     bottom: 24,
     left: 20,
     sprites: 2,
-    y:-25,
-    x:45,
-    shadow:shadow_fly
+    y: -25,
+    x: 45,
+    shadow: shadow_fly,
   },
   {
     width: 4.5,
@@ -280,10 +290,10 @@ export const pixelSprite4: PixelSpriteBg[] = [
     top: 21.5,
     right: 24,
     sprites: 2,
-    y:-20,
-    x:-20,
-    scaleX:-1,
-    shadow:shadow_fly
+    y: -20,
+    x: -20,
+    scaleX: -1,
+    shadow: shadow_fly,
   },
 ];
 
@@ -356,8 +366,48 @@ export const pixelSprite5: PixelSpriteBg[] = [
     top: 39,
     right: 20,
     sprites: 10,
-    x:-150,
-    shadow:shadow_character,
+    x: -150,
+    shadow: shadow_character,
+  },
+  {
+    width: 8.5,
+    height: 9,
+    background_img: "/img/obstacles/fire_place.png",
+    animation: [0, 18],
+    top: 11,
+    right: 10,
+    sprites: 6,
+  },
+  {
+    width: 8.5,
+    height: 9,
+    background_img: "/img/obstacles/fire_place.png",
+    animation: [3, 22],
+    bottom: 18,
+    right: 10,
+    sprites: 6,
+  },
+  {
+    width: 4.5,
+    height: 9,
+    background_img: "/img/monsters/mask/mask_running_side.png",
+    animation: [0, 0],
+    top: 9,
+    right: 50,
+    sprites: 1,
+    scaleX: -1,
+    x: 120,
+    shadow: shadow_mask_heart,
+  },
+    {
+    width: 5,
+    height: 9,
+    background_img: "/img/monsters/heart/heart.png",
+    animation: [0, 0],
+    bottom: 55,
+    left:35,
+    sprites: 1,
+    y: 120,
+    shadow: shadow_mask_heart,
   },
 ];
-

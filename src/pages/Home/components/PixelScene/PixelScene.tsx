@@ -32,7 +32,12 @@ const PixelScene = ({
       })`
   );
   if (pixelsprite.shadow) {
-    const animationsmooth = useSpring(animation, {
+    const animation_pixel_shadow = useTransform(
+      scrollYProgress,
+      [start, end],
+      [pixelsprite.shadow.animation[0], pixelsprite.shadow.animation[1]]
+    );
+    const animationsmooth = useSpring(animation_pixel_shadow, {
       stiffness: 200,
       damping: 40,
     });
