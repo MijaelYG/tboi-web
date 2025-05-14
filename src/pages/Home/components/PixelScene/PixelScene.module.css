@@ -6,6 +6,7 @@
         position: absolute;
         image-rendering: pixelated; 
         z-index: 2;
+        background-position: bottom;
     }
     .shadow_pixel{
         background-repeat: no-repeat;

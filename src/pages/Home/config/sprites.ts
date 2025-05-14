@@ -4,7 +4,16 @@ const shadow_character: ShadowSprite = {
   width:5,
   height:2,
   shadow_img:"/img/shadows/pixel/shadow_character.png",
-  bottom:5,
+  bottom:-7,
+  animation:[0,20],
+  sprites:2,
+}
+
+const shadow_running_bottom: ShadowSprite = {
+  width:5,
+  height:2,
+  shadow_img:"/img/shadows/pixel/shadow_character.png",
+  bottom:-4,
   animation:[0,20],
   sprites:2,
 }
@@ -22,7 +31,7 @@ const shadow_bat: ShadowSprite = {
   width:5,
   height:2,
   shadow_img:"/img/shadows/pixel/shadow_enemies.png",
-  bottom:-6,
+  bottom:-16,
   animation:[2,30],
   sprites:3,
 }
@@ -31,9 +40,9 @@ const shadow_fly: ShadowSprite = {
   width:3,
   height:1.5,
   shadow_img:"/img/shadows/pixel/shadow_enemies.png",
-  bottom:-12,
+  bottom:-40,
   left:-7,
-  animation:[0,30],
+  animation:[0,25],
   sprites:3,
 }
 
@@ -51,8 +60,7 @@ const shadow_poop: ShadowSprite = {
   width:4.4,
   height:2,
   shadow_img:"/img/shadows/pixel/shadow_enemies.png",
-  bottom:2,
-  left:2,
+  bottom:-15,
   animation:[0,30],
   sprites:3,
 }
@@ -96,7 +104,7 @@ export const pixelSprite2: PixelSpriteBg[] = [
   },
   {
     width: 6.5,
-    height: 8,
+    height: 10,
     background_img: "/img/others/isaac_running.png",
     animation: [0, 20],
     bottom: 45,
@@ -197,14 +205,14 @@ export const pixelSprite3: PixelSpriteBg[] = [
   },
   {
     width: 7,
-    height: 8.6,
+    height: 8.1,
     background_img: "/img/characters/eve/eve_front.png",
     animation: [0, 20],
     top: 38,
     right: 25,
     y: 180,
     sprites: 10,
-    shadow:shadow_character
+    shadow:shadow_running_bottom
   },
 ];
 
@@ -213,21 +221,21 @@ export const pixelSprite4: PixelSpriteBg[] = [
     width: 5,
     height: 6.9,
     background_img: "/img/monsters/blind_creep_wall_lr.png",
-    animation: [0, 20],
+    animation: [0, 15],
     top: 40,
     right: 7,
     sprites: 4,
-    y:120,
+    y:86,
   },
   {
     width: 6.9,
     height: 5,
     background_img: "/img/monsters/wall_creep.png",
-    animation: [2, 22],
+    animation: [2, 17],
     top: 10.5,
     left: 38,
     sprites: 4,
-    x:-90,
+    x:-78,
   },
   {
     width: 4.4,
@@ -243,32 +251,32 @@ export const pixelSprite4: PixelSpriteBg[] = [
   },
   {
     width: 6.5,
-    height: 8.6,
+    height: 8,
     background_img: "/img/monsters/boney.png",
-    animation: [0, 13],
+    animation: [0, 11],
     top: 33.5,
     left: 17.5,
     sprites: 10,
     y:70,
-    shadow:shadow_character
+    shadow:shadow_running_bottom
   },
   {
     width: 4.5,
-    height: 6.5,
+    height: 5,
     background_img: "/img/monsters/sucker.png",
-    animation: [0, 14],
-    bottom: 22.5,
-    left: 21,
+    animation: [0, 12],
+    bottom: 24,
+    left: 20,
     sprites: 2,
-    y:-20,
+    y:-25,
     x:45,
     shadow:shadow_fly
   },
   {
     width: 4.5,
-    height: 6,
+    height: 5,
     background_img: "/img/monsters/pooter.png",
-    animation: [1, 16],
+    animation: [1, 14],
     top: 21.5,
     right: 24,
     sprites: 2,
@@ -336,6 +344,20 @@ export const pixelSpritesBg4: PixelStatic[] = [
     img: "/img/obstacles/black_poop.png",
     top: 26.5,
     right: 11.35,
+  },
+];
+
+export const pixelSprite5: PixelSpriteBg[] = [
+  {
+    width: 6.5,
+    height: 10,
+    background_img: "/img/others/lazarus_running.png",
+    animation: [0, 18],
+    top: 39,
+    right: 20,
+    sprites: 10,
+    x:-150,
+    shadow:shadow_character,
   },
 ];
 

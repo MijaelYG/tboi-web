@@ -1,11 +1,11 @@
-import { PixelSprite } from "../../../../types/Types";
+import { PixelSpriteBg } from "../../../../types/Types";
 import { motion, MotionValue, useSpring, useTransform } from "framer-motion";
 import style from "./PixelScene.module.css";
 
 interface PropsPixelScene {
   scrollYProgress: MotionValue<number>;
   scrollStartEnd: [number, number];
-  pixelsprite: PixelSprite;
+  pixelsprite: PixelSpriteBg;
 }
 
 const PixelScene = ({
