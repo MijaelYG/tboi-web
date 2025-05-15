@@ -86,6 +86,7 @@ const PixelScene = ({
             height: `${pixelsprite.height}vw`,
             backgroundImage: `url(${pixelsprite.background_img})`,
             scaleX: pixelsprite.scaleX,
+            scaleY: pixelsprite.scaleY
           }}
         ></motion.div>
         {pixelsprite.shadow && (

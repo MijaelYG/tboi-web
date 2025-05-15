@@ -7,6 +7,7 @@ import { scrollStartEnd, heightTotal, sections } from "../../config/config";
 import PixelScene from "../PixelScene/PixelScene";
 import InfoCard from "../InfoCard/InfoCard";
 import CarouselCharacters from "../CarouselCharacters/CarouselCharacters";
+import ItemSection from "../ItemSection/ItemSection";
 
 const SectionImage = () => {
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -89,9 +90,10 @@ const SectionImage = () => {
                       pixelsprite={pixel}
                     ></PixelScene>
                   ))}
-                {section.id == 4 && (
-                  <CarouselCharacters
-                  ></CarouselCharacters>
+                {section.id == 4 ? (
+                  <CarouselCharacters></CarouselCharacters>
+                ) : (
+                  section.id == 5 && <ItemSection></ItemSection>
                 )}
               </>
             )}

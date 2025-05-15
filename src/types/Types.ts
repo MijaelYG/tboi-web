@@ -24,6 +24,7 @@ export interface PixelSpriteBg{
     sprites:number;
     shadow?: ShadowSprite;
     scaleX?:number;
+    scaleY?:number;
 }
 
 export interface PixelSpriteStatic{
