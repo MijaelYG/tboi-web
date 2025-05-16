@@ -68,7 +68,7 @@ const shadow_poop: ShadowSprite = {
 export const pixelSprite2: PixelSpriteBg[] = [
   {
     width: 10,
-    height: 8.5,
+    height: 9,
     background_img: "/img/monsters/baby_long_legs.png",
     animation: [0, 30],
     bottom: 20,
@@ -80,7 +80,7 @@ export const pixelSprite2: PixelSpriteBg[] = [
   },
   {
     width: 10,
-    height: 8.5,
+    height: 9,
     background_img: "/img/monsters/crazy_long_legs.png",
     animation: [3, 30],
     bottom: 52,

@@ -73,23 +73,47 @@ const SectionImage = () => {
             ) : (
               <>
                 {section.infoCard &&
-                  section.infoCard.map((card) => (
-                    <InfoCard
-                      key={card.id}
-                      scrollYProgress={scrollYProgress}
-                      scrollStartEnd={scrollStartEnd[section.id - 1]}
-                      card={card}
-                    ></InfoCard>
-                  ))}
+                  section.infoCard.map((card) =>
+                    section.id == 6 ? (
+                      <InfoCard
+                        key={card.id}
+                        scrollYProgress={scrollYProgress}
+                        scrollStartEnd={[
+                          scrollStartEnd[section.id - 1][0],
+                          scrollStartEnd[section.id][1],
+                        ]}
+                        card={card}
+                      ></InfoCard>
+                    ) : (
+                      <InfoCard
+                        key={card.id}
+                        scrollYProgress={scrollYProgress}
+                        scrollStartEnd={scrollStartEnd[section.id - 1]}
+                        card={card}
+                      ></InfoCard>
+                    )
+                  )}
                 {section.pixelSprite &&
-                  section.pixelSprite.map((pixel, index) => (
-                    <PixelScene
-                      key={index}
-                      scrollYProgress={scrollYProgress}
-                      scrollStartEnd={scrollStartEnd[section.id - 1]}
-                      pixelsprite={pixel}
-                    ></PixelScene>
-                  ))}
+                  section.pixelSprite.map((pixel, index) =>
+                    section.id == 6 ? (
+                      <PixelScene
+                        key={index}
+                        scrollYProgress={scrollYProgress}
+                        scrollStartEnd={[
+                          scrollStartEnd[section.id - 1][0],
+                          scrollStartEnd[section.id][1],
+                        ]}
+                        pixelsprite={pixel}
+                      ></PixelScene>
+                    ) : (
+                      <PixelScene
+                        key={index}
+                        scrollYProgress={scrollYProgress}
+                        scrollStartEnd={scrollStartEnd[section.id - 1]}
+                        pixelsprite={pixel}
+                      ></PixelScene>
+                    )
+                  )}
                 {section.id == 4 ? (
                   <CarouselCharacters></CarouselCharacters>
                 ) : (

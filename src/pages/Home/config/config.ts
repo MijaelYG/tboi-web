@@ -2,7 +2,7 @@ import { Section } from "../../../types/Types";
 import { Card2, Card3, Card4, Card5 } from "./cards";
 import { pixelSprite2, pixelSprite3, pixelSprite4, pixelSprite5 } from "./sprites";
 
-const sectionHeight = [140, 500, 650, 250, 400, 500, 400, 300, 150];
+const sectionHeight = [140, 500, 650, 250, 380, 440, 400, 300, 120];
 
 export const heightTotal = sectionHeight.reduce(
   (acum, number) => acum + number,
