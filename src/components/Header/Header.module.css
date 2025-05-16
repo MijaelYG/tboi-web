@@ -1,79 +1,139 @@
-header{
-    width: 100vw;
-    top: 0;
-    z-index: 90;
-    background-color: var(--background-color);
-    transition: 0s all linear ;
-    position: fixed;
-    display: none;
+header {
+  width: 40vw;
+  top: 0;
+  z-index: 90;
+  transition: 0s all linear;
+  position: fixed;
+  display: flex;
 }
 
-.header{
-    height: 100px;
+.header2 {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  display: flex;
+
+  .cont_nav {
+    width: 60%;
+    height: 100%;
+    background-color: rgb(180, 102, 1);
     display: flex;
     justify-content: center;
     align-items: center;
-    column-gap: 3rem;
-    font-size: 0.9rem;
-    .nav_btn{
-        position: relative;
-        a{
-            position: relative;
-            display: flex;
-            align-items: center;
-            z-index: 1;
-            text-decoration: none;
-            color: white;
-            text-transform: uppercase;
-            transition: 0.2s;
-            margin-left: 40px;
-            &::before{
-                margin: auto;
-                content: "";
-                position: absolute;
-                height: 2px;
-                background-color: aliceblue;
-                width: 0%;
-                bottom: -6px;
-                left: 0;
-                right: 0;
-                width: 0%;
-                transition: 0.2s;
-            }
-            &:hover{
-                &::before{
-                    width: 100%;
-                } 
-            }
-            img{
-                position: absolute;
-                width: 40px;
-                left: -45px;
-                transition: 0.2s;
-            }
+    .nav {
+      width: 100%;
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2rem;
+      align-items: center;
+      background-color: aqua;
+      .nav_btn {
+        display: flex;
+        width: 50%;
+        height: 10%;
+        background-color: aquamarine;
+        text-align: center;
+        a {
+          width: 100%;
+          height: 100%;
+          background-color: blue;
+          color: white;
+          display: flex;
+          align-items: center;
+          img {
+            object-fit: contain;
+            width: 30%;
+            height: 100%;
+          }
         }
-        &:nth-child(4){
-            cursor: pointer;
-            image-rendering: pixelated;
-            min-width: 65px;
-            width: 65px;
-            height:65px;
-            display: flex;
-            background-image: url(/img/nav/head_isaac_spin.png);
-            background-size: auto 100%;
-            background-repeat: no-repeat;
-            animation: spin 0.40s steps(4) infinite;
-            animation-play-state: paused;
-            &:hover{
-                animation-play-state: running; 
-            }
-        }
+      }
     }
+  }
+  .btn_header {
+    width: 15%;
+    height: 100%;
+    background-color: antiquewhite;
+  }
+}
 
+.border_black {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../../../public/img/UI/borde_negro.png);
+  background-position: left;
+  background-repeat: repeat-y;
+  background-size: cover;
+}
 
-
+.header {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 3rem;
+  font-size: 0.9rem;
+  .nav_btn {
+    position: relative;
+    a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      z-index: 1;
+      text-decoration: none;
+      color: white;
+      text-transform: uppercase;
+      transition: 0.2s;
+      margin-left: 40px;
+      &::before {
+        margin: auto;
+        content: "";
+        position: absolute;
+        height: 2px;
+        background-color: aliceblue;
+        width: 0%;
+        bottom: -6px;
+        left: 0;
+        right: 0;
+        width: 0%;
+        transition: 0.2s;
+      }
+      &:hover {
+        &::before {
+          width: 100%;
+        }
+      }
+      img {
+        position: absolute;
+        width: 40px;
+        left: -45px;
+        transition: 0.2s;
+      }
+    }
+    &:nth-child(4) {
+      cursor: pointer;
+      image-rendering: pixelated;
+      min-width: 65px;
+      width: 65px;
+      height: 65px;
+      display: flex;
+      background-image: url(/img/nav/head_isaac_spin.png);
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+      animation: spin 0.4s steps(4) infinite;
+      animation-play-state: paused;
+      &:hover {
+        animation-play-state: running;
+      }
+    }
+  }
 }
 @keyframes spin {
-    from { background-position: 0 0; }
-    to { background-position: -260px 0; }
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -260px 0;
+  }
 }

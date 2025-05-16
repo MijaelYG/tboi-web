@@ -1,14 +1,38 @@
 import { Link } from "react-router-dom";
-import style from "./Header.module.css";
+import styles from "./Header.module.css";
 import { motion } from "framer-motion";
-import { useRef } from "react";
 
 const Header = () => {
-  const headerRef = useRef<HTMLElement>(null);
-
   return (
-    <motion.header initial={{y:-100 }} animate={{y:0}} transition={{duration:1}} ref={headerRef} className="container">
-      <div className={style.header}>
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 1 }}
+      className="container"
+    >
+      <div className={styles.header2}>
+        <div className={styles.cont_nav}>
+          <div className={styles.nav}>
+            <div className={styles.nav_btn}>
+              <Link to={"/"}> 
+                <img src="/img/nav/start_search.webp" alt="" /> Inicio
+              </Link>
+            </div>
+                        <div className={styles.nav_btn}>
+              <Link to={"/"}> 
+                <img src="/img/nav/start_search.webp" alt="" /> Inicio
+              </Link>
+            </div>
+                        <div className={styles.nav_btn}>
+              <Link to={"/"}> 
+                <img src="/img/nav/start_search.webp" alt="" /> Inicio
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className={styles.btn_header}></div>
+      </div>
+      {/* <div className={style.header}>
         <div className={style.nav_btn}>
           <Link to={"/"}>
             {" "}
@@ -45,7 +69,7 @@ const Header = () => {
             Salas
           </Link>
         </div>
-      </div>
+      </div> */}
     </motion.header>
   );
 };
