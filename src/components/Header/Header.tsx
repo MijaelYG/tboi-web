@@ -15,18 +15,22 @@ const Header = () => {
 
   const variantsHeader = {
     initial: {
-      x: "-28vw", opacity:0
+      x: "-28vw",
+      opacity: 0,
     },
     visible: {
-      x: "0vw", opacity:1,
-      transition: { duration: 0.4, ease: "easeOut" }, 
+      x: "0vw",
+      opacity: 1,
+      transition: { duration: 0.4, ease: "easeOut" },
     },
     visiblefirst: {
-      x: "-20vw", opacity:1,
-      transition: { duration: 0.6, delay:1.1, ease: "backOut" }, 
+      x: "-20vw",
+      opacity: 1,
+      transition: { duration: 0.6, delay: 1.1, ease: "backOut" },
     },
     hidden: {
-      x: "-20vw", opacity:1,
+      x: "-20vw",
+      opacity: 1,
       transition: { duration: 0.4, ease: "easeOut" },
     },
   };
