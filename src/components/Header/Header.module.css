@@ -1,139 +1,115 @@
 header {
-  width: 40vw;
+  width: fit-content;
+  height: 100vh;
   top: 0;
   z-index: 90;
-  transition: 0s all linear;
   position: fixed;
   display: flex;
-}
-
-.header2 {
-  width: 100%;
-  height: 100vh;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
-  display: flex;
-
-  .cont_nav {
-    width: 60%;
+  .cont_header {
+    width: 20vw;
     height: 100%;
-    background-color: rgb(180, 102, 1);
     display: flex;
     justify-content: center;
     align-items: center;
     .nav {
       width: 100%;
-      height: 50%;
+      height: 48%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 2rem;
       align-items: center;
-      background-color: aqua;
       .nav_btn {
-        display: flex;
         width: 50%;
-        height: 10%;
-        background-color: aquamarine;
+        flex: 1;
         text-align: center;
+        display: inline-block;
+        white-space: nowrap;
         a {
           width: 100%;
           height: 100%;
-          background-color: blue;
-          color: white;
+          color: var(--white-color);
           display: flex;
           align-items: center;
+          text-decoration: none;
+          font-size: 1rem;
           img {
             object-fit: contain;
-            width: 30%;
-            height: 100%;
+            width: 25%;
+            margin-right: 1rem;
+          }
+          span {
+            position: relative;
+            &::after {
+              content: "";
+              position: absolute;
+              right: 0;
+              bottom: -0.3rem;
+              width: 0%;
+              height: 2px;
+              background-color: var(--white-color);
+              transition: 0.25s all;
+            }
+          }
+          &:hover {
+            span::after {
+              left: 0;
+              right: inherit;
+              width: 100%;
+            }
           }
         }
       }
     }
   }
   .btn_header {
-    width: 15%;
+    cursor: pointer;
+    width: 8vw;
     height: 100%;
-    background-color: antiquewhite;
-  }
-}
-
-.border_black {
-  width: 100%;
-  height: 100vh;
-  background-image: url(../../../public/img/UI/borde_negro.png);
-  background-position: left;
-  background-repeat: repeat-y;
-  background-size: cover;
-}
-
-.header {
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 3rem;
-  font-size: 0.9rem;
-  .nav_btn {
-    position: relative;
-    a {
-      position: relative;
-      display: flex;
-      align-items: center;
-      z-index: 1;
-      text-decoration: none;
-      color: white;
-      text-transform: uppercase;
-      transition: 0.2s;
-      margin-left: 40px;
-      &::before {
-        margin: auto;
-        content: "";
-        position: absolute;
-        height: 2px;
-        background-color: aliceblue;
-        width: 0%;
-        bottom: -6px;
-        left: 0;
-        right: 0;
-        width: 0%;
-        transition: 0.2s;
-      }
-      &:hover {
-        &::before {
-          width: 100%;
-        }
-      }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    user-select: none;
+    .btn_header_animation {
+      width: 50%;
+      transform: rotate(0deg);
+      transition: 0.3s;
       img {
-        position: absolute;
-        width: 40px;
-        left: -45px;
-        transition: 0.2s;
+        position: relative;
+        image-rendering: pixelated;
+        will-change: transform;
+        width: 100%;
+        animation: move_btn_header 0.3s ease-in-out infinite alternate;
+        animation-play-state: paused;
+        animation-fill-mode: backwards;
+        display: flex;
       }
     }
-    &:nth-child(4) {
-      cursor: pointer;
-      image-rendering: pixelated;
-      min-width: 65px;
-      width: 65px;
-      height: 65px;
-      display: flex;
-      background-image: url(/img/nav/head_isaac_spin.png);
-      background-size: auto 100%;
-      background-repeat: no-repeat;
-      animation: spin 0.4s steps(4) infinite;
-      animation-play-state: paused;
-      &:hover {
+    &:hover {
+      .btn_header_animation {
+        transform: rotate(0deg);
+      }
+      img {
         animation-play-state: running;
       }
     }
   }
+  .black_shadow {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 120vw;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
+    z-index: -1;
+  }
 }
-@keyframes spin {
+
+@keyframes move_btn_header {
   from {
-    background-position: 0 0;
+    transform: translateX(4%);
   }
   to {
-    background-position: -260px 0;
+    transform: translateX(-4%);
   }
 }
