@@ -8,10 +8,15 @@ import PixelScene from "../PixelScene/PixelScene";
 import InfoCard from "../InfoCard/InfoCard";
 import CarouselCharacters from "../CarouselCharacters/CarouselCharacters";
 import ItemSection from "../ItemSection/ItemSection";
+import SectionMenu from "../SectionMenu/SectionMenu";
 
 const SectionImage = () => {
   const scrollRef = useRef<HTMLDivElement | null>(null);
-
+  const sectionRefs = [
+    useRef<HTMLDivElement>(null),
+    useRef<HTMLDivElement>(null),
+    useRef<HTMLDivElement>(null),
+  ];
   const { scrollYProgress } = useScroll({
     target: scrollRef,
     offset: ["start start", "end end"],
@@ -124,6 +129,7 @@ const SectionImage = () => {
           </SectionBackground>
         ))}
       </motion.div>
+      <SectionMenu sectionRef={[]}></SectionMenu>
     </motion.section>
   );
 };

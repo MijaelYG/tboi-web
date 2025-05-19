@@ -13,8 +13,7 @@ const Home = ({ onLoaded }: Props) => {
   return (
     <>
       <div className={styles.container_home}>
-        <SectionImage
-        ></SectionImage>
+        <SectionImage></SectionImage>
       </div>
     </>
   );
