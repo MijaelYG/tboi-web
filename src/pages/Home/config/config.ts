@@ -1,6 +1,11 @@
 import { Section } from "../../../types/Types";
 import { Card2, Card3, Card4, Card5 } from "./cards";
-import { pixelSprite2, pixelSprite3, pixelSprite4, pixelSprite5 } from "./sprites";
+import {
+  pixelSprite2,
+  pixelSprite3,
+  pixelSprite4,
+  pixelSprite5,
+} from "./sprites";
 
 const sectionHeight = [140, 500, 650, 250, 380, 440, 400, 300, 120];
 
@@ -33,7 +38,7 @@ export const sections: Section[] = [
     id: 4,
     shadow: "22",
     name: "catacombs",
-    infoCard:Card4,
+    infoCard: Card4,
     pixelSprite: pixelSprite4,
   },
   {
@@ -70,3 +75,23 @@ export const scrollStartEnd: [number, number][] = sectionHeight.map(
     return [start, end];
   }
 );
+
+export const sectionNav = [
+  scrollStartEnd[0][0],
+  scrollStartEnd[1][0],
+  scrollStartEnd[2][0],
+  scrollStartEnd[3][0],
+  scrollStartEnd[4][0],
+  scrollStartEnd[5][0],
+  scrollStartEnd[7][0],
+];
+
+export const sectionNavStartEnd: [number, number][] = [
+  [scrollStartEnd[0][0], scrollStartEnd[0][1]],
+  [scrollStartEnd[1][0], scrollStartEnd[1][1]],
+  [scrollStartEnd[2][0], scrollStartEnd[2][1]],
+  [scrollStartEnd[3][0], scrollStartEnd[3][1]],
+  [scrollStartEnd[4][0], scrollStartEnd[4][1]],
+  [scrollStartEnd[5][0], scrollStartEnd[6][1]],
+  [scrollStartEnd[7][0], scrollStartEnd[7][1]],
+];

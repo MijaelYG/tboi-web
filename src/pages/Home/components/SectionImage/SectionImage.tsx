@@ -12,11 +12,6 @@ import SectionMenu from "../SectionMenu/SectionMenu";
 
 const SectionImage = () => {
   const scrollRef = useRef<HTMLDivElement | null>(null);
-  const sectionRefs = [
-    useRef<HTMLDivElement>(null),
-    useRef<HTMLDivElement>(null),
-    useRef<HTMLDivElement>(null),
-  ];
   const { scrollYProgress } = useScroll({
     target: scrollRef,
     offset: ["start start", "end end"],
@@ -129,7 +124,7 @@ const SectionImage = () => {
           </SectionBackground>
         ))}
       </motion.div>
-      <SectionMenu sectionRef={[]}></SectionMenu>
+      <SectionMenu ScrollYProgress={scrollYProgress} ></SectionMenu>
     </motion.section>
   );
 };
