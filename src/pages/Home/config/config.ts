@@ -76,14 +76,14 @@ export const scrollStartEnd: [number, number][] = sectionHeight.map(
   }
 );
 
-export const sectionNav = [
-  scrollStartEnd[0][0],
-  scrollStartEnd[1][0],
-  scrollStartEnd[2][0],
-  scrollStartEnd[3][0],
-  scrollStartEnd[4][0],
-  scrollStartEnd[5][0],
-  scrollStartEnd[7][0],
+export const sectionNav: [number, string,string][] = [
+  [scrollStartEnd[0][0], "/img/nav/rooms/basement_nav.png","Inicio"],
+  [scrollStartEnd[1][0], "/img/nav/rooms/cellar_nav.png","Historia"],
+  [scrollStartEnd[2][0], "/img/rooms/cavesv2.png","Monstruos"],
+  [scrollStartEnd[3][0], "/img/nav/rooms/catacombs_nav.png","Personajes"],
+  [scrollStartEnd[4][0], "/img/nav/rooms/necropolis_nav.png","Objetos"],
+  [scrollStartEnd[5][0], "/img/nav/rooms/depths_nav.png","Multijugador"],
+  [scrollStartEnd[7][0], "/img/nav/rooms/utero_nav.png","Jefes"]
 ];
 
 export const sectionNavStartEnd: [number, number][] = [
