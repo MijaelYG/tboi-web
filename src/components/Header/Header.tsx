@@ -26,7 +26,7 @@ const Header = () => {
     visiblefirst: {
       x: "-20vw",
       opacity: 1,
-      transition: { duration: 0.6, delay: 1.1, ease: "backOut" },
+      transition: { duration: 0.7, delay: 1.1, ease: "backOut" },
     },
     hidden: {
       x: "-20vw",

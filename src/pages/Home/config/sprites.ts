@@ -472,3 +472,16 @@ export const pixelSprite5: PixelSpriteBg[] = [
     shadow: shadow_running_bottom,
   },
 ];
+
+export const pixelSprite6: PixelSpriteBg[]=[
+  {
+    width: 9,
+    height: 9,
+    background_img: "/img/monsters/poky/poky.png",
+    animation: [0,0],
+    sprites: 1,
+    top:9.5,
+    left:40,
+    x:-150,
+  }
+]

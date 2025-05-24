@@ -5,6 +5,7 @@ import {
   pixelSprite3,
   pixelSprite4,
   pixelSprite5,
+  pixelSprite6,
 } from "./sprites";
 
 const sectionHeight = [140, 500, 650, 250, 380, 440, 400, 300, 120];
@@ -53,7 +54,7 @@ export const sections: Section[] = [
     shadow: "32",
     name: "depthsL",
     infoCard: Card2,
-    pixelSprite: pixelSprite2,
+    pixelSprite: pixelSprite6,
   },
   {
     id: 7,
@@ -79,7 +80,7 @@ export const scrollStartEnd: [number, number][] = sectionHeight.map(
 export const sectionNav: [number, string,string][] = [
   [scrollStartEnd[0][0], "/img/nav/rooms/basement_nav.png","Inicio"],
   [scrollStartEnd[1][0] + 0.0001, "/img/nav/rooms/cellar_nav.png","Historia"],
-  [scrollStartEnd[2][0] + 0.0001, "/img/rooms/cavesv2.png","Monstruos"],
+  [scrollStartEnd[2][0] + 0.0001, "/img/nav/rooms/caves_nav.png","Monstruos"],
   [scrollStartEnd[3][0] + 0.0001, "/img/nav/rooms/catacombs_nav.png","Personajes"],
   [scrollStartEnd[4][0]+ 0.0001, "/img/nav/rooms/necropolis_nav.png","Objetos"],
   [scrollStartEnd[5][0]+ 0.0001, "/img/nav/rooms/depths_nav.png","Multijugador"],

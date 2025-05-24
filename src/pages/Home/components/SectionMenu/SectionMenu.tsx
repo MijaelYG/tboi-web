@@ -29,10 +29,11 @@ const SectionMenu = ({ ScrollYProgress }: SectionMenuProps) => {
     ];
     setVisibleCircle(section);
     const maxScroll = document.body.scrollHeight - window.innerHeight;
-    const scrollTarget = maxScroll * percent; 
+    const scrollTarget = maxScroll * percent;
     console.log(scrollTarget);
     window.scrollTo({ top: scrollTarget, behavior: "smooth" });
   };
+
   useMotionValueEvent(ScrollYProgress, "change", (latest) => {
     if (ScrollingByBtn.current) {
       if (
@@ -54,7 +55,15 @@ const SectionMenu = ({ ScrollYProgress }: SectionMenuProps) => {
 
   return (
     <div className={styles.cont_nav_sections}>
-      <div className={styles.nav_sections}>
+      <motion.div
+        className={styles.nav_sections}
+        initial={{x:"5vw",opacity:0}}
+        animate={{
+          x: "0vw",
+          opacity: 1,
+          transition: { duration: 0.7, delay: 1.1, ease: "backOut" },
+        }}
+      >
         {sectionNav.map((data, index) => (
           <React.Fragment key={index}>
             <div
@@ -95,7 +104,7 @@ const SectionMenu = ({ ScrollYProgress }: SectionMenuProps) => {
             {index + 1 <= 6 && <div className={styles.line}></div>}
           </React.Fragment>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
