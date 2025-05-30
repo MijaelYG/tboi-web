@@ -89,39 +89,39 @@ export const Card2: InfoCardType[] = [
 
 const sprite2_Card3: PixelSpriteStatic[] = [
   {
-    width: 30*2.50,
-    height: 31*2.50,
+    width: 30 * 2.5,
+    height: 31 * 2.5,
     sprite_bg_img: "/img/monsters/vis.png",
     sprites: 8,
-    name:"Vis"
+    name: "Vis",
   },
   {
-    width: 21*2.50,
-    height: 23*2.50,
+    width: 21 * 2.5,
+    height: 23 * 2.5,
     sprite_bg_img: "/img/monsters/sucker.png",
     sprites: 2,
-    name:"Sucker"
+    name: "Sucker",
   },
   {
-    width: (148 /4) *2.50,
-    height: 17*2.50,
+    width: (148 / 4) * 2.5,
+    height: 17 * 2.5,
     sprite_bg_img: "/img/monsters/spitty.png",
     sprites: 4,
-    name:"Spitty"
+    name: "Spitty",
   },
   {
-    width: (150 /3) *2.50,
-    height: 33*2.50,
+    width: (150 / 3) * 2.5,
+    height: 33 * 2.5,
     sprite_bg_img: "/img/monsters/one_tooth.png",
     sprites: 3,
-    name:"One Tooth"
+    name: "One Tooth",
   },
   {
-    width: (384 /8) *2.50,
-    height: 36*2.50,
+    width: (384 / 8) * 2.5,
+    height: 36 * 2.5,
     sprite_bg_img: "/img/monsters/clotty.png",
     sprites: 8,
-    name:"Clotty"
+    name: "Clotty",
   },
 ];
 
@@ -172,13 +172,13 @@ export const Card4: InfoCardType[] = [
     height: 180,
     typeCard: "Normal",
     bg_img: "/img/UI/cards/mini_large_cardv2.png",
-    text:"Conoce a los grandes héroes. Cada uno con habilidades únicas, listos para enfrentarse a los horrores del sótano. ¿A quién escogerás para tu aventura?",
+    text: "Conoce a los grandes héroes. Cada uno con habilidades únicas, listos para enfrentarse a los horrores del sótano. ¿A quién escogerás para tu aventura?",
     totalCard: 1.4,
     top: 20,
     left: 12,
-    moveX:[-20,20],
-  }
-]
+    moveX: [-20, 20],
+  },
+];
 
 export const Card5: InfoCardType[] = [
   {
@@ -193,8 +193,8 @@ export const Card5: InfoCardType[] = [
     left: 12.5,
     moveX: [-20, 20],
   },
-    {
- id: 1,
+  {
+    id: 1,
     width: 470,
     height: 180,
     typeCard: "Normal",
@@ -204,7 +204,44 @@ export const Card5: InfoCardType[] = [
     bottom: 22.5,
     right: 13,
     moveX: [20, -20],
-  }
-]
+  },
+];
 
-
+export const Card6: InfoCardType[] = [
+  {
+    id: 0,
+    width: 470,
+    height: 180,
+    typeCard: "Normal",
+    text: "¡La locura del sótano es mejor en compañía! En Repentance, puedes jugar en modo local con hasta 4 jugadores al mismo tiempo.",
+    bg_img: "/img/UI/cards/mini_large_cardv1.png",
+    totalCard: 4,
+    top: 19,
+    left: 27.5,
+    moveX: [-20, 20],
+  },
+    {
+    id: 1.8,
+    width: 470,
+    height: 180,
+    typeCard: "Normal",
+    text: "Cada jugador controla a un personaje distinto, con sus propias habilidades. Cooperen, compartan objetos… o róbenselos entre sí.",
+    bg_img: "/img/UI/cards/mini_large_cardv2.png",
+    totalCard: 4,
+    top: 26.5,
+    right: 8,
+    moveX: [20, -20],
+  },
+  {
+    id: 3,
+    width: 470,
+    height: 180,
+    typeCard: "Normal",
+    text: "Con más jugadores, hay más enemigos, más disparos, y mucho más caos. ¿Lograrán sobrevivir juntos… o caerán uno por uno?",
+    bg_img: "/img/UI/cards/mini_large_cardv3.png",
+    totalCard: 4,
+    bottom: 25,
+    left: 52,
+    moveX: [-20, 20],
+  },
+];

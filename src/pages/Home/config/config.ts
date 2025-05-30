@@ -1,5 +1,5 @@
 import { Section } from "../../../types/Types";
-import { Card2, Card3, Card4, Card5 } from "./cards";
+import { Card2, Card3, Card4, Card5, Card6 } from "./cards";
 import {
   pixelSprite2,
   pixelSprite3,
@@ -53,7 +53,7 @@ export const sections: Section[] = [
     id: 6,
     shadow: "32",
     name: "depthsL",
-    infoCard: Card2,
+    infoCard: Card6,
     pixelSprite: pixelSprite6,
   },
   {
