@@ -474,15 +474,15 @@ export const pixelSprite5: PixelSpriteBg[] = [
 ];
 
 export const pixelSprite6: PixelSpriteBg[] = [
-  {
-    width: 9.4,
-    height: 9.4,
-    background_img: "/img/monsters/poky/poky.png",
-    animation: [0, 0],
-    sprites: 1,
-    top: 9.5,
-    left: 40,
-    x: -150,
+    {
+    width: 7.2,
+    height: 7.2,
+    background_img: "/img/monsters/guts/guts.png",
+    animation: [2, 38],
+    sprites: 12,
+    top: 10.2,
+    left: 60,
+    x: -460,
   },
   {
     width: 7.2,
@@ -491,8 +491,38 @@ export const pixelSprite6: PixelSpriteBg[] = [
     animation: [0, 35],
     sprites: 12,
     top: 43.8,
-    left: 15,
+    left: 18,
     x: 480,
     scaleX:-1
+  },
+    {
+    width: 7.2,
+    height: 7.2,
+    background_img: "/img/monsters/guts/guts.png",
+    animation: [0, 37],
+    sprites: 12,
+    bottom: 10.8,
+    right: 6.3,
+    y: -500,
+    scaleX:-1,
+  },
+
+  {
+    width: 7,
+    height: 7,
+    background_img: "/img/monsters/host/host.png",
+    animation: [0, 0],
+    sprites: 1,
+    top: 20.8,
+    left: 13.2,
+  },
+    {
+    width: 7,
+    height: 7,
+    background_img: "/img/monsters/host/host.png",
+    animation: [0, 0],
+    sprites: 1,
+    top: 32,
+    left: 13.2,
   },
 ];
