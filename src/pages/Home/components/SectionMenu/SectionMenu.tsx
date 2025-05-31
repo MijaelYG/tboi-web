@@ -30,7 +30,6 @@ const SectionMenu = ({ ScrollYProgress }: SectionMenuProps) => {
     setVisibleCircle(section);
     const maxScroll = document.body.scrollHeight - window.innerHeight;
     const scrollTarget = maxScroll * percent;
-    console.log(scrollTarget);
     window.scrollTo({ top: scrollTarget, behavior: "smooth" });
   };
 
