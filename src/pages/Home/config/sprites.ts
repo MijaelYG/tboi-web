@@ -473,15 +473,26 @@ export const pixelSprite5: PixelSpriteBg[] = [
   },
 ];
 
-export const pixelSprite6: PixelSpriteBg[]=[
+export const pixelSprite6: PixelSpriteBg[] = [
   {
-    width: 9,
-    height: 9,
+    width: 9.4,
+    height: 9.4,
     background_img: "/img/monsters/poky/poky.png",
-    animation: [0,0],
+    animation: [0, 0],
     sprites: 1,
-    top:9.5,
-    left:40,
-    x:-150,
-  }
-]
+    top: 9.5,
+    left: 40,
+    x: -150,
+  },
+  {
+    width: 7.2,
+    height: 7.2,
+    background_img: "/img/monsters/guts/guts.png",
+    animation: [0, 35],
+    sprites: 12,
+    top: 43.8,
+    left: 15,
+    x: 480,
+    scaleX:-1
+  },
+];
