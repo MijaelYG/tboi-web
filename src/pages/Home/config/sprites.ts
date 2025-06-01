@@ -474,7 +474,7 @@ export const pixelSprite5: PixelSpriteBg[] = [
 ];
 
 export const pixelSprite6: PixelSpriteBg[] = [
-    {
+  {
     width: 7.2,
     height: 7.2,
     background_img: "/img/monsters/guts/guts.png",
@@ -493,9 +493,9 @@ export const pixelSprite6: PixelSpriteBg[] = [
     top: 43.8,
     left: 18,
     x: 480,
-    scaleX:-1
+    scaleX: -1,
   },
-    {
+  {
     width: 7.2,
     height: 7.2,
     background_img: "/img/monsters/guts/guts.png",
@@ -504,9 +504,8 @@ export const pixelSprite6: PixelSpriteBg[] = [
     bottom: 10.8,
     right: 6.3,
     y: -500,
-    scaleX:-1,
+    scaleX: -1,
   },
-
   {
     width: 7,
     height: 7,
@@ -516,7 +515,7 @@ export const pixelSprite6: PixelSpriteBg[] = [
     top: 20.8,
     left: 13.2,
   },
-    {
+  {
     width: 7,
     height: 7,
     background_img: "/img/monsters/host/host.png",
@@ -524,5 +523,39 @@ export const pixelSprite6: PixelSpriteBg[] = [
     sprites: 1,
     top: 32,
     left: 13.2,
+  },
+  {
+    width: 11,
+    height: 10,
+    background_img: "/img/others/samsom_run_6.png",
+    animation: [0, 25],
+    top: 49,
+    right: 17,
+    y: 200,
+    sprites: 10,
+    shadow: shadow_running_bottom,
+  },
+    {
+    width: 11,
+    height: 10,
+    background_img: "/img/others/judas_run_6.png",
+    animation: [0, 29],
+    top: 32,
+    left: 23,
+    x: 200,
+    sprites: 10,
+    scaleX:-1,
+    shadow: shadow_running_bottom,
+  },
+    {
+    width: 11,
+    height: 10,
+    background_img: "/img/others/bethany_run_6.png",
+    animation: [0, 25],
+    bottom: 16,
+    right: 30,
+    y: -300,
+    sprites: 10,
+    shadow: shadow_running_bottom,
   },
 ];
