@@ -51,7 +51,7 @@ export const sections: Section[] = [
   },
   {
     id: 6,
-    shadow: "32",
+    shadow: "51",
     name: "depthsL",
     infoCard: Card6,
     pixelSprite: pixelSprite6,

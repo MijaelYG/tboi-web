@@ -91,7 +91,7 @@ const sprite2_Card3: PixelSpriteStatic[] = [
   {
     width: 30 * 2.5,
     height: 31 * 2.5,
-    sprite_bg_img: "/img/monsters/vis.png",
+    sprite_bg_img: "/img/monsters/vis/vis.png",
     sprites: 8,
     name: "Vis",
   },
