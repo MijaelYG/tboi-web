@@ -6,6 +6,7 @@ import {
   pixelSprite4,
   pixelSprite5,
   pixelSprite6,
+  pixelSprite7,
 } from "./sprites";
 
 const sectionHeight = [140, 500, 650, 250, 380, 440, 400, 300, 120];
@@ -60,8 +61,8 @@ export const sections: Section[] = [
     id: 7,
     shadow: "41",
     name: "utero",
-    infoCard: Card2,
-    pixelSprite: pixelSprite2,
+    infoCard: Card4,
+    pixelSprite: pixelSprite7,
   },
 ];
 

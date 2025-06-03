@@ -683,3 +683,16 @@ export const pixelSprite6: PixelSpriteBg[] = [
     shadow: shadow_running_bottom,
   },
 ];
+
+export const pixelSprite7: PixelSpriteBg[] = [
+  {
+    width: 22,
+    height: 26.5,
+    background_img: "/img/Bosses/moms_heart_its_lives/moms_heart_its_lives.png",
+    animation: [0, 20],
+    top: 0,
+    right: 39,
+    sprites: 5,
+    shadow: shadow_character,
+  },
+]

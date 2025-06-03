@@ -84,6 +84,16 @@ const SectionImage = () => {
                         ]}
                         card={card}
                       ></InfoCard>
+                    ) : section.id == 7 ? (
+                      <InfoCard
+                        key={card.id}
+                        scrollYProgress={scrollYProgress}
+                        scrollStartEnd={[
+                          scrollStartEnd[section.id - 1][0],
+                          scrollStartEnd[section.id][1],
+                        ]}
+                        card={card}
+                      ></InfoCard>
                     ) : (
                       <InfoCard
                         key={card.id}
@@ -96,6 +106,16 @@ const SectionImage = () => {
                 {section.pixelSprite &&
                   section.pixelSprite.map((pixel, index) =>
                     section.id == 6 ? (
+                      <PixelScene
+                        key={index}
+                        scrollYProgress={scrollYProgress}
+                        scrollStartEnd={[
+                          scrollStartEnd[section.id - 1][0],
+                          scrollStartEnd[section.id][1],
+                        ]}
+                        pixelsprite={pixel}
+                      ></PixelScene>
+                    ) : section.id == 7 ? (
                       <PixelScene
                         key={index}
                         scrollYProgress={scrollYProgress}
@@ -124,7 +144,7 @@ const SectionImage = () => {
           </SectionBackground>
         ))}
       </motion.div>
-      <SectionMenu ScrollYProgress={scrollYProgress} ></SectionMenu>
+      <SectionMenu ScrollYProgress={scrollYProgress}></SectionMenu>
     </motion.section>
   );
 };
