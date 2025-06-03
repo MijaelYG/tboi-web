@@ -42,7 +42,7 @@ const SectionImage = () => {
     ],
     [
       -15, -15, 0, 0, -20, 0, 0, -105, 0, 0, -20, 0, 0, -20, -20, -20, -105, 0,
-      0, -15,
+      0, -20,
     ]
   );
   const yscrollsmooth = useSpring(yscrollRaw, { stiffness: 200, damping: 40 });
@@ -50,15 +50,16 @@ const SectionImage = () => {
   const scale = useTransform(
     scrollYProgress,
     [scrollStartEnd[8][0], scrollStartEnd[8][1]],
-    [1, 0.15]
+    [1, 0.10]
   );
+  const scalesmooth = useSpring(scale, { stiffness: 250, damping: 40 });
   return (
     <motion.section
       ref={scrollRef}
       className={styles.container_sImage}
       style={{ height: `${heightTotal}vh` }}
     >
-      <motion.div className={styles.sticky} style={{ y: value, scale: scale }}>
+      <motion.div className={styles.sticky} style={{ y: value, scale: scalesmooth }}>
         {sections.map((section) => (
           <SectionBackground
             key={section.id}

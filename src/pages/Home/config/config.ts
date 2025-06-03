@@ -9,7 +9,7 @@ import {
   pixelSprite7,
 } from "./sprites";
 
-const sectionHeight = [140, 500, 650, 250, 380, 440, 400, 300, 120];
+const sectionHeight = [140, 500, 650, 250, 380, 440, 400, 300, 1];
 
 export const heightTotal = sectionHeight.reduce(
   (acum, number) => acum + number,
