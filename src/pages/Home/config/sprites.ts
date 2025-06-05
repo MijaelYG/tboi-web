@@ -699,7 +699,7 @@ export const pixelSprite7: PixelSpriteBg[] = [
       shadow_img: "/img/shadows/pixel/shadow_enemies.png",
       bottom: 12,
       left: -4,
-      animation: [0, 30],
+      animation: [0, 20],
       sprites: 3,
     },
   },
