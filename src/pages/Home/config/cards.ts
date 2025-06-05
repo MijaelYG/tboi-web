@@ -256,7 +256,7 @@ export const Card7: InfoCardType[] = [
     bg_img: "/img/UI/cards/mini_large_cardv2.png",
     totalCard: 1.2,
     top: 21,
-    left: 13,
+    left: 12,
     moveX: [-20, 20],
   },
 ];
