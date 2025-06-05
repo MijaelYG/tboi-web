@@ -586,7 +586,7 @@ export const pixelSprite6: PixelSpriteBg[] = [
       sprites: 3,
     },
   },
-    {
+  {
     width: 6,
     height: 6.6,
     background_img: "/img/monsters/boomfly/boomfly.png",
@@ -618,7 +618,7 @@ export const pixelSprite6: PixelSpriteBg[] = [
     sprites: 8,
     shadow: shadow_character,
   },
-   {
+  {
     width: 6.5,
     height: 6.5,
     background_img: "/img/monsters/leech/leech_bottom.png",
@@ -687,12 +687,40 @@ export const pixelSprite6: PixelSpriteBg[] = [
 export const pixelSprite7: PixelSpriteBg[] = [
   {
     width: 22,
-    height: 26.5,
+    height: 38,
     background_img: "/img/Bosses/moms_heart_its_lives/moms_heart_its_lives.png",
-    animation: [0, 20],
+    animation: [2, 45],
     top: 0,
     right: 39,
     sprites: 5,
-    shadow: shadow_character,
+    shadow: {
+      width: 11,
+      height: 4.6,
+      shadow_img: "/img/shadows/pixel/shadow_enemies.png",
+      bottom: 12,
+      left: -4,
+      animation: [0, 30],
+      sprites: 3,
+    },
   },
-]
+  {
+    width: 27,
+    height: 12,
+    background_img:
+      "/img/Bosses/moms_heart_its_lives/moms_heart_its_lives_left.png",
+    animation: [0, 0],
+    top: 0,
+    left: 15,
+    sprites: 1,
+  },
+  {
+    width: 28,
+    height: 10.5,
+    background_img:
+      "/img/Bosses/moms_heart_its_lives/moms_heart_its_lives_right.png",
+    animation: [0, 0],
+    top: 0,
+    right: 16,
+    sprites: 1,
+  },
+];
