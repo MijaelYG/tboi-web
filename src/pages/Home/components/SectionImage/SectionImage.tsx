@@ -52,7 +52,12 @@ const SectionImage = () => {
     [scrollStartEnd[8][0], scrollStartEnd[8][1]],
     [1, 0.1]
   );
+  const opacity = useTransform(scrollYProgress,
+    [scrollStartEnd[8][0], scrollStartEnd[8][1]],
+    [1, 0])
+
   const scalesmooth = useSpring(scale, { stiffness: 250, damping: 40 });
+   const opacitysmooth = useSpring(opacity, { stiffness: 250, damping: 40 });
   return (
     <motion.section
       ref={scrollRef}
@@ -61,7 +66,7 @@ const SectionImage = () => {
     >
       <motion.div
         className={styles.sticky}
-        style={{ y: value, scale: scalesmooth }}
+        style={{ y: value, scale: scalesmooth, opacity:opacitysmooth }}
       >
         {sections.map((section) => (
           <SectionBackground
