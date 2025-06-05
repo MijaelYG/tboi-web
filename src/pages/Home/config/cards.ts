@@ -245,3 +245,18 @@ export const Card6: InfoCardType[] = [
     moveX: [-20, 20],
   },
 ];
+
+export const Card7: InfoCardType[] = [
+  {
+    id: 0,
+    width: 470,
+    height: 180,
+    typeCard: "Normal",
+    text: "Al final de cada nivel te espera un jefe brutal. Ataques únicos, patrones impredecibles y solo una opción: luchar o morir.",
+    bg_img: "/img/UI/cards/mini_large_cardv2.png",
+    totalCard: 1.2,
+    top: 21,
+    left: 13,
+    moveX: [-20, 20],
+  },
+];
