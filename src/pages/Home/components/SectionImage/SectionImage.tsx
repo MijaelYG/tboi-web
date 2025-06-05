@@ -120,10 +120,7 @@ const SectionImage = () => {
                       <PixelScene
                         key={index}
                         scrollYProgress={scrollYProgress}
-                        scrollStartEnd={[
-                          scrollStartEnd[section.id - 1][0],
-                          scrollStartEnd[section.id][1],
-                        ]}
+scrollStartEnd={scrollStartEnd[section.id ]}
                         pixelsprite={pixel}
                       ></PixelScene>
                     ) : (
