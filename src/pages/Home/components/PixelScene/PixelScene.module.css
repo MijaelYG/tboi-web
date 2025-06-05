@@ -1,6 +1,5 @@
 .cont_pixel{
     position: absolute;
-    z-index: 1;
     .pixel{
         background-repeat: no-repeat;
         position: absolute;

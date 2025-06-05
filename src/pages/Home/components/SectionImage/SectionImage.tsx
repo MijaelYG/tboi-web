@@ -50,7 +50,7 @@ const SectionImage = () => {
   const scale = useTransform(
     scrollYProgress,
     [scrollStartEnd[8][0], scrollStartEnd[8][1]],
-    [1, 0.10]
+    [1, 0.1]
   );
   const scalesmooth = useSpring(scale, { stiffness: 250, damping: 40 });
   return (
@@ -59,7 +59,10 @@ const SectionImage = () => {
       className={styles.container_sImage}
       style={{ height: `${heightTotal}vh` }}
     >
-      <motion.div className={styles.sticky} style={{ y: value, scale: scalesmooth }}>
+      <motion.div
+        className={styles.sticky}
+        style={{ y: value, scale: scalesmooth }}
+      >
         {sections.map((section) => (
           <SectionBackground
             key={section.id}
@@ -89,10 +92,7 @@ const SectionImage = () => {
                       <InfoCard
                         key={card.id}
                         scrollYProgress={scrollYProgress}
-                        scrollStartEnd={[
-                          scrollStartEnd[section.id - 1][0],
-                          scrollStartEnd[section.id][1],
-                        ]}
+                        scrollStartEnd={scrollStartEnd[section.id]}
                         card={card}
                       ></InfoCard>
                     ) : (
@@ -120,7 +120,7 @@ const SectionImage = () => {
                       <PixelScene
                         key={index}
                         scrollYProgress={scrollYProgress}
-scrollStartEnd={scrollStartEnd[section.id ]}
+                        scrollStartEnd={scrollStartEnd[section.id]}
                         pixelsprite={pixel}
                       ></PixelScene>
                     ) : (
