@@ -51,7 +51,7 @@ const SectionBackground = ({
     }
   }, []);
   const scale = useTransform(scrollYProgress, [0, 0.0001], [2, 1]);
-  const scalesmooth = useSpring(scale, { stiffness: 200, damping: 60 });
+  const scalesmooth = useSpring(scale, { stiffness: 130, damping: 40 });
 
   const yscroll_scene = useTransform(
     scrollYProgress,
