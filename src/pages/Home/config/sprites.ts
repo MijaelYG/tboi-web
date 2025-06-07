@@ -1,14 +1,5 @@
 import { PixelSpriteBg, PixelStatic, ShadowSprite } from "../../../types/Types";
 
-const shadow_character: ShadowSprite = {
-  width: 5,
-  height: 2,
-  shadow_img: "/img/shadows/pixel/shadow_character.png",
-  bottom: -7,
-  animation: [0, 18],
-  sprites: 2,
-};
-
 const shadow_running_frontal: ShadowSprite = {
   width: 5,
   height: 2,
@@ -363,7 +354,7 @@ export const pixelSprite5: PixelSpriteBg[] = [
     top: 38.5,
     right: 15,
     sprites: 10,
-    x: -150,
+    x: -100,
     shadow: shadow_running,
   },
   {
@@ -424,15 +415,14 @@ export const pixelSprite5: PixelSpriteBg[] = [
     },
   },
   {
-    width: 6.5,
+    width: 11,
     height: 10,
     background_img: "/img/monsters/gazin_globin/gazing_globin.png",
-    animation: [1, 24],
+    animation: [1, 29],
     bottom: 21,
     left: 33,
     sprites: 10,
-    x: 120,
-    scaleX: -1,
+    x: 100,
     shadow: shadow_running,
   },
   {
@@ -468,15 +458,15 @@ export const pixelSprite5: PixelSpriteBg[] = [
     y: -90,
   },
   {
-    width: 7,
-    height: 8.1,
-    background_img: "/img/monsters/globin/globin.png",
+    width: 11,
+    height: 10,
+    background_img: "/img/monsters/globin/globin_frontal.png",
     animation: [1, 24],
     bottom: 52,
     left: 17.5,
     sprites: 10,
     y: 100,
-    shadow: shadow_running,
+    shadow: shadow_running_frontal,
   },
 ];
 
@@ -615,15 +605,23 @@ export const pixelSprite6: PixelSpriteBg[] = [
     },
   },
   {
-    width: 6,
-    height: 6.6,
+    width: 11,
+    height: 10,
     background_img: "/img/monsters/vis/vis.png",
     animation: [0, 30],
     top: 22,
     right: 50,
     x: 350,
     sprites: 8,
-    shadow: shadow_character,
+    shadow: {
+      width: 5.2,
+      height: 2,
+      shadow_img: "/img/shadows/pixel/shadow_enemies.png",
+      bottom:-3,
+      left:-1,
+      animation: [0, 29],
+      sprites: 3,
+    }
   },
   {
     width: 6.5,
@@ -648,12 +646,12 @@ export const pixelSprite6: PixelSpriteBg[] = [
     width: 11,
     height: 10,
     background_img: "/img/others/samsom_run_6.png",
-    animation: [0, 25],
+    animation: [2, 25],
     top: 48,
     right: 17,
     y: 230,
     sprites: 10,
-    shadow: shadow_running,
+    shadow: shadow_running_frontal,
   },
   {
     width: 11,
@@ -676,7 +674,7 @@ export const pixelSprite6: PixelSpriteBg[] = [
     right: 30,
     y: -300,
     sprites: 10,
-    shadow: shadow_running,
+    shadow: shadow_running_frontal,
   },
   {
     width: 11,
@@ -696,7 +694,7 @@ export const pixelSprite7: PixelSpriteBg[] = [
     width: 22,
     height: 38,
     background_img: "/img/Bosses/moms_heart_its_lives/moms_heart_its_lives.png",
-    animation: [3, 30],
+    animation: [0, 21],
     top: 0,
     right: 39,
     sprites: 5,
@@ -1135,6 +1133,6 @@ export const pixelSprite7: PixelSpriteBg[] = [
     left: 18,
     y: -60,
     sprites: 10,
-    shadow: shadow_running,
+    shadow: shadow_running_frontal,
   },
 ];
