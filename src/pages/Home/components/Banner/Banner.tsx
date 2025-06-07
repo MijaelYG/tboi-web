@@ -21,7 +21,7 @@ const Banner = ({ scrollYProgress }: BannerProps) => {
   }, []);
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     setVisiblelogo(latest <= 0.00 );
-    setVisiblelogo2(latest >= 0.02);
+    setVisiblelogo2(latest >= 0.0001);
   });
 
   return (
