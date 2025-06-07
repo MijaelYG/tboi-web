@@ -255,7 +255,7 @@ export const Card7: InfoCardType[] = [
     text: "Al final de cada nivel te espera un jefe brutal. Ataques únicos, patrones impredecibles y solo una opción: luchar o morir.",
     bg_img: "/img/UI/cards/mini_large_cardv2.png",
     totalCard: 1,
-    top: 26,
+    top: 25.5,
     left: 13,
     moveX: [-20, 20],
   },
