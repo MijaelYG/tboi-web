@@ -1,8 +1,11 @@
 .container_sImage {
   position: relative;
+  margin: 0;
+  width: 100vw;
   .sticky {
     width: 100vw;
     min-height: 100vh;
+    height: 100vh;
     position: sticky;
     transform-origin: bottom;
     top: 0;
