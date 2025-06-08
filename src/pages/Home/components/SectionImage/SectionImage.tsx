@@ -57,8 +57,9 @@ const SectionImage = () => {
     [1, 0])
 
   const scalesmooth = useSpring(scale, { stiffness: 250, damping: 40 });
-   const opacitysmooth = useSpring(opacity, { stiffness: 250, damping: 40 });
+  const opacitysmooth = useSpring(opacity, { stiffness: 250, damping: 40 });
   return (
+    <>
     <motion.section
       ref={scrollRef}
       className={styles.container_sImage}
@@ -148,7 +149,11 @@ const SectionImage = () => {
         ))}
       </motion.div>
       <SectionMenu ScrollYProgress={scrollYProgress}></SectionMenu>
+      <div className={styles.footer_home}>
+
+      </div>
     </motion.section>
+</>
   );
 };
 
