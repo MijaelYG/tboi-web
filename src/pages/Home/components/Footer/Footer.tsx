@@ -18,7 +18,7 @@ const Footer = ({ ScrollYProgress }: FooterProps) => {
     setVisibleFooter(latest >= 1);
   });
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {visibleFooter && (
         <motion.div
           className={styles.footer_home}
@@ -26,8 +26,34 @@ const Footer = ({ ScrollYProgress }: FooterProps) => {
           animate={{ opacity: 1, transition: { duration: 1, delay: 0.8 } }}
           exit={{ opacity: 0, transition: { duration: 0.25, delay: 0 } }}
         >
-          <div className={styles.img_footer_left}></div>
-          <div className={styles.img_footer_right}></div>
+          <motion.div
+            className={styles.img_footer_left}
+            initial={{ opacity: 0, x: -100 }}
+            animate={{
+              opacity: 1,
+              x: 0,
+              transition: { duration: 0.55, delay: 0.6,ease:"easeOut" },
+            }}
+            exit={{
+              opacity: 0,
+              x: -200,
+              transition: { duration: 0.25, delay: 0,ease:"easeOut" },
+            }}
+          ></motion.div>
+          <motion.div
+            className={styles.img_footer_right}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{
+              opacity: 1,
+              x: 0,
+              transition: { duration: 0.55, delay: 0.6,ease:"easeOut"},
+            }}
+            exit={{
+              opacity: 0,
+              x: 200,
+              transition: { duration: 0.25, delay: 0,ease:"easeOut" },
+            }}
+          ></motion.div>
         </motion.div>
       )}
     </AnimatePresence>

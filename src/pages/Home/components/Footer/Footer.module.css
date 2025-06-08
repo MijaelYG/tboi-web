@@ -3,6 +3,7 @@
     top: 0;
     width: 100vw;
     height: 100vh;
+    background-color: black;
     .img_footer_left{
       position: absolute;
       background-image: url(/img/UI/footer_monsters_left.png);
@@ -14,6 +15,7 @@
       left: 1vw;
       image-rendering: pixelated;
       background-position: center;
+      will-change: transform;
     }
     .img_footer_right{
       position: absolute;
@@ -26,5 +28,6 @@
       right: 1vw;
       image-rendering: pixelated;
       background-position: center;
+      will-change: transform;
     }
   }
