@@ -1,0 +1,30 @@
+  .footer_home{
+    position:fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    .img_footer_left{
+      position: absolute;
+      background-image: url(/img/UI/footer_monsters_left.png);
+      width: 25.3vw;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      top: 0;
+      left: 1vw;
+      image-rendering: pixelated;
+      background-position: center;
+    }
+    .img_footer_right{
+      position: absolute;
+      background-image: url(/img/UI/footer_monsters_right.png);
+      width: 25.3vw;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      top: 0;
+      right: 1vw;
+      image-rendering: pixelated;
+      background-position: center;
+    }
+  }
