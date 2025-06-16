@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import styles from "./SectionImage.module.css";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll, useSpring, useTransform } from "framer-motion";
 import SectionBackground from "../SectionBackground/SectionBackground";
 import Banner from "../Banner/Banner";
 import { scrollStartEnd, heightTotal, sections } from "../../config/config";
@@ -56,9 +56,12 @@ const SectionImage = () => {
   );
   const opacity = useTransform(
     scrollYProgress,
-    [scrollStartEnd[8][0], scrollStartEnd[8][1]],
+    [scrollStartEnd[8][0], 0.9999],
     [1, 0]
   );
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    console.log("Scroll progress:", latest); // Imprime de 0 a 1
+  });
 
   const scalesmooth = useSpring(scale, { stiffness: 250, damping: 40 });
   const opacitysmooth = useSpring(opacity, { stiffness: 250, damping: 40 });
