@@ -11,11 +11,9 @@ const Home = ({ onLoaded }: Props) => {
   }, []);
 
   return (
-    <>
-      <div className={styles.container_home}>
-        <SectionImage></SectionImage>
-      </div>
-    </>
+    <div className={styles.container_home}>
+      <SectionImage></SectionImage>
+    </div>
   );
 };
 

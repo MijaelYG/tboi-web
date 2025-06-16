@@ -1,11 +1,6 @@
 import { useRef } from "react";
 import styles from "./SectionImage.module.css";
-import {
-  motion,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import SectionBackground from "../SectionBackground/SectionBackground";
 import Banner from "../Banner/Banner";
 import { scrollStartEnd, heightTotal, sections } from "../../config/config";
@@ -17,12 +12,12 @@ import SectionMenu from "../SectionMenu/SectionMenu";
 import Footer from "../Footer/Footer";
 
 const SectionImage = () => {
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-
+  const ref = useRef(null);
   const { scrollYProgress } = useScroll({
-    target: scrollRef,
+    target: ref,
     offset: ["start start", "end end"],
   });
+
   const yscrollRaw = useTransform(
     scrollYProgress,
     [
@@ -69,11 +64,11 @@ const SectionImage = () => {
   const opacitysmooth = useSpring(opacity, { stiffness: 250, damping: 40 });
 
   return (
-    <>
-      <motion.section
-        ref={scrollRef}
+
+      <motion.div
+        ref={ref}
         className={styles.container_sImage}
-        style={{ height: `${heightTotal}vh` }}
+        style={{ height: `${heightTotal}vh`}}
       >
         <motion.div
           className={styles.sticky}
@@ -160,8 +155,7 @@ const SectionImage = () => {
         </motion.div>
         <SectionMenu ScrollYProgress={scrollYProgress}></SectionMenu>
         <Footer ScrollYProgress={scrollYProgress}></Footer>
-      </motion.section>
-    </>
+      </motion.div>
   );
 };
 
