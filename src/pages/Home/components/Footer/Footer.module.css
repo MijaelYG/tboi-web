@@ -31,15 +31,64 @@
     will-change: transform;
   }
 
-.logo {
+  .logo {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,20%);
+    transform: translate(-50%, 20%);
     img {
+      image-rendering:pixelated;
       width: 100%;
       height: 100%;
       object-fit: contain;
+      animation: titlemove 1.4s ease-in-out infinite alternate;
     }
+  }
+
+  .cont_footer_info {
+    position: absolute;
+    width: 50%;
+    height: fit-content;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 50%);
+    display: flex;
+    gap: 4rem;
+    color: var(--white-color);
+    .section_footer {
+      flex: 1;
+      font-size: 0.95rem;
+      .section_footer_title {
+        font-weight: 600;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      p {
+        line-height: 1.7rem;
+      }
+    }
+
+    .section_footer:last-child {
+      p {
+        a {
+          text-decoration: none;
+          color: #ff170f;
+          transition: 0.1s;
+          &:hover {
+            color: rgb(255, 147, 147);
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes titlemove {
+  to {
+    transform: translateY(4%);
+  }
+  from {
+    transform: translateY(0%);
   }
 }

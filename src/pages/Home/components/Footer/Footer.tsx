@@ -56,7 +56,7 @@ const Footer = ({ ScrollYProgress }: FooterProps) => {
           ></motion.div>
           <motion.div
             className={styles.logo}
-            initial={{ opacity: 0, top:-50 }}
+            initial={{ opacity: 0, top: -50 }}
             animate={{
               opacity: 1,
               top: 0,
@@ -70,6 +70,78 @@ const Footer = ({ ScrollYProgress }: FooterProps) => {
           >
             <img src="/img/logo/Logo.webp"></img>
           </motion.div>
+          <div className={styles.cont_footer_info}>
+            <motion.div
+              className={styles.section_footer}
+              initial={{ opacity: 0, y: -15 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.7, delay: 1.1 },
+              }}
+              exit={{
+                opacity: 0,
+                y: 15,
+                transition: { duration: 0.25, delay: 0 },
+              }}
+            >
+              <div className={styles.section_footer_title}>
+                Créditos del Proyecto
+              </div>
+              <p>
+                Hecho por Mijael D. Yauyo Granados, proyecto fan inspirado en
+                The Binding of Isaac: Repentance+
+              </p>
+            </motion.div>
+            <motion.div
+              className={styles.section_footer}
+              initial={{ opacity: 0, y: -15 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.7, delay: 1.25 },
+              }}
+              exit={{
+                opacity: 0,
+                y: 15,
+                transition: { duration: 0.25, delay: 0 },
+              }}
+            >
+              <div className={styles.section_footer_title}>
+                Derechos de autor
+              </div>
+              <p>
+                Todos los derechos sobre The Binding of Isaac pertenecen a sus
+                respectivos creadores. Este sitio no tiene relación oficial.
+              </p>
+            </motion.div>
+            <motion.div
+              className={styles.section_footer}
+              initial={{ opacity: 0, y: -15 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.7, delay: 1.4 },
+              }}
+              exit={{
+                opacity: 0,
+                y: 15,
+                transition: { duration: 0.25, delay: 0 },
+              }}
+            >
+              <div className={styles.section_footer_title}>
+                Términos y contacto
+              </div>
+              <p>
+                Pueden contactarme en mi correo de gmail aqui:{" "}
+                <a href="mailto:yauyogranadosmijael@gmail.com">
+                  yauyogranadosmijael@gmail.com
+                </a>{" "}
+                o ver otros proyectos en mi repositorio de 🐙 GitHub:{" "}
+                <a href="https://github.com/MijaelYG">Github.com/MijaelYG</a>
+              </p>
+            </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
