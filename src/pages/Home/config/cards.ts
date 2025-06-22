@@ -89,8 +89,8 @@ export const Card2: InfoCardType[] = [
 
 const sprite2_Card3: PixelSpriteStatic[] = [
   {
-    width: 30 * 2.5,
-    height: 31 * 2.5,
+    width: 50 * 2.5,
+    height: 50 * 2.5,
     sprite_bg_img: "/img/monsters/vis/vis.png",
     sprites: 8,
     name: "Vis",

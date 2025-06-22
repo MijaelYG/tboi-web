@@ -52,6 +52,7 @@
         transition: 0.3s;
         left: 0;
         .monster_id {
+          position: relative;
           width: 125px;
           max-width: 125px;
           height: 100%;
@@ -59,8 +60,15 @@
           justify-content: center;
           align-items: center;
           .monster {
+            position: relative;
             background-size: auto 100%;
             background-repeat: no-repeat;
+            background-position: center;
+          }
+        }
+        .monster_id:nth-child(1) {
+          .monster{
+            bottom:18px;
           }
         }
       }
