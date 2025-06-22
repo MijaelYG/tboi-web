@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
-import { AnimatePresence, motion } from "framer-motion";
+import {
+  AnimatePresence,
+  motion
+} from "framer-motion";
 import { useState } from "react";
 
 const Header = () => {
@@ -37,7 +40,6 @@ const Header = () => {
   return (
     <motion.header
       className="container"
-      custom={btnClickHeader}
       variants={variantsHeader}
       initial="initial"
       animate={

@@ -14,6 +14,8 @@ interface SectionMenuProps {
 }
 const SectionMenu = ({ ScrollYProgress }: SectionMenuProps) => {
   const [visibleCircle, setVisibleCircle] = useState(1);
+  const [visibleMenuAnimation, setVisibleMenuAnimation] = useState(true);
+  const [visibleMenu, setvisibleMenu] = useState(true);
   const [hoverBtn, setHoverBtn] = useState(0);
   const ScrollingByBtn = useRef(false);
   const ProgressSection = useRef<[number, number]>([
@@ -29,7 +31,7 @@ const SectionMenu = ({ ScrollYProgress }: SectionMenuProps) => {
     ];
     setVisibleCircle(section);
     const maxScroll = document.body.scrollHeight - window.innerHeight;
-    const scrollTarget = maxScroll * (percent +0.0001);
+    const scrollTarget = maxScroll * (percent + 0.0001);
     window.scrollTo({ top: scrollTarget, behavior: "smooth" });
   };
 
@@ -50,61 +52,85 @@ const SectionMenu = ({ ScrollYProgress }: SectionMenuProps) => {
         return;
       }
     }
+    if (latest >= 0.9999) {
+      setvisibleMenu(false);
+    } else {
+      setvisibleMenu(true);
+    }
+    if (latest >= 0) {
+      setVisibleMenuAnimation(false);
+    }
   });
-
+  const variantsMenu = {
+    initial: {
+      x: "5vw",
+      opacity: 0,
+    },
+    visible: {
+      x: "0vw",
+      opacity: 1,
+      transition: { duration: 0.7, delay: 1.1, ease: "backOut" },
+    },
+    visiblefirst: {
+      x: "0vw",
+      opacity: 1,
+      transition: { duration: 0.7, delay: 0.2, ease: "backOut" },
+    },
+  };
   return (
-    <div className={styles.cont_nav_sections}>
-      <motion.div
-        className={styles.nav_sections}
-        initial={{x:"5vw",opacity:0}}
-        animate={{
-          x: "0vw",
-          opacity: 1,
-          transition: { duration: 0.7, delay: 1.1, ease: "backOut" },
-        }}
-      >
-        {sectionNav.map((data, index) => (
-          <React.Fragment key={index}>
-            <div
-              key={index}
-              className={styles.btn_circle}
-              onClick={() => handleBtnNav(index + 1, data[0])}
-              onMouseEnter={() => setHoverBtn(index + 1)}
-              onMouseLeave={() => setHoverBtn(0)}
-            >
-              {visibleCircle === index + 1 ? (
-                <motion.div
-                  className={styles.circle_on}
-                  initial={{ scale: 0.6 }}
-                  animate={{ scale: 1.2 }}
-                ></motion.div>
-              ) : (
-                <motion.div
-                  className={styles.circle_off}
-                  initial={{ scale: 0.5 }}
-                  animate={{ scale: 0.6 }}
-                ></motion.div>
-              )}
-              <AnimatePresence>
-                {hoverBtn === index + 1 && (
-                  <motion.div
-                    className={styles.scene_section}
-                    style={{ backgroundImage: `url(${data[1]})` }}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.25, ease: "easeInOut" }}
-                  >
-                    <span>{data[2]}</span>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-            {index + 1 <= 6 && <div className={styles.line}></div>}
-          </React.Fragment>
-        ))}
-      </motion.div>
-    </div>
+    <AnimatePresence>
+      {visibleMenu && (
+        <motion.div className={styles.cont_nav_sections} exit={{ x: "5vw" }}>
+          <motion.div
+            className={styles.nav_sections}
+            variants={variantsMenu}
+            initial="initial"
+            animate={visibleMenuAnimation ? "visible" : "visiblefirst"}
+          >
+            {sectionNav.map((data, index) => (
+              <React.Fragment key={index}>
+                <div
+                  key={index}
+                  className={styles.btn_circle}
+                  onClick={() => handleBtnNav(index + 1, data[0])}
+                  onMouseEnter={() => setHoverBtn(index + 1)}
+                  onMouseLeave={() => setHoverBtn(0)}
+                >
+                  {visibleCircle === index + 1 ? (
+                    <motion.div
+                      className={styles.circle_on}
+                      initial={{ scale: 0.6 }}
+                      animate={{ scale: 1.2 }}
+                    ></motion.div>
+                  ) : (
+                    <motion.div
+                      className={styles.circle_off}
+                      initial={{ scale: 0.5 }}
+                      animate={{ scale: 0.6 }}
+                    ></motion.div>
+                  )}
+                  <AnimatePresence>
+                    {hoverBtn === index + 1 && (
+                      <motion.div
+                        className={styles.scene_section}
+                        style={{ backgroundImage: `url(${data[1]})` }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.25, ease: "easeInOut" }}
+                      >
+                        <span>{data[2]}</span>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+                {index + 1 <= 6 && <div className={styles.line}></div>}
+              </React.Fragment>
+            ))}
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
