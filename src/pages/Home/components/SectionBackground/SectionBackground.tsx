@@ -1,6 +1,13 @@
-import { motion, MotionValue, useSpring, useTransform } from "framer-motion";
+import {
+  motion,
+  MotionValue,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import styles from "./SectionBackground.module.css";
 import { useEffect, useRef, useState } from "react";
+import { useBreakpoint } from "../../../../Hooks/UseBreakpoint";
 
 interface SectionBackgroundProps {
   id: number;
@@ -23,7 +30,15 @@ const SectionBackground = ({
   const shadowRef1 = useRef<HTMLDivElement | null>(null);
   const shadowRef2 = useRef<HTMLDivElement | null>(null);
   const sectionRef = useRef(null);
-
+  const breakpoint = useBreakpoint();
+  const HeightValueNormal = useMotionValue(130.5);
+  const HeightValueBig = useMotionValue(213.5);
+  const WidthValueNormal = useMotionValue(103);
+  const WidthValueBig = useMotionValue(176.4);
+  const HeightValueNormalVh = useTransform(HeightValueNormal, (v) => `${v}vh`);
+  const HeightValueBigVh = useTransform(HeightValueBig, (v) => `${v}vh`);
+  const WidthValueNormalVw = useTransform(WidthValueNormal, (v) => `${v}VW`);
+  const WidthValueBigVw = useTransform(WidthValueBig, (v) => `${v}VW`);
   useEffect(() => {
     if (id == 5 && shadowRef1.current !== null) {
       shadowRef1.current.style.backgroundImage = `url(/img/shadows/shadow_floor${shadow}_right.png)`;
@@ -50,6 +65,29 @@ const SectionBackground = ({
         break;
     }
   }, []);
+  useEffect(() => {
+    switch (breakpoint) {
+      case "mobile":
+        console.log("mobile");
+        break;
+      case "tablet":
+        console.log("tablet");
+        HeightValueNormal.set(140.5);
+        HeightValueBig.set(200.5);
+
+        WidthValueNormal.set(100);
+        WidthValueBig.set(120.5);
+        break;
+      case "desktop":
+        console.log("desktop");
+        HeightValueNormal.set(130.5);
+        HeightValueBig.set(213.5);
+
+        WidthValueNormal.set(100);
+        WidthValueBig.set(176.4);
+        break;
+    }
+  }, [breakpoint]);
   const scale = useTransform(scrollYProgress, [0, 0.0001], [2, 1]);
   const scalesmooth = useSpring(scale, { stiffness: 130, damping: 40 });
 
@@ -66,82 +104,84 @@ const SectionBackground = ({
       scrollArray[6][1],
     ],
     (() => {
+      const hNormal = HeightValueNormal.get();
+      const hBig = HeightValueBig.get();
       switch (id) {
         case 1:
           return [
             0,
-            -130.5,
-            -130.5,
-            -213.5 - 130.5,
-            -213.5 - 130.5,
-            -213.5 - 130.5 - 130.5,
-            -213.5 - 130.5 - 130.5,
-            -213.5 - 213.5 - 130.5 - 130.5,
+            -hNormal,
+            -hNormal,
+            -hBig - hNormal,
+            -hBig - hNormal,
+            -hBig - hNormal - hNormal,
+            -hBig - hNormal - hNormal,
+            -hBig - hBig - hNormal - hNormal,
           ];
         case 2:
           return [
-            130.5,
+            hNormal,
             0,
             0,
-            -213.5,
-            -213.5,
-            -213.5 - 130.5,
-            -213.5 - 130.5,
-            -213.5 - 213.5 - 130.5,
+            -hBig,
+            -hBig,
+            -hBig - hNormal,
+            -hBig - hNormal,
+            -hBig - hNormal - hNormal,
           ];
         case 3:
           return [
-            130.5,
+            hNormal,
             0,
             0,
-            -213.5,
-            -213.5,
-            -213.5 - 130.5,
-            -213.5 - 130.5,
-            -213.5 - 213.5 - 130.5,
+            -hBig,
+            -hBig,
+            -hBig - hNormal,
+            -hBig - hNormal,
+            -hBig - hBig - hNormal,
           ];
         case 4:
           return [
-            213.5 + 130.5,
-            213.5,
-            213.5,
+            hBig + hNormal,
+            hBig,
+            hBig,
             0,
             0,
-            -130.5,
-            -130.5,
-            -213.5 - 130.5,
+            -hNormal,
+            -hNormal,
+            -hBig - hNormal,
           ];
         case 5:
           return [
-            213.5 + 130.5,
-            213.5,
-            213.5,
+            hBig + hNormal,
+            hBig,
+            hBig,
             0,
             0,
-            -130.5,
-            -130.5,
-            -213.5 - 130.5,
+            -hNormal,
+            -hNormal,
+            -hBig - hNormal,
           ];
         case 6:
           return [
-            213.5 + 130.5 + 130.5,
-            213.5 + 130.5,
-            213.5 + 130.5,
-            130.5,
-            130.5,
+            hBig + hNormal + hNormal,
+            hBig + hNormal,
+            hBig + hNormal,
+            hNormal,
+            hNormal,
             0,
             0,
-            -213.5,
+            -hBig,
           ];
         case 7:
           return [
-            213.5 + 213.5 + 130.5 + 130.5,
-            213.5 + 213.5 + 130.5,
-            213.5 + 213.5 + 130.5,
-            213.5 + 130.5,
-            213.5 + 130.5,
-            213.5,
-            213.5,
+            hBig + hBig + hNormal + hNormal,
+            hBig + hBig + hNormal,
+            hBig + hBig + hNormal,
+            hBig + hNormal,
+            hBig + hNormal,
+            hBig,
+            hBig,
             0,
           ];
         default:
@@ -170,23 +210,25 @@ const SectionBackground = ({
       scrollArray[5][1],
     ],
     (() => {
+      const wNormal = WidthValueNormal.get();
+      const wBig = WidthValueBig.get();
       switch (id) {
         case 1:
-          return [0, -100, -100, 0, 0, -76.4];
+          return [0, -wNormal, -wNormal, 0, 0, -76.4];
         case 2:
-          return [0, -100, -100, 0, 0, -76.4];
+          return [0, -wNormal, -wNormal, 0, 0, -76.4];
         case 3:
-          return [100, 0, 0, 100, 100, 23.6];
+          return [wNormal, 0, 0, wNormal, wNormal, 23.6];
         case 4:
-          return [100, 0, 0, 100, 100, 23.6];
+          return [wNormal, 0, 0, wNormal, wNormal, 23.6];
         case 5:
-          return [0, -100, -100, 0, 0, -76.4];
+          return [0, -wNormal, -wNormal, 0, 0, -76.4];
         case 6:
-          return [0, -100, -100, 0, 0, -76.4];
+          return [0, -wNormal, -wNormal, 0, 0, -76.4];
         case 7:
           return [76.4, -23.6, -23.6, 76.4, 76.4, 0];
         default:
-          return [0, 100];
+          return [0, wNormal];
       }
     })()
   );
@@ -214,8 +256,8 @@ const SectionBackground = ({
         className={styles.scene}
         style={{
           backgroundImage: `url(/img/rooms/${name}.png)`,
-          height: id == 3 || id == 6 ? "213.5vh" : "130.5vh",
-          width: id == 6 ? "176.4vw" : "100vw",
+          height: id == 3 || id == 6 ? HeightValueBigVh : HeightValueNormalVh,
+          width: id == 6 ? WidthValueBigVw : WidthValueNormalVw,
         }}
       >
         {id == 5 ? (

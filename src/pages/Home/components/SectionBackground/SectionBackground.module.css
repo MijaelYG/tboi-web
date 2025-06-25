@@ -5,12 +5,14 @@
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     position: relative;
-    display: flex;
     background-repeat: no-repeat;
     width: 100vw;
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
     overflow: hidden;
     background-color: black;
+    left: 50%;
+    transform: translate(-50%,0%);
     .shadow {
       z-index: 2;
       image-rendering: pixelated;

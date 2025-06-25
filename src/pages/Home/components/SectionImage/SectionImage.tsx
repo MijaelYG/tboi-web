@@ -1,6 +1,13 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./SectionImage.module.css";
-import { motion, useMotionValueEvent, useScroll, useSpring, useTransform } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useMotionValueEvent,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import SectionBackground from "../SectionBackground/SectionBackground";
 import Banner from "../Banner/Banner";
 import { scrollStartEnd, heightTotal, sections } from "../../config/config";
@@ -10,14 +17,31 @@ import CarouselCharacters from "../CarouselCharacters/CarouselCharacters";
 import ItemSection from "../ItemSection/ItemSection";
 import SectionMenu from "../SectionMenu/SectionMenu";
 import Footer from "../Footer/Footer";
+import { useBreakpoint } from "../../../../Hooks/UseBreakpoint";
 
 const SectionImage = () => {
+  const breakpoint = useBreakpoint();
+  const yScrollValue = useMotionValue(15);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end end"],
   });
 
+  useEffect(() => {
+    switch (breakpoint) {
+      case "mobile":
+        console.log("mobile");
+        break;
+      case "tablet":
+        console.log("tablet");
+        break;
+      case "desktop":
+        console.log("desktop");
+        yScrollValue.set(15);
+        break;
+    }
+  }, [breakpoint]);
   const yscrollRaw = useTransform(
     scrollYProgress,
     [
@@ -43,8 +67,26 @@ const SectionImage = () => {
       scrollStartEnd[7][1] - 0.01,
     ],
     [
-      -15, -15, 0, 0, -20, 0, 0, -105, 0, 0, -20, 0, 0, -20, -20, -20, -105, 0,
-      0, -20,
+      -yScrollValue.get(),
+      -yScrollValue.get(),
+      0,
+      0,
+      -(yScrollValue.get() + 5),
+      0,
+      0,
+      -105,
+      0,
+      0,
+      -20,
+      0,
+      0,
+      -20,
+      -20,
+      -20,
+      -105,
+      0,
+      0,
+      -20,
     ]
   );
   const yscrollsmooth = useSpring(yscrollRaw, { stiffness: 200, damping: 40 });
@@ -60,105 +102,104 @@ const SectionImage = () => {
     [1, 0]
   );
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log("Scroll progress:", latest); // Imprime de 0 a 1
+    console.log("Scroll progress:", latest);
   });
 
   const scalesmooth = useSpring(scale, { stiffness: 250, damping: 40 });
   const opacitysmooth = useSpring(opacity, { stiffness: 250, damping: 40 });
 
   return (
-
+    <motion.div
+      ref={ref}
+      className={styles.container_sImage}
+      style={{ height: `${heightTotal}vh` }}
+    >
       <motion.div
-        ref={ref}
-        className={styles.container_sImage}
-        style={{ height: `${heightTotal}vh`}}
+        className={styles.sticky}
+        style={{ y: value, scale: scalesmooth, opacity: opacitysmooth }}
       >
-        <motion.div
-          className={styles.sticky}
-          style={{ y: value, scale: scalesmooth, opacity: opacitysmooth }}
-        >
-          {sections.map((section) => (
-            <SectionBackground
-              key={section.id}
-              id={section.id}
-              scrollYProgress={scrollYProgress}
-              shadow={section.shadow}
-              name={section.name}
-              scrollArray={scrollStartEnd}
-            >
-              {section.id == 1 ? (
-                <Banner scrollYProgress={scrollYProgress}></Banner>
-              ) : (
-                <>
-                  {section.infoCard &&
-                    section.infoCard.map((card) =>
-                      section.id == 6 ? (
-                        <InfoCard
-                          key={card.id}
-                          scrollYProgress={scrollYProgress}
-                          scrollStartEnd={[
-                            scrollStartEnd[section.id - 1][0],
-                            scrollStartEnd[section.id][1],
-                          ]}
-                          card={card}
-                        ></InfoCard>
-                      ) : section.id == 7 ? (
-                        <InfoCard
-                          key={card.id}
-                          scrollYProgress={scrollYProgress}
-                          scrollStartEnd={scrollStartEnd[section.id]}
-                          card={card}
-                        ></InfoCard>
-                      ) : (
-                        <InfoCard
-                          key={card.id}
-                          scrollYProgress={scrollYProgress}
-                          scrollStartEnd={scrollStartEnd[section.id - 1]}
-                          card={card}
-                        ></InfoCard>
-                      )
-                    )}
-                  {section.pixelSprite &&
-                    section.pixelSprite.map((pixel, index) =>
-                      section.id == 6 ? (
-                        <PixelScene
-                          key={index}
-                          scrollYProgress={scrollYProgress}
-                          scrollStartEnd={[
-                            scrollStartEnd[section.id - 1][0],
-                            scrollStartEnd[section.id][1],
-                          ]}
-                          pixelsprite={pixel}
-                        ></PixelScene>
-                      ) : section.id == 7 ? (
-                        <PixelScene
-                          key={index}
-                          scrollYProgress={scrollYProgress}
-                          scrollStartEnd={scrollStartEnd[section.id]}
-                          pixelsprite={pixel}
-                        ></PixelScene>
-                      ) : (
-                        <PixelScene
-                          key={index}
-                          scrollYProgress={scrollYProgress}
-                          scrollStartEnd={scrollStartEnd[section.id - 1]}
-                          pixelsprite={pixel}
-                        ></PixelScene>
-                      )
-                    )}
-                  {section.id == 4 ? (
-                    <CarouselCharacters></CarouselCharacters>
-                  ) : (
-                    section.id == 5 && <ItemSection></ItemSection>
+        {sections.map((section) => (
+          <SectionBackground
+            key={section.id}
+            id={section.id}
+            scrollYProgress={scrollYProgress}
+            shadow={section.shadow}
+            name={section.name}
+            scrollArray={scrollStartEnd}
+          >
+            {section.id == 1 ? (
+              <Banner scrollYProgress={scrollYProgress}></Banner>
+            ) : (
+              <>
+                {section.infoCard &&
+                  section.infoCard.map((card) =>
+                    section.id == 6 ? (
+                      <InfoCard
+                        key={card.id}
+                        scrollYProgress={scrollYProgress}
+                        scrollStartEnd={[
+                          scrollStartEnd[section.id - 1][0],
+                          scrollStartEnd[section.id][1],
+                        ]}
+                        card={card}
+                      ></InfoCard>
+                    ) : section.id == 7 ? (
+                      <InfoCard
+                        key={card.id}
+                        scrollYProgress={scrollYProgress}
+                        scrollStartEnd={scrollStartEnd[section.id]}
+                        card={card}
+                      ></InfoCard>
+                    ) : (
+                      <InfoCard
+                        key={card.id}
+                        scrollYProgress={scrollYProgress}
+                        scrollStartEnd={scrollStartEnd[section.id - 1]}
+                        card={card}
+                      ></InfoCard>
+                    )
                   )}
-                </>
-              )}
-            </SectionBackground>
-          ))}
-        </motion.div>
-        <SectionMenu ScrollYProgress={scrollYProgress}></SectionMenu>
-        <Footer ScrollYProgress={scrollYProgress}></Footer>
+                {section.pixelSprite &&
+                  section.pixelSprite.map((pixel, index) =>
+                    section.id == 6 ? (
+                      <PixelScene
+                        key={index}
+                        scrollYProgress={scrollYProgress}
+                        scrollStartEnd={[
+                          scrollStartEnd[section.id - 1][0],
+                          scrollStartEnd[section.id][1],
+                        ]}
+                        pixelsprite={pixel}
+                      ></PixelScene>
+                    ) : section.id == 7 ? (
+                      <PixelScene
+                        key={index}
+                        scrollYProgress={scrollYProgress}
+                        scrollStartEnd={scrollStartEnd[section.id]}
+                        pixelsprite={pixel}
+                      ></PixelScene>
+                    ) : (
+                      <PixelScene
+                        key={index}
+                        scrollYProgress={scrollYProgress}
+                        scrollStartEnd={scrollStartEnd[section.id - 1]}
+                        pixelsprite={pixel}
+                      ></PixelScene>
+                    )
+                  )}
+                {section.id == 4 ? (
+                  <CarouselCharacters></CarouselCharacters>
+                ) : (
+                  section.id == 5 && <ItemSection></ItemSection>
+                )}
+              </>
+            )}
+          </SectionBackground>
+        ))}
       </motion.div>
+      <SectionMenu ScrollYProgress={scrollYProgress}></SectionMenu>
+      <Footer ScrollYProgress={scrollYProgress}></Footer>
+    </motion.div>
   );
 };
 
