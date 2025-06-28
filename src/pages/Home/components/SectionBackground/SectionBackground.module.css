@@ -1,18 +1,15 @@
 .container_absolute {
   position: absolute;
-  top: 0;
+  top: 0; 
   .scene {
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     position: relative;
     background-repeat: no-repeat;
-    width: 100vw;
     background-size: cover;
-    background-position: center;
     overflow: hidden;
     background-color: black;
-    left: 50%;
-    transform: translate(-50%,0%);
+    background-position: center;
     .shadow {
       z-index: 2;
       image-rendering: pixelated;

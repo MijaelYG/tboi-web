@@ -7,9 +7,9 @@ export const useBreakpoint = (): Breakpoint => {
 
   useEffect(() => {
     const checkBreakpoint = () => {
-      if (window.matchMedia("(max-width: 768px) and (max-height: 980px) ").matches) {
+      if (window.matchMedia("(max-width: 768px)").matches) {
         setBreakpoint("mobile");
-      } else if (window.matchMedia("(max-width: 1280px) and (max-height: 850px)").matches) {
+      } else if (window.matchMedia("(max-width: 1280px)").matches) {
         setBreakpoint("tablet");
       } else {
         setBreakpoint("desktop");

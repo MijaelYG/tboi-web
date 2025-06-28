@@ -27,18 +27,22 @@ const SectionBackground = ({
   scrollArray,
 }: SectionBackgroundProps) => {
   const [zindex, setzIndex] = useState(1);
+  const [unit, setUnit] = useState<"vh" | "vw">("vw");
   const shadowRef1 = useRef<HTMLDivElement | null>(null);
   const shadowRef2 = useRef<HTMLDivElement | null>(null);
   const sectionRef = useRef(null);
   const breakpoint = useBreakpoint();
-  const HeightValueNormal = useMotionValue(130.5);
+  const HeightValueNormal = useMotionValue(100);
   const HeightValueBig = useMotionValue(213.5);
-  const WidthValueNormal = useMotionValue(103);
+  const WidthValueNormal = useMotionValue(100);
   const WidthValueBig = useMotionValue(176.4);
-  const HeightValueNormalVh = useTransform(HeightValueNormal, (v) => `${v}vh`);
-  const HeightValueBigVh = useTransform(HeightValueBig, (v) => `${v}vh`);
-  const WidthValueNormalVw = useTransform(WidthValueNormal, (v) => `${v}VW`);
-  const WidthValueBigVw = useTransform(WidthValueBig, (v) => `${v}VW`);
+  const HeightValueNormalVh = useTransform(
+    HeightValueNormal,
+    (v) => `${v}${unit} `
+  );
+  const HeightValueBigVh = useTransform(HeightValueBig, (v) => `${v}${unit}`);
+  const WidthValueNormalVw = useTransform(WidthValueNormal, (v) => `${v}${unit}`);
+  const WidthValueBigVw = useTransform(WidthValueBig, (v) => `${v}${unit}`);
   useEffect(() => {
     if (id == 5 && shadowRef1.current !== null) {
       shadowRef1.current.style.backgroundImage = `url(/img/shadows/shadow_floor${shadow}_right.png)`;
@@ -72,19 +76,19 @@ const SectionBackground = ({
         break;
       case "tablet":
         console.log("tablet");
-        HeightValueNormal.set(140.5);
-        HeightValueBig.set(200.5);
-
-        WidthValueNormal.set(100);
-        WidthValueBig.set(120.5);
+        HeightValueNormal.set(100);
+        HeightValueBig.set(106);
+        WidthValueNormal.set(150);
+        WidthValueBig.set(176.4);
+        setUnit("vh");
         break;
       case "desktop":
         console.log("desktop");
-        HeightValueNormal.set(130.5);
-        HeightValueBig.set(213.5);
-
+        HeightValueNormal.set(65);
+        HeightValueBig.set(106);
         WidthValueNormal.set(100);
         WidthValueBig.set(176.4);
+        setUnit("vw");
         break;
     }
   }, [breakpoint]);
@@ -196,7 +200,7 @@ const SectionBackground = ({
   });
   const value_y_scene = useTransform(
     yscroll_scenesmooth,
-    (value) => `${value}vh`
+    (value) => `${value}vW`
   );
 
   const xscroll_scene = useTransform(
@@ -211,7 +215,6 @@ const SectionBackground = ({
     ],
     (() => {
       const wNormal = WidthValueNormal.get();
-      const wBig = WidthValueBig.get();
       switch (id) {
         case 1:
           return [0, -wNormal, -wNormal, 0, 0, -76.4];
